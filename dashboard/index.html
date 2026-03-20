@@ -844,6 +844,129 @@
   .tab-panel { display: none; }
   .tab-panel.active { display: block; }
 
+  /* ── STATCAST TAB ─────────────────────────────────── */
+  .statcast-wrap { padding: 28px 32px 48px; }
+  .statcast-credit {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .65rem;
+    color: var(--fade);
+    margin-bottom: 24px;
+    letter-spacing: .04em;
+  }
+  .statcast-credit a { color: var(--dirt); text-decoration: none; }
+  .statcast-credit a:hover { text-decoration: underline; }
+  .statcast-sections { display: flex; flex-direction: column; gap: 10px; }
+  .sc-section {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 7px;
+    overflow: hidden;
+  }
+  .sc-section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    cursor: pointer;
+    user-select: none;
+    transition: background .12s;
+  }
+  .sc-section-header:hover { background: var(--panel); }
+  .sc-section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.05rem;
+    letter-spacing: .1em;
+    color: var(--green);
+    flex-shrink: 0;
+  }
+  .sc-section-title .sc-emoji { margin-right: 4px; }
+  .sc-preview {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .67rem;
+    color: var(--fade);
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .sc-preview strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .sc-chevron {
+    font-size: .75rem;
+    color: var(--fade);
+    flex-shrink: 0;
+    transition: transform .2s;
+  }
+  .sc-section.open .sc-chevron { transform: rotate(180deg); }
+  .sc-body {
+    display: none;
+    border-top: 1px solid var(--border);
+    overflow-x: auto;
+  }
+  .sc-section.open .sc-body { display: block; }
+  .sc-table { width: 100%; border-collapse: collapse; font-size: .78rem; }
+  .sc-table thead th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .6rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--fade);
+    padding: 4px 8px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .sc-table thead th.num { text-align: right; }
+  .sc-table tbody tr { border-bottom: 1px solid #f0ece4; }
+  .sc-table tbody tr:last-child { border-bottom: none; }
+  .sc-table tbody tr:hover { background: #f9f5ee; }
+  .sc-table td {
+    padding: 6px 8px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: var(--ink);
+    vertical-align: middle;
+  }
+  .sc-rank {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .65rem;
+    color: var(--fade);
+    width: 20px;
+    text-align: right;
+  }
+  .sc-rank-gold  { color: #c9a227; font-weight: 600; }
+  .sc-rank-silver{ color: #888; font-weight: 600; }
+  .sc-rank-bronze{ color: #a0613a; font-weight: 600; }
+  .sc-name { font-weight: 600; }
+  .sc-stat {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .78rem;
+    color: var(--green);
+    font-weight: 600;
+    text-align: right;
+    white-space: nowrap;
+  }
+  .sc-pitch-type {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .62rem;
+    color: var(--fade);
+    background: #f0ece4;
+    padding: 1px 5px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .sc-game {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .62rem;
+    color: var(--fade);
+    white-space: nowrap;
+  }
+  .sc-result {
+    font-family: 'IBM Plex Sans', monospace;
+    font-size: .7rem;
+    color: var(--fade);
+  }
+
   /* ── RESPONSIVE ───────────────────────────────────── */
   @media (max-width: 640px) {
     header { padding: 20px 16px 14px; }
@@ -852,7 +975,7 @@
     .controls { padding: 10px 16px; }
     table { font-size: .75rem; }
     thead th:first-child { min-width: 150px; }
-    .home-wrap, .parks-wrap { padding: 16px; }
+    .home-wrap, .parks-wrap, .statcast-wrap { padding: 16px; }
   }
 </style>
 </head>
@@ -877,6 +1000,7 @@
   <button class="tab-btn" onclick="switchTab('relievers', event)">⚾ Relievers</button>
   <button class="tab-btn" onclick="switchTab('games', event)">📅 Games</button>
   <button class="tab-btn" onclick="switchTab('parks', event)">🏟️ Parks &amp; Teams</button>
+  <button class="tab-btn" onclick="switchTab('statcast', event)">⚡ Statcast</button>
 </nav>
 
 <!-- HOME TAB -->
@@ -1006,6 +1130,11 @@
 <!-- PARKS & TEAMS TAB -->
 <div id="tab-parks" class="tab-panel">
   <div class="parks-wrap" id="parks-content">Loading…</div>
+</div>
+
+<!-- STATCAST TAB -->
+<div id="tab-statcast" class="tab-panel">
+  <div class="statcast-wrap" id="statcast-content">Loading…</div>
 </div>
 
 <div class="tooltip" id="tooltip"></div>
@@ -2010,6 +2139,119 @@ function switchTab(t, e) {
 }
 
 // ── Init ───────────────────────────────────────────────────────
+// ── Statcast tab ───────────────────────────────────────────────
+function toggleScSection(el) {
+  el.closest('.sc-section').classList.toggle('open');
+}
+
+function renderStatcast() {
+  if (!statcastData || !statcastData.top10) {
+    document.getElementById('statcast-content').innerHTML =
+      '<p style="padding:32px;color:var(--fade);font-family:\'IBM Plex Mono\',monospace;font-size:.8rem;">No Statcast data loaded.</p>';
+    return;
+  }
+
+  const t = statcastData.top10;
+
+  const rankCls = i => i === 0 ? 'sc-rank sc-rank-gold'
+                     : i === 1 ? 'sc-rank sc-rank-silver'
+                     : i === 2 ? 'sc-rank sc-rank-bronze'
+                     : 'sc-rank';
+
+  // ── Table builders ───────────────────────────────────────────────────────
+  function hrTable(rows) {
+    const head = `<tr><th></th><th>Batter</th><th class="num">Distance</th><th class="num">Exit Velo</th><th class="num">Angle</th><th>Game</th></tr>`;
+    const body = rows.map((r, i) => `<tr>
+      <td class="${rankCls(i)}">${i+1}</td>
+      <td class="sc-name">${escHtml(r.batter)}</td>
+      <td class="sc-stat">${r.distance_ft} ft</td>
+      <td class="sc-stat">${r.exit_velo ? r.exit_velo + ' mph' : '—'}</td>
+      <td class="sc-stat">${r.launch_angle != null ? r.launch_angle + '°' : '—'}</td>
+      <td class="sc-game">${escHtml(r.game)}</td>
+    </tr>`).join('');
+    return `<table class="sc-table"><thead>${head}</thead><tbody>${body}</tbody></table>`;
+  }
+
+  function evTable(rows) {
+    const head = `<tr><th></th><th>Batter</th><th class="num">Exit Velo</th><th>Result</th><th>Game</th></tr>`;
+    const body = rows.map((r, i) => `<tr>
+      <td class="${rankCls(i)}">${i+1}</td>
+      <td class="sc-name">${escHtml(r.batter)}</td>
+      <td class="sc-stat">${r.exit_velo_mph} mph</td>
+      <td class="sc-result">${escHtml(r.result)}</td>
+      <td class="sc-game">${escHtml(r.game)}</td>
+    </tr>`).join('');
+    return `<table class="sc-table"><thead>${head}</thead><tbody>${body}</tbody></table>`;
+  }
+
+  function pitchTable(rows, statKey, statFmt) {
+    const head = `<tr><th></th><th>Pitcher</th><th class="num">Value</th><th>Pitch</th><th>Game</th></tr>`;
+    const body = rows.map((r, i) => `<tr>
+      <td class="${rankCls(i)}">${i+1}</td>
+      <td class="sc-name">${escHtml(r.pitcher)}</td>
+      <td class="sc-stat">${statFmt(r[statKey])}</td>
+      <td>${r.pitch_name ? `<span class="sc-pitch-type">${escHtml(r.pitch_name)}</span>` : ''}</td>
+      <td class="sc-game">${escHtml(r.game)}</td>
+    </tr>`).join('');
+    return `<table class="sc-table"><thead>${head}</thead><tbody>${body}</tbody></table>`;
+  }
+
+  // ── Preview text for collapsed header ───────────────────────────────────
+  function hrPreview(r)    { return r ? `<strong>${escHtml(r.batter)}</strong> — ${r.distance_ft} ft · ${escHtml(r.game)}` : ''; }
+  function evPreview(r)    { return r ? `<strong>${escHtml(r.batter)}</strong> — ${r.exit_velo_mph} mph (${escHtml(r.result)}) · ${escHtml(r.game)}` : ''; }
+  function pitchPreview(r, statFmt, statKey) {
+    if (!r) return '';
+    const pt = r.pitch_name ? ` · ${r.pitch_name}` : '';
+    return `<strong>${escHtml(r.pitcher)}</strong> — ${statFmt(r[statKey])}${pt} · ${escHtml(r.game)}`;
+  }
+
+  const sections = [
+    {
+      emoji: '🚀', title: 'Farthest Home Runs',
+      preview: hrPreview(t.farthest_hr[0]),
+      table: hrTable(t.farthest_hr),
+    },
+    {
+      emoji: '💨', title: 'Hardest Exit Velocity',
+      preview: evPreview(t.hardest_hit[0]),
+      table: evTable(t.hardest_hit),
+    },
+    {
+      emoji: '⚡', title: 'Fastest Pitches',
+      preview: pitchPreview(t.fastest_pitch[0], v => v + ' mph', 'speed_mph'),
+      table: pitchTable(t.fastest_pitch, 'speed_mph', v => v + ' mph'),
+    },
+    {
+      emoji: '🌀', title: 'Highest Spin Rate',
+      preview: pitchPreview(t.most_spin[0], v => v.toLocaleString() + ' rpm', 'spin_rpm'),
+      table: pitchTable(t.most_spin, 'spin_rpm', v => v.toLocaleString() + ' rpm'),
+    },
+    {
+      emoji: '🏹', title: 'Most Pitch Movement',
+      preview: pitchPreview(t.most_break[0], v => v + '"', 'break_in'),
+      table: pitchTable(t.most_break, 'break_in', v => v + '"'),
+    },
+  ];
+
+  const sectionsHtml = sections.map(s => `
+    <div class="sc-section">
+      <div class="sc-section-header" onclick="toggleScSection(this)">
+        <span class="sc-section-title"><span class="sc-emoji">${s.emoji}</span>${s.title}</span>
+        <span class="sc-preview">${s.preview}</span>
+        <span class="sc-chevron">▾</span>
+      </div>
+      <div class="sc-body">${s.table}</div>
+    </div>`).join('');
+
+  document.getElementById('statcast-content').innerHTML = `
+    <div class="statcast-credit">
+      MLB games only · data via
+      <a href="https://baseballsavant.mlb.com" target="_blank">Baseball Savant</a>
+      · best single event per player/pitcher
+    </div>
+    <div class="statcast-sections">${sectionsHtml}</div>`;
+}
+
 Promise.all([
   fetch('players.json').then(r => r.json()),
   fetch('games.json').then(r => r.json()),
@@ -2027,6 +2269,7 @@ Promise.all([
   renderGames();
   renderHome();
   renderParks();
+  renderStatcast();
 }).catch(err => {
   document.getElementById('header-sub').textContent = 'Error loading data';
   console.error(err);
