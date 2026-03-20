@@ -173,7 +173,8 @@ players:
 
   607200:  # Erick Fedde
     badge: "🔄"
-    note: "Seen on 2 teams as pitcher: CWS 2024 and ATL 2025"
+    note: "Seen on 2 teams as pitcher: CWS 2024 (starter) and ATL 2025 (reliever)"
+    pitcher_role: starter
     cross_refs:
       - "CWS: SEA @ CWS 2024"
       - "ATL: ATL @ CLE 2025"

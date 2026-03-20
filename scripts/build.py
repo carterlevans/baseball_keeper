@@ -16,7 +16,7 @@ from collections import defaultdict
 sys.path.insert(0, str(Path(__file__).parent))
 
 from fetch_games import fetch_all_appearances
-from fetch_war import get_war_for_player, load_war_cache
+from fetch_war import get_war_for_player, load_war_cache, get_pitcher_role, load_career_cache
 from rank import ranking_score
 
 ROOT = Path(__file__).parent.parent
@@ -40,6 +40,7 @@ player_map = defaultdict(lambda: {
     "level": set(),
     "game_pks": set(),
     "roles": set(),
+    "ever_started": False,
     "batting": defaultdict(int),
     "pitching": defaultdict(float),
 })
@@ -52,6 +53,8 @@ for app in appearances:
     pm["level"].add(app["level"])
     pm["game_pks"].add(app["game_pk"])
     pm["roles"].add(app["role"])
+    if app.get("game_started"):
+        pm["ever_started"] = True
 
     if app["role"] == "batter":
         for k, v in app["stats"].items():
@@ -70,7 +73,8 @@ for app in appearances:
 
 # ── Pull WAR for every player ────────────────────────────────────
 print("Fetching WAR data (uses cache after first run)...")
-war_cache = load_war_cache()
+war_cache    = load_war_cache()
+career_cache = load_career_cache()
 
 output_players = []
 for pid, pm in player_map.items():
@@ -93,13 +97,29 @@ for pid, pm in player_map.items():
     ip_display = f"{ip_whole}.{ip_frac}" if ip_frac else str(ip_whole)
 
     # Classify pitcher role and compute pitcher ranking score
-    # Uses peak_war (not career_war) to reward dominance over longevity
     pitcher_role = None
     pitcher_ranking_score = 0.0
     if "pitcher" in pm["roles"]:
-        avg_ip = ip_raw / games_seen if games_seen else 0
-        pitcher_role = "starter" if avg_ip >= 4.0 else "reliever"
-        pitcher_ranking_score = round(war_data["peak_war"] * games_seen, 2)
+        # curation.yaml can override with pitcher_role: starter/reliever
+        curation_role = curated.get("pitcher_role")
+        if curation_role in ("starter", "reliever"):
+            pitcher_role = curation_role
+        else:
+            # Use career GS/G ratio from MLB Stats API — same logic as BBRef/JAWS
+            pitcher_role = get_pitcher_role(pid, career_cache)
+
+        peak = war_data["peak_war"]
+        career = war_data["career_war"]
+        if pitcher_role == "starter":
+            # Peak WAR × games seen — rewards dominance over longevity
+            pitcher_ranking_score = round(peak * games_seen, 2)
+        else:
+            # Blended: peak + career longevity bonus + multi-game sighting bonus
+            # career × 0.1 rewards elite long-career closers (Chapman, Jansen)
+            # (games_seen - 1) × 0.3 gives a small bump for repeat sightings
+            pitcher_ranking_score = round(
+                peak + (career * 0.1) + (games_seen - 1) * 0.3, 2
+            )
 
     # AVG
     ab = pm["batting"].get("AB", 0)
