@@ -1012,8 +1012,9 @@
 
 <script>
 // ── State ──────────────────────────────────────────────────────
-let allPlayers = [];
-let allGames   = [];
+let allPlayers  = [];
+let allGames    = [];
+let statcastData = null;
 let gamesFilter = 'all';
 let batSort = { col: '_rank', dir: 1 };
 let staSort = { col: '_rank', dir: 1 };
@@ -1689,6 +1690,63 @@ function computeSuperlatives() {
     detail:`${worstStart.name} · ${worstStart.g.away_abbr} @ ${worstStart.g.home_abbr}`
   });
 
+  // ── Statcast superlatives (loaded from statcast_superlatives.json) ───────
+  if (statcastData && statcastData.overall) {
+    const sc = statcastData.overall;
+
+    // Helper: "Last, First" → "First Last"
+    const flipName = s => {
+      if (!s) return '';
+      const parts = s.split(',');
+      return parts.length === 2 ? `${parts[1].trim()} ${parts[0].trim()}` : s;
+    };
+
+    if (sc.farthest_hr) {
+      const h = sc.farthest_hr;
+      cards.push({
+        emoji: '🚀', label: 'Farthest home run witnessed',
+        headline: `${h.distance_ft} ft`,
+        detail: `${flipName(h.batter)} · ${h.game} · ${fmtDate(h.date)}`
+      });
+    }
+
+    if (sc.hardest_hit) {
+      const h = sc.hardest_hit;
+      cards.push({
+        emoji: '💨', label: 'Hardest exit velocity',
+        headline: `${h.exit_velo_mph} mph`,
+        detail: `${flipName(h.batter)} (${h.events || 'batted ball'}) · ${h.game}`
+      });
+    }
+
+    if (sc.fastest_pitch) {
+      const h = sc.fastest_pitch;
+      cards.push({
+        emoji: '⚡', label: 'Fastest pitch',
+        headline: `${h.speed_mph} mph`,
+        detail: `${h.pitcher}${h.pitch_name ? ' · ' + h.pitch_name : ''} · ${h.game}`
+      });
+    }
+
+    if (sc.most_spin) {
+      const h = sc.most_spin;
+      cards.push({
+        emoji: '🌀', label: 'Highest spin rate',
+        headline: `${h.spin_rpm.toLocaleString()} RPM`,
+        detail: `${h.pitcher}${h.pitch_name ? ' · ' + h.pitch_name : ''} · ${h.game}`
+      });
+    }
+
+    if (sc.most_break) {
+      const h = sc.most_break;
+      cards.push({
+        emoji: '🏹', label: 'Most pitch movement',
+        headline: `${h.break_in}"`,
+        detail: `${h.pitcher}${h.pitch_name ? ' · ' + h.pitch_name : ''} · ${h.game}`
+      });
+    }
+  }
+
   return cards;
 }
 
@@ -1955,9 +2013,11 @@ function switchTab(t, e) {
 Promise.all([
   fetch('players.json').then(r => r.json()),
   fetch('games.json').then(r => r.json()),
-]).then(([players, games]) => {
-  allPlayers = players;
-  allGames   = games;
+  fetch('statcast_superlatives.json').then(r => r.json()).catch(() => null),
+]).then(([players, games, statcast]) => {
+  allPlayers   = players;
+  allGames     = games;
+  statcastData = statcast;
   assignRanks(allPlayers);
   document.getElementById('header-sub').textContent =
     `${players.length} players · ${games.length} games`;

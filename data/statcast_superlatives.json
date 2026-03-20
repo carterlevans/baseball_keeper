@@ -1,0 +1,414 @@
+{
+  "overall": {
+    "farthest_hr": {
+      "distance_ft": 473,
+      "batter": "Ohtani, Shohei",
+      "exit_velo": 116.7,
+      "launch_angle": 28.0,
+      "game": "BOS @ LAD",
+      "date": "2024-07-21"
+    },
+    "hardest_hit": {
+      "exit_velo_mph": 116.7,
+      "batter": "Ohtani, Shohei",
+      "events": "home run",
+      "game": "BOS @ LAD",
+      "date": "2024-07-21"
+    },
+    "fastest_pitch": {
+      "speed_mph": 102.0,
+      "pitcher": "Jordan Hicks",
+      "pitch_name": "Sinker",
+      "game": "STL @ PIT",
+      "date": "2022-09-11"
+    },
+    "most_spin": {
+      "spin_rpm": 3087,
+      "pitcher": "Aaron Civale",
+      "pitch_name": "Curveball",
+      "game": "SEA @ CLE",
+      "date": "2023-04-07"
+    },
+    "most_break": {
+      "break_in": 31.6,
+      "pitcher": "Jordan Montgomery",
+      "pitch_name": "Sinker",
+      "game": "HOU @ NYY",
+      "date": "2017-05-12"
+    }
+  },
+  "games": {
+    "414357": {
+      "pk": 414357,
+      "label": "TEX @ CLE",
+      "date": "2015-05-27",
+      "farthest_hr": {
+        "distance_ft": 444,
+        "batter": "Martin, Leonys",
+        "exit_velo": 105.8,
+        "launch_angle": 25.0
+      },
+      "hardest_hit": {
+        "exit_velo_mph": 105.9,
+        "batter": "Santana, Carlos",
+        "events": "home run"
+      },
+      "fastest_pitch": {
+        "speed_mph": 98.1,
+        "pitcher": "Carlos Carrasco",
+        "pitch_name": "4-Seam Fastball"
+      },
+      "most_spin": {
+        "spin_rpm": 2853,
+        "pitcher": "Scott Atchison",
+        "pitch_name": "Curveball"
+      },
+      "most_break": {
+        "break_in": 19.2,
+        "pitcher": "Anthony Bass",
+        "pitch_name": "Cutter"
+      }
+    },
+    "490629": {
+      "pk": 490629,
+      "label": "HOU @ NYY",
+      "date": "2017-05-12",
+      "farthest_hr": {
+        "distance_ft": 350,
+        "batter": "McCann, Brian",
+        "exit_velo": 98.2,
+        "launch_angle": 31.0
+      },
+      "hardest_hit": {
+        "exit_velo_mph": 114.9,
+        "batter": "Judge, Aaron",
+        "events": "double"
+      },
+      "fastest_pitch": {
+        "speed_mph": 100.7,
+        "pitcher": "Aroldis Chapman",
+        "pitch_name": "4-Seam Fastball"
+      },
+      "most_spin": {
+        "spin_rpm": 3039,
+        "pitcher": "Lance McCullers Jr.",
+        "pitch_name": "Knuckle Curve"
+      },
+      "most_break": {
+        "break_in": 31.6,
+        "pitcher": "Jordan Montgomery",
+        "pitch_name": "Sinker"
+      }
+    },
+    "632965": {
+      "pk": 632965,
+      "label": "TOR @ LAA",
+      "date": "2021-08-11",
+      "farthest_hr": {
+        "distance_ft": 431,
+        "batter": "Springer, George",
+        "exit_velo": 102.4,
+        "launch_angle": 30.0
+      },
+      "hardest_hit": {
+        "exit_velo_mph": 110.1,
+        "batter": "Guerrero Jr., Vladimir",
+        "events": "field out"
+      },
+      "fastest_pitch": {
+        "speed_mph": 97.2,
+        "pitcher": "Alek Manoah",
+        "pitch_name": "4-Seam Fastball"
+      },
+      "most_spin": {
+        "spin_rpm": 2977,
+        "pitcher": "Dylan Bundy",
+        "pitch_name": "Sinker"
+      },
+      "most_break": {
+        "break_in": 19.2,
+        "pitcher": "Sam Selman",
+        "pitch_name": "4-Seam Fastball"
+      }
+    },
+    "663136": {
+      "pk": 663136,
+      "label": "SF @ CLE",
+      "date": "2022-04-15",
+      "farthest_hr": {
+        "distance_ft": 410,
+        "batter": "Pederson, Joc",
+        "exit_velo": 106.1,
+        "launch_angle": 31.0
+      },
+      "hardest_hit": {
+        "exit_velo_mph": 110.0,
+        "batter": "Reyes, Franmil",
+        "events": "field out"
+      },
+      "fastest_pitch": {
+        "speed_mph": 99.3,
+        "pitcher": "Carlos Rod\u00f3n",
+        "pitch_name": "4-Seam Fastball"
+      },
+      "most_spin": {
+        "spin_rpm": 2775,
+        "pitcher": "Camilo Doval",
+        "pitch_name": "Cutter"
+      },
+      "most_break": {
+        "break_in": 25.2,
+        "pitcher": "Tyler Rogers",
+        "pitch_name": "Slider"
+      }
+    },
+    "662325": {
+      "pk": 662325,
+      "label": "STL @ PIT",
+      "date": "2022-09-11",
+      "farthest_hr": {
+        "distance_ft": 410,
+        "batter": "O'Neill, Tyler",
+        "exit_velo": 106.9,
+        "launch_angle": 33.0
+      },
+      "hardest_hit": {
+        "exit_velo_mph": 108.6,
+        "batter": "Castro, Rodolfo",
+        "events": "single"
+      },
+      "fastest_pitch": {
+        "speed_mph": 102.0,
+        "pitcher": "Jordan Hicks",
+        "pitch_name": "Sinker"
+      },
+      "most_spin": {
+        "spin_rpm": 2865,
+        "pitcher": "Chris Stratton",
+        "pitch_name": "Slider"
+      },
+      "most_break": {
+        "break_in": 20.3,
+        "pitcher": "Jose Quintana",
+        "pitch_name": "Sinker"
+      }
+    },
+    "718677": {
+      "pk": 718677,
+      "label": "SEA @ CLE",
+      "date": "2023-04-07",
+      "farthest_hr": {
+        "distance_ft": 386,
+        "batter": "Rodr\u00edguez, Julio",
+        "exit_velo": 104.2,
+        "launch_angle": 29.0
+      },
+      "hardest_hit": {
+        "exit_velo_mph": 113.3,
+        "batter": "Raleigh, Cal",
+        "events": "single"
+      },
+      "fastest_pitch": {
+        "speed_mph": 101.1,
+        "pitcher": "Andr\u00e9s Mu\u00f1oz",
+        "pitch_name": "4-Seam Fastball"
+      },
+      "most_spin": {
+        "spin_rpm": 3087,
+        "pitcher": "Aaron Civale",
+        "pitch_name": "Curveball"
+      },
+      "most_break": {
+        "break_in": 21.3,
+        "pitcher": "Paul Sewald",
+        "pitch_name": "Sweeper"
+      }
+    },
+    "718625": {
+      "pk": 718625,
+      "label": "BOS @ TB",
+      "date": "2023-04-11",
+      "farthest_hr": {
+        "distance_ft": 417,
+        "batter": "Lowe, Brandon",
+        "exit_velo": 104.7,
+        "launch_angle": 30.0
+      },
+      "hardest_hit": {
+        "exit_velo_mph": 113.7,
+        "batter": "Dalbec, Bobby",
+        "events": "single"
+      },
+      "fastest_pitch": {
+        "speed_mph": 100.2,
+        "pitcher": "Shane McClanahan",
+        "pitch_name": "4-Seam Fastball"
+      },
+      "most_spin": {
+        "spin_rpm": 3058,
+        "pitcher": "Calvin Faucher",
+        "pitch_name": "Sweeper"
+      },
+      "most_break": {
+        "break_in": 24.7,
+        "pitcher": "Shane McClanahan",
+        "pitch_name": "Changeup"
+      }
+    },
+    "746125": {
+      "pk": 746125,
+      "label": "BOS @ LAD",
+      "date": "2024-07-21",
+      "farthest_hr": {
+        "distance_ft": 473,
+        "batter": "Ohtani, Shohei",
+        "exit_velo": 116.7,
+        "launch_angle": 28.0
+      },
+      "hardest_hit": {
+        "exit_velo_mph": 116.7,
+        "batter": "Ohtani, Shohei",
+        "events": "home run"
+      },
+      "fastest_pitch": {
+        "speed_mph": 98.9,
+        "pitcher": "Joe Kelly",
+        "pitch_name": "Sinker"
+      },
+      "most_spin": {
+        "spin_rpm": 3014,
+        "pitcher": "Joe Kelly",
+        "pitch_name": "Knuckle Curve"
+      },
+      "most_break": {
+        "break_in": 19.3,
+        "pitcher": "James Paxton",
+        "pitch_name": "4-Seam Fastball"
+      }
+    },
+    "746768": {
+      "pk": 746768,
+      "label": "SEA @ CWS",
+      "date": "2024-07-27",
+      "farthest_hr": {
+        "distance_ft": 429,
+        "batter": "Raleigh, Cal",
+        "exit_velo": 107.6,
+        "launch_angle": 26.0
+      },
+      "hardest_hit": {
+        "exit_velo_mph": 112.0,
+        "batter": "Haniger, Mitch",
+        "events": "double"
+      },
+      "fastest_pitch": {
+        "speed_mph": 98.3,
+        "pitcher": "Andr\u00e9s Mu\u00f1oz",
+        "pitch_name": "4-Seam Fastball"
+      },
+      "most_spin": {
+        "spin_rpm": 2949,
+        "pitcher": "Yimi Garc\u00eda",
+        "pitch_name": "Sweeper"
+      },
+      "most_break": {
+        "break_in": 20.4,
+        "pitcher": "Erick Fedde",
+        "pitch_name": "Sweeper"
+      }
+    },
+    "777323": {
+      "pk": 777323,
+      "label": "TOR @ BOS",
+      "date": "2025-06-28",
+      "farthest_hr": {
+        "distance_ft": 446,
+        "batter": "Gonzalez, Romy",
+        "exit_velo": 108.9,
+        "launch_angle": 32.0
+      },
+      "hardest_hit": {
+        "exit_velo_mph": 109.8,
+        "batter": "Gonzalez, Romy",
+        "events": "double"
+      },
+      "fastest_pitch": {
+        "speed_mph": 96.3,
+        "pitcher": "Braydon Fisher",
+        "pitch_name": "4-Seam Fastball"
+      },
+      "most_spin": {
+        "spin_rpm": 2993,
+        "pitcher": "Mason Fluharty",
+        "pitch_name": "Cutter"
+      },
+      "most_break": {
+        "break_in": 23.3,
+        "pitcher": "Tyler Heineman",
+        "pitch_name": "Eephus"
+      }
+    },
+    "776706": {
+      "pk": 776706,
+      "label": "ATL @ CLE",
+      "date": "2025-08-17",
+      "farthest_hr": {
+        "distance_ft": 339,
+        "batter": "Profar, Jurickson",
+        "exit_velo": 91.9,
+        "launch_angle": 35.0
+      },
+      "hardest_hit": {
+        "exit_velo_mph": 114.1,
+        "batter": "Harris II, Michael",
+        "events": "field out"
+      },
+      "fastest_pitch": {
+        "speed_mph": 97.7,
+        "pitcher": "Raisel Iglesias",
+        "pitch_name": "4-Seam Fastball"
+      },
+      "most_spin": {
+        "spin_rpm": 3083,
+        "pitcher": "Pierce Johnson",
+        "pitch_name": "Curveball"
+      },
+      "most_break": {
+        "break_in": 22.0,
+        "pitcher": "Logan Allen",
+        "pitch_name": "4-Seam Fastball"
+      }
+    },
+    "776583": {
+      "pk": 776583,
+      "label": "KC @ CWS",
+      "date": "2025-08-26",
+      "farthest_hr": {
+        "distance_ft": 361,
+        "batter": "Montgomery, Colson",
+        "exit_velo": 97.9,
+        "launch_angle": 32.0
+      },
+      "hardest_hit": {
+        "exit_velo_mph": 112.2,
+        "batter": "Witt Jr., Bobby",
+        "events": "single"
+      },
+      "fastest_pitch": {
+        "speed_mph": 98.4,
+        "pitcher": "Grant Taylor",
+        "pitch_name": "4-Seam Fastball"
+      },
+      "most_spin": {
+        "spin_rpm": 2873,
+        "pitcher": "Steven Wilson",
+        "pitch_name": "Cutter"
+      },
+      "most_break": {
+        "break_in": 20.5,
+        "pitcher": "Mart\u00edn P\u00e9rez",
+        "pitch_name": "Sinker"
+      }
+    }
+  }
+}
