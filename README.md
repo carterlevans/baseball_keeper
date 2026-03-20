@@ -4,7 +4,10 @@ A personal dashboard tracking every MLB and MiLB game I've attended, with player
 
 ## What it does
 
-The build pipeline fetches box scores for every game in `config/games.yaml`, aggregates each player's in-game stats, looks up their career WAR, and produces a ranked `players.json` that powers a local dashboard. The dashboard splits players into three tabs — Batters, Starters, and Relievers — each sorted by a custom ranking formula.
+The build pipeline fetches box scores for every game in `config/games.yaml`, aggregates each player's in-game stats, looks up their career WAR, and produces ranked JSON files that power a local dashboard. The dashboard has four tabs:
+
+- **Batters / Starters / Relievers** — ranked player tables with sortable stats
+- **Games** — a card for every attended game with score, decisions, top performer, and hand-written narrative context
 
 ## Project structure
 
@@ -12,20 +15,24 @@ The build pipeline fetches box scores for every game in `config/games.yaml`, agg
 config/
   games.yaml        # All attended games (MLB + MiLB) by game PK
   curation.yaml     # Hand-curated badges and notes keyed by MLB player ID
+  game_notes.yaml   # Hand-written narrative descriptions for each game card
 
 scripts/
-  build.py          # Master build script — run this to regenerate players.json
+  build.py          # Master build script — run this to regenerate all JSON
   fetch_games.py    # Fetches and caches box scores from the MLB Stats API
+  fetch_game_cards.py  # Fetches score, WP/LP, and top performer for each game
   fetch_war.py      # Downloads career/peak WAR from Baseball Reference via pybaseball
   rank.py           # Ranking score formula for batters
 
 dashboard/
   index.html        # The dashboard (open via local HTTP server)
   players.json      # Generated — do not edit by hand
+  games.json        # Generated — do not edit by hand
 
 data/
   players.json      # Same as dashboard/players.json
-  cache/            # Cached API responses (box scores, WAR tables, career stats)
+  games.json        # Same as dashboard/games.json
+  cache/            # Cached API responses (box scores, game cards, WAR tables)
 ```
 
 ## Running it
@@ -59,6 +66,24 @@ Then open `http://localhost:8787` in a browser. The dashboard uses `fetch()` to 
 Peak WAR is the sum of a player's three best individual seasons (JAWS-inspired). The reliever formula blends peak quality with a small career longevity bonus, since relievers inherently accumulate less WAR than starters.
 
 Starter vs. reliever classification uses each player's career GS/G ratio from the MLB Stats API (GS/G > 0.5 = starter), with manual overrides available in `curation.yaml` via `pitcher_role: starter/reliever`.
+
+## Game cards
+
+Each game in the Games tab shows:
+
+- **Score** — final score with the winning team highlighted
+- **WP / LP / SV** — pitcher decisions pulled automatically from the MLB Stats API
+- **Top performer** — the highest-scoring hitter from the winning team (by API game score), with their stat line
+- **Note** — a hand-written description from `config/game_notes.yaml`
+
+The `game_notes.yaml` file is never overwritten by the build script. Add or edit a note for any game:
+
+```yaml
+490629:  # May 12 2017 · HOU @ NYY
+  note: >
+    An ALCS preview in May. These two teams would meet in the ALCS three times
+    over the next six years, with Houston winning each time.
+```
 
 ## Adding a game
 
