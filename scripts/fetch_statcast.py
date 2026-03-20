@@ -221,25 +221,16 @@ def build_top10(all_events):
             elif p["_cat"] == "spin":  spin_rows.append(p)
             elif p["_cat"] == "break": break_rows.append(p)
 
-    def top10_dedup(rows, key, dedup_field, reverse=True):
-        """Sort by key, then keep only the best entry per unique dedup_field value."""
-        ranked = sorted(rows, key=lambda x: x[key], reverse=reverse)
-        seen, result = set(), []
-        for r in ranked:
-            uid = r.get(dedup_field, "")
-            if uid not in seen:
-                seen.add(uid)
-                result.append({k: v for k, v in r.items() if k != "_cat"})
-            if len(result) == 10:
-                break
-        return result
+    def top10(rows, key, reverse=True):
+        ranked = sorted(rows, key=lambda x: x[key], reverse=reverse)[:10]
+        return [{k: v for k, v in r.items() if k != "_cat"} for r in ranked]
 
     return {
-        "farthest_hr":   top10_dedup(all_hrs,    "distance_ft",  "batter"),
-        "hardest_hit":   top10_dedup(all_batted, "exit_velo_mph","batter"),
-        "fastest_pitch": top10_dedup(speed_rows, "speed_mph",    "pitcher"),
-        "most_spin":     top10_dedup(spin_rows,  "spin_rpm",     "pitcher"),
-        "most_break":    top10_dedup(break_rows, "break_in",     "pitcher"),
+        "farthest_hr":   top10(all_hrs,    "distance_ft"),
+        "hardest_hit":   top10(all_batted, "exit_velo_mph"),
+        "fastest_pitch": top10(speed_rows, "speed_mph"),
+        "most_spin":     top10(spin_rows,  "spin_rpm"),
+        "most_break":    top10(break_rows, "break_in"),
     }
 
 
