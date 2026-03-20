@@ -4,10 +4,12 @@ A personal dashboard tracking every MLB and MiLB game I've attended, with player
 
 ## What it does
 
-The build pipeline fetches box scores for every game in `config/games.yaml`, aggregates each player's in-game stats, looks up their career WAR, and produces ranked JSON files that power a local dashboard. The dashboard has four tabs:
+The build pipeline fetches box scores for every game in `config/games.yaml`, aggregates each player's in-game stats, looks up their career WAR, and produces ranked JSON files that power a local dashboard. The dashboard has six tabs:
 
-- **Batters / Starters / Relievers** — ranked player tables with sortable stats
-- **Games** — a card for every attended game with score, decisions, top performer, and hand-written narrative context
+- **Home** — summary stat cards, top-5 ranked lists for batters/starters/relievers, and the most recent games
+- **Batters / Starters / Relievers** — ranked player tables with sortable stats and badge tooltips
+- **Games** — a card for every attended game with score, decisions, top performer, and hand-written narrative; click any card to expand the full inning-by-inning linescore and box score
+- **Parks & Teams** — MLB coverage wall showing all 30 teams organized by division; stadium chip is filled if you've attended a game there, outline if not
 
 ## Project structure
 
@@ -20,7 +22,7 @@ config/
 scripts/
   build.py          # Master build script — run this to regenerate all JSON
   fetch_games.py    # Fetches and caches box scores from the MLB Stats API
-  fetch_game_cards.py  # Fetches score, WP/LP, and top performer for each game
+  fetch_game_cards.py  # Fetches score, WP/LP, top performer, linescore, and box score lines
   fetch_war.py      # Downloads career/peak WAR from Baseball Reference via pybaseball
   rank.py           # Ranking score formula for batters
 
@@ -75,6 +77,14 @@ Each game in the Games tab shows:
 - **WP / LP / SV** — pitcher decisions pulled automatically from the MLB Stats API
 - **Top performer** — the highest-scoring hitter from the winning team (by API game score), with their stat line
 - **Note** — a hand-written description from `config/game_notes.yaml`
+
+Click a card header to expand the full box score:
+
+- **Linescore** — runs by inning for both teams, plus R/H/E totals
+- **Batting lines** — full lineup with AB/R/H/RBI/HR/BB/SO; pinch hitters and defensive replacements are indented below their batting order slot
+- **Pitching lines** — IP/H/ER/BB/SO with win/loss/save notation
+
+The Games tab also has **Expand all** and **Collapse all** buttons to open or close every card at once.
 
 The `game_notes.yaml` file is never overwritten by the build script. Add or edit a note for any game:
 
