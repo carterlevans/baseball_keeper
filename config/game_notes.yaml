@@ -1,0 +1,95 @@
+# Hand-written notes for each game, keyed by game PK.
+# This file is NEVER overwritten by the script — edit freely.
+# The note appears as a description blurb on the game card in the dashboard.
+
+notes:
+
+  # ── MiLB ────────────────────────────────────────────────────────────────────
+
+  267232:  # May 7 2010 · Gwinnett @ Syracuse (Strasburg AAA debut)
+    note: >
+      Stephen Strasburg's AAA debut — the most hyped pitching prospect in years
+      before he'd thrown a single MLB pitch. He went 6 innings, 0 ER, 6 Ks.
+      He made his MLB debut three days later.
+
+  326410:  # Apr 5 2012 · Rochester @ Syracuse (Harper AAA debut)
+    note: >
+      Bryce Harper's first game at the AAA level, just 19 years old.
+      He was called up to the majors less than two weeks later.
+
+  499141:  # Jul 4 2017 · LHV @ Syracuse
+    note: ""
+
+  499156:  # Aug 5 2017 · Rochester @ Syracuse
+    note: ""
+
+  665236:  # Apr 12 2022 · Buffalo @ Rochester
+    note: ""
+
+  665123:  # Jun 3 2022 · Buffalo @ Rochester (Strasburg rehab)
+    note: >
+      Stephen Strasburg's final rehab start — he never pitched in the majors again
+      after this, ultimately retiring in 2023 due to nerve damage.
+
+  722976:  # Aug 13 2023 · LHV @ Rochester
+    note: ""
+
+  752529:  # Jun 28 2024 · Indianapolis @ Rochester
+    note: ""
+
+  781717:  # Jul 19 2025 · Omaha @ Buffalo (Rich Hill)
+    note: >
+      Rich Hill, 45 years old, still grinding at AAA. One of the great
+      journeyman stories in modern baseball.
+
+  781709:  # Aug 15 2025 · LHV @ Buffalo (Bieber rehab)
+    note: >
+      Shane Bieber's rehab start as he works his way back from Tommy John surgery.
+
+  # ── MLB ─────────────────────────────────────────────────────────────────────
+
+  414357:  # May 27 2015 · TEX @ CLE
+    note: ""
+
+  490629:  # May 12 2017 · HOU @ NYY
+    note: >
+      The 2017 Astros were on their way to a World Series title — this was an early
+      look at a dynasty in the making. McCullers Jr. dominated, and McCann's 3-run
+      homer sealed it.
+
+  632965:  # Aug 11 2021 · TOR @ LAA
+    note: ""
+
+  663136:  # Apr 15 2022 · SFG @ CLE
+    note: >
+      Mitch Keller was untouchable for 7 innings before things unraveled in the 9th.
+      Carlos Rodón — who no-hit the Indians a year earlier as a White Sox —
+      threw 7 strong innings on the other side.
+
+  662325:  # Sep 11 2022 · STL @ PIT
+    note: ""
+
+  718677:  # Apr 7 2023 · SEA @ CLE
+    note: >
+      Julio Rodríguez hit a tiebreaking 2-run homer in the 9th to send
+      the Guardians crowd home unhappy. José Ramírez was his usual self.
+
+  718625:  # Apr 11 2023 · BOS @ TBR
+    note: ""
+
+  746125:  # Jul 21 2024 · BOS @ LAD
+    note: ""
+
+  746768:  # Jul 27 2024 · SEA @ CWS
+    note: ""
+
+  777323:  # Jun 28 2025 · TOR @ BOS
+    note: >
+      Lucas Giolito was brilliant — 7 innings, 0 ER, 5 Ks at Fenway.
+
+  776706:  # Aug 17 2025 · ATL @ CLE
+    note: >
+      Ronald Acuña Jr. back in the lineup after his ACL comeback year.
+
+  776583:  # Aug 26 2025 · KCR @ CWS
+    note: ""

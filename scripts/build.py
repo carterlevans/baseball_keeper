@@ -17,6 +17,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 from fetch_games import fetch_all_appearances
 from fetch_war import get_war_for_player, load_war_cache, get_pitcher_role, load_career_cache
+from fetch_game_cards import fetch_all_game_cards
 from rank import ranking_score
 
 ROOT = Path(__file__).parent.parent
@@ -26,6 +27,8 @@ games_config = yaml.safe_load((ROOT / "config" / "games.yaml").read_text())
 curation = yaml.safe_load((ROOT / "config" / "curation.yaml").read_text())
 player_curation = curation.get("players", {}) or {}
 milb_context = curation.get("milb_game_context", {}) or {}
+_game_notes_raw = yaml.safe_load((ROOT / "config" / "game_notes.yaml").read_text())
+game_notes = {pk: (v.get("note") or "") for pk, v in (_game_notes_raw.get("notes") or {}).items()}
 
 # ── Fetch all box score appearances ─────────────────────────────
 print("Fetching box scores...")
@@ -178,6 +181,14 @@ out_path.write_text(payload)
 # Keep dashboard copy in sync
 dashboard_copy = ROOT / "dashboard" / "players.json"
 dashboard_copy.write_text(payload)
+
+# ── Fetch and write game cards ───────────────────────────────────
+print("\nFetching game cards...")
+game_cards = fetch_all_game_cards(games_config, game_notes)
+games_payload = json.dumps(game_cards, indent=2)
+(ROOT / "data" / "games.json").write_text(games_payload)
+(ROOT / "dashboard" / "games.json").write_text(games_payload)
+print(f"  {len(game_cards)} game cards written")
 
 print(f"\nDone. {len(output_players)} players written to {out_path}")
 print("Top 10 by ranking score:")

@@ -311,6 +311,124 @@
     margin-right: 6px;
   }
 
+  /* ── GAME CARDS ───────────────────────────────────── */
+  .games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 20px;
+    padding: 28px 32px 48px;
+  }
+  .game-card {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: box-shadow .15s;
+  }
+  .game-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.1); }
+  .game-card-header {
+    background: var(--green);
+    padding: 10px 14px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .game-card-header .matchup {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.05rem;
+    letter-spacing: .08em;
+    color: var(--chalk);
+  }
+  .game-card-header .game-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .65rem;
+    color: var(--dirt);
+    white-space: nowrap;
+  }
+  .game-card-score {
+    padding: 10px 14px 8px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .score-box {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: .05em;
+    line-height: 1;
+    color: var(--ink);
+  }
+  .score-box .score-teams {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .65rem;
+    color: var(--fade);
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+  .score-team-row { display: flex; justify-content: space-between; gap: 10px; }
+  .score-team-row.winner { color: var(--ink); font-weight: 600; }
+  .score-team-row .score-runs {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: .9rem;
+    color: var(--ink);
+  }
+  .score-team-row.winner .score-runs { color: var(--grass); }
+  .game-card-body { padding: 10px 14px 12px; }
+  .game-card-row {
+    display: flex;
+    gap: 6px;
+    align-items: baseline;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .72rem;
+    color: var(--fade);
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+  .game-card-row .label {
+    font-size: .62rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    min-width: 28px;
+    color: #bbb;
+  }
+  .game-card-row .val { color: var(--ink); }
+  .game-card-row .val.win { color: var(--grass); }
+  .game-card-row .val.loss { color: var(--red); }
+  .game-card-note {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: .75rem;
+    color: var(--fade);
+    line-height: 1.5;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+    font-style: italic;
+  }
+  .milb-tag {
+    display: inline-block;
+    background: var(--teal);
+    color: white;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .55rem;
+    padding: 1px 5px;
+    border-radius: 3px;
+    letter-spacing: .04em;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .games-filter-bar {
+    padding: 14px 32px;
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
   /* ── SECTION PANEL ────────────────────────────────── */
   .tab-panel { display: none; }
   .tab-panel.active { display: block; }
@@ -344,6 +462,7 @@
   <button class="tab-btn active" onclick="switchTab('batters', event)">⚾ Batters</button>
   <button class="tab-btn" onclick="switchTab('starters', event)">⚾ Starters</button>
   <button class="tab-btn" onclick="switchTab('relievers', event)">⚾ Relievers</button>
+  <button class="tab-btn" onclick="switchTab('games', event)">📅 Games</button>
 </nav>
 
 <div id="tab-batters" class="tab-panel active">
@@ -445,11 +564,25 @@
   </div>
 </div>
 
+<div id="tab-games" class="tab-panel">
+  <div class="games-filter-bar">
+    <div class="filter-btns">
+      <button class="filter-btn active" onclick="setGamesFilter(this,'all')">All</button>
+      <button class="filter-btn" onclick="setGamesFilter(this,'mlb')">MLB only</button>
+      <button class="filter-btn" onclick="setGamesFilter(this,'milb')">MiLB only</button>
+    </div>
+    <div class="count-label" id="games-count"></div>
+  </div>
+  <div class="games-grid" id="games-grid"></div>
+</div>
+
 <div class="tooltip" id="tooltip"></div>
 
 <script>
 // ── State ──────────────────────────────────────────────────────
 let allPlayers = [];
+let allGames   = [];
+let gamesFilter = 'all';
 let batSort = { col: '_rank', dir: 1 };
 let staSort = { col: '_rank', dir: 1 };
 let relSort = { col: '_rank', dir: 1 };
@@ -701,6 +834,76 @@ function moveTip(e) {
   tip.style.top  = Math.max(e.clientY - 10, 4) + 'px';
 }
 
+// ── Games tab ──────────────────────────────────────────────────
+function setGamesFilter(el, f) {
+  gamesFilter = f;
+  document.querySelectorAll('#tab-games .filter-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  renderGames();
+}
+
+function fmtDate(iso) {
+  const [y, m, d] = iso.split('-');
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return `${months[parseInt(m)-1]} ${parseInt(d)}, ${y}`;
+}
+
+function renderGames() {
+  const grid = document.getElementById('games-grid');
+  let data = gamesFilter === 'all' ? allGames
+           : allGames.filter(g => g.level.toLowerCase() === gamesFilter);
+
+  document.getElementById('games-count').textContent =
+    `${data.length} game${data.length !== 1 ? 's' : ''}`;
+
+  if (!data.length) {
+    grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:48px;color:var(--fade);font-family:'IBM Plex Mono',monospace">No games match.</div>`;
+    return;
+  }
+
+  grid.innerHTML = data.map(g => {
+    const awayWon = g.away_score > g.home_score;
+    const awayRow = `<div class="score-team-row${awayWon?' winner':''}">
+      <span>${escHtml(g.away_abbr)}</span>
+      <span class="score-runs">${g.away_score}</span>
+    </div>`;
+    const homeRow = `<div class="score-team-row${!awayWon?' winner':''}">
+      <span>${escHtml(g.home_abbr)}</span>
+      <span class="score-runs">${g.home_score}</span>
+    </div>`;
+
+    const milbTag = g.level === 'MiLB' ? `<span class="milb-tag">MiLB</span>` : '';
+    const venueStr = g.venue ? `<div class="game-card-row"><span class="label">📍</span><span class="val">${escHtml(g.venue)}</span></div>` : '';
+    const wpRow = g.winning_pitcher
+      ? `<div class="game-card-row"><span class="label">WP</span><span class="val win">${escHtml(g.winning_pitcher)}</span></div>` : '';
+    const lpRow = g.losing_pitcher
+      ? `<div class="game-card-row"><span class="label">LP</span><span class="val loss">${escHtml(g.losing_pitcher)}</span></div>` : '';
+    const svRow = g.save_pitcher
+      ? `<div class="game-card-row"><span class="label">SV</span><span class="val">${escHtml(g.save_pitcher)}</span></div>` : '';
+    const starRow = g.top_hitter
+      ? `<div class="game-card-row"><span class="label">⭐</span><span class="val">${escHtml(g.top_hitter)} — ${escHtml(g.top_hitter_line)}</span></div>` : '';
+    const noteHtml = g.note && g.note.trim()
+      ? `<div class="game-card-note">${escHtml(g.note.trim())}</div>` : '';
+
+    return `
+    <div class="game-card">
+      <div class="game-card-header">
+        <span class="matchup">${escHtml(g.away_abbr)} @ ${escHtml(g.home_abbr)}${milbTag}</span>
+        <span class="game-date">${fmtDate(g.date)}</span>
+      </div>
+      <div class="game-card-score">
+        <div class="score-teams">${awayRow}${homeRow}</div>
+      </div>
+      <div class="game-card-body">
+        ${venueStr}
+        ${wpRow}${lpRow}${svRow}
+        ${starRow}
+        ${noteHtml}
+      </div>
+    </div>`;
+  }).join('');
+}
+
 // ── Tab switching ──────────────────────────────────────────────
 function switchTab(t, e) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
@@ -710,21 +913,23 @@ function switchTab(t, e) {
 }
 
 // ── Init ───────────────────────────────────────────────────────
-fetch('players.json')
-  .then(r => r.json())
-  .then(data => {
-    allPlayers = data;
-    assignRanks(allPlayers);
-    document.getElementById('header-sub').textContent =
-      `${data.length} players · compiled from box scores`;
-    renderBat();
-    renderSta();
-    renderRel();
-  })
-  .catch(err => {
-    document.getElementById('header-sub').textContent = 'Error loading players.json';
-    console.error(err);
-  });
+Promise.all([
+  fetch('players.json').then(r => r.json()),
+  fetch('games.json').then(r => r.json()),
+]).then(([players, games]) => {
+  allPlayers = players;
+  allGames   = games;
+  assignRanks(allPlayers);
+  document.getElementById('header-sub').textContent =
+    `${players.length} players · ${games.length} games`;
+  renderBat();
+  renderSta();
+  renderRel();
+  renderGames();
+}).catch(err => {
+  document.getElementById('header-sub').textContent = 'Error loading data';
+  console.error(err);
+});
 </script>
 </body>
 </html>
