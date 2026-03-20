@@ -156,6 +156,14 @@ players:
     badge: "⭐"
     note: "Key Astros 3B; 2017 WS champion (Astros sign-stealing era)"
 
+  471911:  # Carlos Carrasco
+    badge: "⭐"
+    note: "Nicknamed 'Cookie'; dependable CLE ace for years; was the WP in your 2015 CLE game"
+
+  621237:  # José Alvarado
+    badge: "⭐"
+    note: "Elite PHI closer with triple-digit heat; seen at LHV @ Buffalo 2025 MiLB (rehab)"
+
   607074:  # Carlos Rodón
     badge: "⭐"
     note: "Previously no-hit CLE in 2021 as a White Sox; threw 7 IP, 9 Ks, 1 ER in your game"
@@ -195,6 +203,47 @@ players:
   448179:  # Rich Hill
     badge: "📖"
     note: "One of baseball's great journeyman stories — pitched in MLB until age 45; seen at MiLB game in Buffalo 2025"
+
+  543272:  # Brad Hand
+    badge: "⭐"
+    note: "'Brad Hand It To Em' — beloved CLE closer before being traded; seen with TOR @ LAA 2021"
+
+  666808:  # Camilo Doval
+    badge: "⭐"
+    note: "Elite SF closer; seen at SFG @ CLE 2022"
+
+  623149:  # Paul Sewald
+    badge: "⭐"
+    note: "SEA's lockdown closer; seen at SEA @ CLE 2023"
+
+  523260:  # Joe Kelly
+    badge: "📖"
+    note: "Notorious for his unhinged mound demeanor and the 8-second pause GIF; seen at BOS @ LAD 2024"
+
+  680704:  # Nick Sandlin
+    badge: "🔄"
+    note: "CLE reliever seen in 2022 and 2023 home games; later moved to TOR (seen at TOR @ BOS 2025)"
+    cross_refs:
+      - "CLE: SFG @ CLE 2022, SEA @ CLE 2023"
+      - "TOR: TOR @ BOS 2025"
+
+  682120:  # Tim Herrin
+    badge: "⭐"
+    note: "One third of the Guards' 2024 '3-headed bullpen beast' trio with Cade Smith and Hunter Gaddis; seen in CLE home games 2023 and 2025"
+    cross_refs:
+      - "CLE: SEA @ CLE 2023, ATL @ CLE 2025"
+
+  671922:  # Cade Smith
+    badge: "⭐"
+    note: "'Cade K'd Smith' — one third of the Guards' 2024 3-headed bullpen beast trio with Herrin and Gaddis; seen at ATL @ CLE 2025"
+
+  683769:  # Hunter Gaddis
+    badge: "⭐"
+    note: "One third of the Guards' 2024 3-headed bullpen beast trio with Herrin and Cade Smith; seen at ATL @ CLE 2025"
+
+  663671:  # Nic Enright
+    badge: "📖"
+    note: "Cleveland reliever who beat cancer and made it back to the majors; seen at ATL @ CLE 2025"
 
   662253:  # Andrés Muñoz
     badge: "⭐"
@@ -258,6 +307,21 @@ players:
     cross_refs:
       - "SFG: SFG @ CLE 2022"
       - "PIT: Indianapolis @ Rochester 2024 (MiLB)"
+
+  628452:  # Raisel Iglesias
+    badge: "⭐"
+    note: "Elite closer with a wipeout slider; seen at TOR @ LAA 2021"
+
+  606149:  # Giovanny Gallegos
+    badge: "⭐"
+    note: "Reliable Cardinals closer; seen at STL @ PIT 2022"
+
+  461325:  # Tyler Clippard
+    badge: "🔄"
+    note: "Journeyman reliever seen across 3 games: NYY 2017 (MLB) and Rochester 2022 (MiLB, WSH system)"
+    cross_refs:
+      - "NYY: HOU @ NYY 2017"
+      - "WSH: Buffalo @ Rochester 2022 (×2, MiLB)"
 
   607200:  # Erick Fedde
     badge: "🔄"
