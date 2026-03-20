@@ -30,6 +30,51 @@ def get_game_card_raw(pk: int) -> dict:
     return data
 
 
+def _extract_batters(team_data: dict) -> list[dict]:
+    rows = []
+    for pid in team_data.get("batters", []):
+        p = team_data.get("players", {}).get(f"ID{pid}", {})
+        b = p.get("stats", {}).get("batting", {})
+        if b.get("atBats") is None:
+            continue
+        try:
+            batting_order = int(p.get("battingOrder", 0))
+        except (ValueError, TypeError):
+            batting_order = 0
+        rows.append({
+            "name":          p.get("person", {}).get("fullName", ""),
+            "pos":           p.get("position", {}).get("abbreviation", ""),
+            "ab":            b.get("atBats", 0),
+            "r":             b.get("runs", 0),
+            "h":             b.get("hits", 0),
+            "rbi":           b.get("rbi", 0),
+            "hr":            b.get("homeRuns", 0),
+            "bb":            b.get("baseOnBalls", 0),
+            "so":            b.get("strikeOuts", 0),
+            "batting_order": batting_order,
+        })
+    return rows
+
+
+def _extract_pitchers(team_data: dict) -> list[dict]:
+    rows = []
+    for pid in team_data.get("pitchers", []):
+        p = team_data.get("players", {}).get(f"ID{pid}", {})
+        pit = p.get("stats", {}).get("pitching", {})
+        if pit.get("inningsPitched") is None:
+            continue
+        rows.append({
+            "name": p.get("person", {}).get("fullName", ""),
+            "ip":   pit.get("inningsPitched", "0.0"),
+            "h":    pit.get("hits", 0),
+            "er":   pit.get("earnedRuns", 0),
+            "bb":   pit.get("baseOnBalls", 0),
+            "so":   pit.get("strikeOuts", 0),
+            "note": pit.get("note", ""),
+        })
+    return rows
+
+
 def extract_game_card(pk: int, level: str, note: str = "") -> dict:
     """
     Returns a structured dict for one game card.
@@ -87,6 +132,35 @@ def extract_game_card(pk: int, level: str, note: str = "") -> dict:
         if hitter_abbr == winner_abbr:
             break
 
+    # Innings linescore
+    innings = []
+    for inn in linescore.get("innings", []):
+        innings.append({
+            "num":    inn.get("num", 0),
+            "away_r": inn.get("away", {}).get("runs", ""),
+            "home_r": inn.get("home", {}).get("runs", ""),
+        })
+
+    # Per-team totals (R/H/E)
+    ls_teams = linescore.get("teams", {})
+    away_totals = {
+        "r": ls_teams.get("away", {}).get("runs", away_score or 0),
+        "h": ls_teams.get("away", {}).get("hits", 0),
+        "e": ls_teams.get("away", {}).get("errors", 0),
+    }
+    home_totals = {
+        "r": ls_teams.get("home", {}).get("runs", home_score or 0),
+        "h": ls_teams.get("home", {}).get("hits", 0),
+        "e": ls_teams.get("home", {}).get("errors", 0),
+    }
+
+    # Batting and pitching lines
+    bs_teams = ld.get("boxscore", {}).get("teams", {})
+    away_batters  = _extract_batters(bs_teams.get("away", {}))
+    home_batters  = _extract_batters(bs_teams.get("home", {}))
+    away_pitchers = _extract_pitchers(bs_teams.get("away", {}))
+    home_pitchers = _extract_pitchers(bs_teams.get("home", {}))
+
     return {
         "pk":               pk,
         "level":            level,
@@ -105,6 +179,13 @@ def extract_game_card(pk: int, level: str, note: str = "") -> dict:
         "top_hitter_line":  top_hitter_summary,
         "top_hitter_team":  top_hitter_team,
         "note":             note,
+        "innings":          innings,
+        "away_totals":      away_totals,
+        "home_totals":      home_totals,
+        "away_batters":     away_batters,
+        "home_batters":     home_batters,
+        "away_pitchers":    away_pitchers,
+        "home_pitchers":    home_pitchers,
     }
 
 
