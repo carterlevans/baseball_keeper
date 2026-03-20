@@ -929,17 +929,21 @@
   }
   .sc-bases {
     display: inline-grid;
-    grid-template: "third second" "_ first" / 18px 18px;
-    gap: 3px;
+    grid-template-areas: ". second ." "third . first";
+    grid-template-columns: 16px 16px 16px;
+    grid-template-rows: 16px 16px;
+    gap: 2px;
     vertical-align: middle;
     margin-left: 6px;
   }
   .sc-base {
-    width: 14px; height: 14px;
+    width: 12px; height: 12px;
     border: 2px solid var(--border);
     border-radius: 2px;
     transform: rotate(45deg);
     background: transparent;
+    align-self: center;
+    justify-self: center;
   }
   .sc-base.on { background: var(--dirt); border-color: var(--dirt); }
   .sc-base.first  { grid-area: first;  }
