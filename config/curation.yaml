@@ -22,6 +22,10 @@ players:
     note: "Hall of Fame 2025; 435 HRs; 3× Gold Glove; seen at PIT 2022"
 
   # ── Superstars / Future HOF ─────────────────────────────────────
+  547180:  # Bryce Harper
+    badge: "🌟"
+    note: "2021 NL MVP; 2019 WS champion; future HOF lock — seen at his AAA debut at Syracuse 2012"
+
   660271:  # Shohei Ohtani
     badge: "🌟"
     note: "2021 & 2023 AL MVP (both unanimous); 2024 NL MVP; 50-50 season; seen in 2 games"
@@ -36,6 +40,12 @@ players:
     cross_refs:
       - "CLE: TEX @ CLE 2015, SFG @ CLE 2022, SEA @ CLE 2023, ATL @ CLE 2025"
 
+  646240:  # Rafael Devers
+    badge: "🌟"
+    note: "Elite power-hitting 3B; franchise cornerstone for BOS; seen in 2 games"
+    cross_refs:
+      - "BOS: BOS @ TBR 2023, BOS @ LAD 2024"
+
   518692:  # Freddie Freeman
     badge: "🌟"
     note: "2020 NL MVP; 2024 WS MVP; seen at Dodger Stadium Jul 2024"
@@ -49,6 +59,34 @@ players:
     note: "2023 NL MVP (40-70 season); ACL recovery year in 2024; seen Aug 2025"
 
   # ── All-Stars / Award Winners ───────────────────────────────────
+  543760:  # Marcus Semien
+    badge: "⭐"
+    note: "45 HRs in 2021 (AL MVP runner-up); 6× All-Star; elite SS/2B"
+
+  665489:  # Vladimir Guerrero Jr.
+    badge: "⭐"
+    note: "Son of HOFer Vladimir Guerrero; perennial All-Star; seen in 2 TOR games"
+    cross_refs:
+      - "TOR: TOR @ LAA 2021, TOR @ BOS 2025"
+
+  521692:  # Salvador Perez
+    badge: "⭐"
+    note: "2015 WS MVP; 6× All-Star C; seen in your 2015 CLE game"
+
+  285078:  # Josh Hamilton
+    badge: "⭐"
+    note: "2010 AL MVP; 5× All-Star; iconic comeback story from addiction"
+
+  666182:  # Bo Bichette
+    badge: "⭐"
+    note: "Son of Dante Bichette; franchise SS for TOR; seen in 2025 BOS game"
+
+  680776:  # Jarren Duran
+    badge: "⭐"
+    note: "2025 All-Star; emerging BOS OF star; seen in 2 BOS games"
+    cross_refs:
+      - "BOS: BOS @ TBR 2023, TOR @ BOS 2025"
+
   543807:  # George Springer
     badge: "⭐"
     note: "2017 WS MVP; seen in 3 games across 3 teams (HOU 2017, TOR 2021, TOR 2025)"
@@ -122,6 +160,22 @@ players:
     badge: "🏆"
     note: "Went 3-0 with 9 Ks in your game; Tommy John surgery ended his 2023 season in Aug"
 
+  445276:  # Kenley Jansen
+    badge: "⭐"
+    note: "Dodgers all-time saves leader; elite closer; seen at BOS @ LAD 2024"
+
+  547973:  # Aroldis Chapman
+    badge: "⭐"
+    note: "Once held MLB record for fastest pitch (105.1 mph); elite closer; seen in your 2017 NYY game"
+
+  669456:  # Shane Bieber
+    badge: "🏆"
+    note: "2020 AL Cy Young (dominant shortened season, 8-1, 1.63 ERA); seen at rehab start in Buffalo 2025"
+
+  448179:  # Rich Hill
+    badge: "📖"
+    note: "One of baseball's great journeyman stories — pitched in MLB until age 45; seen at MiLB game in Buffalo 2025"
+
   662253:  # Andrés Muñoz
     badge: "⭐"
     note: "Elite SEA closer; appeared in both 2023 and 2024 SEA games"
@@ -178,6 +232,13 @@ players:
     cross_refs:
       - "CWS: SEA @ CWS 2024"
       - "ATL: ATL @ CLE 2025"
+
+  # ── MiLB milestones ─────────────────────────────────────────────
+  544931:  # Stephen Strasburg
+    badge: "🏆"
+    note: "2019 WS MVP; seen at his AAA debut (Syracuse 2010) and his final rehab start before retiring (Rochester 2022)"
+    cross_refs:
+      - "MiLB: Gwinnett @ Syracuse 2010 (AAA debut), Buffalo @ Rochester 2022 (rehab)"
 
 milb_game_context:
   # Narrative context for MiLB games, keyed by game PK

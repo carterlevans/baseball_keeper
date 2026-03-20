@@ -252,9 +252,11 @@
     "BB_pit": 2,
     "SO_pit": 10,
     "ERA": "0.00",
-    "badge": "",
-    "note": "",
-    "cross_refs": [],
+    "badge": "\ud83c\udfc6",
+    "note": "2019 WS MVP; seen at his AAA debut (Syracuse 2010) and his final rehab start before retiring (Rochester 2022)",
+    "cross_refs": [
+      "MiLB: Gwinnett @ Syracuse 2010 (AAA debut), Buffalo @ Rochester 2022 (rehab)"
+    ],
     "milb_only": true,
     "seen_in_milb": true
   },
@@ -400,8 +402,8 @@
     "BB_pit": 0,
     "SO_pit": 0,
     "ERA": "\u2014",
-    "badge": "",
-    "note": "",
+    "badge": "\ud83c\udf1f",
+    "note": "2021 NL MVP; 2019 WS champion; future HOF lock \u2014 seen at his AAA debut at Syracuse 2012",
     "cross_refs": [],
     "milb_only": true,
     "seen_in_milb": true
@@ -472,9 +474,11 @@
     "BB_pit": 0,
     "SO_pit": 0,
     "ERA": "\u2014",
-    "badge": "",
-    "note": "",
-    "cross_refs": [],
+    "badge": "\ud83c\udf1f",
+    "note": "Elite power-hitting 3B; franchise cornerstone for BOS; seen in 2 games",
+    "cross_refs": [
+      "BOS: BOS @ TBR 2023, BOS @ LAD 2024"
+    ],
     "milb_only": false,
     "seen_in_milb": false
   },
@@ -508,9 +512,11 @@
     "BB_pit": 0,
     "SO_pit": 0,
     "ERA": "\u2014",
-    "badge": "",
-    "note": "",
-    "cross_refs": [],
+    "badge": "\u2b50",
+    "note": "Son of HOFer Vladimir Guerrero; perennial All-Star; seen in 2 TOR games",
+    "cross_refs": [
+      "TOR: TOR @ LAA 2021, TOR @ BOS 2025"
+    ],
     "milb_only": false,
     "seen_in_milb": false
   },
@@ -582,8 +588,8 @@
     "BB_pit": 0,
     "SO_pit": 0,
     "ERA": "\u2014",
-    "badge": "",
-    "note": "",
+    "badge": "\u2b50",
+    "note": "45 HRs in 2021 (AL MVP runner-up); 6\u00d7 All-Star; elite SS/2B",
     "cross_refs": [],
     "milb_only": false,
     "seen_in_milb": false
@@ -1054,8 +1060,8 @@
     "BB_pit": 0,
     "SO_pit": 0,
     "ERA": "\u2014",
-    "badge": "",
-    "note": "",
+    "badge": "\u2b50",
+    "note": "2015 WS MVP; 6\u00d7 All-Star C; seen in your 2015 CLE game",
     "cross_refs": [],
     "milb_only": false,
     "seen_in_milb": false
@@ -1712,9 +1718,11 @@
     "BB_pit": 0,
     "SO_pit": 0,
     "ERA": "\u2014",
-    "badge": "",
-    "note": "",
-    "cross_refs": [],
+    "badge": "\u2b50",
+    "note": "2025 All-Star; emerging BOS OF star; seen in 2 BOS games",
+    "cross_refs": [
+      "BOS: BOS @ TBR 2023, TOR @ BOS 2025"
+    ],
     "milb_only": false,
     "seen_in_milb": false
   },
@@ -1784,8 +1792,8 @@
     "BB_pit": 0,
     "SO_pit": 0,
     "ERA": "\u2014",
-    "badge": "",
-    "note": "",
+    "badge": "\u2b50",
+    "note": "2010 AL MVP; 5\u00d7 All-Star; iconic comeback story from addiction",
     "cross_refs": [],
     "milb_only": false,
     "seen_in_milb": false
@@ -2042,8 +2050,8 @@
     "BB_pit": 0,
     "SO_pit": 1,
     "ERA": "27.00",
-    "badge": "",
-    "note": "",
+    "badge": "\u2b50",
+    "note": "Dodgers all-time saves leader; elite closer; seen at BOS @ LAD 2024",
     "cross_refs": [],
     "milb_only": false,
     "seen_in_milb": false
@@ -2114,8 +2122,8 @@
     "BB_pit": 0,
     "SO_pit": 1,
     "ERA": "13.50",
-    "badge": "",
-    "note": "",
+    "badge": "\u2b50",
+    "note": "Once held MLB record for fastest pitch (105.1 mph); elite closer; seen in your 2017 NYY game",
     "cross_refs": [],
     "milb_only": false,
     "seen_in_milb": false
@@ -2546,8 +2554,8 @@
     "BB_pit": 0,
     "SO_pit": 0,
     "ERA": "\u2014",
-    "badge": "",
-    "note": "",
+    "badge": "\u2b50",
+    "note": "Son of Dante Bichette; franchise SS for TOR; seen in 2025 BOS game",
     "cross_refs": [],
     "milb_only": false,
     "seen_in_milb": false
@@ -2906,8 +2914,8 @@
     "BB_pit": 0,
     "SO_pit": 4,
     "ERA": "0.00",
-    "badge": "",
-    "note": "",
+    "badge": "\ud83c\udfc6",
+    "note": "2020 AL Cy Young (dominant shortened season, 8-1, 1.63 ERA); seen at rehab start in Buffalo 2025",
     "cross_refs": [],
     "milb_only": true,
     "seen_in_milb": true
@@ -3194,8 +3202,8 @@
     "BB_pit": 1,
     "SO_pit": 1,
     "ERA": "0.00",
-    "badge": "",
-    "note": "",
+    "badge": "\ud83d\udcd6",
+    "note": "One of baseball's great journeyman stories \u2014 pitched in MLB until age 45; seen at MiLB game in Buffalo 2025",
     "cross_refs": [],
     "milb_only": true,
     "seen_in_milb": true
