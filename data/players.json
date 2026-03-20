@@ -216,7 +216,7 @@
     "SO_pit": 0,
     "ERA": "\u2014",
     "badge": "\ud83c\udfdb\ufe0f",
-    "note": "Hall of Fame 2025; 435 HRs; 3\u00d7 Gold Glove; seen at PIT 2022",
+    "note": "Hall of Fame 2025; 435 HRs; 3\u00d7 Gold Glove; seen at NYY 2017",
     "cross_refs": [],
     "milb_only": false,
     "seen_in_milb": false
@@ -913,8 +913,8 @@
     "BB_pit": 0,
     "SO_pit": 0,
     "ERA": "\u2014",
-    "badge": "",
-    "note": "",
+    "badge": "\u2b50",
+    "note": "Nicknamed 'Carlos Slamtana'; beloved long-tenured CLE 1B; went 1-3 with a HR and 3 RBI in your 2015 game",
     "cross_refs": [],
     "milb_only": false,
     "seen_in_milb": false
@@ -1240,8 +1240,8 @@
     "BB_pit": 0,
     "SO_pit": 0,
     "ERA": "\u2014",
-    "badge": "",
-    "note": "",
+    "badge": "\u2b50",
+    "note": "Nicknamed 'Uncle Mike' by teammates; beloved CLE OF known for consistent contact; seen in your 2015 game",
     "cross_refs": [],
     "milb_only": false,
     "seen_in_milb": false
@@ -1316,7 +1316,7 @@
     "SO_pit": 0,
     "ERA": "\u2014",
     "badge": "\ud83d\udd04",
-    "note": "Seen on 2 teams: SF 2022 and KC 2025",
+    "note": "Grandson of Carl Yastrzemski (HOF; last Triple Crown winner in the AL, 1967); seen on 2 teams: SF 2022 and KC 2025",
     "cross_refs": [
       "SFG: SFG @ CLE 2022",
       "KCR: KCR @ CWS 2025"
@@ -2482,8 +2482,8 @@
     "BB_pit": 0,
     "SO_pit": 0,
     "ERA": "\u2014",
-    "badge": "",
-    "note": "",
+    "badge": "\u2b50",
+    "note": "Fan-favorite CLE 2B nicknamed 'Kip'; part of the Indians core that went to the 2016 WS; seen in your 2015 game",
     "cross_refs": [],
     "milb_only": false,
     "seen_in_milb": false
@@ -3743,9 +3743,12 @@
     "BB_pit": 0,
     "SO_pit": 0,
     "ERA": "\u2014",
-    "badge": "",
-    "note": "",
-    "cross_refs": [],
+    "badge": "\ud83d\udd04",
+    "note": "Son of HOF 2B Craig Biggio; seen on 2 teams across MLB and MiLB",
+    "cross_refs": [
+      "TOR: TOR @ LAA 2021",
+      "KCR: Omaha @ Buffalo 2025 (MiLB)"
+    ],
     "milb_only": false,
     "seen_in_milb": true
   },
@@ -4285,8 +4288,8 @@
     "BB_pit": 0,
     "SO_pit": 0,
     "ERA": "\u2014",
-    "badge": "",
-    "note": "",
+    "badge": "\u26a0\ufe0f",
+    "note": "Elite young SS \u2014 one of the most hyped prospects in years; suspended by MLB in 2023 amid allegations of an inappropriate relationship with a minor; seen at BOS @ TB 2023",
     "cross_refs": [],
     "milb_only": false,
     "seen_in_milb": false
@@ -5801,8 +5804,8 @@
     "BB_pit": 0,
     "SO_pit": 0,
     "ERA": "\u2014",
-    "badge": "",
-    "note": "",
+    "badge": "\ud83c\udfc6",
+    "note": "2021 NL ROY with CIN; seen with Kansas City in 2025",
     "cross_refs": [],
     "milb_only": false,
     "seen_in_milb": false
@@ -5838,9 +5841,12 @@
     "BB_pit": 0,
     "SO_pit": 0,
     "ERA": "\u2014",
-    "badge": "",
-    "note": "",
-    "cross_refs": [],
+    "badge": "\ud83d\udd04",
+    "note": "Went 2-4 with a HR and 2 RBI at SFG @ CLE 2022; seen on 2 teams (SF and PIT system)",
+    "cross_refs": [
+      "SFG: SFG @ CLE 2022",
+      "PIT: Indianapolis @ Rochester 2024 (MiLB)"
+    ],
     "milb_only": false,
     "seen_in_milb": true
   },
@@ -6883,8 +6889,8 @@
     "BB_pit": 0,
     "SO_pit": 0,
     "ERA": "\u2014",
-    "badge": "",
-    "note": "",
+    "badge": "\ud83c\udf31",
+    "note": "Top Nationals OF prospect with elite size and tools; seen at Rochester AAA (Nationals affiliate) in 2024 before his MLB debut later that season",
     "cross_refs": [],
     "milb_only": true,
     "seen_in_milb": true
@@ -8254,8 +8260,8 @@
     "BB_pit": 0,
     "SO_pit": 0,
     "ERA": "\u2014",
-    "badge": "",
-    "note": "",
+    "badge": "\ud83c\udf31",
+    "note": "Consensus #1 prospect in baseball entering 2025; debuted with BOS that season \u2014 seen at TOR @ BOS 2025",
     "cross_refs": [],
     "milb_only": false,
     "seen_in_milb": false
@@ -11965,9 +11971,11 @@
     "BB_pit": 0,
     "SO_pit": 0,
     "ERA": "\u2014",
-    "badge": "",
-    "note": "",
-    "cross_refs": [],
+    "badge": "\ud83d\udcd6",
+    "note": "Backup catcher; seen in both 2017 Syracuse MiLB games. Carter Kieboom's older brother.",
+    "cross_refs": [
+      "SYR: LHV @ Syracuse 2017, Rochester @ Syracuse 2017"
+    ],
     "milb_only": true,
     "seen_in_milb": true
   },
@@ -19861,9 +19869,11 @@
     "BB_pit": 0,
     "SO_pit": 0,
     "ERA": "\u2014",
-    "badge": "",
-    "note": "",
-    "cross_refs": [],
+    "badge": "\ud83d\udcd6",
+    "note": "Once a top-5 overall prospect for WSH; never stuck at the MLB level; seen at Rochester AAA 2023 and 2024. Spencer Kieboom's younger brother.",
+    "cross_refs": [
+      "WSH: LHV @ Rochester 2023, Indianapolis @ Rochester 2024"
+    ],
     "milb_only": true,
     "seen_in_milb": true
   },

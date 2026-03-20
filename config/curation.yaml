@@ -73,6 +73,26 @@ players:
     badge: "⭐"
     note: "2015 WS MVP; 6× All-Star C; seen in your 2015 CLE game"
 
+  467793:  # Carlos Santana
+    badge: "⭐"
+    note: "Nicknamed 'Carlos Slamtana'; beloved long-tenured CLE 1B; went 1-3 with a HR and 3 RBI in your 2015 game"
+
+  488726:  # Michael Brantley
+    badge: "⭐"
+    note: "Nicknamed 'Uncle Mike' by teammates; beloved CLE OF known for consistent contact; seen in your 2015 game"
+
+  543401:  # Jason Kipnis
+    badge: "⭐"
+    note: "Fan-favorite CLE 2B nicknamed 'Kip'; part of the Indians core that went to the 2016 WS; seen in your 2015 game"
+
+  663697:  # Jonathan India
+    badge: "🏆"
+    note: "2021 NL ROY with CIN; seen with Kansas City in 2025"
+
+  677551:  # Wander Franco
+    badge: "⚠️"
+    note: "Elite young SS — one of the most hyped prospects in years; suspended by MLB in 2023 amid allegations of an inappropriate relationship with a minor; seen at BOS @ TB 2023"
+
   285078:  # Josh Hamilton
     badge: "⭐"
     note: "2010 AL MVP; 5× All-Star; iconic comeback story from addiction"
@@ -206,7 +226,7 @@ players:
 
   573262:  # Mike Yastrzemski
     badge: "🔄"
-    note: "Seen on 2 teams: SF 2022 and KC 2025"
+    note: "Grandson of Carl Yastrzemski (HOF; last Triple Crown winner in the AL, 1967); seen on 2 teams: SF 2022 and KC 2025"
     cross_refs:
       - "SFG: SFG @ CLE 2022"
       - "KCR: KCR @ CWS 2025"
@@ -225,6 +245,20 @@ players:
       - "TOR: TOR @ LAA 2021"
       - "KCR: KCR @ CWS 2025"
 
+  624415:  # Cavan Biggio
+    badge: "🔄"
+    note: "Son of HOF 2B Craig Biggio; seen on 2 teams across MLB and MiLB"
+    cross_refs:
+      - "TOR: TOR @ LAA 2021"
+      - "KCR: Omaha @ Buffalo 2025 (MiLB)"
+
+  663698:  # Joey Bart
+    badge: "🔄"
+    note: "Went 2-4 with a HR and 2 RBI at SFG @ CLE 2022; seen on 2 teams (SF and PIT system)"
+    cross_refs:
+      - "SFG: SFG @ CLE 2022"
+      - "PIT: Indianapolis @ Rochester 2024 (MiLB)"
+
   607200:  # Erick Fedde
     badge: "🔄"
     note: "Seen on 2 teams as pitcher: CWS 2024 (starter) and ATL 2025 (reliever)"
@@ -234,6 +268,26 @@ players:
       - "ATL: ATL @ CLE 2025"
 
   # ── MiLB milestones ─────────────────────────────────────────────
+  701350:  # Roman Anthony
+    badge: "🌱"
+    note: "Consensus #1 prospect in baseball entering 2025; debuted with BOS that season — seen at TOR @ BOS 2025"
+
+  695578:  # James Wood
+    badge: "🌱"
+    note: "Top Nationals OF prospect with elite size and tools; seen at Rochester AAA (Nationals affiliate) in 2024 before his MLB debut later that season"
+
+  666198:  # Carter Kieboom
+    badge: "📖"
+    note: "Once a top-5 overall prospect for WSH; never stuck at the MLB level; seen at Rochester AAA 2023 and 2024. Spencer Kieboom's younger brother."
+    cross_refs:
+      - "WSH: LHV @ Rochester 2023, Indianapolis @ Rochester 2024"
+
+  571851:  # Spencer Kieboom
+    badge: "📖"
+    note: "Backup catcher; seen in both 2017 Syracuse MiLB games. Carter Kieboom's older brother."
+    cross_refs:
+      - "SYR: LHV @ Syracuse 2017, Rochester @ Syracuse 2017"
+
   544931:  # Stephen Strasburg
     badge: "🏆"
     note: "2019 WS MVP; seen at his AAA debut (Syracuse 2010) and his final rehab start before retiring (Rochester 2022)"
