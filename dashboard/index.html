@@ -988,6 +988,19 @@
   }
   .statcast-credit a { color: var(--dirt); text-decoration: none; }
   .statcast-credit a:hover { text-decoration: underline; }
+  .sc-toggle-all-btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .68rem;
+    padding: 5px 12px;
+    border: 1.5px solid var(--border);
+    border-radius: 5px;
+    background: white;
+    color: var(--ink);
+    cursor: pointer;
+    letter-spacing: .03em;
+    white-space: nowrap;
+  }
+  .sc-toggle-all-btn:hover { background: var(--panel); }
   .statcast-sections { display: flex; flex-direction: column; gap: 10px; }
   .sc-section {
     background: white;
@@ -2427,6 +2440,19 @@ function showScDetail(idx) {
 // ── Statcast tab ───────────────────────────────────────────────
 function toggleScSection(el) {
   el.closest('.sc-section').classList.toggle('open');
+  // Update toggle-all button label
+  const allOpen = [...document.querySelectorAll('#statcast-content .sc-section')].every(s => s.classList.contains('open'));
+  const allClosed = [...document.querySelectorAll('#statcast-content .sc-section')].every(s => !s.classList.contains('open'));
+  const btn = document.getElementById('scToggleAllBtn');
+  if (btn) btn.textContent = allClosed ? 'Expand All' : allOpen ? 'Collapse All' : 'Collapse All';
+}
+
+function scToggleAll() {
+  const sections = [...document.querySelectorAll('#statcast-content .sc-section')];
+  const anyOpen = sections.some(s => s.classList.contains('open'));
+  sections.forEach(s => s.classList.toggle('open', !anyOpen));
+  const btn = document.getElementById('scToggleAllBtn');
+  if (btn) btn.textContent = anyOpen ? 'Expand All' : 'Collapse All';
 }
 
 function renderStatcast() {
@@ -2523,7 +2549,7 @@ function renderStatcast() {
   ];
 
   const sectionsHtml = sections.map(s => `
-    <div class="sc-section">
+    <div class="sc-section open">
       <div class="sc-section-header" onclick="toggleScSection(this)">
         <span class="sc-section-title"><span class="sc-emoji">${s.emoji}</span>${s.title}</span>
         <span class="sc-preview">${s.preview}</span>
@@ -2533,10 +2559,13 @@ function renderStatcast() {
     </div>`).join('');
 
   document.getElementById('statcast-content').innerHTML = `
-    <div class="statcast-credit">
-      MLB games only · data via
-      <a href="https://baseballsavant.mlb.com" target="_blank">Baseball Savant</a>
-      · best single event per player/pitcher
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:8px;">
+      <div class="statcast-credit" style="margin-bottom:0">
+        MLB games only · data via
+        <a href="https://baseballsavant.mlb.com" target="_blank">Baseball Savant</a>
+        · best single event per player/pitcher
+      </div>
+      <button id="scToggleAllBtn" class="sc-toggle-all-btn" onclick="scToggleAll()">Collapse All</button>
     </div>
     <div class="statcast-sections">${sectionsHtml}</div>`;
 }
