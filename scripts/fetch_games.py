@@ -38,6 +38,7 @@ def extract_players(pk: int, level: str) -> list[dict]:
     for side in ("away", "home"):
         team_data = data["teams"][side]
         team_name = team_data["team"]["name"]
+        starter_id = (team_data.get("pitchers") or [None])[0]
 
         for p in team_data.get("players", {}).values():
             pid = p["person"]["id"]
@@ -74,6 +75,7 @@ def extract_players(pk: int, level: str) -> list[dict]:
                     "level": level,
                     "game_pk": pk,
                     "role": "pitcher",
+                    "game_started": pid == starter_id,
                     "stats": {
                         "IP":  pitching.get("inningsPitched", "0"),
                         "H":   pitching.get("hits", 0),

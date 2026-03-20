@@ -13,7 +13,13 @@ mlb:
   - pk: 776583   # Aug 26 2025  KCR @ CWS
 
 milb:
-  # PKs to be looked up — use:
-  # https://statsapi.mlb.com/api/v1/schedule?sportId=11&date=YYYY-MM-DD
-  # sportId: 11=AAA, 12=AA, 13=A+, 14=A
-  []
+  - pk: 267232   # May  7 2010  Gwinnett @ Syracuse       (Strasburg AAA debut)
+  - pk: 326410   # Apr  5 2012  Rochester @ Syracuse      (Harper AAA debut)
+  - pk: 499141   # Jul  4 2017  LHV @ Syracuse
+  - pk: 499156   # Aug  5 2017  Rochester @ Syracuse
+  - pk: 665236   # Apr 12 2022  Buffalo @ Rochester
+  - pk: 665123   # Jun  3 2022  Buffalo @ Rochester       (Strasburg rehab)
+  - pk: 722976   # Aug 13 2023  LHV @ Rochester
+  - pk: 752529   # Jun 28 2024  Indianapolis @ Rochester
+  - pk: 781717   # Jul 19 2025  Omaha @ Buffalo           (Rich Hill)
+  - pk: 781709   # Aug 15 2025  LHV @ Buffalo             (Bieber rehab)

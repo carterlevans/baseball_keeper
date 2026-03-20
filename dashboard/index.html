@@ -215,7 +215,7 @@
   tbody tr:hover { background: rgba(45,90,39,.06); }
   tbody tr.flagged { background: rgba(232,200,74,.07); }
   tbody tr.flagged:hover { background: rgba(232,200,74,.14); }
-  tbody tr.milb-only { opacity: 0.55; }
+
 
   td {
     padding: 8px 10px;
@@ -333,7 +333,6 @@
   <div class="sub" id="header-sub">Loading…</div>
   <div class="legend">
     <div class="legend-item"><span>🏛️</span> Hall of Fame</div>
-    <div class="legend-item"><span>⚠️</span> HOF with asterisk</div>
     <div class="legend-item"><span>🌟</span> Future HOF / superstar</div>
     <div class="legend-item"><span>⭐</span> Notable star</div>
     <div class="legend-item"><span>🏆</span> Award / milestone</div>
@@ -459,7 +458,7 @@ let staFilter = 'all';
 let relFilter = 'all';
 
 // ── Data access ────────────────────────────────────────────────
-const getBatters  = () => allPlayers.filter(p => p.roles.includes('batter'));
+const getBatters  = () => allPlayers.filter(p => p.roles.includes('batter') && (!p.pitcher_role || p.AB >= 10));
 const getStarters  = () => allPlayers.filter(p => p.pitcher_role === 'starter');
 const getRelievers = () => allPlayers.filter(p => p.pitcher_role === 'reliever');
 
@@ -469,7 +468,7 @@ function assignRanks(players) {
     [...arr].sort((a, b) => b[scoreKey] - a[scoreKey])
             .forEach((p, i) => p._rank = i + 1);
   };
-  rank(players.filter(p => p.roles.includes('batter')), 'ranking_score');
+  rank(players.filter(p => p.roles.includes('batter') && (!p.pitcher_role || p.AB >= 10)), 'ranking_score');
   rank(players.filter(p => p.pitcher_role === 'starter'),  'pitcher_ranking_score');
   rank(players.filter(p => p.pitcher_role === 'reliever'), 'pitcher_ranking_score');
 }
