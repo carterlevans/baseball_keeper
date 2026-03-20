@@ -1,0 +1,186 @@
+Tampa Bay Rays 7, Boston Red Sox 2
+
+Day
+Game Played on Tuesday, April 11, 2023 (N) at Tropicana Field
+
+BOS A    0  0  0    0  0  1    0  0  1  -   2  6  1
+TB  A    1  1  0    1  2  0    2  0  x  -   7 11  0
+BATTING
+Boston Red Sox               AB   R   H RBI      BB  SO      PO   A
+Hernandez ss                  5   0   0   0       0   2       1   0
+Devers 3b                     3   1   0   0       1   1       1   2
+Turner dh                     2   0   1   0       2   1       0   0
+Yoshida lf                    3   0   0   0       1   0       1   0
+Refsnyder cf                  4   0   0   0       0   2       2   0
+Verdugo rf                    4   1   1   0       0   0       3   0
+Arroyo 2b                     3   0   0   0       0   2       2   2
+  Tapia ph                    1   0   1   0       0   0       0   0
+Dalbec 1b                     1   0   1   0       1   0       3   0
+  Casas ph,1b                 2   0   0   0       0   0       2   0
+Wong c                        2   0   0   0       0   2       8   2
+  McGuire ph,c                2   0   2   1       0   0       1   0
+Whitlock p                    0   0   0   0       0   0       0   0
+  Bleier p                    0   0   0   0       0   0       0   0
+  Ort p                       0   0   0   0       0   0       0   0
+  Brasier p                   0   0   0   0       0   0       0   0
+Totals                       32   2   6   1       5  10      24   6
+FIELDING -
+E: Casas (1).
+BATTING -
+2B: McGuire (3,off Thompson).
+GDP: Yoshida (3,off Cleavinger).
+Team LOB: 8.
+BASERUNNING -
+SB: Dalbec (1,2nd base off McClanahan/Mejia).
+Tampa Bay Rays               AB   R   H RBI      BB  SO      PO   A
+Diaz 1b                       3   3   3   1       1   0       7   1
+  Margot rf                   0   0   0   0       0   0       1   0
+B. Lowe dh                    4   1   2   1       0   1       0   0
+Arozarena lf                  4   0   0   0       0   1       1   0
+Franco ss                     4   0   1   1       0   1       2   3
+Raley rf,1b                   4   0   0   0       0   1       3   0
+Paredes 3b                    4   1   2   1       0   1       0   1
+Mejia c                       4   0   0   0       0   2       9   1
+J. Lowe cf                    4   2   2   1       0   1       3   0
+Brujan 2b                     3   0   1   1       0   1       0   1
+McClanahan p                  0   0   0   0       0   0       0   1
+  Cleavinger p                0   0   0   0       0   0       0   0
+  Adam p                      0   0   0   0       0   0       0   0
+  Thompson p                  0   0   0   0       0   0       1   0
+  Faucher p                   0   0   0   0       0   0       0   0
+Totals                       34   7  11   6       1   9      27   8
+FIELDING -
+DP: 1. Brujan-Franco-Diaz.
+BATTING -
+2B: Franco (4,off Whitlock); B. Lowe (1,off Ort).
+HR: Paredes (3,4th inning off Whitlock 0 on 2 out); Diaz (3,5th inning off
+Whitlock 0 on 2 out); B. Lowe (4,5th inning off Whitlock 0 on 2 out); J.
+Lowe (2,7th inning off Ort 0 on 0 out).
+Team LOB: 4.
+BASERUNNING -
+SB: J. Lowe (1,2nd base off Whitlock/Wong).
+CS: Brujan (1,2nd base by Whitlock/Wong); Arozarena (1,2nd base by Whitlock/Wong).
+PITCHING
+Boston Red Sox               IP     H   R  ER  BB  SO  HR BFP
+Whitlock L(0-1)               5     8   5   5   0   5   3  21
+Bleier                        1     1   0   0   0   1   0   4
+Ort                           1     2   2   1   1   2   1   7
+Brasier                       1     0   0   0   0   1   0   3
+Totals                        8    11   7   6   1   9   4  35
+Tampa Bay Rays               IP     H   R  ER  BB  SO  HR BFP
+McClanahan W(3-0)             5     2   1   1   4   9   0  21
+Cleavinger                    1     0   0   0   0   0   0   2
+Adam                          1     0   0   0   0   0   0   3
+Thompson                      1     1   0   0   1   0   0   5
+Faucher                       1     3   1   1   0   1   0   6
+Totals                        9     6   2   2   5  10   0  37
+McClanahan faced 2 batters in the 6th inning
+Inherited Runners - Scored: Cleavinger 2-1.
+.
+Umpires: HP - Paul Emmel, 1B - Chad Fairchild, 2B - Nic Lentz, 3B - Jeremie Rehak
+Official Scorer: Bill Mathews
+Time of Game: 2:35   Attendance: 12649
+Starting Lineups:
+
+   Boston Red Sox                Tampa Bay Rays
+1. Hernandez           ss        Diaz                1b
+2. Devers              3b        B. Lowe             dh
+3. Turner              dh        Arozarena           lf
+4. Yoshida             lf        Franco              ss
+5. Refsnyder           cf        Raley               rf
+6. Verdugo             rf        Paredes             3b
+7. Arroyo              2b        Mejia               c
+8. Dalbec              1b        J. Lowe             cf
+9. Wong                c         Brujan              2b
+   Whitlock            p         McClanahan          p
+
+RED SOX 1ST: Hernandez flied to right; Devers struck out; Turner
+walked; Yoshida walked [Turner to second]; Refsnyder was called
+out on strikes; 0 R, 0 H, 0 E, 2 LOB.  Red Sox 0, Rays 0.
+
+RAYS 1ST: Diaz singled to left; B. Lowe grounded out (first
+unassisted) [Diaz to second]; Arozarena struck out; Franco
+doubled to center [Diaz scored]; Raley popped to third in foul
+territory; 1 R, 2 H, 0 E, 1 LOB.  Red Sox 0, Rays 1.
+
+RED SOX 2ND: Verdugo flied to center; Arroyo struck out; Dalbec
+walked; Wong struck out; 0 R, 0 H, 0 E, 1 LOB.  Red Sox 0, Rays
+1.
+
+RAYS 2ND: Paredes flied to left; Mejia flied to right; J. Lowe
+singled to center; J. Lowe stole second; Brujan singled to
+center [J. Lowe scored]; Brujan was caught stealing second
+(catcher to second); 1 R, 2 H, 0 E, 0 LOB.  Red Sox 0, Rays 2.
+
+RED SOX 3RD: Hernandez struck out; Devers flied to left; Turner
+struck out; 0 R, 0 H, 0 E, 0 LOB.  Red Sox 0, Rays 2.
+
+RAYS 3RD: Diaz singled to center; B. Lowe was called out on
+strikes; Arozarena forced Diaz (third to second) [Arozarena to
+first]; Rays challenged (force play), call on the field was
+upheld; Arozarena was caught stealing second (catcher to
+shortstop); Rays challenged (tag play), call on the field was
+upheld; 0 R, 1 H, 0 E, 0 LOB.  Red Sox 0, Rays 2.
+
+RED SOX 4TH: Yoshida grounded out (pitcher to first); Refsnyder
+struck out; Verdugo grounded out (first unassisted); 0 R, 0 H, 0
+E, 0 LOB.  Red Sox 0, Rays 2.
+
+RAYS 4TH: Franco flied to right; Raley struck out; Paredes
+homered to left; Mejia struck out; 1 R, 1 H, 0 E, 0 LOB.  Red
+Sox 0, Rays 3.
+
+RED SOX 5TH: Arroyo struck out; Dalbec singled to left; Wong
+struck out; Dalbec stole second; Hernandez grounded out
+(shortstop to first); 0 R, 1 H, 0 E, 1 LOB.  Red Sox 0, Rays 3.
+
+RAYS 5TH: J. Lowe struck out; Brujan grounded out (third to
+first); Diaz homered to left-center; B. Lowe homered to right;
+Arozarena flied to center; 2 R, 2 H, 0 E, 0 LOB.  Red Sox 0,
+Rays 5.
+
+RED SOX 6TH: Devers walked; Turner singled to left [Devers to
+third]; CLEAVINGER REPLACED MCCLANAHAN (PITCHING); Yoshida
+grounded into a double play (second to shortstop to first)
+[Devers scored (no RBI), Turner out at second]; Refsnyder flied
+to right; 1 R, 1 H, 0 E, 0 LOB.  Red Sox 1, Rays 5.
+
+RAYS 6TH: BLEIER REPLACED WHITLOCK (PITCHING); Franco popped to
+first; Raley lined to center; Paredes singled to left; Mejia
+struck out; 0 R, 1 H, 0 E, 1 LOB.  Red Sox 1, Rays 5.
+
+RED SOX 7TH: ADAM REPLACED CLEAVINGER (PITCHING); Verdugo flied
+to center; Arroyo popped to first in foul territory; CASAS
+BATTED FOR DALBEC; Casas grounded out (shortstop to first); 0 R,
+0 H, 0 E, 0 LOB.  Red Sox 1, Rays 5.
+
+RAYS 7TH: CASAS STAYED IN GAME (PLAYING 1B); ORT REPLACED BLEIER
+(PITCHING); J. Lowe homered to right; Brujan was called out on
+strikes; Diaz walked; B. Lowe doubled to center [Diaz to third];
+Arozarena reached on a fielder's choice [Diaz scored (error by
+Casas) (unearned) (no RBI), B. Lowe to third]; Franco struck
+out; Raley grounded out (second to first); 2 R (1 ER), 2 H, 1 E,
+2 LOB.  Red Sox 1, Rays 7.
+
+RED SOX 8TH: THOMPSON REPLACED ADAM (PITCHING); MCGUIRE BATTED
+FOR WONG; McGuire doubled to left; Hernandez grounded out (third
+to first); Devers grounded out (first to pitcher) [McGuire to
+third]; MARGOT REPLACED DIAZ (PLAYING RF); RALEY CHANGED
+POSITIONS (PLAYING 1B); Turner walked; Yoshida popped to
+shortstop; 0 R, 1 H, 0 E, 2 LOB.  Red Sox 1, Rays 7.
+
+RAYS 8TH: MCGUIRE STAYED IN GAME (PLAYING C ); BRASIER REPLACED
+ORT (PITCHING); Paredes struck out; Mejia flied to right; J.
+Lowe grounded out (second to first); 0 R, 0 H, 0 E, 0 LOB.  Red
+Sox 1, Rays 7.
+
+RED SOX 9TH: FAUCHER REPLACED THOMPSON (PITCHING); Refsnyder
+lined to center; Verdugo singled to center; TAPIA BATTED FOR
+ARROYO; Tapia singled to pitcher [Verdugo to second]; Casas
+lined to right; McGuire singled to right [Verdugo scored, Tapia
+to second]; Hernandez struck out [Hernandez out at first
+(catcher to first)]; 1 R, 3 H, 0 E, 2 LOB.  Red Sox 2, Rays 7.
+
+Final Totals      R   H   E  LOB
+ Red Sox          2   6   1    8
+ Rays             7  11   0    4

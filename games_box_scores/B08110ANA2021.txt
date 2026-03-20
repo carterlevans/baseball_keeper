@@ -1,0 +1,173 @@
+Toronto Blue Jays 10, Anaheim Angels 2
+
+Day
+Game Played on Wednesday, August 11, 2021 (N) at Angel Stadium of Anaheim
+
+TOR A    0  0  2    0  5  0    0  2  1  -  10 10  1
+ANA A    0  0  2    0  0  0    0  0  0  -   2  5  0
+BATTING
+Toronto Blue Jays            AB   R   H RBI      BB  SO      PO   A
+Springer cf                   4   3   2   2       1   2       2   0
+Semien ss                     4   1   1   0       1   1       2   3
+Guerrero dh                   4   0   0   0       1   0       0   0
+Hernandez rf,lf               5   2   2   4       0   2       1   0
+Dickerson lf                  4   1   1   0       0   0       1   0
+  Grichuk rf                  0   0   0   0       0   0       0   0
+Kirk c                        4   0   0   1       0   0      12   0
+Gurriel 1b                    4   2   3   2       0   0       9   0
+Valera 2b                     4   0   0   0       0   0       0   0
+Espinal 3b                    4   1   1   1       0   1       0   0
+Manoah p                      0   0   0   0       0   0       0   1
+  Saucedo p                   0   0   0   0       0   0       0   1
+  Hand p                      0   0   0   0       0   0       0   0
+Totals                       37  10  10  10       3   6      27   5
+FIELDING -
+E: Semien (6).
+BATTING -
+2B: Semien (33,off Bundy); Gurriel (21,off Bundy).
+HR: Gurriel (13,3rd inning off Bundy 0 on 0 out); Springer 2 (16,3rd inning
+off Bundy 0 on 2 out,9th inning off Slegers 0 on 1 out); Hernandez (18,5th
+inning off Selman 3 on 2 out).
+Team LOB: 3.
+Anaheim Angels               AB   R   H RBI      BB  SO      PO   A
+Ohtani dh                     3   1   1   2       1   1       0   0
+Fletcher 2b                   3   0   1   0       1   0       0   2
+Walsh 1b                      4   0   1   0       0   2       7   2
+Gosselin 3b                   4   0   0   0       0   0       0   2
+Marsh cf                      4   0   0   0       0   4       2   0
+Stassi c                      2   0   0   0       0   2       3   0
+  Suzuki pr,c                 1   0   0   0       0   0       4   0
+Eaton rf                      4   0   0   0       0   1       5   0
+Adell lf                      4   1   2   0       0   1       3   0
+Mayfield ss                   4   0   0   0       0   1       1   3
+Bundy p                       0   0   0   0       0   0       1   0
+  Selman p                    0   0   0   0       0   0       0   0
+  Slegers p                   0   0   0   0       0   0       1   0
+Totals                       33   2   5   2       2  12      27   9
+BATTING -
+HR: Ohtani (38,3rd inning off Manoah 1 on 1 out).
+HBP: Stassi (6,by Manoah).
+Team LOB: 7.
+PITCHING
+Toronto Blue Jays            IP     H   R  ER  BB  SO  HR BFP
+Manoah W(5-1)                 6.2   5   2   2   2  11   1  29
+Saucedo                       1.1   0   0   0   0   1   0   4
+Hand                          1     0   0   0   0   0   0   3
+Totals                        9     5   2   2   2  12   1  36
+HBP: Manoah (5,Stassi).
+Inherited Runners - Scored: Saucedo 2-0.
+.
+Anaheim Angels               IP     H   R  ER  BB  SO  HR BFP
+Bundy L(2-9)                  4     4   3   3   0   2   2  16
+Selman                        1     2   4   4   2   0   1   7
+Slegers                       4     4   3   3   1   4   1  17
+Totals                        9    10  10  10   3   6   4  40
+Bundy faced 1 batter in the 5th inning
+Inherited Runners - Scored: Selman 1-1.
+.
+Umpires: HP - Ed Hickox, 1B - Junior Valentine, 2B - Jerry Meals, 3B - Jansen Visconti
+Official Scorer: Chris Johnson
+Time of Game: 3:03   Attendance: 22620
+Starting Lineups:
+
+   Toronto Blue Jays             Anaheim Angels
+1. Springer            cf        Ohtani              dh
+2. Semien              ss        Fletcher            2b
+3. Guerrero            dh        Walsh               1b
+4. Hernandez           rf        Gosselin            3b
+5. Dickerson           lf        Marsh               cf
+6. Kirk                c         Stassi              c
+7. Gurriel             1b        Eaton               rf
+8. Valera              2b        Adell               lf
+9. Espinal             3b        Mayfield            ss
+   Manoah              p         Bundy               p
+
+BLUE JAYS 1ST: Springer struck out; Semien lined to right;
+Guerrero flied to center; 0 R, 0 H, 0 E, 0 LOB.  Blue Jays 0,
+Angels 0.
+
+ANGELS 1ST: Ohtani flied to right; Fletcher grounded out
+(shortstop to first); Walsh struck out; 0 R, 0 H, 0 E, 0 LOB.
+Blue Jays 0, Angels 0.
+
+BLUE JAYS 2ND: Hernandez flied to left; Dickerson flied to left;
+Kirk grounded out (third to first); 0 R, 0 H, 0 E, 0 LOB.  Blue
+Jays 0, Angels 0.
+
+ANGELS 2ND: Gosselin reached on an error by Semien [Gosselin to
+first]; Marsh struck out; Stassi struck out; Eaton grounded out
+(first unassisted); 0 R, 0 H, 1 E, 1 LOB.  Blue Jays 0, Angels 0.
+
+BLUE JAYS 3RD: Gurriel homered to left; Valera grounded out
+(second to first); Espinal flied to right; Springer homered to
+left; Semien doubled to left; Guerrero grounded out (shortstop
+to first); 2 R, 3 H, 0 E, 1 LOB.  Blue Jays 2, Angels 0.
+
+ANGELS 3RD: Adell singled to center; Mayfield flied to left;
+Ohtani homered to center [Adell scored]; Fletcher singled to
+shortstop; Walsh was called out on strikes; Gosselin grounded
+out (shortstop to first); 2 R, 3 H, 0 E, 1 LOB.  Blue Jays 2,
+Angels 2.
+
+BLUE JAYS 4TH: Hernandez struck out; Dickerson grounded out
+(first to pitcher); Kirk flied to right; 0 R, 0 H, 0 E, 0 LOB.
+Blue Jays 2, Angels 2.
+
+ANGELS 4TH: Marsh struck out; Stassi struck out; Eaton struck
+out; 0 R, 0 H, 0 E, 0 LOB.  Blue Jays 2, Angels 2.
+
+BLUE JAYS 5TH: Gurriel doubled to left; SELMAN REPLACED BUNDY
+(PITCHING); Valera lined to right; Espinal singled to first
+[Gurriel scored, Espinal to second]; Springer walked; Semien
+walked [Espinal to third, Springer to second]; Guerrero popped
+to catcher in foul territory; Hernandez homered to left [Espinal
+scored, Springer scored, Semien scored]; Dickerson popped to
+shortstop; 5 R, 3 H, 0 E, 0 LOB.  Blue Jays 7, Angels 2.
+
+ANGELS 5TH: Adell singled to shortstop; Mayfield struck out;
+Ohtani struck out; Fletcher grounded out (shortstop to first); 0
+R, 1 H, 0 E, 1 LOB.  Blue Jays 7, Angels 2.
+
+BLUE JAYS 6TH: SLEGERS REPLACED SELMAN (PITCHING); Kirk grounded
+out (second to first); Gurriel grounded out (shortstop to
+first); Valera grounded out (first to pitcher); 0 R, 0 H, 0 E, 0
+LOB.  Blue Jays 7, Angels 2.
+
+ANGELS 6TH: Walsh singled to center; Gosselin grounded out
+(pitcher to first) [Walsh to second]; Marsh struck out; Stassi
+was hit by a pitch; SUZUKI RAN FOR STASSI; Eaton lined to
+shortstop; Stassi left with injured arm after hit by
+pitch; 0 R, 1 H, 0 E, 2 LOB.  Blue Jays 7, Angels 2.
+
+BLUE JAYS 7TH: SUZUKI STAYED IN GAME (PLAYING C ); Espinal was
+called out on strikes; Springer was called out on strikes;
+Semien struck out; 0 R, 0 H, 0 E, 0 LOB.  Blue Jays 7, Angels 2.
+
+ANGELS 7TH: Adell struck out; Mayfield popped to shortstop;
+Ohtani walked; Fletcher walked [Ohtani to second]; SAUCEDO
+REPLACED MANOAH (PITCHING); Walsh grounded out (first
+unassisted); 0 R, 0 H, 0 E, 2 LOB.  Blue Jays 7, Angels 2.
+
+BLUE JAYS 8TH: Guerrero grounded out (shortstop to first);
+Hernandez singled to shortstop; Dickerson singled to right
+[Hernandez to third]; Kirk grounded out (third to first)
+[Hernandez scored, Dickerson to second]; Gurriel singled to
+right [Dickerson scored]; Valera flied to right; 2 R, 3 H, 0 E,
+1 LOB.  Blue Jays 9, Angels 2.
+
+ANGELS 8TH: HERNANDEZ CHANGED POSITIONS (PLAYING LF); GRICHUK
+REPLACED DICKERSON (PLAYING RF); Gosselin flied to center; Marsh
+struck out; Suzuki grounded out (pitcher to first); 0 R, 0 H, 0
+E, 0 LOB.  Blue Jays 9, Angels 2.
+
+BLUE JAYS 9TH: Espinal lined to left; Springer homered to left;
+Semien flied to center; Guerrero walked; Hernandez struck out; 1
+R, 1 H, 0 E, 1 LOB.  Blue Jays 10, Angels 2.
+
+ANGELS 9TH: HAND REPLACED SAUCEDO (PITCHING); Eaton grounded out
+(first unassisted); Adell flied to center; Mayfield popped to
+first; 0 R, 0 H, 0 E, 0 LOB.  Blue Jays 10, Angels 2.
+
+Final Totals      R   H   E  LOB
+ Blue Jays       10  10   1    3
+ Angels           2   5   0    7

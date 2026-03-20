@@ -1,0 +1,183 @@
+Seattle Mariners 5, Cleveland Guardians 3
+
+Day
+Game Played on Friday, April 7, 2023 (D) at Progressive Field
+
+SEA A    0  0  0    0  2  3    0  0  0  -   5 10  0
+CLE A    1  0  1    1  0  0    0  0  0  -   3  7  0
+BATTING
+Seattle Mariners             AB   R   H RBI      BB  SO      PO   A
+Julio Rodriguez cf            5   1   2   2       0   1       1   0
+France 1b                     5   0   1   1       0   0       4   0
+Suarez 3b                     4   0   1   0       1   2       3   0
+Raleigh c                     3   0   1   0       2   0      13   0
+Hernandez rf                  5   0   1   0       0   2       4   2
+Wong 2b                       3   0   0   0       1   2       1   2
+Kelenic lf                    4   1   1   0       0   0       1   0
+Hummel dh                     4   1   1   0       0   1       0   0
+Crawford ss                   4   2   2   2       0   1       0   1
+Gilbert p                     0   0   0   0       0   0       0   0
+  Murfee p                    0   0   0   0       0   0       0   0
+  Gott p                      0   0   0   0       0   0       0   0
+  Brash p                     0   0   0   0       0   0       0   0
+  Munoz p                     0   0   0   0       0   0       0   0
+  Sewald p                    0   0   0   0       0   0       0   0
+Totals                       37   5  10   5       4   9      27   5
+FIELDING -
+DP: 1. Hernandez-France.
+BATTING -
+2B: Crawford 2 (3,off Civale 2); Kelenic (2,off Civale).
+HR: Julio Rodriguez (2,6th inning off Sandlin 1 on 2 out).
+Team LOB: 9.
+BASERUNNING -
+SB: Julio Rodriguez (3,2nd base off Civale/Zunino).
+Cleveland Guardians          AB   R   H RBI      BB  SO      PO   A
+Kwan lf                       4   0   0   0       0   2       3   0
+Rosario ss                    3   2   1   0       1   1       1   0
+Ramirez 3b                    3   0   1   0       1   1       2   1
+J. Naylor 1b                  4   0   2   0       0   1       4   0
+Bell dh                       4   0   1   1       0   1       0   0
+Gonzalez rf                   4   0   0   0       0   2       4   0
+Gimenez 2b                    3   1   1   0       1   0       1   1
+Zunino c                      3   0   0   0       0   2       9   0
+  Brennan ph                  1   0   0   0       0   1       0   0
+Straw cf                      3   0   1   1       0   2       3   0
+Civale p                      0   0   0   0       0   0       0   1
+  Sandlin p                   0   0   0   0       0   0       0   0
+  Herrin p                    0   0   0   0       0   0       0   0
+  Curry p                     0   0   0   0       0   0       0   0
+Totals                       32   3   7   2       3  13      27   3
+BATTING -
+2B: Gimenez (2,off Gott).
+Team LOB: 5.
+BASERUNNING -
+SB: Gimenez (2,2nd base off Gilbert/Raleigh).
+PITCHING
+Seattle Mariners             IP     H   R  ER  BB  SO  HR BFP
+Gilbert                       4     6   3   3   2   6   0  19
+Murfee W(1-1)                 1     0   0   0   1   0   0   3
+Gott                          1     1   0   0   0   2   0   4
+Brash                         1     0   0   0   0   3   0   3
+Munoz                         1     0   0   0   0   1   0   3
+Sewald SV(1)                  1     0   0   0   0   1   0   3
+Totals                        9     7   3   3   3  13   0  35
+WP: Gilbert (1).
+Cleveland Guardians          IP     H   R  ER  BB  SO  HR BFP
+Civale L(1-1)                 5.2   9   4   4   1   5   0  27
+Sandlin                       0.2   1   1   1   0   0   1   3
+Herrin                        1.2   0   0   0   1   3   0   6
+Curry                         1     0   0   0   2   1   0   5
+Totals                        9    10   5   5   4   9   1  41
+WP: Civale (1).
+Inherited Runners - Scored: Sandlin 1-1.
+.
+Umpires: HP - Nate Tomlinson, 1B - James Hoye, 2B - D.J. Reyburn, 3B - John Libka
+Official Scorer: Chad Broski
+Time of Game: 2:34   Attendance: 34821
+Starting Lineups:
+
+   Seattle Mariners              Cleveland Guardians
+1. Julio Rodriguez     cf        Kwan                lf
+2. France              1b        Rosario             ss
+3. Suarez              3b        Ramirez             3b
+4. Raleigh             c         J. Naylor           1b
+5. Hernandez           rf        Bell                dh
+6. Wong                2b        Gonzalez            rf
+7. Kelenic             lf        Gimenez             2b
+8. Hummel              dh        Zunino              c
+9. Crawford            ss        Straw               cf
+   Gilbert             p         Civale              p
+
+MARINERS 1ST: Julio Rodriguez grounded out (pitcher to first);
+France popped to third in foul territory; Suarez singled to
+third; Raleigh flied to left; 0 R, 1 H, 0 E, 1 LOB.  Mariners 0,
+Guardians 0.
+
+GUARDIANS 1ST: Kwan struck out; Rosario singled to right;
+Ramirez singled to left [Rosario to second]; J. Naylor singled
+to left [Rosario to third, Ramirez to second]; Bell struck out;
+Gilbert threw a wild pitch [Rosario scored, Ramirez to third, J.
+Naylor to second]; Gonzalez struck out; 1 R, 3 H, 0 E, 2 LOB.
+Mariners 0, Guardians 1.
+
+MARINERS 2ND: Hernandez singled to left; Wong popped to third in
+foul territory; Kelenic popped to shortstop; Hummel popped to
+second; 0 R, 1 H, 0 E, 1 LOB.  Mariners 0, Guardians 1.
+
+GUARDIANS 2ND: Gimenez grounded out (shortstop to first); Zunino
+lined to third; Straw was called out on strikes; 0 R, 0 H, 0 E,
+0 LOB.  Mariners 0, Guardians 1.
+
+MARINERS 3RD: Crawford grounded out (second to first); Julio
+Rodriguez singled to center; Julio Rodriguez stole second;
+France flied to right in foul territory [Julio Rodriguez to
+third]; Suarez struck out; 0 R, 1 H, 0 E, 1 LOB.  Mariners 0,
+Guardians 1.
+
+GUARDIANS 3RD: Kwan flied to center; Rosario walked; Ramirez
+struck out; J. Naylor singled to right [Rosario to second]; Bell
+singled to right [Rosario scored, J. Naylor out at third (right
+to third)]; 1 R, 2 H, 0 E, 1 LOB.  Mariners 0, Guardians 2.
+
+MARINERS 4TH: Raleigh flied to center; Hernandez popped to first
+in foul territory; Wong walked; Kelenic flied to left; 0 R, 0 H,
+0 E, 1 LOB.  Mariners 0, Guardians 2.
+
+GUARDIANS 4TH: Gonzalez grounded out (second to first); Gimenez
+walked; Zunino was called out on strikes; Gimenez stole second;
+Straw singled to left [Gimenez scored]; Kwan popped to second; 1
+R, 1 H, 0 E, 1 LOB.  Mariners 0, Guardians 3.
+
+MARINERS 5TH: Hummel singled to right; Crawford doubled to left
+[Hummel scored]; Julio Rodriguez struck out; France singled to
+left [Crawford scored]; Suarez was called out on strikes;
+Raleigh singled to right [France to third]; Hernandez grounded
+out (third to first); 2 R, 4 H, 0 E, 2 LOB.  Mariners 2,
+Guardians 3.
+
+GUARDIANS 5TH: MURFEE REPLACED GILBERT (PITCHING); Rosario flied
+to right in foul territory; Ramirez walked; J. Naylor hit into a
+double play to right [Ramirez out at first (right to first)]; 0
+R, 0 H, 0 E, 0 LOB.  Mariners 2, Guardians 3.
+
+MARINERS 6TH: Wong struck out; Kelenic doubled to center; Civale
+threw a wild pitch [Kelenic to third]; Hummel struck out;
+Crawford doubled to center [Kelenic scored]; SANDLIN REPLACED
+CIVALE (PITCHING); Julio Rodriguez homered to left-center
+[Crawford scored]; France flied to right; 3 R, 3 H, 0 E, 0 LOB.
+Mariners 5, Guardians 3.
+
+GUARDIANS 6TH: GOTT REPLACED MURFEE (PITCHING); Bell flied to
+right; Gonzalez struck out; Gimenez doubled to right; Zunino
+struck out; 0 R, 1 H, 0 E, 1 LOB.  Mariners 5, Guardians 3.
+
+MARINERS 7TH: Suarez flied to center; HERRIN REPLACED SANDLIN
+(PITCHING); Raleigh walked; Hernandez struck out; Wong was
+called out on strikes; 0 R, 0 H, 0 E, 1 LOB.  Mariners 5,
+Guardians 3.
+
+GUARDIANS 7TH: BRASH REPLACED GOTT (PITCHING); Straw was called
+out on strikes; Kwan struck out; Rosario struck out; 0 R, 0 H, 0
+E, 0 LOB.  Mariners 5, Guardians 3.
+
+MARINERS 8TH: Kelenic flied to left; Hummel flied to center;
+Crawford struck out; 0 R, 0 H, 0 E, 0 LOB.  Mariners 5,
+Guardians 3.
+
+GUARDIANS 8TH: MUNOZ REPLACED BRASH (PITCHING); Ramirez flied to
+right; J. Naylor struck out; Bell grounded out (second to
+first); 0 R, 0 H, 0 E, 0 LOB.  Mariners 5, Guardians 3.
+
+MARINERS 9TH: CURRY REPLACED HERRIN (PITCHING); Julio Rodriguez
+lined to right; France lined to right; Suarez walked; Raleigh
+walked [Suarez to second]; Hernandez struck out; 0 R, 0 H, 0 E,
+2 LOB.  Mariners 5, Guardians 3.
+
+GUARDIANS 9TH: SEWALD REPLACED MUNOZ (PITCHING); Gonzalez flied
+to left; Gimenez popped to third in foul territory; BRENNAN
+BATTED FOR ZUNINO; Brennan struck out; 0 R, 0 H, 0 E, 0 LOB.
+Mariners 5, Guardians 3.
+
+Final Totals      R   H   E  LOB
+ Mariners         5  10   0    9
+ Guardians        3   7   0    5

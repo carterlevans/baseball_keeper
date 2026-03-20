@@ -1,0 +1,195 @@
+Seattle Mariners 6, Chicago White Sox 3
+
+Day
+Game Played on Saturday, July 27, 2024 (N) at Guaranteed Rate Field
+
+SEA A    0  0  0    3  2  0    0  1  0  -   6 12  2
+CHI A    0  0  1    0  0  1    0  1  0  -   3  9  0
+BATTING
+Seattle Mariners             AB   R   H RBI      BB  SO      PO   A
+Robles cf                     6   0   3   1       0   2       2   0
+Arozarena lf                  4   1   1   0       1   2       1   0
+Raleigh c                     4   1   1   1       1   0      11   0
+Polanco 2b                    5   2   3   3       0   1       0   1
+Haniger rf                    3   1   1   0       2   1       2   0
+Vosler dh                     5   0   1   0       0   1       0   0
+Locklear 1b                   4   0   0   0       1   3      11   0
+Rojas 3b                      3   1   1   0       2   0       0   1
+Moore ss                      5   0   1   1       0   0       0   5
+Woo p                         0   0   0   0       0   0       0   2
+  Snider p                    0   0   0   0       0   0       0   0
+  Voth p                      0   0   0   0       0   0       0   0
+  Garcia p                    0   0   0   0       0   0       0   0
+  Santos p                    0   0   0   0       0   0       0   0
+  Munoz p                     0   0   0   0       0   0       0   0
+Totals                       39   6  12   6       7  10      27   9
+FIELDING -
+E: Rojas (8), Moore (3).
+BATTING -
+2B: Rojas (16,off Anderson); Haniger (11,off Martin).
+3B: Vosler (1,off Fedde).
+HR: Polanco 2 (9,4th inning off Fedde 0 on 0 out,5th inning off Anderson 0
+on 0 out); Raleigh (21,5th inning off Anderson 0 on 0 out).
+Team LOB: 13.
+Chicago White Sox            AB   R   H RBI      BB  SO      PO   A
+Robert cf                     5   1   0   0       0   4       1   0
+Sheets dh                     5   0   1   0       0   3       0   0
+Pham rf                       5   0   1   0       0   0       3   0
+Vaughn 1b                     5   0   1   1       0   2       3   3
+Benintendi lf                 4   0   1   0       0   0       2   0
+DeJong 3b                     4   1   2   0       0   0       1   3
+Lopez ss                      3   0   0   0       1   1       1   0
+Baldwin 2b                    4   1   3   0       0   0       1   0
+Robinson c                    3   0   0   0       0   0      10   0
+  Jimenez ph                  0   0   0   0       0   0       0   0
+  Lee pr,c                    0   0   0   0       0   0       2   0
+Fedde p                       0   0   0   0       0   0       1   0
+  Anderson p                  0   0   0   0       0   0       1   0
+  Martin p                    0   0   0   0       0   0       1   0
+  Wilson p                    0   0   0   0       0   0       0   0
+Totals                       38   3   9   1       1  10      27   6
+BATTING -
+2B: DeJong (14,off Woo); Pham (14,off Snider); Baldwin 2 (3,off Voth,off Santos).
+HBP: Jimenez (1,by Santos).
+Team LOB: 10.
+BASERUNNING -
+SB: Robert (13,2nd base off Woo/Raleigh); Baldwin (2,2nd base off Woo/Raleigh).
+PITCHING
+Seattle Mariners             IP     H   R  ER  BB  SO  HR BFP
+Woo                           4     4   1   0   1   3   0  18
+Snider W(1-1)                 1     2   0   0   0   1   0   5
+Voth                          1     1   1   0   0   1   0   5
+Garcia                        1     0   0   0   0   2   0   3
+Santos                        0.2   2   1   1   0   1   0   5
+Munoz SV(17)                  1.1   0   0   0   0   2   0   4
+Totals                        9     9   3   1   1  10   0  40
+WP: Munoz (3).
+HBP: Santos (1,Jimenez).
+Inherited Runners - Scored: Munoz 3-1.
+.
+Chicago White Sox            IP     H   R  ER  BB  SO  HR BFP
+Fedde L(7-4)                  4     6   3   3   2   4   1  20
+Anderson                      1     3   2   2   1   1   2   7
+Martin                        2.2   3   1   1   3   3   0  14
+Wilson                        1.1   0   0   0   1   2   0   5
+Totals                        9    12   6   6   7  10   3  46
+Inherited Runners - Scored: Wilson 3-0.
+.
+Umpires: HP - Jordan Baker, 1B - Stu Scheurwater, 2B - Mark Carlson, 3B - Dan Merzel
+Official Scorer: Bill Seiple
+Time of Game: 2:58   Attendance: 21037
+Starting Lineups:
+
+   Seattle Mariners              Chicago White Sox
+1. Robles              cf        Robert              cf
+2. Arozarena           lf        Sheets              dh
+3. Raleigh             c         Pham                rf
+4. Polanco             2b        Vaughn              1b
+5. Haniger             rf        Benintendi          lf
+6. Vosler              dh        DeJong              3b
+7. Locklear            1b        Lopez               ss
+8. Rojas               3b        Baldwin             2b
+9. Moore               ss        Robinson            c
+   Woo                 p         Fedde               p
+
+MARINERS 1ST: Robles struck out; Arozarena was called out on
+strikes; Raleigh flied to right; 0 R, 0 H, 0 E, 0 LOB.  Mariners
+0, White Sox 0.
+
+WHITE SOX 1ST: Robert struck out; Sheets grounded out (first
+unassisted); Pham flied to center; 0 R, 0 H, 0 E, 0 LOB.
+Mariners 0, White Sox 0.
+
+MARINERS 2ND: Polanco flied to right; Haniger flied to right;
+Vosler tripled to right; Locklear popped to third; 0 R, 1 H, 0
+E, 1 LOB.  Mariners 0, White Sox 0.
+
+WHITE SOX 2ND: Vaughn struck out; Benintendi singled to second;
+DeJong doubled to left [Benintendi to third]; Lopez walked;
+Baldwin flied to left; Robinson forced Benintendi (pitcher to
+catcher) [Robinson to first]; 0 R, 2 H, 0 E, 3 LOB.  Mariners 0,
+White Sox 0.
+
+MARINERS 3RD: Rojas grounded out (first to pitcher); Moore
+popped to catcher in foul territory; Robles singled to left;
+Arozarena singled to shortstop [Robles to third]; Raleigh lined
+to left; 0 R, 2 H, 0 E, 2 LOB.  Mariners 0, White Sox 0.
+
+WHITE SOX 3RD: Robert reached on an error by Rojas [Robert to
+first]; Robert stole second; Sheets was called out on strikes;
+Pham grounded out (shortstop to first); Vaughn singled to second
+[Robert scored (unearned)]; Benintendi flied to center; 1 R (0
+ER), 1 H, 1 E, 1 LOB.  Mariners 0, White Sox 1.
+
+MARINERS 4TH: Polanco homered to center; Haniger walked; Vosler
+struck out; Locklear struck out; Rojas walked [Haniger to
+second]; Moore singled to right [Haniger scored, Rojas to
+second]; Robles singled to left [Rojas scored, Moore to third];
+Arozarena popped to second; 3 R, 3 H, 0 E, 2 LOB.  Mariners 3,
+White Sox 1.
+
+WHITE SOX 4TH: DeJong grounded out (pitcher to first); Lopez
+grounded out (shortstop to first); Baldwin singled to right;
+Baldwin stole second; Robinson popped to first in foul
+territory; 0 R, 1 H, 0 E, 1 LOB.  Mariners 3, White Sox 1.
+
+MARINERS 5TH: ANDERSON REPLACED FEDDE (PITCHING); Raleigh
+homered to right-center; Polanco homered to right; Haniger
+struck out; Vosler grounded out (first to pitcher); Locklear
+walked; Rojas doubled to right [Locklear to third]; Moore
+grounded out (third to first); 2 R, 3 H, 0 E, 2 LOB.  Mariners
+5, White Sox 1.
+
+WHITE SOX 5TH: SNIDER REPLACED WOO (PITCHING); Robert struck
+out; Sheets singled to second; Pham doubled to center [Sheets to
+third]; Vaughn popped to first in foul territory; Benintendi
+flied to right; 0 R, 2 H, 0 E, 2 LOB.  Mariners 5, White Sox 1.
+
+MARINERS 6TH: MARTIN REPLACED ANDERSON (PITCHING); Robles
+singled to center; Arozarena struck out; Raleigh flied to left;
+Polanco was called out on strikes; 0 R, 1 H, 0 E, 1 LOB.
+Mariners 5, White Sox 1.
+
+WHITE SOX 6TH: VOTH REPLACED SNIDER (PITCHING); DeJong grounded
+out (shortstop to first); Lopez grounded out (second to first);
+Baldwin doubled to right; Robinson reached on an error by Moore
+[Baldwin scored (unearned) (no RBI), Robinson to first]; Robert
+struck out; 1 R (0 ER), 1 H, 1 E, 1 LOB.  Mariners 5, White Sox
+2.
+
+MARINERS 7TH: Haniger doubled to left; Vosler popped to
+shortstop; Locklear was called out on strikes; Rojas grounded
+out (first to pitcher); 0 R, 1 H, 0 E, 1 LOB.  Mariners 5, White
+Sox 2.
+
+WHITE SOX 7TH: GARCIA REPLACED VOTH (PITCHING); Sheets struck
+out; Pham grounded out (shortstop to first); Vaughn struck out;
+0 R, 0 H, 0 E, 0 LOB.  Mariners 5, White Sox 2.
+
+MARINERS 8TH: Moore popped to catcher in foul territory; Robles
+grounded out (third to first); Arozarena walked; Raleigh walked
+[Arozarena to second]; Polanco singled to right [Arozarena
+scored, Raleigh to second]; Haniger walked [Raleigh to third,
+Polanco to second]; WILSON REPLACED MARTIN (PITCHING); Vosler
+flied to center; 1 R, 1 H, 0 E, 3 LOB.  Mariners 6, White Sox 2.
+
+WHITE SOX 8TH: SANTOS REPLACED GARCIA (PITCHING); Benintendi
+lined to right; DeJong singled to left; Lopez was called out on
+strikes; Baldwin doubled to right [DeJong to third]; JIMENEZ
+BATTED FOR ROBINSON; Jimenez was hit by a pitch; LEE RAN FOR
+JIMENEZ; MUNOZ REPLACED SANTOS (PITCHING); Munoz threw a wild
+pitch [DeJong scored, Baldwin to third, Lee to second]; Robert
+struck out; 1 R, 2 H, 0 E, 2 LOB.  Mariners 6, White Sox 3.
+
+MARINERS 9TH: LEE STAYED IN GAME (PLAYING C ); Locklear struck
+out; Rojas walked; Moore grounded out (third to first) [Rojas to
+second]; Robles struck out; 0 R, 0 H, 0 E, 1 LOB.  Mariners 6,
+White Sox 3.
+
+WHITE SOX 9TH: Sheets was called out on strikes; Pham grounded
+out (third to first); Vaughn grounded out (shortstop to first);
+0 R, 0 H, 0 E, 0 LOB.  Mariners 6, White Sox 3.
+
+Final Totals      R   H   E  LOB
+ Mariners         6  12   2   13
+ White Sox        3   9   0   10

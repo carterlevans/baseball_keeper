@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baseball Keeper — Player Stats</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&display=swap');
+
+  :root {
+    --green:   #1a3a1a;
+    --grass:   #2d5a27;
+    --chalk:   #f5f0e8;
+    --dirt:    #c4922a;
+    --red:     #c0392b;
+    --gold:    #e8c84a;
+    --teal:    #1a6b6b;
+    --fade:    #8a8070;
+    --ink:     #1c1c1c;
+    --panel:   #f9f5ee;
+    --border:  #d4cfc4;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: var(--chalk);
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ───────────────────────────────────────── */
+  header {
+    background: var(--green);
+    padding: 28px 32px 20px;
+    border-bottom: 4px solid var(--dirt);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      90deg, transparent, transparent 60px,
+      rgba(255,255,255,.03) 60px, rgba(255,255,255,.03) 61px
+    );
+  }
+  header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.8rem;
+    letter-spacing: .12em;
+    color: var(--chalk);
+    line-height: 1;
+  }
+  header .sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .75rem;
+    color: var(--dirt);
+    margin-top: 6px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+    margin-top: 14px;
+  }
+  .legend-item {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .72rem;
+    color: #aaa;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .legend-item span { font-size: .95rem; }
+
+  /* ── TAB NAV ──────────────────────────────────────── */
+  nav {
+    background: var(--green);
+    display: flex;
+    gap: 2px;
+    padding: 0 32px;
+    border-bottom: 3px solid var(--dirt);
+  }
+  .tab-btn {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: .1em;
+    padding: 10px 28px;
+    border: none;
+    background: transparent;
+    color: rgba(255,255,255,.5);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -3px;
+    transition: all .18s;
+  }
+  .tab-btn.active {
+    color: var(--chalk);
+    border-bottom-color: var(--dirt);
+  }
+  .tab-btn:hover:not(.active) { color: rgba(255,255,255,.8); }
+
+  /* ── CONTROLS ─────────────────────────────────────── */
+  .controls {
+    padding: 14px 32px;
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .search-wrap {
+    position: relative;
+    flex: 1;
+    min-width: 200px;
+    max-width: 320px;
+  }
+  .search-wrap input {
+    width: 100%;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .82rem;
+    padding: 7px 12px 7px 32px;
+    border: 1.5px solid var(--border);
+    border-radius: 3px;
+    background: white;
+    color: var(--ink);
+    outline: none;
+    transition: border-color .15s;
+  }
+  .search-wrap input:focus { border-color: var(--grass); }
+  .search-wrap::before {
+    content: '⌕';
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: .9rem;
+    color: var(--fade);
+  }
+
+  .filter-btns { display: flex; gap: 6px; }
+  .filter-btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .72rem;
+    padding: 5px 12px;
+    border: 1.5px solid var(--border);
+    border-radius: 3px;
+    background: white;
+    color: var(--fade);
+    cursor: pointer;
+    transition: all .15s;
+    white-space: nowrap;
+  }
+  .filter-btn.active {
+    background: var(--green);
+    border-color: var(--green);
+    color: white;
+  }
+  .filter-btn:hover:not(.active) {
+    border-color: var(--grass);
+    color: var(--grass);
+  }
+  .count-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .72rem;
+    color: var(--fade);
+    margin-left: auto;
+  }
+
+  /* ── TABLE ────────────────────────────────────────── */
+  .table-wrap {
+    overflow-x: auto;
+    padding: 0 0 40px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .8rem;
+    min-width: 680px;
+  }
+  thead th {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: .85rem;
+    letter-spacing: .08em;
+    padding: 10px 10px 8px;
+    text-align: right;
+    border-bottom: 2px solid var(--border);
+    background: var(--panel);
+    color: var(--fade);
+    cursor: pointer;
+    user-select: none;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    white-space: nowrap;
+    transition: color .15s;
+  }
+  thead th:first-child { text-align: left; padding-left: 16px; min-width: 200px; }
+  thead th:hover { color: var(--ink); }
+  thead th.sorted { color: var(--grass); }
+  thead th .sort-arrow { font-size: .65rem; margin-left: 3px; }
+
+  tbody tr {
+    border-bottom: 1px solid #e8e4dc;
+    transition: background .1s;
+  }
+  tbody tr:hover { background: rgba(45,90,39,.06); }
+  tbody tr.flagged { background: rgba(232,200,74,.07); }
+  tbody tr.flagged:hover { background: rgba(232,200,74,.14); }
+
+  td {
+    padding: 8px 10px;
+    text-align: right;
+    vertical-align: middle;
+  }
+  td:first-child { text-align: left; padding-left: 16px; }
+
+  .player-name {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: .83rem;
+    color: var(--ink);
+  }
+  .player-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .68rem;
+    color: var(--fade);
+    margin-top: 1px;
+  }
+  .flag-badge {
+    font-size: .78rem;
+    cursor: help;
+    position: relative;
+  }
+  .games-badge {
+    display: inline-block;
+    background: var(--green);
+    color: white;
+    font-size: .6rem;
+    padding: 1px 5px;
+    border-radius: 10px;
+    margin-left: 4px;
+    vertical-align: middle;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+  }
+
+  .stat-avg  { color: var(--dirt); font-weight: 600; }
+  .stat-era  { color: var(--teal); font-weight: 600; }
+  .stat-high { color: var(--red); }
+  .stat-zero { color: #ccc; }
+
+  .no-results {
+    text-align: center;
+    padding: 48px 20px;
+    color: var(--fade);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .85rem;
+  }
+
+  /* ── TOOLTIP ──────────────────────────────────────── */
+  .tooltip {
+    display: none;
+    position: fixed;
+    background: var(--ink);
+    color: var(--chalk);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: .78rem;
+    padding: 8px 12px;
+    border-radius: 4px;
+    max-width: 280px;
+    line-height: 1.4;
+    z-index: 999;
+    pointer-events: none;
+    box-shadow: 0 4px 16px rgba(0,0,0,.3);
+  }
+  .tooltip::before {
+    content: attr(data-badge);
+    font-size: 1rem;
+    margin-right: 6px;
+  }
+
+  /* ── SECTION PANEL ────────────────────────────────── */
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── RESPONSIVE ───────────────────────────────────── */
+  @media (max-width: 640px) {
+    header { padding: 20px 16px 14px; }
+    header h1 { font-size: 2rem; }
+    nav { padding: 0 16px; }
+    .controls { padding: 10px 16px; }
+    table { font-size: .75rem; }
+    thead th:first-child { min-width: 150px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Baseball Keeper · Player Log</h1>
+  <div class="sub">12 games attended · 2015–2025 · compiled from box scores</div>
+  <div class="legend">
+    <div class="legend-item"><span>🏛️</span> Hall of Fame</div>
+    <div class="legend-item"><span>⚠️</span> HOF with asterisk</div>
+    <div class="legend-item"><span>🌟</span> Future HOF / superstar</div>
+    <div class="legend-item"><span>⭐</span> Notable star</div>
+    <div class="legend-item"><span>🏆</span> Award / milestone</div>
+    <div class="legend-item"><span>🔄</span> Seen on multiple teams</div>
+  </div>
+</header>
+
+<nav>
+  <button class="tab-btn active" onclick="switchTab('batters')">⚾ Batters</button>
+  <button class="tab-btn" onclick="switchTab('pitchers')">⚾ Pitchers</button>
+</nav>
+
+<div id="tab-batters" class="tab-panel active">
+  <div class="controls">
+    <div class="search-wrap">
+      <input type="text" id="bat-search" placeholder="Search batters…" oninput="renderBat()">
+    </div>
+    <div class="filter-btns">
+      <button class="filter-btn active" onclick="setBatFilter(this,'all')">All</button>
+      <button class="filter-btn" onclick="setBatFilter(this,'flagged')">🌟 Notable only</button>
+      <button class="filter-btn" onclick="setBatFilter(this,'multi')">Multi-game</button>
+    </div>
+    <div class="count-label" id="bat-count"></div>
+  </div>
+  <div class="table-wrap">
+    <table id="bat-table">
+      <thead>
+        <tr>
+          <th onclick="sortBat('name')" data-col="name">Player <span class="sort-arrow"></span></th>
+          <th onclick="sortBat('g')" data-col="g">G <span class="sort-arrow"></span></th>
+          <th onclick="sortBat('AB')" data-col="AB">AB <span class="sort-arrow"></span></th>
+          <th onclick="sortBat('R')" data-col="R">R <span class="sort-arrow"></span></th>
+          <th onclick="sortBat('H')" data-col="H">H <span class="sort-arrow"></span></th>
+          <th onclick="sortBat('RBI')" data-col="RBI">RBI <span class="sort-arrow"></span></th>
+          <th onclick="sortBat('BB')" data-col="BB">BB <span class="sort-arrow"></span></th>
+          <th onclick="sortBat('SO')" data-col="SO">SO <span class="sort-arrow"></span></th>
+          <th onclick="sortBat('AVG')" data-col="AVG">AVG <span class="sort-arrow"></span></th>
+        </tr>
+      </thead>
+      <tbody id="bat-body"></tbody>
+    </table>
+  </div>
+</div>
+
+<div id="tab-pitchers" class="tab-panel">
+  <div class="controls">
+    <div class="search-wrap">
+      <input type="text" id="pit-search" placeholder="Search pitchers…" oninput="renderPit()">
+    </div>
+    <div class="filter-btns">
+      <button class="filter-btn active" onclick="setPitFilter(this,'all')">All</button>
+      <button class="filter-btn" onclick="setPitFilter(this,'flagged')">🌟 Notable only</button>
+      <button class="filter-btn" onclick="setPitFilter(this,'multi')">Multi-game</button>
+    </div>
+    <div class="count-label" id="pit-count"></div>
+  </div>
+  <div class="table-wrap">
+    <table id="pit-table">
+      <thead>
+        <tr>
+          <th onclick="sortPit('name')" data-col="name">Pitcher <span class="sort-arrow"></span></th>
+          <th onclick="sortPit('g')" data-col="g">G <span class="sort-arrow"></span></th>
+          <th onclick="sortPit('IP')" data-col="IP">IP <span class="sort-arrow"></span></th>
+          <th onclick="sortPit('H')" data-col="H">H <span class="sort-arrow"></span></th>
+          <th onclick="sortPit('R')" data-col="R">R <span class="sort-arrow"></span></th>
+          <th onclick="sortPit('ER')" data-col="ER">ER <span class="sort-arrow"></span></th>
+          <th onclick="sortPit('BB')" data-col="BB">BB <span class="sort-arrow"></span></th>
+          <th onclick="sortPit('SO')" data-col="SO">SO <span class="sort-arrow"></span></th>
+          <th onclick="sortPit('ERA')" data-col="ERA">ERA <span class="sort-arrow"></span></th>
+        </tr>
+      </thead>
+      <tbody id="pit-body"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+const DATA = {"batters":[{"name":"Teoscar Hernandez","AB":14,"R":3,"H":4,"RBI":5,"BB":0,"SO":4,"AVG":".286","g":3,"flag":{"badge":"🌟","note":"3 games seen across 3 different teams (TOR 2021, SEA 2023, LAD 2024)"}},{"name":"Steven Kwan","AB":12,"R":2,"H":2,"RBI":0,"BB":0,"SO":4,"AVG":".167","g":3,"flag":{"badge":"⭐","note":"2022 AL ROY finalist; seen in all 3 CLE home games (2022, 2023, 2025)"}},{"name":"George Springer","AB":12,"R":4,"H":4,"RBI":2,"BB":1,"SO":3,"AVG":".333","g":3,"flag":{"badge":"⭐","note":"2017 WS MVP; seen in 3 games (HOU 2017, TOR 2021, TOR 2025)"}},{"name":"Jose Ramirez","AB":11,"R":1,"H":2,"RBI":0,"BB":3,"SO":3,"AVG":".182","g":4,"flag":{"badge":"🌟","note":"4× Silver Slugger; seen in 4 CLE games across 10 seasons (2015–2025)"}},{"name":"Myles Straw","AB":10,"R":1,"H":1,"RBI":1,"BB":1,"SO":5,"AVG":".100","g":3,"flag":{"badge":"🔄","note":"3 games, 2 teams: CLE×2 (2022, 2023) and TOR×1 (2025)"}},{"name":"Kike Hernandez","AB":9,"R":0,"H":0,"RBI":0,"BB":0,"SO":2,"AVG":".000","g":2,"flag":null},{"name":"Abreu","AB":9,"R":2,"H":2,"RBI":4,"BB":0,"SO":3,"AVG":".222","g":2,"flag":null},{"name":"Rafaela","AB":9,"R":3,"H":4,"RBI":3,"BB":0,"SO":0,"AVG":".444","g":2,"flag":null},{"name":"Randy Arozarena","AB":8,"R":1,"H":1,"RBI":0,"BB":1,"SO":3,"AVG":".125","g":2,"flag":{"badge":"🔄🏆","note":"2021 AL ROY; 2 teams seen: TBR 2023 and SEA 2024"}},{"name":"Hamilton","AB":8,"R":0,"H":2,"RBI":0,"BB":0,"SO":3,"AVG":".250","g":2,"flag":null},{"name":"Murphy","AB":8,"R":1,"H":1,"RBI":1,"BB":1,"SO":4,"AVG":".125","g":3,"flag":null},{"name":"Vladimir Guerrero Jr.","AB":8,"R":0,"H":0,"RBI":0,"BB":1,"SO":0,"AVG":".000","g":2,"flag":null},{"name":"Alejandro Kirk","AB":8,"R":0,"H":1,"RBI":1,"BB":0,"SO":1,"AVG":".125","g":2,"flag":null},{"name":"Duran","AB":8,"R":4,"H":2,"RBI":4,"BB":2,"SO":3,"AVG":".250","g":2,"flag":null},{"name":"Romy Gonzalez","AB":8,"R":2,"H":4,"RBI":2,"BB":0,"SO":3,"AVG":".500","g":2,"flag":null},{"name":"O'Neill","AB":8,"R":1,"H":1,"RBI":1,"BB":1,"SO":4,"AVG":".125","g":2,"flag":null},{"name":"Andrew Benintendi","AB":8,"R":0,"H":2,"RBI":0,"BB":0,"SO":1,"AVG":".250","g":2,"flag":null},{"name":"Corey Dickerson","AB":8,"R":2,"H":2,"RBI":1,"BB":0,"SO":1,"AVG":".250","g":2,"flag":{"badge":"🔄","note":"2 games, 2 teams: TOR 2021 and STL 2022"}},{"name":"Raleigh","AB":7,"R":1,"H":2,"RBI":1,"BB":3,"SO":0,"AVG":".286","g":2,"flag":null},{"name":"Wong","AB":7,"R":1,"H":1,"RBI":0,"BB":4,"SO":5,"AVG":".143","g":3,"flag":null},{"name":"Rosario","AB":7,"R":2,"H":1,"RBI":0,"BB":1,"SO":3,"AVG":".143","g":2,"flag":null},{"name":"Josh Naylor","AB":7,"R":0,"H":2,"RBI":0,"BB":0,"SO":2,"AVG":".286","g":2,"flag":null},{"name":"Devers","AB":7,"R":1,"H":0,"RBI":0,"BB":2,"SO":4,"AVG":".000","g":2,"flag":null},{"name":"Bryan Baldwin","AB":7,"R":2,"H":4,"RBI":0,"BB":0,"SO":1,"AVG":".571","g":2,"flag":null},{"name":"Andres Gimenez","AB":6,"R":1,"H":1,"RBI":0,"BB":1,"SO":2,"AVG":".167","g":2,"flag":{"badge":"🔄","note":"2 games, 2 teams: CLE 2023 and TOR 2025"}},{"name":"Yoshida","AB":6,"R":0,"H":1,"RBI":1,"BB":2,"SO":0,"AVG":".167","g":2,"flag":null},{"name":"Mike Yastrzemski","AB":6,"R":1,"H":2,"RBI":0,"BB":0,"SO":0,"AVG":".333","g":2,"flag":{"badge":"🔄","note":"2 games, 2 teams: SF 2022 and KC 2025"}},{"name":"Anthony","AB":6,"R":2,"H":3,"RBI":0,"BB":0,"SO":1,"AVG":".500","g":1,"flag":null},{"name":"Shohei Ohtani","AB":6,"R":2,"H":2,"RBI":3,"BB":2,"SO":2,"AVG":".333","g":2,"flag":{"badge":"🌟","note":"2021 & 2023 AL MVP (both unanimous); 2024 NL MVP; 50-50 season; seen in 2 games"}},{"name":"Robles","AB":6,"R":0,"H":3,"RBI":1,"BB":0,"SO":2,"AVG":".500","g":1,"flag":null},{"name":"Luis Robert Jr.","AB":6,"R":1,"H":0,"RBI":0,"BB":0,"SO":4,"AVG":".000","g":2,"flag":null},{"name":"Julio Rodriguez","AB":5,"R":1,"H":2,"RBI":2,"BB":0,"SO":1,"AVG":".400","g":1,"flag":{"badge":"🏆","note":"2022 AL ROY; tiebreaking 2-run HR in your 2023 CLE game"}},{"name":"France","AB":5,"R":0,"H":1,"RBI":1,"BB":0,"SO":0,"AVG":".200","g":1,"flag":null},{"name":"Brandon Crawford","AB":5,"R":1,"H":1,"RBI":1,"BB":0,"SO":1,"AVG":".200","g":1,"flag":null},{"name":"Jose Altuve","AB":5,"R":0,"H":2,"RBI":0,"BB":0,"SO":0,"AVG":".400","g":1,"flag":{"badge":"🌟","note":"2017 AL MVP (narrowly beat Judge); 7× Silver Slugger; 2017 WS champ"}},{"name":"Carlos Correa","AB":5,"R":1,"H":2,"RBI":1,"BB":0,"SO":2,"AVG":".400","g":1,"flag":{"badge":"⭐","note":"2015 AL ROY; 2017 WS champion; 3-for-5 in this game"}},{"name":"Kipnis","AB":5,"R":2,"H":3,"RBI":0,"BB":0,"SO":0,"AVG":".600","g":1,"flag":null},{"name":"Swisher","AB":5,"R":1,"H":2,"RBI":1,"BB":0,"SO":2,"AVG":".400","g":1,"flag":null},{"name":"Chisenhall","AB":5,"R":2,"H":3,"RBI":3,"BB":0,"SO":1,"AVG":".600","g":1,"flag":null},{"name":"Aviles","AB":5,"R":1,"H":1,"RBI":0,"BB":0,"SO":1,"AVG":".200","g":1,"flag":null},{"name":"Bourn","AB":5,"R":1,"H":3,"RBI":2,"BB":0,"SO":0,"AVG":".600","g":1,"flag":null},{"name":"Narvaez","AB":5,"R":2,"H":2,"RBI":1,"BB":0,"SO":1,"AVG":".400","g":1,"flag":null},{"name":"Eaton","AB":5,"R":0,"H":0,"RBI":0,"BB":0,"SO":1,"AVG":".000","g":2,"flag":null},{"name":"Polanco","AB":5,"R":2,"H":3,"RBI":3,"BB":0,"SO":1,"AVG":".600","g":1,"flag":null},{"name":"Vosler","AB":5,"R":0,"H":1,"RBI":0,"BB":0,"SO":1,"AVG":".200","g":1,"flag":null},{"name":"Moore","AB":5,"R":0,"H":1,"RBI":1,"BB":0,"SO":0,"AVG":".200","g":1,"flag":null},{"name":"Garcia","AB":5,"R":0,"H":1,"RBI":2,"BB":0,"SO":0,"AVG":".200","g":2,"flag":null},{"name":"Sheets","AB":5,"R":0,"H":1,"RBI":0,"BB":0,"SO":3,"AVG":".200","g":1,"flag":null},{"name":"Pham","AB":5,"R":0,"H":1,"RBI":0,"BB":0,"SO":0,"AVG":".200","g":1,"flag":null},{"name":"Vaughn","AB":5,"R":0,"H":1,"RBI":1,"BB":0,"SO":2,"AVG":".200","g":1,"flag":null},{"name":"Matt Olson","AB":5,"R":0,"H":1,"RBI":0,"BB":0,"SO":2,"AVG":".200","g":1,"flag":{"badge":"⭐","note":"2024 Silver Slugger; power-hitting first baseman; franchise anchor for ATL"}},{"name":"M. Harris","AB":5,"R":1,"H":1,"RBI":0,"BB":0,"SO":2,"AVG":".200","g":1,"flag":null},{"name":"Ozzie Albies","AB":5,"R":0,"H":2,"RBI":1,"BB":0,"SO":0,"AVG":".400","g":1,"flag":{"badge":"⭐","note":"Cornerstone Braves 2B; multiple Silver Sluggers; franchise pillar"}},{"name":"Schneemann","AB":5,"R":1,"H":2,"RBI":2,"BB":0,"SO":1,"AVG":".400","g":1,"flag":null},{"name":"Bo Naylor","AB":5,"R":0,"H":4,"RBI":1,"BB":0,"SO":1,"AVG":".800","g":1,"flag":null},{"name":"Bobby Witt Jr.","AB":5,"R":0,"H":1,"RBI":0,"BB":0,"SO":2,"AVG":".200","g":1,"flag":{"badge":"⭐","note":"Elite young franchise SS for KC; top-10 MVP candidate multiple years"}},{"name":"Suarez","AB":4,"R":0,"H":1,"RBI":0,"BB":1,"SO":2,"AVG":".250","g":1,"flag":null},{"name":"Kelenic","AB":4,"R":1,"H":1,"RBI":0,"BB":0,"SO":0,"AVG":".250","g":1,"flag":null},{"name":"Hummel","AB":4,"R":1,"H":1,"RBI":0,"BB":0,"SO":1,"AVG":".250","g":1,"flag":null},{"name":"JP Crawford","AB":4,"R":2,"H":2,"RBI":2,"BB":0,"SO":1,"AVG":".500","g":1,"flag":null},{"name":"Bell","AB":4,"R":0,"H":1,"RBI":1,"BB":0,"SO":1,"AVG":".250","g":1,"flag":null},{"name":"Oscar Gonzalez","AB":4,"R":0,"H":0,"RBI":0,"BB":0,"SO":2,"AVG":".000","g":1,"flag":null},{"name":"Refsnyder","AB":4,"R":0,"H":0,"RBI":0,"BB":0,"SO":2,"AVG":".000","g":1,"flag":null},{"name":"Verdugo","AB":4,"R":1,"H":1,"RBI":0,"BB":0,"SO":0,"AVG":".250","g":1,"flag":null},{"name":"B. Lowe","AB":4,"R":1,"H":2,"RBI":1,"BB":0,"SO":1,"AVG":".500","g":1,"flag":null},{"name":"Franco","AB":4,"R":0,"H":1,"RBI":1,"BB":0,"SO":1,"AVG":".250","g":1,"flag":null},{"name":"Raley","AB":4,"R":0,"H":0,"RBI":0,"BB":0,"SO":1,"AVG":".000","g":1,"flag":null},{"name":"Paredes","AB":4,"R":1,"H":2,"RBI":1,"BB":0,"SO":1,"AVG":".500","g":1,"flag":null},{"name":"Mejia","AB":4,"R":0,"H":0,"RBI":0,"BB":0,"SO":2,"AVG":".000","g":1,"flag":null},{"name":"J. Lowe","AB":4,"R":2,"H":2,"RBI":1,"BB":0,"SO":1,"AVG":".500","g":1,"flag":null},{"name":"Ruf","AB":4,"R":0,"H":0,"RBI":0,"BB":1,"SO":2,"AVG":".000","g":1,"flag":null},{"name":"Flores","AB":4,"R":0,"H":1,"RBI":0,"BB":0,"SO":2,"AVG":".250","g":1,"flag":null},{"name":"Estrada","AB":4,"R":1,"H":0,"RBI":0,"BB":0,"SO":1,"AVG":".000","g":1,"flag":null},{"name":"Duggar","AB":4,"R":0,"H":1,"RBI":0,"BB":0,"SO":0,"AVG":".250","g":1,"flag":null},{"name":"Bart","AB":4,"R":1,"H":2,"RBI":2,"BB":0,"SO":2,"AVG":".500","g":1,"flag":null},{"name":"Reyes","AB":4,"R":0,"H":1,"RBI":0,"BB":0,"SO":1,"AVG":".250","g":1,"flag":null},{"name":"Carlos Beltran","AB":4,"R":0,"H":1,"RBI":0,"BB":0,"SO":0,"AVG":".250","g":1,"flag":{"badge":"⚠️","note":"HOF talent (435 HRs); candidacy complicated by Astros sign-stealing"}},{"name":"Marwin Gonzalez","AB":4,"R":1,"H":1,"RBI":0,"BB":0,"SO":2,"AVG":".250","g":1,"flag":null},{"name":"Brian McCann","AB":4,"R":1,"H":2,"RBI":3,"BB":0,"SO":1,"AVG":".500","g":1,"flag":{"badge":"⭐","note":"7× All-Star; 3-run HR off Montgomery was the game-winner here"}},{"name":"Marisnick","AB":4,"R":0,"H":0,"RBI":0,"BB":0,"SO":4,"AVG":".000","g":1,"flag":null},{"name":"Gardner","AB":4,"R":0,"H":1,"RBI":0,"BB":0,"SO":0,"AVG":".250","g":1,"flag":null},{"name":"Sanchez","AB":4,"R":0,"H":0,"RBI":0,"BB":0,"SO":3,"AVG":".000","g":1,"flag":null},{"name":"Holliday","AB":4,"R":1,"H":1,"RBI":0,"BB":0,"SO":1,"AVG":".250","g":1,"flag":null},{"name":"Starlin Castro","AB":4,"R":0,"H":0,"RBI":0,"BB":0,"SO":1,"AVG":".000","g":1,"flag":null},{"name":"Ellsbury","AB":4,"R":0,"H":1,"RBI":0,"BB":0,"SO":0,"AVG":".250","g":1,"flag":null},{"name":"Aaron Judge","AB":4,"R":0,"H":2,"RBI":0,"BB":0,"SO":2,"AVG":".500","g":1,"flag":{"badge":"🌟","note":"2017 AL ROY seen here; 2022 AL MVP (62 HRs); career franchise icon"}},{"name":"Gregorius","AB":4,"R":0,"H":2,"RBI":1,"BB":0,"SO":1,"AVG":".500","g":1,"flag":null},{"name":"Montgomery","AB":4,"R":1,"H":1,"RBI":1,"BB":0,"SO":1,"AVG":".250","g":2,"flag":null},{"name":"Deshields","AB":4,"R":0,"H":0,"RBI":0,"BB":0,"SO":1,"AVG":".000","g":1,"flag":null},{"name":"Choo","AB":4,"R":1,"H":2,"RBI":0,"BB":0,"SO":0,"AVG":".500","g":1,"flag":null},{"name":"Fielder","AB":4,"R":0,"H":1,"RBI":0,"BB":0,"SO":1,"AVG":".250","g":1,"flag":null},{"name":"Moreland","AB":4,"R":0,"H":1,"RBI":0,"BB":0,"SO":0,"AVG":".250","g":1,"flag":null},{"name":"Roberto Perez","AB":4,"R":1,"H":1,"RBI":1,"BB":0,"SO":1,"AVG":".250","g":1,"flag":null},{"name":"Barger","AB":4,"R":0,"H":1,"RBI":1,"BB":0,"SO":2,"AVG":".250","g":1,"flag":null},{"name":"Clement","AB":4,"R":0,"H":1,"RBI":0,"BB":0,"SO":0,"AVG":".250","g":1,"flag":null},{"name":"Freddie Freeman","AB":4,"R":1,"H":1,"RBI":1,"BB":0,"SO":0,"AVG":".250","g":1,"flag":{"badge":"🌟","note":"2020 NL MVP; 2024 WS MVP; 2024 WS champion seen in your Dodger Stadium game"}},{"name":"Pages","AB":4,"R":1,"H":1,"RBI":0,"BB":0,"SO":2,"AVG":".250","g":1,"flag":null},{"name":"Lux","AB":4,"R":2,"H":3,"RBI":2,"BB":0,"SO":1,"AVG":".750","g":1,"flag":null},{"name":"Rojas","AB":4,"R":1,"H":1,"RBI":0,"BB":2,"SO":0,"AVG":".250","g":2,"flag":null},{"name":"Heyward","AB":4,"R":1,"H":1,"RBI":2,"BB":0,"SO":0,"AVG":".250","g":1,"flag":null},{"name":"Locklear","AB":4,"R":0,"H":0,"RBI":0,"BB":1,"SO":3,"AVG":".000","g":1,"flag":null},{"name":"Dejong","AB":4,"R":1,"H":2,"RBI":0,"BB":0,"SO":0,"AVG":".500","g":1,"flag":null},{"name":"Semien","AB":4,"R":1,"H":1,"RBI":0,"BB":1,"SO":1,"AVG":".250","g":1,"flag":null},{"name":"Gurriel","AB":4,"R":2,"H":3,"RBI":2,"BB":0,"SO":0,"AVG":".750","g":1,"flag":null},{"name":"Valera","AB":4,"R":0,"H":0,"RBI":0,"BB":0,"SO":0,"AVG":".000","g":1,"flag":null},{"name":"Espinal","AB":4,"R":1,"H":1,"RBI":1,"BB":0,"SO":1,"AVG":".250","g":1,"flag":null},{"name":"Walsh","AB":4,"R":0,"H":1,"RBI":0,"BB":0,"SO":2,"AVG":".250","g":1,"flag":null},{"name":"Gosselin","AB":4,"R":0,"H":0,"RBI":0,"BB":0,"SO":0,"AVG":".000","g":1,"flag":null},{"name":"Marsh","AB":4,"R":0,"H":0,"RBI":0,"BB":0,"SO":4,"AVG":".000","g":1,"flag":null},{"name":"Adell","AB":4,"R":1,"H":2,"RBI":0,"BB":0,"SO":1,"AVG":".500","g":1,"flag":null},{"name":"Mayfield","AB":4,"R":0,"H":0,"RBI":0,"BB":0,"SO":1,"AVG":".000","g":1,"flag":null},{"name":"Profar","AB":4,"R":1,"H":2,"RBI":2,"BB":1,"SO":0,"AVG":".500","g":1,"flag":null},{"name":"Ronald Acuna Jr.","AB":4,"R":1,"H":1,"RBI":0,"BB":1,"SO":2,"AVG":".250","g":1,"flag":{"badge":"🌟","note":"2023 NL MVP (40-70 season); ACL recovery year in 2024; seen Aug 2025"}},{"name":"Ozuna","AB":4,"R":0,"H":0,"RBI":0,"BB":1,"SO":2,"AVG":".000","g":1,"flag":null},{"name":"Alvarez","AB":4,"R":1,"H":1,"RBI":1,"BB":0,"SO":1,"AVG":".250","g":1,"flag":null},{"name":"Nick Allen","AB":4,"R":1,"H":2,"RBI":0,"BB":0,"SO":0,"AVG":".500","g":1,"flag":null},{"name":"Rocchio","AB":4,"R":0,"H":1,"RBI":0,"BB":0,"SO":1,"AVG":".250","g":1,"flag":null},{"name":"Pasquantino","AB":4,"R":1,"H":1,"RBI":0,"BB":0,"SO":0,"AVG":".250","g":1,"flag":null},{"name":"Salvador Perez","AB":4,"R":0,"H":0,"RBI":0,"BB":0,"SO":1,"AVG":".000","g":1,"flag":null},{"name":"India","AB":4,"R":2,"H":2,"RBI":0,"BB":0,"SO":1,"AVG":".500","g":1,"flag":null},{"name":"Tauchman","AB":4,"R":1,"H":2,"RBI":0,"BB":0,"SO":0,"AVG":".500","g":1,"flag":null},{"name":"Teel","AB":4,"R":0,"H":3,"RBI":1,"BB":0,"SO":1,"AVG":".750","g":1,"flag":null},{"name":"Sosa","AB":4,"R":0,"H":1,"RBI":1,"BB":0,"SO":0,"AVG":".250","g":1,"flag":null},{"name":"Mead","AB":4,"R":0,"H":0,"RBI":0,"BB":0,"SO":3,"AVG":".000","g":1,"flag":null},{"name":"Donovan","AB":4,"R":0,"H":0,"RBI":0,"BB":0,"SO":0,"AVG":".000","g":1,"flag":null},{"name":"Edman","AB":4,"R":1,"H":2,"RBI":0,"BB":0,"SO":2,"AVG":".500","g":1,"flag":null},{"name":"Albert Pujols","AB":4,"R":1,"H":1,"RBI":2,"BB":0,"SO":1,"AVG":".250","g":1,"flag":{"badge":"🏛️","note":"HOF lock (eligible 2027); 3× MVP; 703 career HRs; hit #697 in your 2022 game"}},{"name":"Yadier Molina","AB":4,"R":0,"H":0,"RBI":0,"BB":0,"SO":0,"AVG":".000","g":1,"flag":{"badge":"🏛️","note":"9× Gold Glove C; 2× WS champion; strong HOF case, eligible 2027"}},{"name":"Cruz","AB":4,"R":0,"H":0,"RBI":1,"BB":0,"SO":2,"AVG":".000","g":1,"flag":null},{"name":"Willi Castro","AB":4,"R":0,"H":1,"RBI":0,"BB":0,"SO":1,"AVG":".250","g":1,"flag":null},{"name":"Hayes","AB":4,"R":0,"H":1,"RBI":0,"BB":0,"SO":0,"AVG":".250","g":1,"flag":null},{"name":"Suwinski","AB":4,"R":1,"H":1,"RBI":1,"BB":0,"SO":1,"AVG":".250","g":1,"flag":null},{"name":"Newman","AB":4,"R":0,"H":1,"RBI":0,"BB":0,"SO":1,"AVG":".250","g":1,"flag":null},{"name":"Zunino","AB":3,"R":0,"H":0,"RBI":0,"BB":0,"SO":2,"AVG":".000","g":1,"flag":null},{"name":"Arroyo","AB":3,"R":0,"H":0,"RBI":0,"BB":0,"SO":2,"AVG":".000","g":1,"flag":null},{"name":"Diaz","AB":3,"R":3,"H":3,"RBI":1,"BB":1,"SO":0,"AVG":"1.000","g":1,"flag":null},{"name":"Brujan","AB":3,"R":0,"H":1,"RBI":1,"BB":0,"SO":1,"AVG":".333","g":1,"flag":null},{"name":"Belt","AB":3,"R":0,"H":0,"RBI":0,"BB":2,"SO":1,"AVG":".000","g":1,"flag":null},{"name":"Pederson","AB":3,"R":1,"H":2,"RBI":1,"BB":0,"SO":0,"AVG":".667","g":1,"flag":null},{"name":"Mercado","AB":3,"R":0,"H":0,"RBI":0,"BB":0,"SO":1,"AVG":".000","g":1,"flag":null},{"name":"Hedges","AB":3,"R":0,"H":0,"RBI":0,"BB":0,"SO":1,"AVG":".000","g":1,"flag":null},{"name":"Gattis","AB":3,"R":0,"H":0,"RBI":0,"BB":1,"SO":0,"AVG":".000","g":1,"flag":null},{"name":"Alex Bregman","AB":3,"R":1,"H":1,"RBI":0,"BB":1,"SO":1,"AVG":".333","g":1,"flag":{"badge":"⭐","note":"Key Astros 3B; 2017 WS champion (Astros sign-stealing era)"}},{"name":"Hicks","AB":3,"R":0,"H":0,"RBI":0,"BB":0,"SO":2,"AVG":".000","g":2,"flag":null},{"name":"Adrian Beltre","AB":3,"R":0,"H":1,"RBI":0,"BB":0,"SO":0,"AVG":".333","g":1,"flag":{"badge":"🏛️","note":"Hall of Fame 2024; 477 career HRs; played in your 2015 game"}},{"name":"Field","AB":3,"R":0,"H":0,"RBI":0,"BB":0,"SO":2,"AVG":".000","g":1,"flag":null},{"name":"Santana","AB":3,"R":2,"H":1,"RBI":3,"BB":2,"SO":0,"AVG":".333","g":1,"flag":null},{"name":"Bichette","AB":3,"R":0,"H":1,"RBI":0,"BB":0,"SO":1,"AVG":".333","g":1,"flag":null},{"name":"Toro","AB":3,"R":2,"H":2,"RBI":2,"BB":2,"SO":0,"AVG":".667","g":1,"flag":null},{"name":"Story","AB":3,"R":1,"H":2,"RBI":2,"BB":1,"SO":0,"AVG":".667","g":1,"flag":null},{"name":"Sogard","AB":3,"R":1,"H":2,"RBI":1,"BB":1,"SO":0,"AVG":".667","g":1,"flag":null},{"name":"Biggio","AB":3,"R":1,"H":1,"RBI":1,"BB":0,"SO":0,"AVG":".333","g":1,"flag":null},{"name":"Barnes","AB":3,"R":1,"H":1,"RBI":1,"BB":0,"SO":1,"AVG":".333","g":1,"flag":null},{"name":"Haniger","AB":3,"R":1,"H":1,"RBI":0,"BB":2,"SO":1,"AVG":".333","g":1,"flag":null},{"name":"Lopez","AB":3,"R":0,"H":0,"RBI":0,"BB":1,"SO":1,"AVG":".000","g":1,"flag":null},{"name":"Robinson","AB":3,"R":0,"H":0,"RBI":0,"BB":0,"SO":0,"AVG":".000","g":1,"flag":null},{"name":"Fletcher","AB":3,"R":0,"H":1,"RBI":0,"BB":1,"SO":0,"AVG":".333","g":1,"flag":null},{"name":"Manzardo","AB":3,"R":0,"H":0,"RBI":1,"BB":1,"SO":1,"AVG":".000","g":1,"flag":null},{"name":"Jones","AB":3,"R":1,"H":1,"RBI":0,"BB":2,"SO":1,"AVG":".333","g":1,"flag":null},{"name":"Martinez","AB":3,"R":0,"H":0,"RBI":0,"BB":1,"SO":0,"AVG":".000","g":1,"flag":null},{"name":"Frazier","AB":3,"R":1,"H":1,"RBI":0,"BB":0,"SO":2,"AVG":".333","g":1,"flag":null},{"name":"Vargas","AB":3,"R":1,"H":0,"RBI":0,"BB":1,"SO":1,"AVG":".000","g":1,"flag":null},{"name":"Gorman","AB":3,"R":0,"H":0,"RBI":0,"BB":1,"SO":2,"AVG":".000","g":1,"flag":null},{"name":"Burleson","AB":3,"R":0,"H":1,"RBI":0,"BB":0,"SO":0,"AVG":".333","g":1,"flag":null},{"name":"Reynolds","AB":3,"R":0,"H":0,"RBI":0,"BB":1,"SO":1,"AVG":".000","g":1,"flag":null},{"name":"Chavis","AB":3,"R":0,"H":0,"RBI":0,"BB":1,"SO":0,"AVG":".000","g":1,"flag":null},{"name":"Greg Allen","AB":3,"R":2,"H":2,"RBI":1,"BB":0,"SO":1,"AVG":".667","g":1,"flag":null},{"name":"Delay","AB":3,"R":0,"H":1,"RBI":0,"BB":0,"SO":0,"AVG":".333","g":1,"flag":null},{"name":"Turner","AB":2,"R":0,"H":1,"RBI":0,"BB":2,"SO":1,"AVG":".500","g":1,"flag":null},{"name":"Casas","AB":2,"R":0,"H":0,"RBI":0,"BB":0,"SO":0,"AVG":".000","g":1,"flag":null},{"name":"Mcguire","AB":2,"R":0,"H":2,"RBI":1,"BB":0,"SO":0,"AVG":"1.000","g":1,"flag":null},{"name":"Miller","AB":2,"R":0,"H":1,"RBI":1,"BB":0,"SO":1,"AVG":".500","g":1,"flag":null},{"name":"Headley","AB":2,"R":0,"H":0,"RBI":0,"BB":0,"SO":2,"AVG":".000","g":1,"flag":null},{"name":"Torreyes","AB":2,"R":0,"H":0,"RBI":0,"BB":0,"SO":1,"AVG":".000","g":1,"flag":null},{"name":"Andrus","AB":2,"R":0,"H":0,"RBI":0,"BB":0,"SO":2,"AVG":".000","g":1,"flag":null},{"name":"Rosales","AB":2,"R":0,"H":0,"RBI":0,"BB":0,"SO":1,"AVG":".000","g":1,"flag":null},{"name":"Chirinos","AB":2,"R":1,"H":1,"RBI":1,"BB":1,"SO":1,"AVG":".500","g":1,"flag":null},{"name":"Brantley","AB":2,"R":1,"H":2,"RBI":1,"BB":1,"SO":0,"AVG":"1.000","g":1,"flag":null},{"name":"Wagner","AB":2,"R":0,"H":1,"RBI":0,"BB":0,"SO":0,"AVG":".500","g":1,"flag":null},{"name":"Lukes","AB":2,"R":0,"H":0,"RBI":0,"BB":2,"SO":0,"AVG":".000","g":1,"flag":null},{"name":"Dominic Smith","AB":2,"R":1,"H":1,"RBI":0,"BB":0,"SO":0,"AVG":".500","g":1,"flag":null},{"name":"Westbrook","AB":2,"R":0,"H":0,"RBI":0,"BB":0,"SO":1,"AVG":".000","g":1,"flag":null},{"name":"Randal Grichuk","AB":2,"R":0,"H":0,"RBI":0,"BB":0,"SO":1,"AVG":".000","g":2,"flag":{"badge":"🔄","note":"2 games, 2 teams: TOR 2021 (sub) and KC 2025"}},{"name":"Stassi","AB":2,"R":0,"H":0,"RBI":0,"BB":0,"SO":2,"AVG":".000","g":1,"flag":null},{"name":"Kayfus","AB":2,"R":0,"H":0,"RBI":0,"BB":1,"SO":1,"AVG":".000","g":1,"flag":null},{"name":"Loftin","AB":2,"R":0,"H":0,"RBI":0,"BB":0,"SO":1,"AVG":".000","g":1,"flag":null},{"name":"Massey","AB":2,"R":0,"H":1,"RBI":2,"BB":0,"SO":0,"AVG":".500","g":1,"flag":null},{"name":"M. Taylor","AB":2,"R":0,"H":0,"RBI":0,"BB":0,"SO":2,"AVG":".000","g":1,"flag":null},{"name":"Nootbaar","AB":2,"R":0,"H":1,"RBI":0,"BB":2,"SO":0,"AVG":".500","g":1,"flag":null},{"name":"Brennan","AB":1,"R":0,"H":0,"RBI":0,"BB":0,"SO":1,"AVG":".000","g":1,"flag":null},{"name":"Tapia","AB":1,"R":0,"H":1,"RBI":0,"BB":0,"SO":0,"AVG":"1.000","g":1,"flag":null},{"name":"Dalbec","AB":1,"R":0,"H":1,"RBI":0,"BB":1,"SO":0,"AVG":"1.000","g":1,"flag":null},{"name":"Slater","AB":1,"R":0,"H":0,"RBI":0,"BB":1,"SO":0,"AVG":".000","g":1,"flag":null},{"name":"Reddick","AB":1,"R":0,"H":1,"RBI":1,"BB":0,"SO":0,"AVG":"1.000","g":1,"flag":null},{"name":"Martin","AB":1,"R":1,"H":1,"RBI":2,"BB":0,"SO":0,"AVG":"1.000","g":2,"flag":null},{"name":"Clase","AB":1,"R":0,"H":0,"RBI":0,"BB":0,"SO":0,"AVG":".000","g":1,"flag":null},{"name":"Suzuki","AB":1,"R":0,"H":0,"RBI":0,"BB":0,"SO":0,"AVG":".000","g":1,"flag":null},{"name":"Fry","AB":1,"R":0,"H":0,"RBI":0,"BB":0,"SO":1,"AVG":".000","g":1,"flag":null},{"name":"Arias","AB":1,"R":0,"H":0,"RBI":0,"BB":0,"SO":0,"AVG":".000","g":1,"flag":null},{"name":"Tolbert","AB":1,"R":0,"H":0,"RBI":0,"BB":0,"SO":0,"AVG":".000","g":1,"flag":null},{"name":"Isbel","AB":1,"R":0,"H":1,"RBI":1,"BB":1,"SO":0,"AVG":"1.000","g":1,"flag":null},{"name":"Quero","AB":1,"R":0,"H":0,"RBI":0,"BB":0,"SO":1,"AVG":".000","g":1,"flag":null},{"name":"Gamel","AB":1,"R":0,"H":0,"RBI":0,"BB":0,"SO":0,"AVG":".000","g":1,"flag":null}],"pitchers":[{"name":"Carlos Carrasco","IP":"8","H":5,"R":1,"ER":1,"BB":1,"SO":8,"ERA":"1.12","g":1,"flag":null},{"name":"Erick Fedde","IP":"8","H":12,"R":7,"ER":7,"BB":5,"SO":9,"ERA":"7.88","g":2,"flag":{"badge":"🔄","note":"2 games as pitcher, 2 teams: CWS 2024 (L) and ATL 2025 (relieved)"}},{"name":"Carlos Rodon","IP":"7","H":2,"R":1,"ER":1,"BB":2,"SO":9,"ERA":"1.29","g":1,"flag":{"badge":"⭐","note":"Previously no-hit CLE in 2021 as a White Sox; 7 IP, 9 Ks, 1 ER in your game"}},{"name":"Lucas Giolito","IP":"7","H":6,"R":1,"ER":0,"BB":1,"SO":5,"ERA":"0.00","g":1,"flag":{"badge":"⭐","note":"7 IP, 0 ER, 5 K in your Jun 2025 Fenway game"}},{"name":"Martin Perez","IP":"7","H":1,"R":0,"ER":0,"BB":0,"SO":5,"ERA":"0.00","g":1,"flag":null},{"name":"Mitch Keller","IP":"7","H":2,"R":0,"ER":0,"BB":3,"SO":6,"ERA":"0.00","g":1,"flag":{"badge":"⭐","note":"7 hitless innings (0 ER) before the epic 9th collapse; ace of PIT"}},{"name":"Alek Manoah","IP":"6.2","H":5,"R":2,"ER":2,"BB":2,"SO":11,"ERA":"2.70","g":1,"flag":{"badge":"🏆","note":"11 Ks in this game; finished top-5 AL Cy Young 2022"}},{"name":"Lance McCullers Jr.","IP":"6","H":4,"R":0,"ER":0,"BB":0,"SO":7,"ERA":"0.00","g":1,"flag":{"badge":"🏆","note":"2017 WS champ; ended ALCS G7 w/ 24 straight curveballs; 6 IP, 7 Ks here"}},{"name":"Montgomery","IP":"6","H":8,"R":4,"ER":4,"BB":1,"SO":7,"ERA":"6.00","g":1,"flag":null},{"name":"Civale","IP":"5.2","H":9,"R":4,"ER":4,"BB":1,"SO":5,"ERA":"6.35","g":1,"flag":null},{"name":"Jose Quintana","IP":"5.2","H":4,"R":1,"ER":1,"BB":1,"SO":4,"ERA":"1.59","g":1,"flag":null},{"name":"Plesac","IP":"5.1","H":7,"R":2,"ER":2,"BB":1,"SO":4,"ERA":"3.38","g":1,"flag":null},{"name":"Whitlock","IP":"5","H":8,"R":5,"ER":5,"BB":0,"SO":5,"ERA":"9.00","g":1,"flag":null},{"name":"Shane McClanahan","IP":"5","H":2,"R":1,"ER":1,"BB":4,"SO":9,"ERA":"1.80","g":1,"flag":{"badge":"🏆","note":"3-0, 9 Ks in your game; Tommy John ended his 2023 season in Aug"}},{"name":"Crawford","IP":"5","H":7,"R":6,"ER":6,"BB":0,"SO":2,"ERA":"10.80","g":1,"flag":null},{"name":"James Paxton","IP":"5","H":4,"R":3,"ER":3,"BB":4,"SO":7,"ERA":"5.40","g":1,"flag":null},{"name":"Michael Lorenzen","IP":"5","H":7,"R":4,"ER":4,"BB":1,"SO":6,"ERA":"7.20","g":1,"flag":null},{"name":"Logan Allen","IP":"4.2","H":5,"R":3,"ER":1,"BB":3,"SO":6,"ERA":"1.93","g":1,"flag":null},{"name":"Bass","IP":"4.1","H":5,"R":2,"ER":2,"BB":2,"SO":2,"ERA":"4.15","g":1,"flag":null},{"name":"Logan Gilbert","IP":"4","H":6,"R":3,"ER":3,"BB":2,"SO":6,"ERA":"6.75","g":1,"flag":null},{"name":"Bryan Woo","IP":"4","H":4,"R":1,"ER":0,"BB":1,"SO":3,"ERA":"0.00","g":1,"flag":null},{"name":"Bundy","IP":"4","H":4,"R":3,"ER":3,"BB":0,"SO":2,"ERA":"6.75","g":1,"flag":null},{"name":"Slegers","IP":"4","H":4,"R":3,"ER":3,"BB":1,"SO":4,"ERA":"6.75","g":1,"flag":null},{"name":"Tim Herrin","IP":"2.2","H":0,"R":0,"ER":0,"BB":1,"SO":5,"ERA":"0.00","g":2,"flag":null},{"name":"Lewis","IP":"2.2","H":11,"R":10,"ER":9,"BB":1,"SO":2,"ERA":"30.38","g":1,"flag":null},{"name":"Martin","IP":"2.2","H":3,"R":1,"ER":1,"BB":3,"SO":3,"ERA":"3.38","g":1,"flag":null},{"name":"Andres Munoz","IP":"2.1","H":0,"R":0,"ER":0,"BB":0,"SO":3,"ERA":"0.00","g":2,"flag":{"badge":"⭐","note":"Elite SEA closer; appeared in both 2023 and 2024 SEA games"}},{"name":"Chris Bassitt","IP":"2","H":8,"R":9,"ER":8,"BB":4,"SO":3,"ERA":"36.00","g":1,"flag":null},{"name":"Fisher","IP":"2","H":1,"R":0,"ER":0,"BB":1,"SO":1,"ERA":"0.00","g":1,"flag":null},{"name":"Murphy","IP":"2","H":0,"R":0,"ER":0,"BB":2,"SO":2,"ERA":"0.00","g":1,"flag":null},{"name":"Anderson","IP":"2","H":3,"R":2,"ER":2,"BB":2,"SO":2,"ERA":"9.00","g":2,"flag":null},{"name":"Bummer","IP":"2","H":1,"R":0,"ER":0,"BB":0,"SO":1,"ERA":"0.00","g":1,"flag":null},{"name":"Fluharty","IP":"1.2","H":3,"R":2,"ER":2,"BB":0,"SO":2,"ERA":"10.80","g":1,"flag":null},{"name":"Schultz","IP":"1.1","H":5,"R":3,"ER":3,"BB":1,"SO":1,"ERA":"20.25","g":1,"flag":null},{"name":"Yarbrough","IP":"1.1","H":0,"R":0,"ER":0,"BB":0,"SO":3,"ERA":"0.00","g":1,"flag":null},{"name":"Wilson","IP":"1.1","H":0,"R":0,"ER":0,"BB":1,"SO":2,"ERA":"0.00","g":1,"flag":null},{"name":"Saucedo","IP":"1.1","H":0,"R":0,"ER":0,"BB":0,"SO":1,"ERA":"0.00","g":1,"flag":null},{"name":"Enright","IP":"1.1","H":4,"R":2,"ER":2,"BB":0,"SO":3,"ERA":"13.50","g":1,"flag":null},{"name":"Hicks","IP":"1.1","H":1,"R":1,"ER":1,"BB":0,"SO":1,"ERA":"6.75","g":1,"flag":null},{"name":"Murfee","IP":"1","H":0,"R":0,"ER":0,"BB":1,"SO":0,"ERA":"0.00","g":1,"flag":null},{"name":"Gott","IP":"1","H":1,"R":0,"ER":0,"BB":0,"SO":2,"ERA":"0.00","g":1,"flag":null},{"name":"Brash","IP":"1","H":0,"R":0,"ER":0,"BB":0,"SO":3,"ERA":"0.00","g":1,"flag":null},{"name":"Paul Sewald","IP":"1","H":0,"R":0,"ER":0,"BB":0,"SO":1,"ERA":"0.00","g":1,"flag":null},{"name":"Curry","IP":"1","H":0,"R":0,"ER":0,"BB":2,"SO":1,"ERA":"0.00","g":1,"flag":null},{"name":"Bleier","IP":"1","H":1,"R":0,"ER":0,"BB":0,"SO":1,"ERA":"0.00","g":1,"flag":null},{"name":"Ort","IP":"1","H":2,"R":2,"ER":1,"BB":1,"SO":2,"ERA":"9.00","g":1,"flag":null},{"name":"Brasier","IP":"1","H":0,"R":0,"ER":0,"BB":0,"SO":1,"ERA":"0.00","g":1,"flag":null},{"name":"Cleavinger","IP":"1","H":0,"R":0,"ER":0,"BB":0,"SO":0,"ERA":"0.00","g":1,"flag":null},{"name":"Adam","IP":"1","H":0,"R":0,"ER":0,"BB":0,"SO":0,"ERA":"0.00","g":1,"flag":null},{"name":"Thompson","IP":"1","H":1,"R":0,"ER":0,"BB":1,"SO":0,"ERA":"0.00","g":1,"flag":null},{"name":"Faucher","IP":"1","H":3,"R":1,"ER":1,"BB":0,"SO":1,"ERA":"9.00","g":1,"flag":null},{"name":"Rogers","IP":"1","H":0,"R":0,"ER":0,"BB":0,"SO":0,"ERA":"0.00","g":1,"flag":null},{"name":"Camilo Doval","IP":"1","H":1,"R":0,"ER":0,"BB":0,"SO":1,"ERA":"0.00","g":1,"flag":null},{"name":"Pilkington","IP":"1","H":0,"R":0,"ER":0,"BB":1,"SO":1,"ERA":"0.00","g":1,"flag":null},{"name":"Harris","IP":"1","H":0,"R":0,"ER":0,"BB":0,"SO":1,"ERA":"0.00","g":1,"flag":null},{"name":"Gregerson","IP":"1","H":0,"R":0,"ER":0,"BB":0,"SO":2,"ERA":"0.00","g":1,"flag":null},{"name":"Hoyt","IP":"1","H":3,"R":1,"ER":1,"BB":0,"SO":3,"ERA":"9.00","g":1,"flag":null},{"name":"Holder","IP":"1","H":0,"R":0,"ER":0,"BB":0,"SO":0,"ERA":"0.00","g":1,"flag":null},{"name":"Clippard","IP":"1","H":0,"R":0,"ER":0,"BB":1,"SO":3,"ERA":"0.00","g":1,"flag":null},{"name":"Edwards","IP":"1","H":1,"R":0,"ER":0,"BB":0,"SO":2,"ERA":"0.00","g":1,"flag":null},{"name":"Atchison","IP":"1","H":3,"R":2,"ER":2,"BB":0,"SO":1,"ERA":"18.00","g":1,"flag":null},{"name":"Heineman","IP":"1","H":1,"R":1,"ER":1,"BB":0,"SO":0,"ERA":"9.00","g":1,"flag":null},{"name":"Horn","IP":"1","H":0,"R":0,"ER":0,"BB":0,"SO":1,"ERA":"0.00","g":1,"flag":null},{"name":"K. Jansen","IP":"1","H":3,"R":3,"ER":3,"BB":0,"SO":1,"ERA":"27.00","g":1,"flag":null},{"name":"Banda","IP":"1","H":1,"R":0,"ER":0,"BB":0,"SO":1,"ERA":"0.00","g":1,"flag":null},{"name":"Snider","IP":"1","H":2,"R":0,"ER":0,"BB":0,"SO":1,"ERA":"0.00","g":1,"flag":null},{"name":"Voth","IP":"1","H":1,"R":1,"ER":0,"BB":0,"SO":1,"ERA":"0.00","g":1,"flag":null},{"name":"Garcia","IP":"1","H":0,"R":0,"ER":0,"BB":0,"SO":2,"ERA":"0.00","g":1,"flag":null},{"name":"Hand","IP":"1","H":0,"R":0,"ER":0,"BB":0,"SO":0,"ERA":"0.00","g":1,"flag":null},{"name":"Selman","IP":"1","H":2,"R":4,"ER":4,"BB":2,"SO":0,"ERA":"36.00","g":1,"flag":null},{"name":"Lee","IP":"1","H":2,"R":0,"ER":0,"BB":0,"SO":2,"ERA":"0.00","g":1,"flag":null},{"name":"Johnson","IP":"1","H":0,"R":0,"ER":0,"BB":3,"SO":0,"ERA":"0.00","g":1,"flag":null},{"name":"Raisel Iglesias","IP":"1","H":1,"R":0,"ER":0,"BB":0,"SO":2,"ERA":"0.00","g":1,"flag":null},{"name":"Gaddis","IP":"1","H":1,"R":0,"ER":0,"BB":1,"SO":1,"ERA":"0.00","g":1,"flag":null},{"name":"Smith","IP":"1","H":0,"R":0,"ER":0,"BB":0,"SO":0,"ERA":"0.00","g":1,"flag":null},{"name":"Schreiber","IP":"1","H":1,"R":0,"ER":0,"BB":0,"SO":2,"ERA":"0.00","g":1,"flag":null},{"name":"Clarke","IP":"1","H":0,"R":0,"ER":0,"BB":0,"SO":1,"ERA":"0.00","g":1,"flag":null},{"name":"Long","IP":"1","H":1,"R":0,"ER":0,"BB":0,"SO":0,"ERA":"0.00","g":1,"flag":null},{"name":"Carlos Estevez","IP":"1","H":0,"R":0,"ER":0,"BB":0,"SO":2,"ERA":"0.00","g":1,"flag":null},{"name":"Ryan Helsley","IP":"1","H":1,"R":1,"ER":1,"BB":0,"SO":1,"ERA":"9.00","g":1,"flag":null},{"name":"Underwood","IP":"1","H":1,"R":0,"ER":0,"BB":0,"SO":0,"ERA":"0.00","g":1,"flag":null},{"name":"De Jong","IP":"1","H":4,"R":4,"ER":4,"BB":0,"SO":1,"ERA":"36.00","g":1,"flag":null},{"name":"Sandlin","IP":"0.2","H":1,"R":1,"ER":1,"BB":0,"SO":0,"ERA":"13.50","g":1,"flag":null},{"name":"Stephan","IP":"0.2","H":0,"R":0,"ER":0,"BB":0,"SO":0,"ERA":"0.00","g":1,"flag":null},{"name":"Gose","IP":"0.2","H":0,"R":0,"ER":0,"BB":1,"SO":2,"ERA":"0.00","g":1,"flag":null},{"name":"Castro","IP":"0.2","H":1,"R":2,"ER":0,"BB":0,"SO":1,"ERA":"0.00","g":1,"flag":null},{"name":"Chapman","IP":"0.2","H":3,"R":1,"ER":1,"BB":0,"SO":1,"ERA":"13.50","g":1,"flag":null},{"name":"Kelly","IP":"0.2","H":1,"R":0,"ER":0,"BB":0,"SO":2,"ERA":"0.00","g":1,"flag":null},{"name":"Hudson","IP":"0.2","H":0,"R":0,"ER":0,"BB":0,"SO":0,"ERA":"0.00","g":1,"flag":null},{"name":"Santos","IP":"0.2","H":2,"R":1,"ER":1,"BB":0,"SO":1,"ERA":"13.50","g":1,"flag":null},{"name":"Leasure","IP":"0.2","H":2,"R":2,"ER":2,"BB":1,"SO":0,"ERA":"27.00","g":1,"flag":null},{"name":"G. Taylor","IP":"0.2","H":4,"R":3,"ER":3,"BB":0,"SO":2,"ERA":"40.50","g":1,"flag":null},{"name":"S. Wilson","IP":"0.2","H":0,"R":0,"ER":0,"BB":0,"SO":1,"ERA":"0.00","g":1,"flag":null},{"name":"Stratton","IP":"0.2","H":0,"R":0,"ER":0,"BB":0,"SO":0,"ERA":"0.00","g":1,"flag":null},{"name":"Shaw","IP":"0.1","H":0,"R":0,"ER":0,"BB":1,"SO":1,"ERA":"0.00","g":1,"flag":null},{"name":"Hentges","IP":"0.1","H":0,"R":0,"ER":0,"BB":0,"SO":0,"ERA":"0.00","g":1,"flag":null},{"name":"Gallegos","IP":"0.1","H":0,"R":0,"ER":0,"BB":0,"SO":0,"ERA":"0.00","g":1,"flag":null},{"name":"Phillips","IP":"0.1","H":3,"R":3,"ER":3,"BB":2,"SO":1,"ERA":"81.00","g":1,"flag":null},{"name":"Romero","IP":"0.1","H":1,"R":0,"ER":0,"BB":1,"SO":1,"ERA":"0.00","g":1,"flag":null}]};
+
+// ── State ──────────────────────────────────────────────────────
+let batSort = { col: 'AB', dir: -1 };
+let pitSort = { col: 'IP', dir: -1 };
+let batFilter = 'all';
+let pitFilter = 'all';
+
+function ipToFloat(ip) {
+  const [w, f = '0'] = String(ip).split('.');
+  return parseInt(w) + parseInt(f) / 3;
+}
+
+// ── Sort helpers ───────────────────────────────────────────────
+function sortBat(col) {
+  if (batSort.col === col) batSort.dir *= -1;
+  else { batSort.col = col; batSort.dir = (col === 'name') ? 1 : -1; }
+  renderBat();
+}
+function sortPit(col) {
+  if (pitSort.col === col) pitSort.dir *= -1;
+  else { pitSort.col = col; pitSort.dir = (col === 'name') ? 1 : -1; }
+  renderPit();
+}
+
+function setValue(obj, col) {
+  if (col === 'AVG') return parseFloat(obj.AVG) || 0;
+  if (col === 'ERA') return parseFloat(obj.ERA) || 0;
+  if (col === 'IP')  return ipToFloat(obj.IP);
+  if (col === 'name') return obj.name.toLowerCase();
+  return obj[col] ?? 0;
+}
+
+function sortData(arr, state) {
+  return [...arr].sort((a, b) => {
+    const av = setValue(a, state.col), bv = setValue(b, state.col);
+    return av < bv ? -state.dir : av > bv ? state.dir : 0;
+  });
+}
+
+// ── Filter helpers ─────────────────────────────────────────────
+function setBatFilter(el, f) {
+  batFilter = f;
+  document.querySelectorAll('#tab-batters .filter-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  renderBat();
+}
+function setPitFilter(el, f) {
+  pitFilter = f;
+  document.querySelectorAll('#tab-pitchers .filter-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  renderPit();
+}
+
+function applyFilter(arr, filter) {
+  if (filter === 'flagged') return arr.filter(p => p.flag);
+  if (filter === 'multi')   return arr.filter(p => p.g > 1);
+  return arr;
+}
+
+// ── AVG coloring ───────────────────────────────────────────────
+function avgClass(avg) {
+  const v = parseFloat(avg);
+  if (v >= 0.400) return 'stat-high';
+  if (v === 0)    return 'stat-zero';
+  return 'stat-avg';
+}
+function eraClass(era) {
+  const v = parseFloat(era);
+  if (v === 0)   return 'stat-avg';
+  if (v >= 9.00) return 'stat-high';
+  return 'stat-era';
+}
+function soHighClass(so, ip) {
+  if (ip && so / ipToFloat(ip) > 10) return 'stat-high';
+  return '';
+}
+
+// ── Render batter table ────────────────────────────────────────
+function renderBat() {
+  const q = document.getElementById('bat-search').value.toLowerCase();
+  let data = applyFilter(DATA.batters, batFilter);
+  if (q) data = data.filter(p => p.name.toLowerCase().includes(q));
+  data = sortData(data, batSort);
+
+  updateSortArrows('bat-table', batSort);
+  document.getElementById('bat-count').textContent = `${data.length} player${data.length !== 1 ? 's' : ''}`;
+
+  const tbody = document.getElementById('bat-body');
+  if (!data.length) {
+    tbody.innerHTML = `<tr><td colspan="9"><div class="no-results">No players match your search.</div></td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = data.map(p => {
+    const isFlagged = !!p.flag;
+    const badge = p.flag ? `<span class="flag-badge" data-badge="${p.flag.badge}" data-note="${escHtml(p.flag.note)}" onmouseenter="showTip(event,this)" onmouseleave="hideTip()">${p.flag.badge}</span>` : '';
+    const games = p.g > 1 ? `<span class="games-badge">${p.g}G</span>` : '';
+    return `<tr class="${isFlagged ? 'flagged' : ''}">
+      <td>
+        <div class="player-name">${escHtml(p.name)} ${badge}${games}</div>
+      </td>
+      <td>${p.g}</td>
+      <td>${p.AB}</td>
+      <td>${p.R}</td>
+      <td>${p.H}</td>
+      <td>${p.RBI}</td>
+      <td>${p.BB}</td>
+      <td>${p.SO}</td>
+      <td class="${avgClass(p.AVG)}">${p.AVG}</td>
+    </tr>`;
+  }).join('');
+}
+
+// ── Render pitcher table ───────────────────────────────────────
+function renderPit() {
+  const q = document.getElementById('pit-search').value.toLowerCase();
+  let data = applyFilter(DATA.pitchers, pitFilter);
+  if (q) data = data.filter(p => p.name.toLowerCase().includes(q));
+  data = sortData(data, pitSort);
+
+  updateSortArrows('pit-table', pitSort);
+  document.getElementById('pit-count').textContent = `${data.length} pitcher${data.length !== 1 ? 's' : ''}`;
+
+  const tbody = document.getElementById('pit-body');
+  if (!data.length) {
+    tbody.innerHTML = `<tr><td colspan="9"><div class="no-results">No pitchers match your search.</div></td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = data.map(p => {
+    const isFlagged = !!p.flag;
+    const badge = p.flag ? `<span class="flag-badge" data-badge="${p.flag.badge}" data-note="${escHtml(p.flag.note)}" onmouseenter="showTip(event,this)" onmouseleave="hideTip()">${p.flag.badge}</span>` : '';
+    const games = p.g > 1 ? `<span class="games-badge">${p.g}G</span>` : '';
+    const soClass = soHighClass(p.SO, p.IP);
+    return `<tr class="${isFlagged ? 'flagged' : ''}">
+      <td>
+        <div class="player-name">${escHtml(p.name)} ${badge}${games}</div>
+      </td>
+      <td>${p.g}</td>
+      <td>${p.IP}</td>
+      <td>${p.H}</td>
+      <td>${p.R}</td>
+      <td>${p.ER}</td>
+      <td>${p.BB}</td>
+      <td class="${soClass}">${p.SO}</td>
+      <td class="${eraClass(p.ERA)}">${p.ERA}</td>
+    </tr>`;
+  }).join('');
+}
+
+// ── Sort arrows ────────────────────────────────────────────────
+function updateSortArrows(tableId, state) {
+  document.querySelectorAll(`#${tableId} thead th`).forEach(th => {
+    const col = th.dataset.col;
+    th.classList.toggle('sorted', col === state.col);
+    const arr = th.querySelector('.sort-arrow');
+    if (!arr) return;
+    arr.textContent = col === state.col ? (state.dir === -1 ? '▾' : '▴') : '';
+  });
+}
+
+// ── Tooltip ────────────────────────────────────────────────────
+function showTip(e, el) {
+  const tip = document.getElementById('tooltip');
+  tip.setAttribute('data-badge', el.dataset.badge);
+  tip.textContent = el.dataset.note;
+  tip.style.display = 'block';
+  moveTip(e);
+}
+function hideTip() {
+  document.getElementById('tooltip').style.display = 'none';
+}
+document.addEventListener('mousemove', e => {
+  const tip = document.getElementById('tooltip');
+  if (tip.style.display === 'block') moveTip(e);
+});
+function moveTip(e) {
+  const tip = document.getElementById('tooltip');
+  const x = e.clientX + 14, y = e.clientY - 10;
+  tip.style.left = Math.min(x, window.innerWidth - 300) + 'px';
+  tip.style.top  = Math.max(y, 4) + 'px';
+}
+
+// ── Tab switching ──────────────────────────────────────────────
+function switchTab(t) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(`tab-${t}`).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Init ───────────────────────────────────────────────────────
+renderBat();
+renderPit();
+</script>
+</body>
+</html>

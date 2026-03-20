@@ -1,0 +1,202 @@
+Atlanta Braves 5, Cleveland Guardians 4
+
+Day
+Game Played on Sunday, August 17, 2025 (D) at Progressive Field
+
+ATL N    0  1  0    0  2  2    0  0  0  -   5 10  1
+CLE A    0  0  2    2  0  0    0  0  0  -   4 10  2
+BATTING
+Atlanta Braves               AB   R   H RBI      BB  SO      PO   A
+Profar lf                     4   1   2   2       1   0       2   0
+Olson 1b                      5   0   1   0       0   2       5   3
+Acuna rf                      4   1   1   0       1   2       2   0
+Ozuna dh                      4   0   0   0       1   2       0   0
+M. Harris cf                  5   1   1   0       0   2       1   0
+Albies 2b                     5   0   2   1       0   0       2   3
+Murphy c                      3   0   0   0       1   3      10   0
+Alvarez 3b                    4   1   1   1       0   1       2   0
+Allen ss                      4   1   2   0       0   0       2   0
+Fedde p                       0   0   0   0       0   0       0   0
+  Bummer p                    0   0   0   0       0   0       1   0
+  Lee p                       0   0   0   0       0   0       0   0
+  Johnson p                   0   0   0   0       0   0       0   0
+  Iglesias p                  0   0   0   0       0   0       0   0
+Totals                       38   5  10   4       4  12      27   6
+FIELDING -
+DP: 1. Olson-Alvarez.
+E: Profar (1).
+BATTING -
+2B: Alvarez (5,off Enright).
+HR: Profar (7,6th inning off Enright 1 on 1 out).
+Team LOB: 10.
+BASERUNNING -
+SB: Olson (1,2nd base off Enright/Naylor).
+Cleveland Guardians          AB   R   H RBI      BB  SO      PO   A
+Kwan lf                       5   2   2   0       0   1       2   0
+Schneemann 3b                 5   1   2   2       0   1       1   2
+Ramirez dh                    4   0   0   0       1   2       0   0
+Manzardo 1b                   3   0   0   1       1   1       6   0
+Naylor c                      5   0   4   1       0   1      12   0
+Rocchio ss,2b                 4   0   1   0       0   1       0   2
+Kayfus rf                     2   0   0   0       1   1       1   0
+  Fry ph                      1   0   0   0       0   1       0   0
+  Arias ss                    1   0   0   0       0   0       0   1
+Jones cf,rf                   3   1   1   0       2   1       2   0
+Martinez 2b,cf                3   0   0   0       1   0       3   0
+Allen p                       0   0   0   0       0   0       0   0
+  Enright p                   0   0   0   0       0   0       0   0
+  Herrin p                    0   0   0   0       0   0       0   0
+  Gaddis p                    0   0   0   0       0   0       0   0
+  Smith p                     0   0   0   0       0   0       0   1
+Totals                       36   4  10   4       6  10      27   6
+FIELDING -
+E: Martinez 2 (9).
+BATTING -
+2B: Schneemann (15,off Fedde); Naylor (15,off Fedde).
+3B: Schneemann (1,off Fedde).
+SF: Manzardo (5,off Fedde).
+HBP: Rocchio (7,by Bummer).
+IBB: Ramirez (18,by Johnson).
+Team LOB: 13.
+BASERUNNING -
+SB: Rocchio (6,2nd base off Fedde/Murphy); Kayfus (2,2nd base off Bummer/Murphy).
+PITCHING
+Atlanta Braves               IP     H   R  ER  BB  SO  HR BFP
+Fedde                         4     6   4   4   3   5   0  21
+Bummer W(3-2)                 2     1   0   0   0   1   0   8
+Lee                           1     2   0   0   0   2   0   5
+Johnson                       1     0   0   0   3   0   0   6
+Iglesias SV(19)               1     1   0   0   0   2   0   4
+Totals                        9    10   4   4   6  10   0  44
+HBP: Bummer (10,Rocchio).
+IBB: Johnson (2,Ramirez).
+Cleveland Guardians          IP     H   R  ER  BB  SO  HR BFP
+Allen                         4.2   5   3   1   3   6   0  23
+Enright L(2-1)                1.1   4   2   2   0   3   1   8
+Herrin                        1     0   0   0   0   2   0   3
+Gaddis                        1     1   0   0   1   1   0   5
+Smith                         1     0   0   0   0   0   0   3
+Totals                        9    10   5   3   4  12   1  42
+Inherited Runners - Scored: Enright 3-1.
+.
+Umpires: HP - Willie Traynor, 1B - Carlos Torres, 2B - Charlie Ramos, 3B - Alfonso Marquez
+Official Scorer: Adam Liberman
+Time of Game: 2:56   Attendance: 28899
+Starting Lineups:
+
+   Atlanta Braves                Cleveland Guardians
+1. Profar              lf        Kwan                lf
+2. Olson               1b        Schneemann          3b
+3. Acuna               rf        Ramirez             dh
+4. Ozuna               dh        Manzardo            1b
+5. M. Harris           cf        Naylor              c
+6. Albies              2b        Rocchio             ss
+7. Murphy              c         Kayfus              rf
+8. Alvarez             3b        Jones               cf
+9. Allen               ss        Martinez            2b
+   Fedde               p         Allen               p
+
+BRAVES 1ST: Profar flied to right; Olson lined to center; Acuna
+struck out; 0 R, 0 H, 0 E, 0 LOB.  Braves 0, Guardians 0.
+
+GUARDIANS 1ST: Kwan struck out; Schneemann flied to left;
+Ramirez struck out; 0 R, 0 H, 0 E, 0 LOB.  Braves 0, Guardians 0.
+
+BRAVES 2ND: Ozuna was called out on strikes; M. Harris singled
+to first; Albies singled to third [M. Harris to second]; Murphy
+walked [M. Harris to third, Albies to second]; Alvarez forced
+Murphy (third to second) [M. Harris scored, Albies to third,
+Alvarez to first]; Allen flied to center; 1 R, 2 H, 0 E, 2 LOB.
+Braves 1, Guardians 0.
+
+GUARDIANS 2ND: Manzardo walked; Naylor struck out; Rocchio
+forced Manzardo (first to shortstop) [Rocchio to first]; Rocchio
+stole second; Kayfus walked; Jones walked [Rocchio to third,
+Kayfus to second]; Martinez grounded out (second to first); 0 R,
+0 H, 0 E, 3 LOB.  Braves 1, Guardians 0.
+
+BRAVES 3RD: Profar singled to left; Olson struck out; Acuna
+singled to right [Profar to second]; Ozuna popped to second; M.
+Harris struck out; 0 R, 2 H, 0 E, 2 LOB.  Braves 1, Guardians 0.
+
+GUARDIANS 3RD: Kwan singled to right; Schneemann doubled [Kwan
+to third]; Ramirez struck out; Manzardo reached on an error by
+Profar on a sacrifice fly [Kwan scored, Manzardo to first];
+Naylor doubled to right [Schneemann scored, Manzardo to third];
+Rocchio hit into a double play to first [Manzardo out at third
+(first to third)]; 2 R, 3 H, 1 E, 1 LOB.  Braves 1, Guardians 2.
+
+BRAVES 4TH: Albies lined to left; Murphy was called out on
+strikes; Alvarez struck out; 0 R, 0 H, 0 E, 0 LOB.  Braves 1,
+Guardians 2.
+
+GUARDIANS 4TH: Kayfus was called out on strikes; On a bunt Jones
+singled to third; Martinez flied to right; Kwan singled to right
+[Jones to second]; Schneemann tripled to center [Jones scored,
+Kwan scored]; Ramirez grounded out (second to first); 2 R, 3 H,
+0 E, 1 LOB.  Braves 1, Guardians 4.
+
+BRAVES 5TH: Allen singled to left; Profar grounded out (third to
+first) [Allen to second]; Olson flied to left; Acuna walked;
+Allen safe on a pick-off error by Martinez [Allen to third,
+Acuna to second]; Ozuna walked; M. Harris reached on an error by
+Martinez [Allen scored (unearned) (no RBI), Acuna to third,
+Ozuna to second, M. Harris to first]; ENRIGHT REPLACED ALLEN
+(PITCHING); Albies singled to left [Acuna scored (unearned),
+Ozuna to third, M. Harris to second]; Murphy struck out; 2 R (0
+ER), 2 H, 2 E, 3 LOB.  Braves 3, Guardians 4.
+
+GUARDIANS 5TH: BUMMER REPLACED FEDDE (PITCHING); Manzardo lined
+to second; Naylor singled to right; Rocchio was hit by a pitch
+[Naylor to second]; Kayfus forced Rocchio (second to shortstop)
+[Naylor to third, Kayfus to first]; Kayfus stole second; Jones
+grounded out (first to pitcher); 0 R, 1 H, 0 E, 2 LOB.  Braves
+3, Guardians 4.
+
+BRAVES 6TH: Alvarez doubled to left; On a bunt Allen popped to
+third in foul territory; Profar homered to right [Alvarez
+scored]; Olson singled to center; Acuna was called out on
+strikes; Olson stole second; Ozuna struck out; 2 R, 3 H, 0 E, 1
+LOB.  Braves 5, Guardians 4.
+
+GUARDIANS 6TH: Martinez flied to right; Kwan grounded out (first
+unassisted); Schneemann struck out; 0 R, 0 H, 0 E, 0 LOB.
+Braves 5, Guardians 4.
+
+BRAVES 7TH: HERRIN REPLACED ENRIGHT (PITCHING); M. Harris struck
+out; Albies grounded out (shortstop to first); Murphy was called
+out on strikes; 0 R, 0 H, 0 E, 0 LOB.  Braves 5, Guardians 4.
+
+GUARDIANS 7TH: LEE REPLACED BUMMER (PITCHING); Ramirez popped to
+second; Manzardo struck out; Naylor singled to right; Rocchio
+singled to left [Naylor to second]; FRY BATTED FOR KAYFUS; Fry
+struck out; 0 R, 2 H, 0 E, 2 LOB.  Braves 5, Guardians 4.
+
+BRAVES 8TH: ROCCHIO CHANGED POSITIONS (PLAYING 2B); ARIAS
+REPLACED FRY (PLAYING SS); JONES CHANGED POSITIONS (PLAYING RF);
+MARTINEZ CHANGED POSITIONS (PLAYING CF); GADDIS REPLACED HERRIN
+(PITCHING); Alvarez grounded out (second to first); Allen
+singled to pitcher; Profar walked [Allen to second]; Olson was
+called out on strikes; Acuna flied to center; 0 R, 1 H, 0 E, 2
+LOB.  Braves 5, Guardians 4.
+
+GUARDIANS 8TH: JOHNSON REPLACED LEE (PITCHING); Jones walked;
+Martinez walked [Jones to second]; On a bunt Kwan popped to
+third in foul territory; Schneemann grounded out (first
+unassisted) [Jones to third, Martinez to second]; Ramirez was
+walked intentionally; Manzardo flied to center; 0 R, 0 H, 0 E, 3
+LOB.  Braves 5, Guardians 4.
+
+BRAVES 9TH: SMITH REPLACED GADDIS (PITCHING); Ozuna grounded out
+(pitcher to first); M. Harris grounded out (shortstop to first);
+Albies grounded out (first unassisted); 0 R, 0 H, 0 E, 0 LOB.
+Braves 5, Guardians 4.
+
+GUARDIANS 9TH: IGLESIAS REPLACED JOHNSON (PITCHING); Naylor
+singled to right; Rocchio was called out on strikes; Arias lined
+to left; Jones struck out; 0 R, 1 H, 0 E, 1 LOB.  Braves 5,
+Guardians 4.
+
+Final Totals      R   H   E  LOB
+ Braves           5  10   1   10
+ Guardians        4  10   2   13

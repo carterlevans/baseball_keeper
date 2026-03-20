@@ -1,0 +1,187 @@
+San Francisco Giants 4, Cleveland Guardians 1
+
+Day
+Game Played on Friday, April 15, 2022 (N) at Progressive Field
+
+SF  N    0  1  0    0  0  1    0  2  0  -   4  8  0
+CLE A    0  0  0    0  0  0    1  0  0  -   1  3  1
+BATTING
+San Francisco Giants         AB   R   H RBI      BB  SO      PO   A
+Yastrzemski rf                4   0   1   0       0   0       1   0
+Belt 1b                       3   0   0   0       2   1       6   1
+Ruf dh                        4   0   0   0       1   2       0   0
+Pederson lf                   3   1   2   1       0   0       1   0
+  Slater ph,lf                1   0   0   0       1   0       1   0
+Crawford ss                   5   1   1   1       0   1       2   3
+Flores 3b                     4   0   1   0       0   2       0   1
+Estrada 2b                    4   1   0   0       0   1       2   3
+Duggar cf                     4   0   1   0       0   0       2   0
+Bart c                        4   1   2   2       0   2      11   0
+Rodon p                       0   0   0   0       0   0       1   0
+  Rogers p                    0   0   0   0       0   0       0   0
+  Doval p                     0   0   0   0       0   0       0   0
+Totals                       36   4   8   4       4   9      27   8
+FIELDING -
+DP: 1. Crawford-Estrada-Belt.
+BATTING -
+2B: Duggar (2,off Plesac); Flores (2,off Plesac).
+HR: Crawford (1,2nd inning off Plesac 0 on 0 out); Pederson (2,6th inning off
+Plesac 0 on 0 out); Bart (2,8th inning off Castro 1 on 2 out).
+HBP: Yastrzemski (1,by Gose).
+Team LOB: 10.
+Cleveland Guardians          AB   R   H RBI      BB  SO      PO   A
+Straw cf                      3   0   0   0       1   2       4   0
+Kwan lf                       3   0   0   0       0   1       5   0
+J. Ramirez 3b                 3   1   1   0       1   0       1   3
+Reyes dh                      4   0   1   0       0   1       0   0
+Rosario ss                    4   0   0   0       0   2       0   0
+Miller 2b                     2   0   1   1       0   1       2   4
+J. Naylor 1b                  3   0   0   0       0   1       6   0
+Mercado rf                    3   0   0   0       0   1       0   0
+Hedges c                      3   0   0   0       0   1       9   0
+Plesac p                      0   0   0   0       0   0       0   0
+  Stephan p                   0   0   0   0       0   0       0   0
+  Gose p                      0   0   0   0       0   0       0   0
+  Shaw p                      0   0   0   0       0   0       0   0
+  Castro p                    0   0   0   0       0   0       0   0
+  Hentges p                   0   0   0   0       0   0       0   0
+  Pilkington p                0   0   0   0       0   0       0   0
+Totals                       28   1   3   1       2  10      27   7
+FIELDING -
+E: J. Ramirez (2).
+BATTING -
+2B: Miller (6,off Rodon); J. Ramirez (4,off Doval).
+SF: Miller (1,off Rodon).
+HBP: Kwan (2,by Rodon).
+GDP: Reyes (3,off Rodon).
+Team LOB: 4.
+PITCHING
+San Francisco Giants         IP     H   R  ER  BB  SO  HR BFP
+Rodon W(1-0)                  7     2   1   1   2   9   0  25
+Rogers                        1     0   0   0   0   0   0   3
+Doval SV(2)                   1     1   0   0   0   1   0   4
+Totals                        9     3   1   1   2  10   0  32
+HBP: Rodon (1,Kwan).
+Cleveland Guardians          IP     H   R  ER  BB  SO  HR BFP
+Plesac L(0-1)                 5.1   7   2   2   1   4   2  24
+Stephan                       0.2   0   0   0   0   0   0   2
+Gose                          0.2   0   0   0   1   2   0   4
+Shaw                          0.1   0   0   0   1   1   0   2
+Castro                        0.2   1   2   0   0   1   1   4
+Hentges                       0.1   0   0   0   0   0   0   1
+Pilkington                    1     0   0   0   1   1   0   4
+Totals                        9     8   4   2   4   9   3  41
+WP: Gose (1).
+HBP: Gose (1,Yastrzemski).
+Inherited Runners - Scored: Stephan 1-0; Shaw 2-0.
+.
+Umpires: HP - Paul Emmel, 1B - James Hoye, 2B - Bruce Dreckman, 3B - Pat Hoberg
+Official Scorer: Chad Broski
+Time of Game: 2:56   Attendance: 33469
+Starting Lineups:
+
+   San Francisco Giants          Cleveland Guardians
+1. Yastrzemski         rf        Straw               cf
+2. Belt                1b        Kwan                lf
+3. Ruf                 dh        J. Ramirez          3b
+4. Pederson            lf        Reyes               dh
+5. Crawford            ss        Rosario             ss
+6. Flores              3b        Miller              2b
+7. Estrada             2b        J. Naylor           1b
+8. Duggar              cf        Mercado             rf
+9. Bart                c         Hedges              c
+   Rodon               p         Plesac              p
+
+GIANTS 1ST: Yastrzemski singled to right; Belt popped to third;
+Ruf struck out; Pederson flied to center; 0 R, 1 H, 0 E, 1 LOB.
+Giants 0, Guardians 0.
+
+GUARDIANS 1ST: Straw struck out; Kwan popped to catcher in foul
+territory; J. Ramirez lined to center; 0 R, 0 H, 0 E, 0 LOB.
+Giants 0, Guardians 0.
+
+GIANTS 2ND: Crawford homered to right; Flores was called out on
+strikes; Estrada struck out; Duggar doubled to right; Bart
+struck out; 1 R, 2 H, 0 E, 1 LOB.  Giants 1, Guardians 0.
+
+GUARDIANS 2ND: Reyes lined to shortstop; Rosario grounded out
+(third to first); Miller doubled to left; J. Naylor grounded out
+(shortstop to first); 0 R, 1 H, 0 E, 1 LOB.  Giants 1, Guardians
+0.
+
+GIANTS 3RD: Yastrzemski flied to left; Belt walked; Ruf forced
+Belt (third to second) [Ruf to first]; Pederson singled to left
+[Ruf to second]; Crawford flied to left; 0 R, 1 H, 0 E, 2 LOB.
+Giants 1, Guardians 0.
+
+GUARDIANS 3RD: Mercado popped to shortstop; Hedges struck out;
+Straw was called out on strikes; 0 R, 0 H, 0 E, 0 LOB.  Giants
+1, Guardians 0.
+
+GIANTS 4TH: Flores grounded out (third to first); Estrada
+grounded out (second to first); Duggar grounded out (second to
+first); 0 R, 0 H, 0 E, 0 LOB.  Giants 1, Guardians 0.
+
+GUARDIANS 4TH: Kwan was hit by a pitch; J. Ramirez flied to
+left; Reyes grounded into a double play (shortstop to second to
+first) [Kwan out at second]; 0 R, 0 H, 0 E, 0 LOB.  Giants 1,
+Guardians 0.
+
+GIANTS 5TH: Bart singled to left; Yastrzemski flied to center;
+Belt flied to center; Ruf lined to center; 0 R, 1 H, 0 E, 1 LOB.
+ Giants 1, Guardians 0.
+
+GUARDIANS 5TH: Rosario was called out on strikes; Miller was
+called out on strikes; J. Naylor grounded out (first to
+pitcher); 0 R, 0 H, 0 E, 0 LOB.  Giants 1, Guardians 0.
+
+GIANTS 6TH: Pederson homered to right-center; Crawford grounded
+out (second to first); Flores doubled to center; STEPHAN
+REPLACED PLESAC (PITCHING); Estrada grounded out (second to
+first) [Flores to third]; Duggar flied to left; 1 R, 2 H, 0 E, 1
+LOB.  Giants 2, Guardians 0.
+
+GUARDIANS 6TH: Mercado was called out on strikes; Hedges flied
+to center; Straw walked; Kwan struck out; 0 R, 0 H, 0 E, 1 LOB.
+Giants 2, Guardians 0.
+
+GIANTS 7TH: GOSE REPLACED STEPHAN (PITCHING); Bart struck out;
+Yastrzemski was hit by a pitch; Belt struck out; Gose threw a
+wild pitch [Yastrzemski to second]; Ruf walked; SLATER BATTED
+FOR PEDERSON; SHAW REPLACED GOSE (PITCHING); Slater walked
+[Yastrzemski to third, Ruf to second]; Crawford struck out; 0 R,
+0 H, 0 E, 3 LOB.  Giants 2, Guardians 0.
+
+GUARDIANS 7TH: SLATER STAYED IN GAME (PLAYING LF); J. Ramirez
+walked; Reyes singled to right [J. Ramirez to third]; Rosario
+was called out on strikes; Miller out on a sacrifice fly to
+right [J. Ramirez scored]; J. Naylor struck out; 1 R, 1 H, 0 E,
+1 LOB.  Giants 2, Guardians 1.
+
+GIANTS 8TH: CASTRO REPLACED SHAW (PITCHING); Flores struck out;
+Estrada reached on an error by J. Ramirez [Estrada to second];
+Duggar flied to left; Bart homered to left (unearned) [Estrada
+scored (unearned)]; Umpire reviewed (home run), call on the
+field was upheld; HENTGES REPLACED CASTRO (PITCHING);
+Yastrzemski grounded out (first unassisted); 2 R (0 ER), 1 H, 1
+E, 0 LOB.  Giants 4, Guardians 1.
+
+GUARDIANS 8TH: ROGERS REPLACED RODON (PITCHING); Mercado popped
+to second; Hedges grounded out (shortstop to first); Straw
+grounded out (second to first); 0 R, 0 H, 0 E, 0 LOB.  Giants 4,
+Guardians 1.
+
+GIANTS 9TH: PILKINGTON REPLACED HENTGES (PITCHING); Belt walked;
+Ruf struck out; Slater forced Belt (third to second) [Slater to
+first]; Giants challenged (play at 1st), call on the field
+was overturned; Crawford flied to left; 0 R, 0 H, 0 E, 1
+LOB.  Giants 4, Guardians 1.
+
+GUARDIANS 9TH: DOVAL REPLACED ROGERS (PITCHING); Kwan grounded
+out (second to first); J. Ramirez doubled to left; Reyes struck
+out; Rosario lined to left; 0 R, 1 H, 0 E, 1 LOB.  Giants 4,
+Guardians 1.
+
+Final Totals      R   H   E  LOB
+ Giants           4   8   0   10
+ Guardians        1   3   1    4

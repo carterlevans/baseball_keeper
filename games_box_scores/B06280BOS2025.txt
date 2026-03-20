@@ -1,0 +1,194 @@
+Boston Red Sox 15, Toronto Blue Jays 1
+
+Day
+Game Played on Saturday, June 28, 2025 (D) at Fenway Park
+
+TOR A    0  0  1    0  0  0    0  0  0  -   1  6  1
+BOS A    3  3  3    0  0  3    2  1  x  -  15 18  1
+BATTING
+Toronto Blue Jays            AB   R   H RBI      BB  SO      PO   A
+Bichette ss                   3   0   1   0       0   1       0   2
+  Wagner ph,1b                2   0   1   0       0   0       1   0
+Barger 3b                     4   0   1   1       0   2       2   2
+Guerrero dh                   4   0   0   0       0   0       0   0
+Kirk c                        4   0   1   0       0   1       8   0
+Springer lf                   3   0   1   0       0   0       0   0
+  Clase lf                    1   0   0   0       0   0       1   0
+Lukes rf                      2   0   0   0       2   0       4   0
+Clement 1b,ss                 4   0   1   0       0   0       3   0
+Gimenez 2b                    3   0   0   0       0   2       2   1
+  Schneider 2b                0   0   0   0       1   0       0   0
+Straw cf                      4   1   0   0       0   1       3   0
+Bassitt p                     0   0   0   0       0   0       0   0
+  Fisher p                    0   0   0   0       0   0       0   1
+  Schultz p                   0   0   0   0       0   0       0   0
+  Fluharty p                  0   0   0   0       0   0       0   0
+  Heineman p                  0   0   0   0       0   0       0   0
+Totals                       34   1   6   1       3   7      24   6
+FIELDING -
+E: Kirk (5).
+BATTING -
+2B: Barger (18,off Giolito).
+Team LOB: 9.
+Boston Red Sox               AB   R   H RBI      BB  SO      PO   A
+Duran lf                      3   2   0   0       2   2       1   0
+Anthony dh                    6   2   3   0       0   1       0   0
+Toro 3b,1b                    3   2   2   2       2   0       3   0
+Narvaez c                     5   2   2   1       0   1       7   0
+Abreu rf                      6   2   2   4       0   2       5   0
+Story ss                      3   1   2   2       1   0       1   3
+  Eaton ph,3b                 1   0   0   0       0   0       0   0
+Gonzalez 1b,2b                5   1   3   2       0   1       5   1
+Sogard 2b,ss                  3   1   2   1       1   0       2   1
+Rafaela cf                    5   2   2   2       0   0       3   0
+Giolito p                     0   0   0   0       0   0       0   0
+  Murphy p                    0   0   0   0       0   0       0   0
+Totals                       40  15  18  14       6   7      27   5
+FIELDING -
+E: Giolito (3).
+BATTING -
+2B: Abreu (10,off Bassitt); Gonzalez (11,off Fisher); Anthony 2 (5,off Schultz,off
+Heineman); Story (8,off Schultz); Sogard (4,off Fluharty).
+HR: Abreu (14,1st inning off Bassitt 2 on 2 out); Rafaela (9,6th inning off
+Schultz 1 on 1 out); Gonzalez (3,7th inning off Fluharty 1 on 2 out).
+SF: Narvaez (1,off Fisher); Toro (2,off Heineman).
+HBP: Sogard (3,by Bassitt); Duran (6,by Heineman).
+Team LOB: 11.
+BASERUNNING -
+SB: Story (12,2nd base off Bassitt/Kirk); Toro (1,2nd base off Fisher/Kirk).
+PITCHING
+Toronto Blue Jays            IP     H   R  ER  BB  SO  HR BFP
+Bassitt L(7-4)                2     8   9   8   4   3   1  19
+Fisher                        2     1   0   0   1   1   0   8
+Schultz                       1.1   5   3   3   1   1   1  10
+Fluharty                      1.2   3   2   2   0   2   1   8
+Heineman                      1     1   1   1   0   0   0   5
+Totals                        8    18  15  14   6   7   3  50
+Bassitt faced 3 batters in the 3rd inning
+HBP: Bassitt (7,Sogard); Heineman (1,Duran).
+Inherited Runners - Scored: Fisher 3-3; Fluharty 1-0.
+.
+Boston Red Sox               IP     H   R  ER  BB  SO  HR BFP
+Giolito W(4-1)                7     6   1   0   1   5   0  29
+Murphy                        2     0   0   0   2   2   0   8
+Totals                        9     6   1   0   3   7   0  37
+Umpires: HP - Brock Ballou, 1B - Mark Wegner, 2B - Nate Tomlinson, 3B - Shane Livensparger
+Official Scorer: Bob Ellis
+Time of Game: 2:51   Attendance: 34927
+Starting Lineups:
+
+   Toronto Blue Jays             Boston Red Sox
+1. Bichette            ss        Duran               lf
+2. Barger              3b        Anthony             dh
+3. Guerrero            dh        Toro                3b
+4. Kirk                c         Narvaez             c
+5. Springer            lf        Abreu               rf
+6. Lukes               rf        Story               ss
+7. Clement             1b        Gonzalez            1b
+8. Gimenez             2b        Sogard              2b
+9. Straw               cf        Rafaela             cf
+   Bassitt             p         Giolito             p
+
+BLUE JAYS 1ST: Bichette flied to center; Barger was called out
+on strikes; Guerrero popped to second; 0 R, 0 H, 0 E, 0 LOB.
+Blue Jays 0, Red Sox 0.
+
+RED SOX 1ST: Duran struck out; Anthony grounded out (second to
+first); Toro singled to left; Narvaez singled to right [Toro to
+second]; Abreu homered to right [Toro scored, Narvaez scored];
+Story walked; Gonzalez singled to center [Story to third];
+Sogard was hit by a pitch [Gonzalez to second]; Rafaela forced
+Sogard (shortstop to second) [Rafaela to first]; 3 R, 4 H, 0 E,
+3 LOB.  Blue Jays 0, Red Sox 3.
+
+BLUE JAYS 2ND: Kirk flied to left; Springer singled to
+shortstop; Lukes grounded out (second to first) [Springer to
+second]; Clement lined to center; 0 R, 1 H, 0 E, 1 LOB.  Blue
+Jays 0, Red Sox 3.
+
+RED SOX 2ND: Duran popped to third in foul territory; Anthony
+singled to center; Toro walked [Anthony to second]; Narvaez
+struck out; Abreu doubled to right [Anthony scored, Toro to
+third]; Story singled to right [Toro scored, Abreu scored];
+Story stole second; Gonzalez struck out; 3 R, 3 H, 0 E, 1 LOB.
+Blue Jays 0, Red Sox 6.
+
+BLUE JAYS 3RD: Gimenez struck out; Straw reached on an error by
+Giolito [Straw to first]; Bichette struck out; Barger doubled to
+right [Straw scored (unearned)]; Guerrero flied to right; 1 R (0
+ER), 1 H, 1 E, 1 LOB.  Blue Jays 1, Red Sox 6.
+
+RED SOX 3RD: Sogard walked; Rafaela singled to center [Sogard to
+second]; Duran walked [Sogard to third, Rafaela to second];
+FISHER REPLACED BASSITT (PITCHING); Anthony forced Sogard
+(pitcher to catcher) [Rafaela to third, Duran to second, Anthony
+to first]; Toro walked [Rafaela scored, Duran to third, Anthony
+to second]; Narvaez out on a sacrifice fly to center [Duran
+scored, Anthony to third]; Toro stole second [Anthony scored
+(error by Kirk) (unearned), Toro to third]; Abreu was called out
+on strikes; 3 R (2 ER), 1 H, 1 E, 1 LOB.  Blue Jays 1, Red Sox 9.
+
+BLUE JAYS 4TH: Kirk singled to center; Springer flied to right;
+Lukes walked [Kirk to second]; Clement popped to third in foul
+territory; Gimenez struck out; 0 R, 1 H, 0 E, 2 LOB.  Blue Jays
+1, Red Sox 9.
+
+RED SOX 4TH: Story flied to right; Gonzalez doubled to left;
+Sogard flied to center [Gonzalez to third]; Rafaela popped to
+third; 0 R, 1 H, 0 E, 1 LOB.  Blue Jays 1, Red Sox 9.
+
+BLUE JAYS 5TH: Straw flied to right; Bichette singled to center;
+Barger flied to center; Guerrero lined to shortstop; 0 R, 1 H, 0
+E, 1 LOB.  Blue Jays 1, Red Sox 9.
+
+RED SOX 5TH: SCHULTZ REPLACED FISHER (PITCHING); Duran was
+called out on strikes; Anthony doubled to left; Toro singled to
+right [Anthony to third]; Narvaez flied to right; Abreu grounded
+out (third to first); 0 R, 2 H, 0 E, 2 LOB.  Blue Jays 1, Red
+Sox 9.
+
+BLUE JAYS 6TH: Kirk grounded out (shortstop to first); Springer
+flied to right; Lukes grounded out (shortstop to first); 0 R, 0
+H, 0 E, 0 LOB.  Blue Jays 1, Red Sox 9.
+
+RED SOX 6TH: Story doubled to left; Gonzalez flied to right;
+Sogard singled to left [Story scored]; Rafaela homered to left
+[Sogard scored]; Duran walked; FLUHARTY REPLACED SCHULTZ
+(PITCHING); Anthony was called out on strikes; Toro grounded out
+(shortstop to first); 3 R, 3 H, 0 E, 1 LOB.  Blue Jays 1, Red
+Sox 12.
+
+BLUE JAYS 7TH: Clement singled to center; Gimenez flied to
+right; Straw forced Clement (shortstop to second) [Straw to
+first]; WAGNER BATTED FOR BICHETTE; Wagner singled to second
+[Straw to third]; Barger struck out; 0 R, 2 H, 0 E, 2 LOB.  Blue
+Jays 1, Red Sox 12.
+
+RED SOX 7TH: WAGNER STAYED IN GAME (PLAYING 1B); CLASE REPLACED
+SPRINGER (PLAYING LF); CLEMENT CHANGED POSITIONS (PLAYING SS);
+Narvaez singled to left; Abreu struck out; EATON BATTED FOR
+STORY; Eaton popped to second; Gonzalez homered to center
+[Narvaez scored]; Sogard doubled; Rafaela grounded out (third to
+first); 2 R, 3 H, 0 E, 1 LOB.  Blue Jays 1, Red Sox 14.
+
+BLUE JAYS 8TH: TORO CHANGED POSITIONS (PLAYING 1B); EATON STAYED
+IN GAME (PLAYING 3B); GONZALEZ CHANGED POSITIONS (PLAYING 2B);
+SOGARD CHANGED POSITIONS (PLAYING SS); MURPHY REPLACED GIOLITO
+(PITCHING); Guerrero grounded out (second to first); Kirk struck
+out; Clase grounded out (first unassisted); 0 R, 0 H, 0 E, 0
+LOB.  Blue Jays 1, Red Sox 14.
+
+RED SOX 8TH: SCHNEIDER REPLACED GIMENEZ (PLAYING 2B); HEINEMAN
+REPLACED FLUHARTY (PITCHING); Duran was hit by a pitch; Anthony
+doubled [Duran to third]; Toro batted right handed; Toro lined
+out on a sacrifice fly to left [Duran scored]; Narvaez flied to
+right; Abreu flied to center; 1 R, 1 H, 0 E, 1 LOB.  Blue Jays
+1, Red Sox 15.
+
+BLUE JAYS 9TH: Lukes walked; Clement popped to second; Schneider
+walked [Lukes to second]; Straw struck out; Wagner popped to
+second; 0 R, 0 H, 0 E, 2 LOB.  Blue Jays 1, Red Sox 15.
+
+Final Totals      R   H   E  LOB
+ Blue Jays        1   6   1    9
+ Red Sox         15  18   1   11

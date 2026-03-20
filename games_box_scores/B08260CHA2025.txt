@@ -1,0 +1,198 @@
+Kansas City Royals 5, Chicago White Sox 4
+
+Day
+Game Played on Tuesday, August 26, 2025 (N) at Rate Field
+
+KC  A    0  0  0    0  0  0    0  2  3  -   5  9  0
+CHI A    0  1  0    0  0  3    0  0  0  -   4  9  0
+BATTING
+Kansas City Royals           AB   R   H RBI      BB  SO      PO   A
+Garcia 3b                     5   0   1   2       0   0       0   1
+Witt ss                       5   0   1   0       0   2       1   1
+Pasquantino 1b                4   1   1   0       0   0       7   0
+Perez c                       4   0   0   0       0   1      11   0
+Grichuk rf                    2   0   0   0       0   1       0   0
+  Yastrzemski ph,rf           2   1   1   0       0   0       0   0
+India 2b                      4   2   2   0       0   1       2   3
+Loftin lf                     2   0   0   0       0   1       3   0
+  Massey ph,lf                2   0   1   2       0   0       0   0
+Frazier dh                    3   1   1   0       0   2       0   0
+Tolbert cf                    1   0   0   0       0   0       1   0
+  Isbel ph,cf                 1   0   1   1       1   0       2   0
+Lorenzen p                    0   0   0   0       0   0       0   0
+  Schreiber p                 0   0   0   0       0   0       0   0
+  Clarke p                    0   0   0   0       0   0       0   0
+  Long p                      0   0   0   0       0   0       0   0
+  Estevez p                   0   0   0   0       0   0       0   1
+Totals                       35   5   9   5       1   8      27   6
+FIELDING - 
+DP: 2. India-Pasquantino, Garcia-India-Pasquantino.
+BATTING - 
+HBP: Tolbert (2,by Perez); Frazier (2,by Alexander).
+GDP: Pasquantino (12,off Perez).
+Team LOB: 6.
+Chicago White Sox            AB   R   H RBI      BB  SO      PO   A
+Tauchman rf                   4   1   2   0       0   0       1   0
+Vargas 1b                     3   1   0   0       1   1       9   1
+Teel c                        4   0   3   1       0   1       8   0
+Sosa 2b                       4   0   1   1       0   0       1   2
+Montgomery ss                 4   1   1   1       0   1       1   4
+Robert cf                     1   0   0   0       0   0       2   0
+  M. Taylor cf                2   0   0   0       0   2       1   0
+  Quero ph                    1   0   0   0       0   1       0   0
+Benintendi dh                 4   0   1   0       0   1       0   0
+Mead 3b                       4   0   0   0       0   3       1   0
+Baldwin lf                    3   1   1   0       0   1       3   0
+Perez p                       0   0   0   0       0   0       0   0
+  Leasure p                   0   0   0   0       0   0       0   0
+  G. Taylor p                 0   0   0   0       0   0       0   0
+  Alexander p                 0   0   0   0       0   0       0   0
+  S. Wilson p                 0   0   0   0       0   0       0   0
+Totals                       34   4   9   3       1  11      27   7
+FIELDING - 
+DP: 1. Vargas-Montgomery-Vargas.
+BATTING - 
+HR: Montgomery (14,2nd inning off Lorenzen 0 on 1 out).
+GDP: Mead (5,off Lorenzen).
+Team LOB: 4.
+PITCHING
+Kansas City Royals           IP     H   R  ER  BB  SO  HR BFP
+Lorenzen                      5     7   4   4   1   6   1  21
+Schreiber                     1     1   0   0   0   2   0   4
+Clarke                        1     0   0   0   0   1   0   3
+Long W(2-3)                   1     1   0   0   0   0   0   4
+Estevez SV(35)                1     0   0   0   0   2   0   3
+Totals                        9     9   4   4   1  11   1  35
+Lorenzen faced 4 batters in the 6th inning
+WP: Schreiber (1).
+Inherited Runners - Scored: Schreiber 3-2.
+.
+Chicago White Sox            IP     H   R  ER  BB  SO  HR BFP
+Perez                         7     1   0   0   0   5   0  22
+Leasure                       0.2   2   2   2   1   0   0   5
+G. Taylor L(0-4)              0.2   4   3   3   0   2   0   6
+Alexander                     0     2   0   0   0   0   0   3
+S. Wilson                     0.2   0   0   0   0   1   0   2
+Totals                        9     9   5   5   1   8   0  38
+HBP: Perez (2,Tolbert); Alexander (1,Frazier).
+Inherited Runners - Scored: G. Taylor 3-2; Alexander 3-3; S. Wilson 3-0.
+.
+Umpires: HP - Malachi Moore, 1B - Austin Jones, 2B - Chris Segal, 3B - Andy Fletcher
+Official Scorer: Randy Liss
+Time of Game: 2:40   Attendance: 10907
+Starting Lineups:
+
+   Kansas City Royals            Chicago White Sox        
+1. Garcia              3b        Tauchman            rf
+2. Witt                ss        Vargas              1b
+3. Pasquantino         1b        Teel                c
+4. Perez               c         Sosa                2b
+5. Grichuk             rf        Montgomery          ss
+6. India               2b        Robert              cf
+7. Loftin              lf        Benintendi          dh
+8. Frazier             dh        Mead                3b
+9. Tolbert             cf        Baldwin             lf
+   Lorenzen            p         Perez               p
+
+ROYALS 1ST: Garcia grounded out (second to first); Witt popped
+to first; Pasquantino popped to first; 0 R, 0 H, 0 E, 0 LOB. 
+Royals 0, White Sox 0.
+
+WHITE SOX 1ST: Tauchman flied to left; Vargas struck out; Teel
+was called out on strikes; 0 R, 0 H, 0 E, 0 LOB.  Royals 0,
+White Sox 0.
+
+ROYALS 2ND: Perez grounded out (second to first); Grichuk struck
+out; India struck out; 0 R, 0 H, 0 E, 0 LOB.  Royals 0, White
+Sox 0.
+
+WHITE SOX 2ND: Sosa popped to first in foul territory;
+Montgomery homered to left; Robert grounded out (shortstop to
+first); Benintendi flied to left in foul territory; 1 R, 1 H, 0
+E, 0 LOB.  Royals 0, White Sox 1.
+
+ROYALS 3RD: Loftin flied to center; Frazier struck out; Tolbert
+was hit by a pitch; Garcia lined to center; 0 R, 0 H, 0 E, 1
+LOB.  Royals 0, White Sox 1.
+
+WHITE SOX 3RD: Mead was called out on strikes; Baldwin struck
+out; Tauchman singled to center; Vargas popped to shortstop; 0
+R, 1 H, 0 E, 1 LOB.  Royals 0, White Sox 1.
+
+ROYALS 4TH: M. TAYLOR REPLACED ROBERT (PLAYING CF); Witt singled
+to center; Pasquantino grounded into a double play (first to
+shortstop to first) [Witt out at second]; Perez flied to left; 0
+R, 1 H, 0 E, 0 LOB.  Royals 0, White Sox 1.
+
+WHITE SOX 4TH: Teel singled to center; Sosa hit into a double
+play to second [Teel out at first (second to first)]; Montgomery
+was called out on strikes; 0 R, 1 H, 0 E, 0 LOB.  Royals 0,
+White Sox 1.
+
+ROYALS 5TH: Grichuk grounded out (shortstop to first); India
+flied to right; Loftin was called out on strikes; 0 R, 0 H, 0 E,
+0 LOB.  Royals 0, White Sox 1.
+
+WHITE SOX 5TH: M. Taylor struck out; Benintendi singled to left;
+Mead grounded into a double play (third to second to first)
+[Benintendi out at second]; 0 R, 1 H, 0 E, 0 LOB.  Royals 0,
+White Sox 1.
+
+ROYALS 6TH: Frazier struck out; Tolbert popped to first; Garcia
+grounded out (shortstop to first); 0 R, 0 H, 0 E, 0 LOB.  Royals
+0, White Sox 1.
+
+WHITE SOX 6TH: Baldwin singled to center; Tauchman singled to
+left [Baldwin to second]; Vargas walked [Baldwin to third,
+Tauchman to second]; Teel singled to center [Baldwin scored,
+Tauchman to third, Vargas to second]; SCHREIBER REPLACED
+LORENZEN (PITCHING); Sosa singled to left [Tauchman scored,
+Vargas to third, Teel to second]; Montgomery popped to first; M.
+Taylor struck out; Schreiber threw a wild pitch [Vargas scored,
+Teel to third, Sosa to second]; Benintendi struck out; 3 R, 4 H,
+0 E, 2 LOB.  Royals 0, White Sox 4.
+
+ROYALS 7TH: Witt lined to center; Pasquantino grounded out
+(shortstop to first); Perez flied to left; 0 R, 0 H, 0 E, 0 LOB.
+ Royals 0, White Sox 4.
+
+WHITE SOX 7TH: CLARKE REPLACED SCHREIBER (PITCHING); Mead struck
+out; Baldwin flied to left; Tauchman lined to center; 0 R, 0 H,
+0 E, 0 LOB.  Royals 0, White Sox 4.
+
+ROYALS 8TH: LEASURE REPLACED PEREZ (PITCHING); YASTRZEMSKI
+BATTED FOR GRICHUK; Yastrzemski popped to third; India singled
+to left; MASSEY BATTED FOR LOFTIN; Massey flied to left; Frazier
+singled to center [India to third]; ISBEL BATTED FOR TOLBERT;
+Isbel walked [Frazier to second]; G. TAYLOR REPLACED LEASURE
+(PITCHING); Garcia singled to right [India scored, Frazier
+scored, Isbel to second]; Witt struck out; 2 R, 3 H, 0 E, 2 LOB.
+ Royals 2, White Sox 4.
+
+WHITE SOX 8TH: YASTRZEMSKI STAYED IN GAME (PLAYING RF); MASSEY
+STAYED IN GAME (PLAYING LF); ISBEL STAYED IN GAME (PLAYING CF);
+LONG REPLACED CLARKE (PITCHING); Vargas flied to center; Teel
+singled to center; Sosa flied to center; Montgomery grounded out
+(second to first); 0 R, 1 H, 0 E, 1 LOB.  Royals 2, White Sox 4.
+
+ROYALS 9TH: Pasquantino singled to right; Perez struck out;
+Yastrzemski singled to center [Pasquantino to second]; India
+singled to center [Pasquantino to third, Yastrzemski to second];
+ALEXANDER REPLACED G. TAYLOR (PITCHING); Massey singled to right
+[Pasquantino scored, Yastrzemski scored, India to third];
+Frazier was hit by a pitch [Massey to second]; Isbel singled to
+center [India scored, Massey to third, Frazier to second]; S.
+WILSON REPLACED ALEXANDER (PITCHING); Garcia popped to second;
+Witt was called out on strikes; 3 R, 5 H, 0 E, 3 LOB.  Royals 5,
+White Sox 4.
+
+WHITE SOX 9TH: ESTEVEZ REPLACED LONG (PITCHING); QUERO BATTED
+FOR M. TAYLOR; Quero struck out; Benintendi grounded out
+(pitcher to first); Mead struck out; 0 R, 0 H, 0 E, 0 LOB. 
+Royals 5, White Sox 4.
+
+Final Totals      R   H   E  LOB
+ Royals           5   9   0    6
+ White Sox        4   9   0    4
+
+

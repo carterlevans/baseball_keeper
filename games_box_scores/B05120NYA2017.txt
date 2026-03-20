@@ -1,0 +1,180 @@
+Houston Astros 5, New York Yankees 1
+
+Day
+Game Played on Friday, May 12, 2017 (N) at Yankee Stadium II
+
+HOU A    0  0  0    3  1  0    0  0  1  -   5 11  1
+NY  A    0  0  0    0  0  0    0  0  1  -   1  7  1
+BATTING
+Houston Astros               AB   R   H RBI      BB  SO      PO   A
+Springer cf                   5   1   1   0       0   1       2   0
+Beltran rf                    4   0   1   0       0   0       0   0
+  Reddick rf                  1   0   1   1       0   0       0   0
+Altuve 2b                     5   0   2   0       0   0       2   2
+Correa ss                     5   1   2   1       0   2       1   3
+Gattis dh                     3   0   0   0       1   0       0   0
+Gonzalez 1b                   4   1   1   0       0   2       8   0
+McCann c                      4   1   2   3       0   1      13   0
+Bregman 3b                    3   1   1   0       1   1       0   2
+Marisnick lf                  4   0   0   0       0   4       1   0
+McCullers p                   0   0   0   0       0   0       0   0
+  Harris p                    0   0   0   0       0   0       0   0
+  Gregerson p                 0   0   0   0       0   0       0   0
+  Hoyt p                      0   0   0   0       0   0       0   0
+Totals                       38   5  11   5       2  11      27   7
+FIELDING -
+E: Bregman (4).
+BATTING -
+2B: Springer (6,off Montgomery).
+HR: McCann (6,4th inning off Montgomery 2 on 1 out).
+Team LOB: 8.
+BASERUNNING -
+SB: Bregman (3,2nd base off Chapman/Sanchez).
+New York Yankees             AB   R   H RBI      BB  SO      PO   A
+Gardner lf                    4   0   1   0       0   0       3   0
+Sanchez c                     4   0   0   0       0   3      12   0
+Holliday 1b                   4   1   1   0       0   1       1   1
+Castro 2b                     4   0   0   0       0   1       3   1
+Ellsbury dh                   4   0   1   0       0   0       0   0
+Judge rf                      4   0   2   0       0   2       3   0
+Gregorius ss                  4   0   2   1       0   1       0   0
+Headley 3b                    2   0   0   0       0   2       1   0
+  Torreyes ph,3b              2   0   0   0       0   1       0   0
+Hicks cf                      3   0   0   0       0   2       3   0
+Montgomery p                  0   0   0   0       0   0       0   0
+  Holder p                    0   0   0   0       0   0       1   0
+  Clippard p                  0   0   0   0       0   0       0   0
+  Chapman p                   0   0   0   0       0   0       0   0
+  Gallegos p                  0   0   0   0       0   0       0   0
+Totals                       35   1   7   1       0  13      27   2
+FIELDING -
+E: Judge (2).
+BATTING -
+2B: Judge (4,off McCullers).
+Team LOB: 7.
+PITCHING
+Houston Astros               IP     H   R  ER  BB  SO  HR BFP
+McCullers W(3-1)              6     4   0   0   0   7   0  23
+Harris                        1     0   0   0   0   1   0   3
+Gregerson                     1     0   0   0   0   2   0   3
+Hoyt                          1     3   1   1   0   3   0   6
+Totals                        9     7   1   1   0  13   0  35
+New York Yankees             IP     H   R  ER  BB  SO  HR BFP
+Montgomery L(2-2)             6     8   4   4   1   7   1  27
+Holder                        1     0   0   0   0   0   0   3
+Clippard                      1     0   0   0   1   3   0   4
+Chapman                       0.2   3   1   1   0   1   0   5
+Gallegos                      0.1   0   0   0   0   0   0   1
+Totals                        9    11   5   5   2  11   1  40
+Inherited Runners - Scored: Gallegos 2-0.
+.
+Umpires: HP - Adrian Johnson, 1B - Gabe Morales, 2B - Eric Cooper, 3B - Ron Kulpa
+Official Scorer: Jordan Sprechman
+Ejections: Chase Headley by Adrian Johnson [Hit by pitch non-call]
+Time of Game: 3:09   Attendance: 41150
+Starting Lineups:
+
+   Houston Astros                New York Yankees
+1. Springer            cf        Gardner             lf
+2. Beltran             rf        Sanchez             c
+3. Altuve              2b        Holliday            1b
+4. Correa              ss        Castro              2b
+5. Gattis              dh        Ellsbury            dh
+6. Gonzalez            1b        Judge               rf
+7. McCann              c         Gregorius           ss
+8. Bregman             3b        Headley             3b
+9. Marisnick           lf        Hicks               cf
+   McCullers           p         Montgomery          p
+
+ASTROS 1ST: Springer grounded out (catcher unassisted); Beltran
+singled to center; Altuve singled to left [Beltran to second];
+Correa struck out; Gattis flied to left; 0 R, 2 H, 0 E, 2 LOB.
+Astros 0, Yankees 0.
+
+YANKEES 1ST: Gardner grounded out (second to first); Sanchez
+struck out; Holliday lined to shortstop; 0 R, 0 H, 0 E, 0 LOB.
+Astros 0, Yankees 0.
+
+ASTROS 2ND: Gonzalez was called out on strikes; McCann flied to
+center; Bregman walked; Marisnick struck out; 0 R, 0 H, 0 E, 1
+LOB.  Astros 0, Yankees 0.
+
+YANKEES 2ND: Castro grounded out (third to first); Ellsbury
+grounded out (shortstop to first); Judge singled to right;
+Gregorius singled to right [Judge to second]; Headley struck
+out; 0 R, 2 H, 0 E, 2 LOB.  Astros 0, Yankees 0.
+
+ASTROS 3RD: Springer was called out on strikes; Beltran flied to
+center; Altuve flied to right; 0 R, 0 H, 0 E, 0 LOB.  Astros 0,
+Yankees 0.
+
+YANKEES 3RD: Hicks grounded out (shortstop to first); Gardner
+grounded out (first unassisted); Sanchez grounded out (shortstop
+to first); 0 R, 0 H, 0 E, 0 LOB.  Astros 0, Yankees 0.
+
+ASTROS 4TH: Correa singled to left; Gattis popped to second;
+Gonzalez singled to left [Correa to second]; McCann homered to
+right [Correa scored, Gonzalez scored]; Bregman struck out;
+Marisnick was called out on strikes; 3 R, 3 H, 0 E, 0 LOB.
+Astros 3, Yankees 0.
+
+YANKEES 4TH: Holliday struck out; Castro flied to center;
+Ellsbury grounded out (second to first); 0 R, 0 H, 0 E, 0 LOB.
+Astros 3, Yankees 0.
+
+ASTROS 5TH: Springer doubled to left; Beltran flied to right;
+Altuve grounded out (second to first); Correa singled to right
+[Springer scored, Correa to second (error by Judge)]; Gattis
+flied to left; 1 R, 2 H, 1 E, 1 LOB.  Astros 4, Yankees 0.
+
+YANKEES 5TH: Judge doubled to left; Gregorius struck out;
+Headley was called out on strikes; Hicks struck out; 0 R, 1 H, 0
+E, 1 LOB.  Astros 4, Yankees 0.
+
+ASTROS 6TH: Gonzalez popped to second; McCann singled to center;
+Bregman popped to second; Marisnick struck out; 0 R, 1 H, 0 E, 1
+LOB.  Astros 4, Yankees 0.
+
+YANKEES 6TH: Gardner singled to right; Sanchez struck out;
+Holliday reached on an error by Bregman [Gardner to second];
+Castro forced Holliday (third to second) [Gardner to third];
+Ellsbury grounded out (first unassisted); 0 R, 1 H, 1 E, 2 LOB.
+Astros 4, Yankees 0.
+
+ASTROS 7TH: HOLDER REPLACED MONTGOMERY (PITCHING); Springer
+flied to left; Beltran grounded out (first to pitcher); Altuve
+lined to third; 0 R, 0 H, 0 E, 0 LOB.  Astros 4, Yankees 0.
+
+YANKEES 7TH: REDDICK REPLACED BELTRAN (PLAYING RF); HARRIS
+REPLACED MCCULLERS (PITCHING); Judge was called out on strikes;
+Gregorius flied to left; TORREYES BATTED FOR HEADLEY; Torreyes
+popped to second; Yankees third baseman Chase Headley ejected
+by HP umpire Adrian Johnson; 0 R, 0 H, 0 E, 0 LOB.  Astros
+4, Yankees 0.
+
+ASTROS 8TH: TORREYES STAYED IN GAME (PLAYING 3B); CLIPPARD
+REPLACED HOLDER (PITCHING); Correa struck out; Gattis walked;
+Gonzalez struck out; McCann was called out on strikes; 0 R, 0 H,
+0 E, 1 LOB.  Astros 4, Yankees 0.
+
+YANKEES 8TH: GREGERSON REPLACED HARRIS (PITCHING); Hicks struck
+out; Gardner flied to center; Sanchez struck out; 0 R, 0 H, 0 E,
+0 LOB.  Astros 4, Yankees 0.
+
+ASTROS 9TH: CHAPMAN REPLACED CLIPPARD (PITCHING); Bregman
+singled to left; Marisnick struck out while Bregman stole
+second; Springer flied to right [Bregman to third]; Reddick
+singled to left [Bregman scored]; Altuve singled to right
+[Reddick to second]; GALLEGOS REPLACED CHAPMAN (PITCHING);
+Correa flied to center; 1 R, 3 H, 0 E, 2 LOB.  Astros 5, Yankees
+0.
+
+YANKEES 9TH: HOYT REPLACED GREGERSON (PITCHING); Holliday
+singled to third; Castro struck out; Ellsbury singled to right
+[Holliday to second]; Judge struck out; Gregorius singled to
+right [Holliday scored, Ellsbury to second]; Torreyes struck
+out; 1 R, 3 H, 0 E, 2 LOB.  Astros 5, Yankees 1.
+
+Final Totals      R   H   E  LOB
+ Astros           5  11   1    8
+ Yankees          1   7   1    7

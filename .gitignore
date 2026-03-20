@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Data cache (raw API responses, don't need in repo)
+data/cache/
+
+# macOS
+.DS_Store

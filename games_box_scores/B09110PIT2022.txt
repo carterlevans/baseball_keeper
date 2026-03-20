@@ -1,0 +1,183 @@
+St. Louis Cardinals 4, Pittsburgh Pirates 3
+
+Day
+Game Played on Sunday, September 11, 2022 (D) at PNC Park
+
+STL N    0  0  0    0  0  0    0  0  4  -   4  7  0
+PIT N    0  0  1    0  0  0    1  0  1  -   3  7  0
+BATTING
+St. Louis Cardinals          AB   R   H RBI      BB  SO      PO   A
+Donovan 3b                    4   0   0   0       0   0       0   4
+Edman ss                      4   1   2   0       0   2       0   2
+Dickerson lf                  4   1   1   1       0   1       0   0
+  DeLuzio cf                  0   0   0   0       0   0       1   0
+Pujols 1b                     4   1   1   2       0   1      10   0
+Nootbaar rf                   2   0   1   0       2   0       4   0
+O'Neill cf,lf                 4   1   1   1       0   1       3   0
+Gorman 2b                     3   0   0   0       1   2       3   2
+Molina c                      4   0   0   0       0   0       6   1
+Burleson dh                   3   0   1   0       0   0       0   0
+Quintana p                    0   0   0   0       0   0       0   0
+  Hicks p                     0   0   0   0       0   0       0   1
+  Romero p                    0   0   0   0       0   0       0   0
+  Stratton p                  0   0   0   0       0   0       0   0
+  Helsley p                   0   0   0   0       0   0       0   0
+Totals                       32   4   7   4       3   7      27  10
+BATTING -
+2B: Edman (29,off De Jong); Dickerson (16,off De Jong).
+HR: Pujols (18,9th inning off De Jong 1 on 0 out); O'Neill (14,9th inning off
+De Jong 0 on 1 out).
+GDP: Molina (8,off Keller).
+Team LOB: 4.
+BASERUNNING -
+CS: Nootbaar (1,2nd base by Keller/Delay).
+Pittsburgh Pirates           AB   R   H RBI      BB  SO      PO   A
+Cruz dh                       4   0   0   1       0   2       0   0
+Reynolds cf                   3   0   0   0       1   1       2   0
+Castro 2b                     4   0   1   0       0   1       2   3
+Hayes 3b                      4   0   1   0       0   0       1   5
+Chavis 1b                     3   0   0   0       1   0      10   0
+Suwinski lf                   4   1   1   1       0   1       0   0
+Newman ss                     4   0   1   0       0   1       2   3
+Allen rf                      3   2   2   1       0   1       2   0
+Delay c                       3   0   1   0       0   0       7   1
+  Gamel ph                    1   0   0   0       0   0       0   0
+Keller p                      0   0   0   0       0   0       1   0
+  Underwood p                 0   0   0   0       0   0       0   0
+  De Jong p                   0   0   0   0       0   0       0   0
+Totals                       33   3   7   3       2   7      27  12
+FIELDING -
+DP: 1. Castro-Newman-Chavis.
+BATTING -
+HR: Suwinski (16,7th inning off Hicks 0 on 0 out); Allen (2,9th inning off
+Helsley 0 on 2 out).
+SH: Allen (3,off Quintana).
+Team LOB: 6.
+BASERUNNING -
+SB: Allen (8,2nd base off Quintana/Molina); Cruz (7,2nd base off Quintana/Molina).
+PITCHING
+St. Louis Cardinals          IP     H   R  ER  BB  SO  HR BFP
+Quintana                      5.2   4   1   1   1   4   0  22
+Hicks                         1.1   1   1   1   0   1   1   5
+Romero                        0.1   1   0   0   1   1   0   3
+Stratton W(8-4)               0.2   0   0   0   0   0   0   2
+Helsley SV(16)                1     1   1   1   0   1   1   4
+Totals                        9     7   3   3   2   7   2  36
+Inherited Runners - Scored: Hicks 1-0; Stratton 2-0.
+.
+Pittsburgh Pirates           IP     H   R  ER  BB  SO  HR BFP
+Keller                        7     2   0   0   3   6   0  24
+Underwood                     1     1   0   0   0   0   0   4
+De Jong L(4-2)                1     4   4   4   0   1   2   7
+Totals                        9     7   4   4   3   7   2  35
+Umpires: HP - Clint Vondrak, 1B - Scott Barry, 2B - Chris Conroy, 3B - Carlos Torres
+Official Scorer: Evan Pattak
+Ejections: PIT Manager Derek Shelton by Clint Vondrak [Balls and
+strikes (Check swing)]
+Time of Game: 2:40   Attendance: 10398
+Starting Lineups:
+
+   St. Louis Cardinals           Pittsburgh Pirates
+1. Donovan             3b        Cruz                dh
+2. Edman               ss        Reynolds            cf
+3. Dickerson           lf        Castro              2b
+4. Pujols              1b        Hayes               3b
+5. Nootbaar            rf        Chavis              1b
+6. O'Neill             cf        Suwinski            lf
+7. Gorman              2b        Newman              ss
+8. Molina              c         Allen               rf
+9. Burleson            dh        Delay               c
+   Quintana            p         Keller              p
+
+CARDINALS 1ST: Donovan grounded out (shortstop to first); Edman
+struck out; Dickerson struck out; 0 R, 0 H, 0 E, 0 LOB.
+Cardinals 0, Pirates 0.
+
+PIRATES 1ST: Cruz grounded out (second to first); Reynolds
+grounded out (third to first); Castro lined to right; 0 R, 0 H,
+0 E, 0 LOB.  Cardinals 0, Pirates 0.
+
+CARDINALS 2ND: Pujols flied to center; Nootbaar singled to
+second; O'Neill forced Nootbaar (second to shortstop) [O'Neill
+to first]; Gorman struck out; 0 R, 1 H, 0 E, 1 LOB.  Cardinals
+0, Pirates 0.
+
+PIRATES 2ND: Hayes grounded out (third to first); Chavis walked;
+Suwinski struck out; Newman flied to right; 0 R, 0 H, 0 E, 1
+LOB.  Cardinals 0, Pirates 0.
+
+CARDINALS 3RD: Molina grounded out (third to first); Burleson
+grounded out (first unassisted); Donovan grounded out (second to
+pitcher); 0 R, 0 H, 0 E, 0 LOB.  Cardinals 0, Pirates 0.
+
+PIRATES 3RD: Allen singled to right; Allen stole second; Delay
+singled to right [Allen to third]; Cruz forced Delay (shortstop
+to second) [Allen scored, Cruz to first]; Reynolds struck out
+while Cruz stole second; Pirates manager Derek Shelton
+ejected by HP umpire Clint Vondrak for arguing check swing
+strike three; Castro popped to second; 1 R, 2 H, 0 E, 1 LOB.
+ Cardinals 0, Pirates 1.
+
+CARDINALS 4TH: Edman struck out; Dickerson flied to right;
+Pujols flied to right; 0 R, 0 H, 0 E, 0 LOB.  Cardinals 0,
+Pirates 1.
+
+PIRATES 4TH: Hayes grounded out (second to first); Chavis flied
+to center; Suwinski grounded out (third to first); 0 R, 0 H, 0
+E, 0 LOB.  Cardinals 0, Pirates 1.
+
+CARDINALS 5TH: Nootbaar walked; O'Neill popped to second; Gorman
+walked [Nootbaar to second]; Molina grounded into a double play
+(second to shortstop to first) [Gorman out at second]; 0 R, 0 H,
+0 E, 1 LOB.  Cardinals 0, Pirates 1.
+
+PIRATES 5TH: Newman singled to left; Allen out on a sacrifice
+bunt (first unassisted) [Newman to second]; Delay grounded out
+(shortstop to first) [Newman to third]; Cruz struck out; 0 R, 1
+H, 0 E, 1 LOB.  Cardinals 0, Pirates 1.
+
+CARDINALS 6TH: Burleson lined to third; Donovan grounded out
+(third to first); Edman singled to left; Dickerson grounded out
+(third to first); 0 R, 1 H, 0 E, 1 LOB.  Cardinals 0, Pirates 1.
+
+PIRATES 6TH: Reynolds grounded out (third to first); Castro
+struck out [Castro out at first (catcher to first)]; Hayes
+singled to center; HICKS REPLACED QUINTANA (PITCHING); Chavis
+flied to center; 0 R, 1 H, 0 E, 1 LOB.  Cardinals 0, Pirates 1.
+
+CARDINALS 7TH: Pujols struck out; Nootbaar walked; Nootbaar was
+caught stealing second (catcher to second); O'Neill was called
+out on strikes; 0 R, 0 H, 0 E, 0 LOB.  Cardinals 0, Pirates 1.
+
+PIRATES 7TH: Suwinski homered to right-center; Newman grounded
+out (pitcher to first); Allen struck out; Delay flied to center;
+1 R, 1 H, 0 E, 0 LOB.  Cardinals 0, Pirates 2.
+
+CARDINALS 8TH: UNDERWOOD REPLACED KELLER (PITCHING); Gorman
+lined to center; Molina grounded out (third to first); Burleson
+singled to center; Donovan grounded out (first unassisted); 0 R,
+1 H, 0 E, 1 LOB.  Cardinals 0, Pirates 2.
+
+PIRATES 8TH: ROMERO REPLACED HICKS (PITCHING); Cruz struck out;
+Reynolds walked; Castro singled to left [Reynolds to second];
+STRATTON REPLACED ROMERO (PITCHING); Hayes lined to right;
+Chavis lined to right; 0 R, 1 H, 0 E, 2 LOB.  Cardinals 0,
+Pirates 2.
+
+CARDINALS 9TH: DE JONG REPLACED UNDERWOOD (PITCHING); Edman
+doubled to center; Dickerson doubled to right [Edman scored];
+Pujols homered to center [Dickerson scored]; Nootbaar grounded
+out (third to first); O'Neill homered to center; Gorman struck
+out; Molina grounded out (shortstop to first); 4 R, 4 H, 0 E, 0
+LOB.  Cardinals 4, Pirates 2.
+
+PIRATES 9TH: DELUZIO REPLACED DICKERSON (PLAYING CF); O'NEILL
+CHANGED POSITIONS (PLAYING LF); HELSLEY REPLACED STRATTON
+(PITCHING); Suwinski popped to second in foul territory; Newman
+struck out; Allen homered to right; GAMEL BATTED FOR DELAY;
+Gamel flied to center; 1 R, 1 H, 0 E, 0 LOB.  Cardinals 4,
+Pirates 3.
+
+Final Totals      R   H   E  LOB
+ Cardinals        4   7   0    4
+ Pirates          3   7   0    6
