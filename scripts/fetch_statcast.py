@@ -61,11 +61,53 @@ PITCHER_NAMES = build_pitcher_lookup()
 
 # ── Numeric helpers ────────────────────────────────────────────────────────────
 def fnum(val):
+    """Positive finite float only."""
     try:
         v = float(val)
         return v if math.isfinite(v) and v > 0 else None
     except (TypeError, ValueError):
         return None
+
+def snum(val):
+    """Any finite float (including zero / negative — for plate coordinates)."""
+    try:
+        v = float(val)
+        return round(v, 3) if math.isfinite(v) else None
+    except (TypeError, ValueError):
+        return None
+
+def base_ctx(r, game_meta):
+    """Build game-situation context dict from a raw Statcast row."""
+    def on(base):
+        return bool((r.get(base) or "").strip())
+    runners = []
+    if on("on_1b"): runners.append("1st")
+    if on("on_2b"): runners.append("2nd")
+    if on("on_3b"): runners.append("3rd")
+    desc = (r.get("description") or "").replace("_", " ").strip()
+    return {
+        "inning":      r.get("inning", ""),
+        "half":        (r.get("inning_topbot") or "").strip(),
+        "outs":        r.get("outs_when_up", ""),
+        "count":       f"{r.get('balls','?')}-{r.get('strikes','?')}",
+        "runners":     runners,
+        "away_abbr":   game_meta["away_abbr"],
+        "home_abbr":   game_meta["home_abbr"],
+        "away_score":  r.get("away_score", ""),
+        "home_score":  r.get("home_score", ""),
+        "description": desc,
+        "des":         (r.get("des") or "").strip(),
+        "pitch_name":  (r.get("pitch_name") or "").strip(),
+        "batter":      flip_name(r.get("player_name", "")),
+        "pitcher":     pitcher_name(r),
+        "stand":       r.get("stand", ""),
+        "p_throws":    r.get("p_throws", ""),
+        # Pitch location (signed — plate_x is negative for pitches arm-side)
+        "plate_x":     snum(r.get("plate_x")),
+        "plate_z":     snum(r.get("plate_z")),
+        "sz_top":      snum(r.get("sz_top")),
+        "sz_bot":      snum(r.get("sz_bot")),
+    }
 
 def total_break_inches(row):
     """Modern api_break fields (in inches); fall back to pfx (feet → inches)."""
@@ -123,23 +165,25 @@ def extract_events(pk, game_meta):
     hrs, batted, pitches = [], [], []
 
     for r in rows:
+        ctx = base_ctx(r, game_meta)
+
         # ── Home runs ──────────────────────────────────────────────────────────
         if r.get("events") == "home_run" and fnum(r.get("hit_distance_sc")):
             hrs.append({
-                "batter":       flip_name(r.get("player_name", "")),
+                "batter":       ctx["batter"],
                 "distance_ft":  int(fnum(r["hit_distance_sc"])),
                 "exit_velo":    round(fnum(r["launch_speed"]), 1) if fnum(r.get("launch_speed")) else None,
                 "launch_angle": round(fnum(r["launch_angle"]), 1) if fnum(r.get("launch_angle")) else None,
-                "game": label, "date": date,
+                "game": label, "date": date, "ctx": ctx,
             })
 
         # ── Batted balls (any) ─────────────────────────────────────────────────
         if r.get("type") == "X" and fnum(r.get("launch_speed")):
             batted.append({
-                "batter":       flip_name(r.get("player_name", "")),
+                "batter":        ctx["batter"],
                 "exit_velo_mph": round(fnum(r["launch_speed"]), 1),
                 "result":        r.get("events", "").replace("_", " ").title() or "—",
-                "game": label, "date": date,
+                "game": label, "date": date, "ctx": ctx,
             })
 
         # ── Pitches ────────────────────────────────────────────────────────────
@@ -149,7 +193,7 @@ def extract_events(pk, game_meta):
         if spd or spin or brk:
             pname = pitcher_name(r)
             ptype = r.get("pitch_name", "").strip() or r.get("pitch_type", "").strip()
-            base  = {"pitcher": pname, "pitch_name": ptype, "game": label, "date": date}
+            base  = {"pitcher": pname, "pitch_name": ptype, "game": label, "date": date, "ctx": ctx}
             if spd:
                 pitches.append({**base, "_cat": "speed",  "speed_mph": round(spd, 1)})
             if spin:

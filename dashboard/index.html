@@ -844,6 +844,135 @@
   .tab-panel { display: none; }
   .tab-panel.active { display: block; }
 
+  /* ── STATCAST DETAIL MODAL ───────────────────────── */
+  .sc-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.55);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .sc-modal-overlay.open { display: flex; }
+  .sc-modal {
+    background: white;
+    border-radius: 10px;
+    max-width: 580px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0,0,0,.35);
+  }
+  .sc-modal-head {
+    background: var(--green);
+    padding: 16px 20px 14px;
+    border-radius: 10px 10px 0 0;
+    position: relative;
+  }
+  .sc-modal-close {
+    position: absolute;
+    top: 12px; right: 14px;
+    background: none; border: none;
+    color: rgba(255,255,255,.6);
+    font-size: 1.2rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+  .sc-modal-close:hover { color: white; background: rgba(255,255,255,.1); }
+  .sc-modal-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: .08em;
+    color: var(--chalk);
+    line-height: 1.1;
+  }
+  .sc-modal-subtitle {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .68rem;
+    color: var(--dirt);
+    margin-top: 4px;
+    letter-spacing: .05em;
+  }
+  .sc-modal-body {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+    align-items: start;
+  }
+  .sc-modal-info { }
+  .sc-info-section { margin-bottom: 14px; }
+  .sc-info-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .58rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--fade);
+    margin-bottom: 4px;
+  }
+  .sc-info-value {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: .85rem;
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .sc-info-value.muted { font-weight: 400; color: var(--fade); }
+  .sc-info-sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .68rem;
+    color: var(--fade);
+    margin-top: 2px;
+  }
+  .sc-bases {
+    display: inline-grid;
+    grid-template: "third second" "_ first" / 18px 18px;
+    gap: 3px;
+    vertical-align: middle;
+    margin-left: 6px;
+  }
+  .sc-base {
+    width: 14px; height: 14px;
+    border: 2px solid var(--border);
+    border-radius: 2px;
+    transform: rotate(45deg);
+    background: transparent;
+  }
+  .sc-base.on { background: var(--dirt); border-color: var(--dirt); }
+  .sc-base.first  { grid-area: first;  }
+  .sc-base.second { grid-area: second; }
+  .sc-base.third  { grid-area: third;  }
+  .sc-zone-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  .sc-zone-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .58rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--fade);
+  }
+  .sc-desc-box {
+    background: var(--panel);
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: .78rem;
+    color: var(--ink);
+    font-style: italic;
+    margin-top: 4px;
+  }
+  @media (max-width: 520px) {
+    .sc-modal-body { grid-template-columns: 1fr; }
+    .sc-zone-wrap { align-items: flex-start; }
+  }
+
   /* ── STATCAST TAB ─────────────────────────────────── */
   .statcast-wrap { padding: 28px 32px 48px; }
   .statcast-credit {
@@ -1138,6 +1267,18 @@
 </div>
 
 <div class="tooltip" id="tooltip"></div>
+
+<!-- STATCAST DETAIL MODAL -->
+<div class="sc-modal-overlay" id="scModal" onclick="scModalOverlayClick(event)">
+  <div class="sc-modal">
+    <div class="sc-modal-head" id="scModalHead">
+      <button class="sc-modal-close" onclick="closeScModal()">✕</button>
+      <div class="sc-modal-title" id="scModalTitle"></div>
+      <div class="sc-modal-subtitle" id="scModalSubtitle"></div>
+    </div>
+    <div class="sc-modal-body" id="scModalBody"></div>
+  </div>
+</div>
 
 <script>
 // ── State ──────────────────────────────────────────────────────
@@ -2139,6 +2280,146 @@ function switchTab(t, e) {
 }
 
 // ── Init ───────────────────────────────────────────────────────
+// ── Statcast detail modal ──────────────────────────────────────
+let scDetailData = [];
+
+function scModalOverlayClick(e) { if (e.target === e.currentTarget) closeScModal(); }
+function closeScModal() { document.getElementById('scModal').classList.remove('open'); }
+
+function pitchZoneSvg(ctx) {
+  const W = 150, H = 185;
+  const X_LO = -1.5, X_HI = 1.5;   // feet
+  const Z_LO = 0.5,  Z_HI = 5.0;
+  const px = x => ((x - X_LO) / (X_HI - X_LO)) * W;
+  const pz = z => ((Z_HI - z) / (Z_HI - Z_LO)) * H;
+
+  const HALF_PLATE = 0.7083;
+  const szT = ctx.sz_top || 3.4;
+  const szB = ctx.sz_bot || 1.6;
+
+  // Strike zone rect
+  const zx = px(-HALF_PLATE), zw = px(HALF_PLATE) - px(-HALF_PLATE);
+  const zy = pz(szT),         zh = pz(szB) - pz(szT);
+
+  let dot = '';
+  if (ctx.plate_x !== null && ctx.plate_x !== undefined &&
+      ctx.plate_z !== null && ctx.plate_z !== undefined) {
+    const dx = px(ctx.plate_x), dz = pz(ctx.plate_z);
+    const inZone = Math.abs(ctx.plate_x) <= HALF_PLATE &&
+                   ctx.plate_z >= szB && ctx.plate_z <= szT;
+    const col = inZone ? '#c0392b' : '#1a3a1a';
+    dot = `<circle cx="${dx.toFixed(1)}" cy="${dz.toFixed(1)}" r="7"
+             fill="${col}" opacity=".82" stroke="white" stroke-width="1.5"/>`;
+  }
+
+  // Home plate (simple trapezoid at bottom)
+  const plateL = px(-HALF_PLATE), plateR = px(HALF_PLATE);
+  const plateY = H - 10;
+
+  return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}"
+    style="border:1px solid var(--border);border-radius:5px;background:#f9f5ee;display:block">
+    <rect x="${zx.toFixed(1)}" y="${zy.toFixed(1)}"
+          width="${zw.toFixed(1)}" height="${zh.toFixed(1)}"
+          fill="none" stroke="var(--green)" stroke-width="1.5" stroke-dasharray="5,3" rx="1"/>
+    <polygon points="${plateL},${plateY} ${plateR},${plateY} ${((plateL+plateR)/2+8).toFixed(0)},${H-2} ${((plateL+plateR)/2).toFixed(0)},${H} ${((plateL+plateR)/2-8).toFixed(0)},${H-2}"
+             fill="#d4cfc4" stroke="#aaa" stroke-width="1"/>
+    ${dot}
+  </svg>`;
+}
+
+const DESC_MAP = {
+  'called strike':          'Called Strike',
+  'swinging strike':        'Swinging Strike',
+  'swinging strike blocked':'Swinging Strike (Blocked)',
+  'ball':                   'Ball',
+  'blocked ball':           'Blocked Ball',
+  'hit into play':          'Hit Into Play',
+  'foul':                   'Foul Ball',
+  'foul tip':               'Foul Tip',
+  'foul bunt':              'Foul Bunt',
+  'missed bunt':            'Missed Bunt',
+};
+
+function showScDetail(idx) {
+  const d = scDetailData[idx];
+  if (!d) return;
+  const ctx = d.ctx;
+  const ev  = d.ev;
+  const isBatted = d.category === 'farthest_hr' || d.category === 'hardest_hit';
+
+  // ── Header ──────────────────────────────────────────────────────────────
+  const player = isBatted ? ctx.batter : ctx.pitcher;
+  const stat   = isBatted
+    ? (d.category === 'farthest_hr' ? `${ev.distance_ft} ft HR` : `${ev.exit_velo_mph} mph EV`)
+    : (d.category === 'fastest_pitch' ? `${ev.speed_mph} mph`
+     : d.category === 'most_spin'     ? `${ev.spin_rpm.toLocaleString()} RPM`
+     :                                  `${ev.break_in}" break`);
+  const pitchLabel = ctx.pitch_name ? ` · ${ctx.pitch_name}` : '';
+
+  document.getElementById('scModalTitle').textContent    = `${player}  —  ${stat}${pitchLabel}`;
+  document.getElementById('scModalSubtitle').textContent =
+    `${ctx.away_abbr} @ ${ctx.home_abbr}  ·  ${fmtDate(ev.date)}`;
+
+  // ── Runners ─────────────────────────────────────────────────────────────
+  const runners = ctx.runners || [];
+  const basesHtml = `
+    <span class="sc-bases">
+      <span class="sc-base third ${runners.includes('3rd')?'on':''}"></span>
+      <span class="sc-base second ${runners.includes('2nd')?'on':''}"></span>
+      <span class="sc-base first ${runners.includes('1st')?'on':''}"></span>
+    </span>`;
+  const runnersText = runners.length ? runners.join(', ') : 'Bases empty';
+
+  // ── Score ────────────────────────────────────────────────────────────────
+  const scoreText = `${ctx.away_abbr} ${ctx.away_score}–${ctx.home_score} ${ctx.home_abbr}`;
+
+  // ── Opposing player ──────────────────────────────────────────────────────
+  const opposing    = isBatted ? ctx.pitcher : ctx.batter;
+  const opposingLbl = isBatted ? 'Pitcher' : 'Batter';
+  const hand        = isBatted
+    ? (ctx.p_throws ? `(${ctx.p_throws}HP)` : '')
+    : (ctx.stand    ? `(${ctx.stand}HH)` : '');
+
+  // ── Result ───────────────────────────────────────────────────────────────
+  const descKey  = (ctx.description || '').toLowerCase();
+  const descDisp = DESC_MAP[descKey] || ctx.description || '—';
+  const desText  = ctx.des && ctx.des !== ctx.description ? ctx.des : '';
+
+  // ── Pitch location ───────────────────────────────────────────────────────
+  const zoneSvg    = pitchZoneSvg(ctx);
+  const hasLocation = ctx.plate_x !== null && ctx.plate_x !== undefined;
+  const locText    = hasLocation
+    ? `${Math.abs(ctx.plate_x).toFixed(2)}ft ${ctx.plate_x >= 0 ? 'arm-side' : 'glove-side'}
+       · ${ctx.plate_z ? ctx.plate_z.toFixed(2)+'ft high' : ''}`
+    : '';
+
+  document.getElementById('scModalBody').innerHTML = `
+    <div class="sc-modal-info">
+      <div class="sc-info-section">
+        <div class="sc-info-label">Situation</div>
+        <div class="sc-info-value">${ctx.half} ${ctx.inning}  ·  ${ctx.outs} out${ctx.outs==='1'?'':'s'}  ·  Count ${ctx.count}</div>
+        <div class="sc-info-sub">${runnersText}${basesHtml}</div>
+        <div class="sc-info-sub" style="margin-top:3px">Score: ${scoreText}</div>
+      </div>
+      <div class="sc-info-section">
+        <div class="sc-info-label">${opposingLbl}</div>
+        <div class="sc-info-value">${escHtml(opposing)} <span style="font-weight:400;color:var(--fade);font-size:.75rem">${hand}</span></div>
+      </div>
+      <div class="sc-info-section">
+        <div class="sc-info-label">Result</div>
+        <div class="sc-info-value">${escHtml(descDisp)}</div>
+        ${desText ? `<div class="sc-desc-box">${escHtml(desText)}</div>` : ''}
+      </div>
+    </div>
+    <div class="sc-zone-wrap">
+      <div class="sc-zone-label">Pitch location</div>
+      ${hasLocation ? zoneSvg : '<div class="sc-info-value muted" style="font-size:.72rem">No location data</div>'}
+      ${hasLocation ? `<div class="sc-info-sub" style="text-align:center">${locText}</div>` : ''}
+    </div>`;
+
+  document.getElementById('scModal').classList.add('open');
+}
+
 // ── Statcast tab ───────────────────────────────────────────────
 function toggleScSection(el) {
   el.closest('.sc-section').classList.toggle('open');
@@ -2151,6 +2432,7 @@ function renderStatcast() {
     return;
   }
 
+  scDetailData = [];
   const t = statcastData.top10;
 
   const rankCls = i => i === 0 ? 'sc-rank sc-rank-gold'
@@ -2158,41 +2440,44 @@ function renderStatcast() {
                      : i === 2 ? 'sc-rank sc-rank-bronze'
                      : 'sc-rank';
 
+  function regRow(cells, ev, category) {
+    const idx = scDetailData.length;
+    scDetailData.push({ ev, ctx: ev.ctx || {}, category });
+    return `<tr onclick="showScDetail(${idx})" style="cursor:pointer">${cells}</tr>`;
+  }
+
   // ── Table builders ───────────────────────────────────────────────────────
-  function hrTable(rows) {
+  function hrTable(rows, cat) {
     const head = `<tr><th></th><th>Batter</th><th class="num">Distance</th><th class="num">Exit Velo</th><th class="num">Angle</th><th>Game</th></tr>`;
-    const body = rows.map((r, i) => `<tr>
+    const body = rows.map((r, i) => regRow(`
       <td class="${rankCls(i)}">${i+1}</td>
       <td class="sc-name">${escHtml(r.batter)}</td>
       <td class="sc-stat">${r.distance_ft} ft</td>
       <td class="sc-stat">${r.exit_velo ? r.exit_velo + ' mph' : '—'}</td>
       <td class="sc-stat">${r.launch_angle != null ? r.launch_angle + '°' : '—'}</td>
-      <td class="sc-game">${escHtml(r.game)}</td>
-    </tr>`).join('');
+      <td class="sc-game">${escHtml(r.game)}</td>`, r, cat)).join('');
     return `<table class="sc-table"><thead>${head}</thead><tbody>${body}</tbody></table>`;
   }
 
-  function evTable(rows) {
+  function evTable(rows, cat) {
     const head = `<tr><th></th><th>Batter</th><th class="num">Exit Velo</th><th>Result</th><th>Game</th></tr>`;
-    const body = rows.map((r, i) => `<tr>
+    const body = rows.map((r, i) => regRow(`
       <td class="${rankCls(i)}">${i+1}</td>
       <td class="sc-name">${escHtml(r.batter)}</td>
       <td class="sc-stat">${r.exit_velo_mph} mph</td>
       <td class="sc-result">${escHtml(r.result)}</td>
-      <td class="sc-game">${escHtml(r.game)}</td>
-    </tr>`).join('');
+      <td class="sc-game">${escHtml(r.game)}</td>`, r, cat)).join('');
     return `<table class="sc-table"><thead>${head}</thead><tbody>${body}</tbody></table>`;
   }
 
-  function pitchTable(rows, statKey, statFmt) {
+  function pitchTable(rows, cat, statKey, statFmt) {
     const head = `<tr><th></th><th>Pitcher</th><th class="num">Value</th><th>Pitch</th><th>Game</th></tr>`;
-    const body = rows.map((r, i) => `<tr>
+    const body = rows.map((r, i) => regRow(`
       <td class="${rankCls(i)}">${i+1}</td>
       <td class="sc-name">${escHtml(r.pitcher)}</td>
       <td class="sc-stat">${statFmt(r[statKey])}</td>
       <td>${r.pitch_name ? `<span class="sc-pitch-type">${escHtml(r.pitch_name)}</span>` : ''}</td>
-      <td class="sc-game">${escHtml(r.game)}</td>
-    </tr>`).join('');
+      <td class="sc-game">${escHtml(r.game)}</td>`, r, cat)).join('');
     return `<table class="sc-table"><thead>${head}</thead><tbody>${body}</tbody></table>`;
   }
 
@@ -2209,27 +2494,27 @@ function renderStatcast() {
     {
       emoji: '🚀', title: 'Farthest Home Runs',
       preview: hrPreview(t.farthest_hr[0]),
-      table: hrTable(t.farthest_hr),
+      table: hrTable(t.farthest_hr, 'farthest_hr'),
     },
     {
       emoji: '💨', title: 'Hardest Exit Velocity',
       preview: evPreview(t.hardest_hit[0]),
-      table: evTable(t.hardest_hit),
+      table: evTable(t.hardest_hit, 'hardest_hit'),
     },
     {
       emoji: '⚡', title: 'Fastest Pitches',
       preview: pitchPreview(t.fastest_pitch[0], v => v + ' mph', 'speed_mph'),
-      table: pitchTable(t.fastest_pitch, 'speed_mph', v => v + ' mph'),
+      table: pitchTable(t.fastest_pitch, 'fastest_pitch', 'speed_mph', v => v + ' mph'),
     },
     {
       emoji: '🌀', title: 'Highest Spin Rate',
       preview: pitchPreview(t.most_spin[0], v => v.toLocaleString() + ' rpm', 'spin_rpm'),
-      table: pitchTable(t.most_spin, 'spin_rpm', v => v.toLocaleString() + ' rpm'),
+      table: pitchTable(t.most_spin, 'most_spin', 'spin_rpm', v => v.toLocaleString() + ' rpm'),
     },
     {
       emoji: '🏹', title: 'Most Pitch Movement',
       preview: pitchPreview(t.most_break[0], v => v + '"', 'break_in'),
-      table: pitchTable(t.most_break, 'break_in', v => v + '"'),
+      table: pitchTable(t.most_break, 'most_break', 'break_in', v => v + '"'),
     },
   ];
 
