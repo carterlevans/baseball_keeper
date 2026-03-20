@@ -1637,7 +1637,64 @@ function computeSuperlatives() {
     detail: hofers.map(p => p.full_name.split(' ').slice(-1)[0]).join(', ')
   });
 
+  // 15. Highest peak WAR player seen
+  const topWAR = [...allPlayers].sort((a,b) => parseFloat(b.peak_war||0) - parseFloat(a.peak_war||0))[0];
+  if (topWAR && topWAR.peak_war) cards.push({
+    emoji:'📊', label:'Highest peak WAR seen',
+    headline:`${topWAR.peak_war} WAR`,
+    detail:`${topWAR.full_name} — best season peak`
+  });
+
+  // 16. Most cumulative HRs by one batter across all games
+  const hrTotals = {};
+  allGames.forEach(g => {
+    [...(g.away_batters||[]),...(g.home_batters||[])].forEach(b => {
+      if (b.name && b.hr) hrTotals[b.name] = (hrTotals[b.name]||0) + b.hr;
+    });
+  });
+  const topHRB = Object.entries(hrTotals).sort((a,b)=>b[1]-a[1])[0];
+  if (topHRB && topHRB[1] > 1) cards.push({
+    emoji:'🚀', label:'Most HRs across your games',
+    headline:`${topHRB[1]} Career HRs`,
+    detail:`${topHRB[0]} — hit in multiple games`
+  });
+
+  // 17. Biggest single inning (most runs by one team in one half-inning)
+  let bigInn = null, bigRuns = 0;
+  allGames.forEach(g => {
+    (g.innings||[]).forEach(inn => {
+      [['away_r', g.away_abbr], ['home_r', g.home_abbr]].forEach(([key, abbr]) => {
+        const r = inn[key] || 0;
+        if (r > bigRuns) { bigRuns = r; bigInn = { r, abbr, num: inn.num, g }; }
+      });
+    });
+  });
+  if (bigInn) cards.push({
+    emoji:'🌋', label:'Biggest single inning',
+    headline:`${bigInn.r}-Run ${ordinal(bigInn.num)}`,
+    detail:`${bigInn.abbr} · ${bigInn.g.away_abbr} @ ${bigInn.g.home_abbr}${bigInn.g.level==='MiLB'?' (MiLB)':''}`
+  });
+
+  // 18. Worst start witnessed (most ER in one outing)
+  let worstStart = null, worstER = 0;
+  allGames.forEach(g => {
+    [...(g.away_pitchers||[]),...(g.home_pitchers||[])].forEach(p => {
+      const er = parseInt(p.er) || 0;
+      if (er > worstER) { worstER = er; worstStart = { er, name: p.name, g }; }
+    });
+  });
+  if (worstStart) cards.push({
+    emoji:'😤', label:'Worst outing you witnessed',
+    headline:`${worstStart.er} Earned Runs`,
+    detail:`${worstStart.name} · ${worstStart.g.away_abbr} @ ${worstStart.g.home_abbr}`
+  });
+
   return cards;
+}
+
+function ordinal(n) {
+  const s = ['th','st','nd','rd'], v = n % 100;
+  return n + (s[(v-20)%10] || s[v] || s[0]) + ' inning';
 }
 
 function renderHome() {
