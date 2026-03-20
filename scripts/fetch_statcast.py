@@ -59,6 +59,23 @@ def build_pitcher_lookup():
 
 PITCHER_NAMES = build_pitcher_lookup()
 
+# ── Build (at_bat_number, pitch_number) → play_id for one game ────────────────
+def build_play_id_lookup(pk):
+    f = ROOT / "data" / "cache" / f"gamecard_{pk}.json"
+    if not f.exists():
+        return {}
+    try:
+        plays = json.loads(f.read_text()).get("liveData", {}).get("plays", {}).get("allPlays", [])
+        lookup = {}
+        for p in plays:
+            abi = p.get("atBatIndex", -1)
+            for ev in p.get("playEvents", []):
+                if ev.get("isPitch") and ev.get("playId") and ev.get("pitchNumber"):
+                    lookup[(abi + 1, ev["pitchNumber"])] = ev["playId"]
+        return lookup
+    except Exception:
+        return {}
+
 # ── Numeric helpers ────────────────────────────────────────────────────────────
 def fnum(val):
     """Positive finite float only."""
@@ -159,13 +176,16 @@ def extract_events(pk, game_meta):
         print(f"  ✗ empty CSV for {pk}")
         return None
 
-    label = f"{game_meta['away_abbr']} @ {game_meta['home_abbr']}"
-    date  = game_meta["date"]
+    label    = f"{game_meta['away_abbr']} @ {game_meta['home_abbr']}"
+    date     = game_meta["date"]
+    play_ids = build_play_id_lookup(pk)
 
     hrs, batted, pitches = [], [], []
 
     for r in rows:
         ctx = base_ctx(r, game_meta)
+        ab_key = (int(r.get("at_bat_number") or 0), int(r.get("pitch_number") or 0))
+        play_id = play_ids.get(ab_key)
 
         # ── Home runs ──────────────────────────────────────────────────────────
         if r.get("events") == "home_run" and fnum(r.get("hit_distance_sc")):
@@ -174,7 +194,7 @@ def extract_events(pk, game_meta):
                 "distance_ft":  int(fnum(r["hit_distance_sc"])),
                 "exit_velo":    round(fnum(r["launch_speed"]), 1) if fnum(r.get("launch_speed")) else None,
                 "launch_angle": round(fnum(r["launch_angle"]), 1) if fnum(r.get("launch_angle")) else None,
-                "game": label, "date": date, "ctx": ctx,
+                "game": label, "date": date, "ctx": ctx, "play_id": play_id,
             })
 
         # ── Batted balls (any) ─────────────────────────────────────────────────
@@ -183,7 +203,7 @@ def extract_events(pk, game_meta):
                 "batter":        ctx["batter"],
                 "exit_velo_mph": round(fnum(r["launch_speed"]), 1),
                 "result":        r.get("events", "").replace("_", " ").title() or "—",
-                "game": label, "date": date, "ctx": ctx,
+                "game": label, "date": date, "ctx": ctx, "play_id": play_id,
             })
 
         # ── Pitches ────────────────────────────────────────────────────────────
@@ -193,7 +213,8 @@ def extract_events(pk, game_meta):
         if spd or spin or brk:
             pname = pitcher_name(r)
             ptype = r.get("pitch_name", "").strip() or r.get("pitch_type", "").strip()
-            base  = {"pitcher": pname, "pitch_name": ptype, "game": label, "date": date, "ctx": ctx}
+            base  = {"pitcher": pname, "pitch_name": ptype, "game": label, "date": date,
+                     "ctx": ctx, "play_id": play_id}
             if spd:
                 pitches.append({**base, "_cat": "speed",  "speed_mph": round(spd, 1)})
             if spin:

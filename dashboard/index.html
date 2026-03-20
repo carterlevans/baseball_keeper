@@ -897,6 +897,23 @@
     margin-top: 4px;
     letter-spacing: .05em;
   }
+  .sc-video-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 8px;
+    padding: 5px 12px;
+    background: rgba(255,255,255,.15);
+    border: 1px solid rgba(255,255,255,.3);
+    border-radius: 5px;
+    color: var(--chalk);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .72rem;
+    text-decoration: none;
+    letter-spacing: .04em;
+    transition: background .15s;
+  }
+  .sc-video-btn:hover { background: rgba(255,255,255,.28); }
   .sc-modal-body {
     padding: 20px;
     display: grid;
@@ -1292,6 +1309,7 @@
       <button class="sc-modal-close" onclick="closeScModal()">✕</button>
       <div class="sc-modal-title" id="scModalTitle"></div>
       <div class="sc-modal-subtitle" id="scModalSubtitle"></div>
+      <a id="scModalVideoBtn" class="sc-video-btn" href="#" target="_blank" rel="noopener" style="display:none">🎥 Watch</a>
     </div>
     <div class="sc-modal-body" id="scModalBody"></div>
   </div>
@@ -2376,6 +2394,21 @@ function showScDetail(idx) {
   document.getElementById('scModalTitle').textContent    = `${player}  —  ${stat}${pitchLabel}`;
   document.getElementById('scModalSubtitle').textContent =
     `${ctx.away_abbr} @ ${ctx.home_abbr}  ·  ${fmtDate(ev.date)}`;
+
+  // ── Video link ───────────────────────────────────────────────────────────
+  const videoBtn = document.getElementById('scModalVideoBtn');
+  if (ev.play_id) {
+    // Player's broadcast: batter events → player is Away if Top, Home if Bot
+    //                     pitcher events → player is Home if Top, Away if Bot
+    const isTop = (ctx.half || '').toLowerCase().startsWith('top');
+    const videoType = isBatted
+      ? (isTop ? 'AWAY' : 'HOME')
+      : (isTop ? 'HOME' : 'AWAY');
+    videoBtn.href = `https://baseballsavant.mlb.com/sporty-videos?playId=${ev.play_id}&videoType=${videoType}`;
+    videoBtn.style.display = 'inline-flex';
+  } else {
+    videoBtn.style.display = 'none';
+  }
 
   // ── Runners ─────────────────────────────────────────────────────────────
   const runners = ctx.runners || [];
