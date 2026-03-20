@@ -739,6 +739,94 @@
     gap: 16px;
   }
 
+  /* ── SUPERLATIVES CAROUSEL ───────────────────────── */
+  .carousel-section { margin-bottom: 32px; }
+  .carousel-outer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .carousel-btn {
+    background: var(--green);
+    border: none;
+    color: var(--chalk);
+    font-size: 1.5rem;
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    cursor: pointer;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: .75;
+    transition: opacity .15s;
+    line-height: 1;
+    padding-bottom: 2px;
+  }
+  .carousel-btn:hover { opacity: 1; }
+  .carousel-btn:disabled { opacity: .2; cursor: default; }
+  .carousel-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 12px;
+    flex: 1;
+    padding: 4px 2px;
+  }
+  .carousel-track::-webkit-scrollbar { display: none; }
+  .sup-card {
+    scroll-snap-align: start;
+    flex: 0 0 200px;
+    background: var(--green);
+    border-radius: 10px;
+    padding: 16px 15px 14px;
+    color: var(--chalk);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-height: 128px;
+    position: relative;
+    overflow: hidden;
+  }
+  .sup-card::after {
+    content: '';
+    position: absolute;
+    bottom: -18px; right: -18px;
+    width: 72px; height: 72px;
+    background: rgba(255,255,255,.05);
+    border-radius: 50%;
+  }
+  .sup-card-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .54rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--dirt);
+    opacity: .95;
+  }
+  .sup-card-emoji {
+    font-size: 1.55rem;
+    line-height: 1;
+    margin: 5px 0 3px;
+  }
+  .sup-card-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.25rem;
+    letter-spacing: .05em;
+    line-height: 1.1;
+    color: var(--chalk);
+  }
+  .sup-card-detail {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: .68rem;
+    color: rgba(245,240,232,.65);
+    margin-top: 3px;
+    line-height: 1.35;
+  }
+
   /* ── PARKS & TEAMS TAB ────────────────────────────── */
   .parks-wrap { padding: 28px 32px 48px; }
   .parks-section { margin-bottom: 36px; }
@@ -1369,6 +1457,189 @@ function renderGames() {
 }
 
 // ── Home tab ───────────────────────────────────────────────────
+// ── Carousel helpers ──────────────────────────────────────────
+function carouselScroll(dir) {
+  const track = document.getElementById('carTrack');
+  if (!track) return;
+  const card = track.querySelector('.sup-card');
+  const w = card ? card.offsetWidth + 12 : 212;
+  const visible = Math.max(1, Math.floor(track.clientWidth / w));
+  track.scrollBy({ left: dir * visible * w, behavior: 'smooth' });
+}
+
+// ── Superlatives computation ──────────────────────────────────
+function computeSuperlatives() {
+  const mlb = allGames.filter(g => g.level === 'MLB');
+  const cards = [];
+
+  // 1. Most visited ballpark
+  const venueCounts = {};
+  allGames.forEach(g => { if (g.venue) venueCounts[g.venue] = (venueCounts[g.venue]||0)+1; });
+  const venues = Object.entries(venueCounts).sort((a,b) => b[1]-a[1]);
+  if (venues.length) cards.push({
+    emoji: '🏟️', label: 'Most visited ballpark',
+    headline: venues[0][0],
+    detail: `${venues[0][1]} game${venues[0][1]>1?'s':''} attended`
+  });
+
+  // 2. Busiest month
+  const mCounts = {};
+  const mNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  allGames.forEach(g => { const m = new Date(g.date+'T12:00:00').getMonth(); mCounts[m]=(mCounts[m]||0)+1; });
+  const months = Object.entries(mCounts).sort((a,b) => b[1]-a[1]);
+  if (months.length) cards.push({
+    emoji: '📅', label: 'Busiest month',
+    headline: mNames[+months[0][0]],
+    detail: `${months[0][1]} games attended`
+  });
+
+  // 3. Total innings witnessed
+  const totalInn = allGames.reduce((s,g) => s+(g.innings?g.innings.length:9), 0);
+  cards.push({
+    emoji: '⚾', label: 'Total baseball witnessed',
+    headline: `${totalInn} Innings`,
+    detail: `across all ${allGames.length} games`
+  });
+
+  // 4. Highest scoring game (MLB)
+  const hiScore = [...mlb].sort((a,b) => (b.away_score+b.home_score)-(a.away_score+a.home_score))[0];
+  if (hiScore) cards.push({
+    emoji: '🔥', label: 'Highest scoring game',
+    headline: `${hiScore.away_score+hiScore.home_score} Runs`,
+    detail: `${hiScore.away_abbr} ${hiScore.away_score}–${hiScore.home_score} ${hiScore.home_abbr} · ${fmtDate(hiScore.date)}`
+  });
+
+  // 5. Biggest blowout (MLB)
+  const blowout = [...mlb].sort((a,b) => Math.abs(b.away_score-b.home_score)-Math.abs(a.away_score-a.home_score))[0];
+  if (blowout) {
+    const diff = Math.abs(blowout.away_score-blowout.home_score);
+    const winner = blowout.away_score>blowout.home_score ? blowout.away_abbr : blowout.home_abbr;
+    cards.push({
+      emoji: '💀', label: 'Biggest blowout',
+      headline: `${winner} by ${diff}`,
+      detail: `${blowout.away_abbr} ${blowout.away_score}–${blowout.home_score} ${blowout.home_abbr} · ${fmtDate(blowout.date)}`
+    });
+  }
+
+  // 6. Best pitcher's duel (lowest combined, MLB)
+  const duel = [...mlb].sort((a,b) => (a.away_score+a.home_score)-(b.away_score+b.home_score))[0];
+  if (duel) {
+    const tot = duel.away_score+duel.home_score;
+    cards.push({
+      emoji: '🤫', label: "Best pitcher's duel",
+      headline: `${tot} Total Run${tot===1?'':'s'}`,
+      detail: `${duel.away_abbr} ${duel.away_score}–${duel.home_score} ${duel.home_abbr} · ${fmtDate(duel.date)}`
+    });
+  }
+
+  // 7. Most HRs in a single game
+  let maxHRG = null, maxHRs = 0;
+  allGames.forEach(g => {
+    const hrs = [...(g.away_batters||[]),...(g.home_batters||[])].reduce((s,b)=>s+(b.hr||0),0);
+    if (hrs > maxHRs) { maxHRs=hrs; maxHRG=g; }
+  });
+  if (maxHRG && maxHRs>0) cards.push({
+    emoji: '💥', label: 'Most HRs in one game',
+    headline: `${maxHRs} Home Run${maxHRs===1?'':'s'}`,
+    detail: `${maxHRG.away_abbr} @ ${maxHRG.home_abbr} · ${fmtDate(maxHRG.date)}`
+  });
+
+  // 8. Most Ks by a single pitcher in one outing
+  let maxKP='', maxKG=null, maxKs=0;
+  allGames.forEach(g => {
+    [...(g.away_pitchers||[]),...(g.home_pitchers||[])].forEach(p => {
+      if ((p.so||0)>maxKs) { maxKs=p.so; maxKP=p.name; maxKG=g; }
+    });
+  });
+  if (maxKG) cards.push({
+    emoji: '🎯', label: 'Best pitching outing',
+    headline: `${maxKs} Strikeouts`,
+    detail: `${maxKP} · ${maxKG.away_abbr} @ ${maxKG.home_abbr}`
+  });
+
+  // 9. Most-watched franchise (home+away, MLB)
+  const fCounts = {};
+  mlb.forEach(g => {
+    fCounts[g.away_abbr]=(fCounts[g.away_abbr]||0)+1;
+    fCounts[g.home_abbr]=(fCounts[g.home_abbr]||0)+1;
+  });
+  const topF = Object.entries(fCounts).sort((a,b)=>b[1]-a[1])[0];
+  if (topF) cards.push({
+    emoji: '🏆', label: 'Most-watched franchise',
+    headline: topF[0],
+    detail: `${topF[1]} game${topF[1]>1?'s':''} — most of any team`
+  });
+
+  // 10 & 11. Lucky / Jinx team (min 2 games, MLB)
+  const rec = {};
+  mlb.forEach(g => {
+    if (!rec[g.away_abbr]) rec[g.away_abbr]={w:0,l:0};
+    if (!rec[g.home_abbr]) rec[g.home_abbr]={w:0,l:0};
+    if (g.away_score!==g.home_score) {
+      const homeWin = g.home_score>g.away_score;
+      rec[g.away_abbr][homeWin?'l':'w']++;
+      rec[g.home_abbr][homeWin?'w':'l']++;
+    }
+  });
+  const eligible = Object.entries(rec).filter(([,r])=>r.w+r.l>=2);
+  const pct = r => r.w/(r.w+r.l||1);
+  if (eligible.length>=1) {
+    const [lt,lr] = [...eligible].sort((a,b)=>pct(b[1])-pct(a[1]))[0];
+    cards.push({ emoji:'🍀', label:'Your lucky team', headline:lt, detail:`${lr.w}–${lr.l} when you show up` });
+  }
+  if (eligible.length>=2) {
+    const [jt,jr] = [...eligible].sort((a,b)=>pct(a[1])-pct(b[1]))[0];
+    cards.push({ emoji:'🫠', label:'Your jinx team', headline:jt, detail:`${jr.w}–${jr.l} when you show up` });
+  }
+
+  // 12 & 13. Player appearance tracking (box score lines)
+  const pDates = {}; // name -> [Date, ...]
+  allGames.forEach(g => {
+    const d = new Date(g.date+'T12:00:00');
+    const seen = new Set();
+    [...(g.away_batters||[]),...(g.home_batters||[]),...(g.away_pitchers||[]),...(g.home_pitchers||[])].forEach(p => {
+      if (p.name && !seen.has(p.name)) { seen.add(p.name); (pDates[p.name]=pDates[p.name]||[]).push(d); }
+    });
+  });
+
+  // Longest gap between any two appearances
+  let gapDays=0, gapName='', gapFrom=null, gapTo=null;
+  Object.entries(pDates).forEach(([name,dates]) => {
+    if (dates.length<2) return;
+    dates.sort((a,b)=>a-b);
+    for (let i=1;i<dates.length;i++) {
+      const days=Math.round((dates[i]-dates[i-1])/86400000);
+      if (days>gapDays) { gapDays=days; gapName=name; gapFrom=dates[i-1]; gapTo=dates[i]; }
+    }
+  });
+  if (gapName) {
+    const fmt = d => d.toLocaleDateString('en-US',{month:'short',year:'numeric'});
+    cards.push({
+      emoji:'⏱️', label:'Longest gap between appearances',
+      headline:`${gapDays} Days`,
+      detail:`${gapName} · ${fmt(gapFrom)} → ${fmt(gapTo)}`
+    });
+  }
+
+  // Most-seen player (most distinct games in box scores)
+  const topP = Object.entries(pDates).sort((a,b)=>b[1].length-a[1].length)[0];
+  if (topP) cards.push({
+    emoji:'👁️', label:'Most-seen player',
+    headline: topP[0].split(' ').slice(-1)[0],
+    detail:`${topP[0]} · ${topP[1].length} box scores`
+  });
+
+  // 14. Hall of Famers seen (🏛️ badge)
+  const hofers = allPlayers.filter(p => p.badge && p.badge.includes('🏛️'));
+  if (hofers.length) cards.push({
+    emoji:'🎖️', label:'Hall of Famers seen',
+    headline:`${hofers.length} HOFers`,
+    detail: hofers.map(p => p.full_name.split(' ').slice(-1)[0]).join(', ')
+  });
+
+  return cards;
+}
+
 function renderHome() {
   // Aggregate parks + teams from allGames
   const venueMap = {};
@@ -1478,8 +1749,27 @@ function renderHome() {
       }).join('')}
     </div>`;
 
+  // Build carousel
+  const supCards = computeSuperlatives();
+  const carTrack = supCards.map(c => `
+    <div class="sup-card">
+      <div class="sup-card-label">${escHtml(c.label)}</div>
+      <div class="sup-card-emoji">${c.emoji}</div>
+      <div class="sup-card-headline">${escHtml(c.headline)}</div>
+      <div class="sup-card-detail">${escHtml(c.detail)}</div>
+    </div>`).join('');
+  const carouselHtml = `
+    <div class="carousel-section">
+      <div class="home-section-title">Season Highlights</div>
+      <div class="carousel-outer">
+        <button class="carousel-btn" onclick="carouselScroll(-1)">&#8249;</button>
+        <div class="carousel-track" id="carTrack">${carTrack}</div>
+        <button class="carousel-btn" onclick="carouselScroll(1)">&#8250;</button>
+      </div>
+    </div>`;
+
   document.getElementById('home-content').innerHTML =
-    statsHtml + topHtml + `<div class="home-recent-section">${recentHtml}</div>`;
+    statsHtml + carouselHtml + topHtml + `<div class="home-recent-section">${recentHtml}</div>`;
 }
 
 // ── All 30 MLB teams by division ───────────────────────────────
