@@ -1,0 +1,19 @@
+mlb:
+  - pk: 414357   # May 27 2015  TEX @ CLE
+  - pk: 490629   # May 12 2017  HOU @ NYY
+  - pk: 632965   # Aug 11 2021  TOR @ LAA
+  - pk: 663136   # Apr 15 2022  SFG @ CLE
+  - pk: 662325   # Sep 11 2022  STL @ PIT
+  - pk: 718677   # Apr  7 2023  SEA @ CLE
+  - pk: 718625   # Apr 11 2023  BOS @ TBR
+  - pk: 746125   # Jul 21 2024  BOS @ LAD
+  - pk: 746768   # Jul 27 2024  SEA @ CWS
+  - pk: 777323   # Jun 28 2025  TOR @ BOS
+  - pk: 776706   # Aug 17 2025  ATL @ CLE
+  - pk: 776583   # Aug 26 2025  KCR @ CWS
+
+milb:
+  # PKs to be looked up — use:
+  # https://statsapi.mlb.com/api/v1/schedule?sportId=11&date=YYYY-MM-DD
+  # sportId: 11=AAA, 12=AA, 13=A+, 14=A
+  []

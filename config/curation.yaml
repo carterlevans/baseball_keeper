@@ -1,0 +1,184 @@
+# Keyed by MLB Stats API player ID (integer)
+# This file is NEVER overwritten by the script — edit freely.
+# badge options: 🏛️ ⚠️ 🌟 ⭐ 🏆 🔄 🌱 📖
+
+players:
+
+  # ── Hall of Fame ────────────────────────────────────────────────
+  405395:  # Albert Pujols
+    badge: "🏛️"
+    note: "HOF lock (eligible 2027); 3× MVP; 703 career HRs; hit #697 in your 2022 game"
+
+  134181:  # Adrian Beltré
+    badge: "🏛️"
+    note: "Hall of Fame 2024; 477 career HRs; played in your 2015 game"
+
+  425877:  # Yadier Molina
+    badge: "🏛️"
+    note: "9× Gold Glove C; 2× WS champion; strong HOF case, eligible 2027"
+
+  136860:  # Carlos Beltrán
+    badge: "⚠️"
+    note: "HOF talent (435 HRs); candidacy complicated by Astros sign-stealing"
+
+  # ── Superstars / Future HOF ─────────────────────────────────────
+  660271:  # Shohei Ohtani
+    badge: "🌟"
+    note: "2021 & 2023 AL MVP (both unanimous); 2024 NL MVP; 50-50 season; seen in 2 games"
+
+  592450:  # Aaron Judge
+    badge: "🌟"
+    note: "2017 AL ROY seen here; 2022 AL MVP (62 HRs); franchise icon"
+
+  608070:  # José Ramírez
+    badge: "🌟"
+    note: "4× Silver Slugger; seen in 4 CLE games across 10 seasons (2015–2025)"
+    cross_refs:
+      - "CLE: TEX @ CLE 2015, SFG @ CLE 2022, SEA @ CLE 2023, ATL @ CLE 2025"
+
+  518692:  # Freddie Freeman
+    badge: "🌟"
+    note: "2020 NL MVP; 2024 WS MVP; seen at Dodger Stadium Jul 2024"
+
+  514888:  # Jose Altuve
+    badge: "🌟"
+    note: "2017 AL MVP (narrowly beat Judge); 7× Silver Slugger; 2017 WS champ"
+
+  660670:  # Ronald Acuña Jr.
+    badge: "🌟"
+    note: "2023 NL MVP (40-70 season); ACL recovery year in 2024; seen Aug 2025"
+
+  # ── All-Stars / Award Winners ───────────────────────────────────
+  543807:  # George Springer
+    badge: "⭐"
+    note: "2017 WS MVP; seen in 3 games across 3 teams (HOU 2017, TOR 2021, TOR 2025)"
+    cross_refs:
+      - "HOU: HOU @ NYY 2017"
+      - "TOR: TOR @ LAA 2021, TOR @ BOS 2025"
+
+  606192:  # Teoscar Hernández
+    badge: "🌟"
+    note: "3 games seen across 3 different teams (TOR 2021, SEA 2023, LAD 2024)"
+    cross_refs:
+      - "TOR: TOR @ LAA 2021"
+      - "SEA: SEA @ CLE 2023"
+      - "LAD: BOS @ LAD 2024"
+
+  680757:  # Steven Kwan
+    badge: "⭐"
+    note: "2022 AL ROY finalist; seen in all 3 CLE home games (2022, 2023, 2025)"
+    cross_refs:
+      - "CLE: SFG @ CLE 2022, SEA @ CLE 2023, ATL @ CLE 2025"
+
+  677594:  # Julio Rodríguez
+    badge: "🏆"
+    note: "2022 AL ROY; hit tiebreaking 2-run HR in your 2023 CLE game"
+
+  621043:  # Carlos Correa
+    badge: "⭐"
+    note: "2015 AL ROY; 2017 WS champion; went 3-for-5 in your 2017 game"
+
+  621566:  # Matt Olson
+    badge: "⭐"
+    note: "2024 Silver Slugger; power-hitting 1B; franchise anchor for ATL"
+
+  645277:  # Ozzie Albies
+    badge: "⭐"
+    note: "Cornerstone Braves 2B; multiple Silver Sluggers; franchise pillar"
+
+  677951:  # Bobby Witt Jr.
+    badge: "⭐"
+    note: "Elite young franchise SS for KC; top-10 MVP candidate multiple years"
+
+  435263:  # Brian McCann
+    badge: "⭐"
+    note: "7× All-Star; hit 3-run HR off Montgomery that was the game-winner in your 2017 game"
+
+  608324:  # Alex Bregman
+    badge: "⭐"
+    note: "Key Astros 3B; 2017 WS champion (Astros sign-stealing era)"
+
+  607074:  # Carlos Rodón
+    badge: "⭐"
+    note: "Previously no-hit CLE in 2021 as a White Sox; threw 7 IP, 9 Ks, 1 ER in your game"
+
+  608337:  # Lucas Giolito
+    badge: "⭐"
+    note: "7 IP, 0 ER, 5 Ks in your Jun 2025 Fenway game"
+
+  656605:  # Mitch Keller
+    badge: "⭐"
+    note: "7 hitless innings (0 ER) before the epic 9th-inning collapse; ace of PIT"
+
+  666201:  # Alek Manoah
+    badge: "🏆"
+    note: "11 Ks in this game; finished top-5 AL Cy Young 2022"
+
+  621121:  # Lance McCullers Jr.
+    badge: "🏆"
+    note: "2017 WS champ; ended ALCS G7 with 24 straight curveballs; threw 6 IP, 7 Ks here"
+
+  663556:  # Shane McClanahan
+    badge: "🏆"
+    note: "Went 3-0 with 9 Ks in your game; Tommy John surgery ended his 2023 season in Aug"
+
+  662253:  # Andrés Muñoz
+    badge: "⭐"
+    note: "Elite SEA closer; appeared in both 2023 and 2024 SEA games"
+    cross_refs:
+      - "SEA: SEA @ CLE 2023, SEA @ CWS 2024"
+
+  # ── Multi-team sightings ────────────────────────────────────────
+  668227:  # Randy Arozarena
+    badge: "🔄🏆"
+    note: "2021 AL ROY; seen on 2 teams: TBR 2023 and SEA 2024"
+    cross_refs:
+      - "TBR: BOS @ TBR 2023"
+      - "SEA: SEA @ CWS 2024"
+
+  572816:  # Corey Dickerson
+    badge: "🔄"
+    note: "Seen on 2 teams: TOR 2021 and STL 2022"
+    cross_refs:
+      - "TOR: TOR @ LAA 2021"
+      - "STL: STL @ PIT 2022"
+
+  665926:  # Andrés Giménez
+    badge: "🔄"
+    note: "Seen on 2 teams: CLE 2023 and TOR 2025"
+    cross_refs:
+      - "CLE: SEA @ CLE 2023"
+      - "TOR: TOR @ BOS 2025"
+
+  573262:  # Mike Yastrzemski
+    badge: "🔄"
+    note: "Seen on 2 teams: SF 2022 and KC 2025"
+    cross_refs:
+      - "SFG: SFG @ CLE 2022"
+      - "KCR: KCR @ CWS 2025"
+
+  664702:  # Myles Straw
+    badge: "🔄"
+    note: "3 games across 2 teams: CLE×2 (2022, 2023) and TOR×1 (2025)"
+    cross_refs:
+      - "CLE: SFG @ CLE 2022, SEA @ CLE 2023"
+      - "TOR: TOR @ BOS 2025"
+
+  545341:  # Randal Grichuk
+    badge: "🔄"
+    note: "Seen on 2 teams: TOR 2021 and KC 2025"
+    cross_refs:
+      - "TOR: TOR @ LAA 2021"
+      - "KCR: KCR @ CWS 2025"
+
+  607200:  # Erick Fedde
+    badge: "🔄"
+    note: "Seen on 2 teams as pitcher: CWS 2024 (starter) and ATL 2025 (reliever)"
+    pitcher_role: starter
+    cross_refs:
+      - "CWS: SEA @ CWS 2024"
+      - "ATL: ATL @ CLE 2025"
+
+milb_game_context:
+  # Narrative context for MiLB games, keyed by game PK
+  # Add entries when MiLB PKs are confirmed
