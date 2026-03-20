@@ -202,7 +202,8 @@
     white-space: nowrap;
     transition: color .15s;
   }
-  thead th:first-child { text-align: left; padding-left: 16px; min-width: 200px; }
+  thead th:first-child { text-align: right; padding-left: 6px; padding-right: 6px; min-width: 0; width: 32px; }
+  thead th:nth-child(2) { text-align: left; padding-left: 16px; min-width: 200px; }
   thead th:hover { color: var(--ink); }
   thead th.sorted { color: var(--grass); }
   thead th .sort-arrow { font-size: .65rem; margin-left: 3px; }
@@ -221,7 +222,8 @@
     text-align: right;
     vertical-align: middle;
   }
-  td:first-child { text-align: left; padding-left: 16px; }
+  td:first-child { text-align: right; padding: 8px 6px; width: 32px; }
+  td:nth-child(2) { text-align: left; padding-left: 16px; }
 
   .player-name {
     font-family: 'IBM Plex Sans', sans-serif;
@@ -270,6 +272,14 @@
   .stat-high { color: var(--red); }
   .stat-zero { color: #ccc; }
   .stat-war  { color: var(--grass); font-weight: 600; }
+
+  .rank-cell {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .72rem;
+    color: var(--fade);
+    text-align: right;
+    cursor: help;
+  }
 
   .no-results {
     text-align: center;
@@ -333,7 +343,8 @@
 
 <nav>
   <button class="tab-btn active" onclick="switchTab('batters', event)">⚾ Batters</button>
-  <button class="tab-btn" onclick="switchTab('pitchers', event)">⚾ Pitchers</button>
+  <button class="tab-btn" onclick="switchTab('starters', event)">⚾ Starters</button>
+  <button class="tab-btn" onclick="switchTab('relievers', event)">⚾ Relievers</button>
 </nav>
 
 <div id="tab-batters" class="tab-panel active">
@@ -352,10 +363,9 @@
     <table id="bat-table">
       <thead>
         <tr>
+          <th onclick="sortBat('_rank')" data-col="_rank" title="Ranking based on career WAR × games seen"># <span class="sort-arrow">▾</span></th>
           <th onclick="sortBat('name')"          data-col="name">Player <span class="sort-arrow"></span></th>
           <th onclick="sortBat('games_seen')"    data-col="games_seen">G <span class="sort-arrow"></span></th>
-          <th onclick="sortBat('ranking_score')" data-col="ranking_score">Score <span class="sort-arrow"></span></th>
-          <th onclick="sortBat('career_war')"    data-col="career_war">WAR <span class="sort-arrow"></span></th>
           <th onclick="sortBat('AB')"            data-col="AB">AB <span class="sort-arrow"></span></th>
           <th onclick="sortBat('R')"             data-col="R">R <span class="sort-arrow"></span></th>
           <th onclick="sortBat('H')"             data-col="H">H <span class="sort-arrow"></span></th>
@@ -370,36 +380,68 @@
   </div>
 </div>
 
-<div id="tab-pitchers" class="tab-panel">
+<div id="tab-starters" class="tab-panel">
   <div class="controls">
     <div class="search-wrap">
-      <input type="text" id="pit-search" placeholder="Search pitchers…" oninput="renderPit()">
+      <input type="text" id="sta-search" placeholder="Search starters…" oninput="renderSta()">
     </div>
     <div class="filter-btns">
-      <button class="filter-btn active" onclick="setPitFilter(this,'all')">All</button>
-      <button class="filter-btn" onclick="setPitFilter(this,'flagged')">🌟 Notable only</button>
-      <button class="filter-btn" onclick="setPitFilter(this,'multi')">Multi-game</button>
+      <button class="filter-btn active" onclick="setStaFilter(this,'all')">All</button>
+      <button class="filter-btn" onclick="setStaFilter(this,'flagged')">🌟 Notable only</button>
+      <button class="filter-btn" onclick="setStaFilter(this,'multi')">Multi-game</button>
     </div>
-    <div class="count-label" id="pit-count"></div>
+    <div class="count-label" id="sta-count"></div>
   </div>
   <div class="table-wrap">
-    <table id="pit-table">
+    <table id="sta-table">
       <thead>
         <tr>
-          <th onclick="sortPit('name')"          data-col="name">Pitcher <span class="sort-arrow"></span></th>
-          <th onclick="sortPit('games_seen')"    data-col="games_seen">G <span class="sort-arrow"></span></th>
-          <th onclick="sortPit('ranking_score')" data-col="ranking_score">Score <span class="sort-arrow"></span></th>
-          <th onclick="sortPit('career_war')"    data-col="career_war">WAR <span class="sort-arrow"></span></th>
-          <th onclick="sortPit('IP')"            data-col="IP">IP <span class="sort-arrow"></span></th>
-          <th onclick="sortPit('H_pit')"         data-col="H_pit">H <span class="sort-arrow"></span></th>
-          <th onclick="sortPit('R_pit')"         data-col="R_pit">R <span class="sort-arrow"></span></th>
-          <th onclick="sortPit('ER')"            data-col="ER">ER <span class="sort-arrow"></span></th>
-          <th onclick="sortPit('BB_pit')"        data-col="BB_pit">BB <span class="sort-arrow"></span></th>
-          <th onclick="sortPit('SO_pit')"        data-col="SO_pit">SO <span class="sort-arrow"></span></th>
-          <th onclick="sortPit('ERA')"           data-col="ERA">ERA <span class="sort-arrow"></span></th>
+          <th onclick="sortSta('_rank')" data-col="_rank" title="Ranking based on peak single-season WAR × games seen"># <span class="sort-arrow">▾</span></th>
+          <th onclick="sortSta('name')"          data-col="name">Starter <span class="sort-arrow"></span></th>
+          <th onclick="sortSta('games_seen')"    data-col="games_seen">G <span class="sort-arrow"></span></th>
+          <th onclick="sortSta('IP')"            data-col="IP">IP <span class="sort-arrow"></span></th>
+          <th onclick="sortSta('H_pit')"         data-col="H_pit">H <span class="sort-arrow"></span></th>
+          <th onclick="sortSta('R_pit')"         data-col="R_pit">R <span class="sort-arrow"></span></th>
+          <th onclick="sortSta('ER')"            data-col="ER">ER <span class="sort-arrow"></span></th>
+          <th onclick="sortSta('BB_pit')"        data-col="BB_pit">BB <span class="sort-arrow"></span></th>
+          <th onclick="sortSta('SO_pit')"        data-col="SO_pit">SO <span class="sort-arrow"></span></th>
+          <th onclick="sortSta('ERA')"           data-col="ERA">ERA <span class="sort-arrow"></span></th>
         </tr>
       </thead>
-      <tbody id="pit-body"></tbody>
+      <tbody id="sta-body"></tbody>
+    </table>
+  </div>
+</div>
+
+<div id="tab-relievers" class="tab-panel">
+  <div class="controls">
+    <div class="search-wrap">
+      <input type="text" id="rel-search" placeholder="Search relievers…" oninput="renderRel()">
+    </div>
+    <div class="filter-btns">
+      <button class="filter-btn active" onclick="setRelFilter(this,'all')">All</button>
+      <button class="filter-btn" onclick="setRelFilter(this,'flagged')">🌟 Notable only</button>
+      <button class="filter-btn" onclick="setRelFilter(this,'multi')">Multi-game</button>
+    </div>
+    <div class="count-label" id="rel-count"></div>
+  </div>
+  <div class="table-wrap">
+    <table id="rel-table">
+      <thead>
+        <tr>
+          <th onclick="sortRel('_rank')" data-col="_rank" title="Ranking based on peak single-season WAR × games seen"># <span class="sort-arrow">▾</span></th>
+          <th onclick="sortRel('name')"          data-col="name">Reliever <span class="sort-arrow"></span></th>
+          <th onclick="sortRel('games_seen')"    data-col="games_seen">G <span class="sort-arrow"></span></th>
+          <th onclick="sortRel('IP')"            data-col="IP">IP <span class="sort-arrow"></span></th>
+          <th onclick="sortRel('H_pit')"         data-col="H_pit">H <span class="sort-arrow"></span></th>
+          <th onclick="sortRel('R_pit')"         data-col="R_pit">R <span class="sort-arrow"></span></th>
+          <th onclick="sortRel('ER')"            data-col="ER">ER <span class="sort-arrow"></span></th>
+          <th onclick="sortRel('BB_pit')"        data-col="BB_pit">BB <span class="sort-arrow"></span></th>
+          <th onclick="sortRel('SO_pit')"        data-col="SO_pit">SO <span class="sort-arrow"></span></th>
+          <th onclick="sortRel('ERA')"           data-col="ERA">ERA <span class="sort-arrow"></span></th>
+        </tr>
+      </thead>
+      <tbody id="rel-body"></tbody>
     </table>
   </div>
 </div>
@@ -409,14 +451,28 @@
 <script>
 // ── State ──────────────────────────────────────────────────────
 let allPlayers = [];
-let batSort = { col: 'ranking_score', dir: -1 };
-let pitSort = { col: 'ranking_score', dir: -1 };
+let batSort = { col: '_rank', dir: 1 };
+let staSort = { col: '_rank', dir: 1 };
+let relSort = { col: '_rank', dir: 1 };
 let batFilter = 'all';
-let pitFilter = 'all';
+let staFilter = 'all';
+let relFilter = 'all';
 
 // ── Data access ────────────────────────────────────────────────
 const getBatters  = () => allPlayers.filter(p => p.roles.includes('batter'));
-const getPitchers = () => allPlayers.filter(p => p.roles.includes('pitcher'));
+const getStarters  = () => allPlayers.filter(p => p.pitcher_role === 'starter');
+const getRelievers = () => allPlayers.filter(p => p.pitcher_role === 'reliever');
+
+// ── Assign permanent rank to each player on load ───────────────
+function assignRanks(players) {
+  const rank = (arr, scoreKey) => {
+    [...arr].sort((a, b) => b[scoreKey] - a[scoreKey])
+            .forEach((p, i) => p._rank = i + 1);
+  };
+  rank(players.filter(p => p.roles.includes('batter')), 'ranking_score');
+  rank(players.filter(p => p.pitcher_role === 'starter'),  'pitcher_ranking_score');
+  rank(players.filter(p => p.pitcher_role === 'reliever'), 'pitcher_ranking_score');
+}
 
 // ── Helpers ────────────────────────────────────────────────────
 function ipToFloat(ip) {
@@ -436,6 +492,8 @@ function getValue(p, col) {
   if (col === 'AVG')     return parseFloat(p.AVG) || 0;
   if (col === 'ERA')     return p.ERA === '—' ? 999 : (parseFloat(p.ERA) || 0);
   if (col === 'IP')      return ipToFloat(p.IP);
+  if (col === '_rank')   return p._rank ?? 999;
+  if (col === 'pitcher_ranking_score') return p.pitcher_ranking_score ?? 0;
   return p[col] ?? 0;
 }
 
@@ -451,10 +509,15 @@ function sortBat(col) {
   batSort.col = col;
   renderBat();
 }
-function sortPit(col) {
-  pitSort.dir = (pitSort.col === col) ? pitSort.dir * -1 : (col === 'name' ? 1 : -1);
-  pitSort.col = col;
-  renderPit();
+function sortSta(col) {
+  staSort.dir = (staSort.col === col) ? staSort.dir * -1 : (col === 'name' ? 1 : -1);
+  staSort.col = col;
+  renderSta();
+}
+function sortRel(col) {
+  relSort.dir = (relSort.col === col) ? relSort.dir * -1 : (col === 'name' ? 1 : -1);
+  relSort.col = col;
+  renderRel();
 }
 
 // ── Filter ─────────────────────────────────────────────────────
@@ -464,11 +527,17 @@ function setBatFilter(el, f) {
   el.classList.add('active');
   renderBat();
 }
-function setPitFilter(el, f) {
-  pitFilter = f;
-  document.querySelectorAll('#tab-pitchers .filter-btn').forEach(b => b.classList.remove('active'));
+function setStaFilter(el, f) {
+  staFilter = f;
+  document.querySelectorAll('#tab-starters .filter-btn').forEach(b => b.classList.remove('active'));
   el.classList.add('active');
-  renderPit();
+  renderSta();
+}
+function setRelFilter(el, f) {
+  relFilter = f;
+  document.querySelectorAll('#tab-relievers .filter-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  renderRel();
 }
 function applyFilter(arr, filter) {
   if (filter === 'flagged') return arr.filter(p => p.badge);
@@ -526,15 +595,14 @@ function renderBat() {
 
   const tbody = document.getElementById('bat-body');
   if (!data.length) {
-    tbody.innerHTML = `<tr><td colspan="11"><div class="no-results">No players match.</div></td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="10"><div class="no-results">No players match.</div></td></tr>`;
     return;
   }
   tbody.innerHTML = data.map(p => `
     <tr class="${p.badge ? 'flagged' : ''}${p.milb_only ? ' milb-only' : ''}">
+      <td class="rank-cell" title="Ranked by career WAR × games seen">${p._rank}</td>
       <td>${nameCell(p)}</td>
       <td>${p.games_seen}</td>
-      <td>${p.ranking_score.toFixed(1)}</td>
-      <td>${warDisplay(p.career_war)}</td>
       <td>${p.AB}</td>
       <td>${p.R}</td>
       <td>${p.H}</td>
@@ -545,28 +613,27 @@ function renderBat() {
     </tr>`).join('');
 }
 
-// ── Render pitcher table ───────────────────────────────────────
-function renderPit() {
-  const q = document.getElementById('pit-search').value.toLowerCase();
-  let data = applyFilter(getPitchers(), pitFilter);
+// ── Render pitcher table (shared layout for starters + relievers) ─
+function renderPitTable({ getPlayers, filter, sortState, searchId, countId, tableId, tbodyId, label, rankTooltip }) {
+  const q = document.getElementById(searchId).value.toLowerCase();
+  let data = applyFilter(getPlayers(), filter);
   if (q) data = data.filter(p => p.full_name.toLowerCase().includes(q));
-  data = sortData(data, pitSort);
+  data = sortData(data, sortState);
 
-  updateSortArrows('pit-table', pitSort);
-  document.getElementById('pit-count').textContent =
-    `${data.length} pitcher${data.length !== 1 ? 's' : ''}`;
+  updateSortArrows(tableId, sortState);
+  document.getElementById(countId).textContent =
+    `${data.length} ${label}${data.length !== 1 ? 's' : ''}`;
 
-  const tbody = document.getElementById('pit-body');
+  const tbody = document.getElementById(tbodyId);
   if (!data.length) {
-    tbody.innerHTML = `<tr><td colspan="11"><div class="no-results">No pitchers match.</div></td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="10"><div class="no-results">No ${label}s match.</div></td></tr>`;
     return;
   }
   tbody.innerHTML = data.map(p => `
     <tr class="${p.badge ? 'flagged' : ''}${p.milb_only ? ' milb-only' : ''}">
+      <td class="rank-cell" title="${rankTooltip}">${p._rank}</td>
       <td>${nameCell(p)}</td>
       <td>${p.games_seen}</td>
-      <td>${p.ranking_score.toFixed(1)}</td>
-      <td>${warDisplay(p.career_war)}</td>
       <td>${p.IP}</td>
       <td>${p.H_pit}</td>
       <td>${p.R_pit}</td>
@@ -575,6 +642,34 @@ function renderPit() {
       <td class="${soHighClass(p.SO_pit, p.IP)}">${p.SO_pit}</td>
       <td class="${eraClass(p.ERA)}">${p.ERA}</td>
     </tr>`).join('');
+}
+
+function renderSta() {
+  renderPitTable({
+    getPlayers: getStarters,
+    filter: staFilter,
+    sortState: staSort,
+    searchId: 'sta-search',
+    countId: 'sta-count',
+    tableId: 'sta-table',
+    tbodyId: 'sta-body',
+    label: 'starter',
+    rankTooltip: 'Ranked by peak single-season WAR × games seen',
+  });
+}
+
+function renderRel() {
+  renderPitTable({
+    getPlayers: getRelievers,
+    filter: relFilter,
+    sortState: relSort,
+    searchId: 'rel-search',
+    countId: 'rel-count',
+    tableId: 'rel-table',
+    tbodyId: 'rel-body',
+    label: 'reliever',
+    rankTooltip: 'Ranked by peak single-season WAR × games seen',
+  });
 }
 
 // ── Sort arrows ────────────────────────────────────────────────
@@ -620,12 +715,12 @@ fetch('players.json')
   .then(r => r.json())
   .then(data => {
     allPlayers = data;
-    const games  = new Set(data.flatMap(p => p.game_pks || []));
-    const years  = data.flatMap(p => (p.game_pks || []).map(pk => pk));
+    assignRanks(allPlayers);
     document.getElementById('header-sub').textContent =
       `${data.length} players · compiled from box scores`;
     renderBat();
-    renderPit();
+    renderSta();
+    renderRel();
   })
   .catch(err => {
     document.getElementById('header-sub').textContent = 'Error loading players.json';

@@ -92,6 +92,15 @@ for pid, pm in player_map.items():
     ip_frac = round((ip_raw - ip_whole) * 3)
     ip_display = f"{ip_whole}.{ip_frac}" if ip_frac else str(ip_whole)
 
+    # Classify pitcher role and compute pitcher ranking score
+    # Uses peak_war (not career_war) to reward dominance over longevity
+    pitcher_role = None
+    pitcher_ranking_score = 0.0
+    if "pitcher" in pm["roles"]:
+        avg_ip = ip_raw / games_seen if games_seen else 0
+        pitcher_role = "starter" if avg_ip >= 4.0 else "reliever"
+        pitcher_ranking_score = round(war_data["peak_war"] * games_seen, 2)
+
     # AVG
     ab = pm["batting"].get("AB", 0)
     h = pm["batting"].get("H", 0)
@@ -108,9 +117,11 @@ for pid, pm in player_map.items():
         "level": sorted(pm["level"]),
         "games_seen": games_seen,
         "roles": sorted(pm["roles"]),
+        "pitcher_role": pitcher_role,
         "career_war": war_data["career_war"],
         "peak_war": war_data["peak_war"],
         "ranking_score": score,
+        "pitcher_ranking_score": pitcher_ranking_score,
         # batting
         "AB":     pm["batting"].get("AB", 0),
         "R":      pm["batting"].get("R", 0),
@@ -140,8 +151,14 @@ for pid, pm in player_map.items():
 # ── Sort and write ───────────────────────────────────────────────
 output_players.sort(key=lambda p: p["ranking_score"], reverse=True)
 
+payload = json.dumps(output_players, indent=2)
 out_path = ROOT / "data" / "players.json"
-out_path.write_text(json.dumps(output_players, indent=2))
+out_path.write_text(payload)
+
+# Keep dashboard copy in sync
+dashboard_copy = ROOT / "dashboard" / "players.json"
+dashboard_copy.write_text(payload)
+
 print(f"\nDone. {len(output_players)} players written to {out_path}")
 print("Top 10 by ranking score:")
 for p in output_players[:10]:

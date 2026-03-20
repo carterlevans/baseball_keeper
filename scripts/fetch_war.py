@@ -58,26 +58,29 @@ def get_war_for_player(mlb_id: int, full_name: str, war_cache: dict) -> dict:
     peak_war = 0.0
     bbref_id = ""
 
+    # Always check both tables and sum — pitchers who batted (NL/pre-DH)
+    # have non-zero batting WAR that would otherwise swallow their pitching WAR.
+    # Summing is also correct for two-way players like Ohtani.
     try:
         bat = _get_bwar_bat()
         rows = bat[bat["mlb_ID"] == float(mlb_id)]
         if not rows.empty:
             bbref_id = str(rows["player_ID"].values[0])
-            career_war = float(rows["WAR"].sum())
-            peak_war = float(rows["WAR"].max())
+            career_war += float(rows["WAR"].sum())
+            peak_war = max(peak_war, float(rows["WAR"].max()))
     except Exception as e:
         print(f"    Batting WAR lookup failed for {full_name}: {e}")
 
-    if career_war == 0.0:
-        try:
-            pit = _get_bwar_pitch()
-            rows = pit[pit["mlb_ID"] == float(mlb_id)]
-            if not rows.empty:
+    try:
+        pit = _get_bwar_pitch()
+        rows = pit[pit["mlb_ID"] == float(mlb_id)]
+        if not rows.empty:
+            if not bbref_id:
                 bbref_id = str(rows["player_ID"].values[0])
-                career_war = float(rows["WAR"].sum())
-                peak_war = float(rows["WAR"].max())
-        except Exception as e:
-            print(f"    Pitching WAR lookup failed for {full_name}: {e}")
+            career_war += float(rows["WAR"].sum())
+            peak_war = max(peak_war, float(rows["WAR"].max()))
+    except Exception as e:
+        print(f"    Pitching WAR lookup failed for {full_name}: {e}")
 
     result_data = {
         "career_war": round(career_war, 1),
