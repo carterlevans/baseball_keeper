@@ -85,6 +85,7 @@
     gap: 2px;
     padding: 0 32px;
     border-bottom: 3px solid var(--dirt);
+    flex-wrap: wrap;
   }
   .tab-btn {
     font-family: 'Bebas Neue', sans-serif;
@@ -216,7 +217,6 @@
   tbody tr.flagged { background: rgba(232,200,74,.07); }
   tbody tr.flagged:hover { background: rgba(232,200,74,.14); }
 
-
   td {
     padding: 8px 10px;
     text-align: right;
@@ -331,14 +331,18 @@
     padding: 10px 14px 8px;
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     gap: 8px;
+    cursor: pointer;
+    user-select: none;
   }
+  .game-card-header:hover { background: var(--grass); }
   .game-card-header .matchup {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.05rem;
     letter-spacing: .08em;
     color: var(--chalk);
+    flex: 1;
   }
   .game-card-header .game-date {
     font-family: 'IBM Plex Mono', monospace;
@@ -346,6 +350,16 @@
     color: var(--dirt);
     white-space: nowrap;
   }
+  .expand-toggle {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .9rem;
+    color: rgba(255,255,255,.6);
+    line-height: 1;
+    margin-left: 6px;
+    transition: color .15s;
+    flex-shrink: 0;
+  }
+  .game-card-header:hover .expand-toggle { color: white; }
   .game-card-score {
     padding: 10px 14px 8px;
     border-bottom: 1px solid var(--border);
@@ -429,6 +443,315 @@
     flex-wrap: wrap;
   }
 
+  /* ── EXPANDED BOX SCORE ───────────────────────────── */
+  .game-expand {
+    border-top: 2px solid var(--border);
+    background: #fafaf8;
+    overflow-x: auto;
+  }
+  .expand-inner {
+    padding: 14px;
+    min-width: 0;
+  }
+  .box-linescore {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .7rem;
+    margin-bottom: 14px;
+    min-width: max-content;
+  }
+  .box-linescore thead th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .65rem;
+    font-weight: 600;
+    color: var(--fade);
+    text-align: center;
+    padding: 4px 6px;
+    border-bottom: 1px solid var(--border);
+    background: transparent;
+    cursor: default;
+    position: static;
+    min-width: 0;
+    width: auto;
+    letter-spacing: 0;
+  }
+  .box-linescore thead th:first-child { text-align: left; width: 36px; }
+  .box-linescore .rhe-sep { border-left: 2px solid var(--border); }
+  .box-linescore tbody td {
+    text-align: center;
+    padding: 4px 6px;
+    border-bottom: 1px solid #eee;
+    font-size: .72rem;
+  }
+  .box-linescore tbody td:first-child {
+    text-align: left;
+    font-weight: 600;
+    color: var(--ink);
+    width: 36px;
+    padding-left: 0;
+  }
+  .box-linescore .rhe-val {
+    border-left: 2px solid var(--border);
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .box-linescore .winning-score { color: var(--grass); }
+  .box-section-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: .8rem;
+    letter-spacing: .1em;
+    color: var(--fade);
+    margin: 10px 0 4px;
+  }
+  .box-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .68rem;
+    margin-bottom: 10px;
+    min-width: max-content;
+  }
+  .box-table thead th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .62rem;
+    font-weight: 600;
+    color: var(--fade);
+    text-align: right;
+    padding: 3px 5px;
+    border-bottom: 1px solid var(--border);
+    background: transparent;
+    cursor: default;
+    position: static;
+    min-width: 0;
+    width: auto;
+    letter-spacing: 0;
+  }
+  .box-table thead th.box-name-h { text-align: left; min-width: 130px; }
+  .box-table thead th.box-pos-h  { text-align: left; min-width: 30px; }
+  .box-table tbody td {
+    padding: 3px 5px;
+    text-align: right;
+    border-bottom: 1px solid #f0ede8;
+    font-size: .68rem;
+    color: var(--ink);
+  }
+  .box-table tbody tr:last-child td { border-bottom: none; }
+  .box-table .box-name { text-align: left; color: var(--ink); }
+  .box-table .box-pos  { text-align: left; color: var(--fade); }
+  .box-decision {
+    font-size: .62rem;
+    color: var(--dirt);
+    font-style: italic;
+  }
+  .box-sub-row td { color: var(--fade); font-size: .65rem; }
+  .box-sub-row .box-name { padding-left: 10px; color: var(--fade); }
+
+  /* ── MLB COVERAGE WALL ────────────────────────────── */
+  .coverage-league { margin-bottom: 28px; }
+  .coverage-league-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+    letter-spacing: .12em;
+    color: var(--fade);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .coverage-divisions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .coverage-division { }
+  .coverage-division-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .62rem;
+    letter-spacing: .1em;
+    color: #bbb;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .coverage-teams { display: flex; flex-direction: column; gap: 5px; }
+  .coverage-team {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: 1.5px solid transparent;
+  }
+  .coverage-team {
+    background: white;
+    border-color: var(--border);
+  }
+  .coverage-team.unseen {
+    background: rgba(0,0,0,.02);
+    border-color: #e8e4dc;
+  }
+  .coverage-team-abbr {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1;
+    color: var(--green);
+    width: 34px;
+    flex-shrink: 0;
+  }
+  .coverage-team.unseen .coverage-team-abbr { color: #c0bbb0; }
+  .coverage-team-info { flex: 1; min-width: 0; }
+  .coverage-team-name {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: .72rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .coverage-team.unseen .coverage-team-name { color: var(--fade); }
+  /* Stadium chip — filled if visited, outline if not */
+  .stadium-chip {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .57rem;
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-top: 3px;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    letter-spacing: .02em;
+  }
+  .stadium-chip.visited {
+    background: var(--green);
+    color: var(--chalk);
+    border: 1.5px solid var(--green);
+  }
+  .stadium-chip.not-visited {
+    background: transparent;
+    color: #bbb;
+    border: 1.5px solid #d8d4cc;
+  }
+  .coverage-team-count {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .6rem;
+    color: var(--dirt);
+    flex-shrink: 0;
+  }
+  @media (max-width: 860px) {
+    .coverage-divisions { grid-template-columns: 1fr; }
+  }
+
+  /* ── HOME TAB ─────────────────────────────────────── */
+  .home-wrap { padding: 28px 32px 48px; }
+  .home-stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+  .home-stat-card {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    padding: 16px 18px;
+    text-align: center;
+  }
+  .home-stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.4rem;
+    color: var(--green);
+    line-height: 1;
+  }
+  .home-stat-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .65rem;
+    color: var(--fade);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-top: 4px;
+  }
+  .home-stat-sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .6rem;
+    color: var(--border);
+    margin-top: 2px;
+  }
+  .home-section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: .1em;
+    color: var(--green);
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 6px;
+    margin-bottom: 14px;
+  }
+  .home-cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+  .home-top-list {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .home-top-list-title {
+    background: var(--green);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: .9rem;
+    letter-spacing: .1em;
+    color: var(--chalk);
+    padding: 7px 12px;
+  }
+  .home-top-row {
+    display: flex;
+    align-items: center;
+    padding: 7px 12px;
+    border-bottom: 1px solid #eee;
+    gap: 8px;
+  }
+  .home-top-row:last-child { border-bottom: none; }
+  .home-top-rank {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .65rem;
+    color: var(--fade);
+    width: 16px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .home-top-name {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: .78rem;
+    font-weight: 600;
+    color: var(--ink);
+    flex: 1;
+  }
+  .home-top-stat {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .65rem;
+    color: var(--fade);
+    text-align: right;
+  }
+  .home-recent-section { margin-top: 8px; }
+  .home-recent-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  /* ── PARKS & TEAMS TAB ────────────────────────────── */
+  .parks-wrap { padding: 28px 32px 48px; }
+  .parks-section { margin-bottom: 36px; }
+  .parks-section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: .1em;
+    color: var(--green);
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 6px;
+    margin-bottom: 14px;
+  }
+
   /* ── SECTION PANEL ────────────────────────────────── */
   .tab-panel { display: none; }
   .tab-panel.active { display: block; }
@@ -441,6 +764,7 @@
     .controls { padding: 10px 16px; }
     table { font-size: .75rem; }
     thead th:first-child { min-width: 150px; }
+    .home-wrap, .parks-wrap { padding: 16px; }
   }
 </style>
 </head>
@@ -459,13 +783,21 @@
 </header>
 
 <nav>
-  <button class="tab-btn active" onclick="switchTab('batters', event)">⚾ Batters</button>
+  <button class="tab-btn active" onclick="switchTab('home', event)">🏠 Home</button>
+  <button class="tab-btn" onclick="switchTab('batters', event)">⚾ Batters</button>
   <button class="tab-btn" onclick="switchTab('starters', event)">⚾ Starters</button>
   <button class="tab-btn" onclick="switchTab('relievers', event)">⚾ Relievers</button>
   <button class="tab-btn" onclick="switchTab('games', event)">📅 Games</button>
+  <button class="tab-btn" onclick="switchTab('parks', event)">🏟️ Parks &amp; Teams</button>
 </nav>
 
-<div id="tab-batters" class="tab-panel active">
+<!-- HOME TAB -->
+<div id="tab-home" class="tab-panel active">
+  <div class="home-wrap" id="home-content">Loading…</div>
+</div>
+
+<!-- BATTERS TAB -->
+<div id="tab-batters" class="tab-panel">
   <div class="controls">
     <div class="search-wrap">
       <input type="text" id="bat-search" placeholder="Search batters…" oninput="renderBat()">
@@ -498,6 +830,7 @@
   </div>
 </div>
 
+<!-- STARTERS TAB -->
 <div id="tab-starters" class="tab-panel">
   <div class="controls">
     <div class="search-wrap">
@@ -531,6 +864,7 @@
   </div>
 </div>
 
+<!-- RELIEVERS TAB -->
 <div id="tab-relievers" class="tab-panel">
   <div class="controls">
     <div class="search-wrap">
@@ -564,6 +898,7 @@
   </div>
 </div>
 
+<!-- GAMES TAB -->
 <div id="tab-games" class="tab-panel">
   <div class="games-filter-bar">
     <div class="filter-btns">
@@ -571,9 +906,18 @@
       <button class="filter-btn" onclick="setGamesFilter(this,'mlb')">MLB only</button>
       <button class="filter-btn" onclick="setGamesFilter(this,'milb')">MiLB only</button>
     </div>
+    <div class="filter-btns" style="margin-left:auto">
+      <button class="filter-btn" onclick="expandAllGames(true)">Expand all</button>
+      <button class="filter-btn" onclick="expandAllGames(false)">Collapse all</button>
+    </div>
     <div class="count-label" id="games-count"></div>
   </div>
   <div class="games-grid" id="games-grid"></div>
+</div>
+
+<!-- PARKS & TEAMS TAB -->
+<div id="tab-parks" class="tab-panel">
+  <div class="parks-wrap" id="parks-content">Loading…</div>
 </div>
 
 <div class="tooltip" id="tooltip"></div>
@@ -848,6 +1192,124 @@ function fmtDate(iso) {
   return `${months[parseInt(m)-1]} ${parseInt(d)}, ${y}`;
 }
 
+// ── Expandable box score ────────────────────────────────────────
+function toggleExpand(headerEl) {
+  const card   = headerEl.closest('.game-card');
+  const expand = card.querySelector('.game-expand');
+  const btn    = headerEl.querySelector('.expand-toggle');
+  if (!expand) return;
+  const isOpen = expand.style.display !== 'none';
+  expand.style.display = isOpen ? 'none' : 'block';
+  btn.textContent      = isOpen ? '＋' : '－';
+}
+
+function buildExpandSection(g) {
+  if (!g.innings || !g.innings.length) return '';
+
+  const awayWon = g.away_score > g.home_score;
+
+  // Linescore
+  const innHeaders = g.innings.map(i => `<th>${i.num}</th>`).join('');
+  const awayRuns   = g.innings.map(i => {
+    const v = i.away_r === '' ? 'x' : i.away_r;
+    return `<td>${v}</td>`;
+  }).join('');
+  const homeRuns = g.innings.map(i => {
+    const v = i.home_r === '' ? 'x' : i.home_r;
+    return `<td>${v}</td>`;
+  }).join('');
+
+  const linescore = `
+    <table class="box-linescore">
+      <thead><tr>
+        <th></th>${innHeaders}
+        <th class="rhe-sep">R</th><th>H</th><th>E</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td>${escHtml(g.away_abbr)}</td>${awayRuns}
+          <td class="rhe-val ${awayWon ? 'winning-score' : ''}">${g.away_totals.r}</td>
+          <td class="rhe-val">${g.away_totals.h}</td>
+          <td class="rhe-val">${g.away_totals.e}</td>
+        </tr>
+        <tr>
+          <td>${escHtml(g.home_abbr)}</td>${homeRuns}
+          <td class="rhe-val ${!awayWon ? 'winning-score' : ''}">${g.home_totals.r}</td>
+          <td class="rhe-val">${g.home_totals.h}</td>
+          <td class="rhe-val">${g.home_totals.e}</td>
+        </tr>
+      </tbody>
+    </table>`;
+
+  function batTable(players, abbr) {
+    if (!players || !players.length) return '';
+    const rows = players.map(p => {
+      const isSub = p.batting_order && p.batting_order % 100 !== 0;
+      const nameCell = isSub
+        ? `<td class="box-name" style="padding-left:14px;color:var(--fade)">↳ ${escHtml(p.name)}</td>`
+        : `<td class="box-name">${escHtml(p.name)}</td>`;
+      return `
+      <tr class="${isSub ? 'box-sub-row' : ''}">
+        ${nameCell}
+        <td class="box-pos">${escHtml(p.pos)}</td>
+        <td>${p.ab}</td><td>${p.r}</td><td>${p.h}</td>
+        <td>${p.rbi}</td><td>${p.hr}</td><td>${p.bb}</td><td>${p.so}</td>
+      </tr>`;
+    }).join('');
+    return `
+      <div class="box-section-label">${escHtml(abbr)} Batting</div>
+      <div style="overflow-x:auto">
+      <table class="box-table">
+        <thead><tr>
+          <th class="box-name-h">Player</th><th class="box-pos-h">Pos</th>
+          <th>AB</th><th>R</th><th>H</th><th>RBI</th><th>HR</th><th>BB</th><th>SO</th>
+        </tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+      </div>`;
+  }
+
+  function pitTable(players, abbr) {
+    if (!players || !players.length) return '';
+    const rows = players.map(p => `
+      <tr>
+        <td class="box-name">${escHtml(p.name)} <span class="box-decision">${escHtml(p.note)}</span></td>
+        <td>${p.ip}</td><td>${p.h}</td><td>${p.er}</td><td>${p.bb}</td><td>${p.so}</td>
+      </tr>`).join('');
+    return `
+      <div class="box-section-label">${escHtml(abbr)} Pitching</div>
+      <div style="overflow-x:auto">
+      <table class="box-table">
+        <thead><tr>
+          <th class="box-name-h">Pitcher</th>
+          <th>IP</th><th>H</th><th>ER</th><th>BB</th><th>SO</th>
+        </tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+      </div>`;
+  }
+
+  return `
+    <div class="game-expand" id="expand-${g.pk}" style="display:none">
+      <div class="expand-inner">
+        <div style="overflow-x:auto">${linescore}</div>
+        ${batTable(g.away_batters, g.away_abbr)}
+        ${pitTable(g.away_pitchers, g.away_abbr)}
+        ${batTable(g.home_batters, g.home_abbr)}
+        ${pitTable(g.home_pitchers, g.home_abbr)}
+      </div>
+    </div>`;
+}
+
+function expandAllGames(open) {
+  document.querySelectorAll('#games-grid .game-expand').forEach(el => {
+    el.style.display = open ? 'block' : 'none';
+  });
+  document.querySelectorAll('#games-grid .expand-toggle').forEach(btn => {
+    btn.textContent = open ? '－' : '＋';
+  });
+}
+
 function renderGames() {
   const grid = document.getElementById('games-grid');
   let data = gamesFilter === 'all' ? allGames
@@ -887,9 +1349,10 @@ function renderGames() {
 
     return `
     <div class="game-card">
-      <div class="game-card-header">
+      <div class="game-card-header" onclick="toggleExpand(this)">
         <span class="matchup">${escHtml(g.away_abbr)} @ ${escHtml(g.home_abbr)}${milbTag}</span>
         <span class="game-date">${fmtDate(g.date)}</span>
+        <span class="expand-toggle" >＋</span>
       </div>
       <div class="game-card-score">
         <div class="score-teams">${awayRow}${homeRow}</div>
@@ -900,8 +1363,237 @@ function renderGames() {
         ${starRow}
         ${noteHtml}
       </div>
+      ${buildExpandSection(g)}
     </div>`;
   }).join('');
+}
+
+// ── Home tab ───────────────────────────────────────────────────
+function renderHome() {
+  // Aggregate parks + teams from allGames
+  const venueMap = {};
+  const teamMap  = {};
+  allGames.forEach(g => {
+    if (g.venue) {
+      if (!venueMap[g.venue]) venueMap[g.venue] = { name: g.venue, home_team: g.home_team, visits: 0 };
+      venueMap[g.venue].visits++;
+    }
+    if (!teamMap[g.away_abbr]) teamMap[g.away_abbr] = { name: g.away_team, home: 0, away: 0 };
+    teamMap[g.away_abbr].away++;
+    if (!teamMap[g.home_abbr]) teamMap[g.home_abbr] = { name: g.home_team, home: 0, away: 0 };
+    teamMap[g.home_abbr].home++;
+  });
+
+  const numVenues = Object.keys(venueMap).length;
+  const numTeams  = Object.keys(teamMap).length;
+  const mlbGames  = allGames.filter(g => g.level === 'MLB').length;
+  const milbGames = allGames.filter(g => g.level === 'MiLB').length;
+
+  const firstDate = allGames.length ? fmtDate(allGames[0].date) : '';
+  const lastDate  = allGames.length ? fmtDate(allGames[allGames.length - 1].date) : '';
+
+  // Stat cards
+  const statsHtml = `
+    <div class="home-stats-row">
+      <div class="home-stat-card">
+        <div class="home-stat-num">${allGames.length}</div>
+        <div class="home-stat-label">Games Attended</div>
+        <div class="home-stat-sub">${mlbGames} MLB · ${milbGames} MiLB</div>
+      </div>
+      <div class="home-stat-card">
+        <div class="home-stat-num">${allPlayers.length}</div>
+        <div class="home-stat-label">Players Seen</div>
+        <div class="home-stat-sub">${getBatters().length} bat · ${getStarters().length} SP · ${getRelievers().length} RP</div>
+      </div>
+      <div class="home-stat-card">
+        <div class="home-stat-num">${numVenues}</div>
+        <div class="home-stat-label">Ballparks</div>
+      </div>
+      <div class="home-stat-card">
+        <div class="home-stat-num">${numTeams}</div>
+        <div class="home-stat-label">Teams Seen</div>
+      </div>
+    </div>`;
+
+  // Top 5 lists
+  const top5Bat = getBatters().sort((a,b) => a._rank - b._rank).slice(0,5);
+  const top5Sta = getStarters().sort((a,b) => a._rank - b._rank).slice(0,5);
+  const top5Rel = getRelievers().sort((a,b) => a._rank - b._rank).slice(0,5);
+
+  function topList(title, players) {
+    const rows = players.map(p => {
+      const badge = p.badge
+        ? `<span class="flag-badge" data-badge="${escHtml(p.badge)}" data-note="${escHtml(p.note)}" onmouseenter="showTip(event,this)" onmouseleave="hideTip()">${p.badge}</span> `
+        : '';
+      const gBadge = p.games_seen > 1 ? `<span class="games-badge">${p.games_seen}G</span>` : '';
+      return `
+      <div class="home-top-row">
+        <span class="home-top-rank">${p._rank}</span>
+        <span class="home-top-name">${badge}${escHtml(p.full_name)}${gBadge}</span>
+      </div>`;
+    }).join('');
+    return `
+      <div class="home-top-list">
+        <div class="home-top-list-title">${title}</div>
+        ${rows}
+      </div>`;
+  }
+
+  const topHtml = `
+    <div class="home-section-title">Top Ranked</div>
+    <div class="home-cols">
+      ${topList('Batters', top5Bat)}
+      ${topList('Starters', top5Sta)}
+      ${topList('Relievers', top5Rel)}
+    </div>`;
+
+  // Recent 4 games
+  const recent = [...allGames].slice(-4).reverse();
+  const recentHtml = `
+    <div class="home-section-title">Most Recent</div>
+    <div class="home-recent-grid">
+      ${recent.map(g => {
+        const awayWon = g.away_score > g.home_score;
+        return `
+        <div class="game-card">
+          <div class="game-card-header" onclick="toggleExpand(this)">
+            <span class="matchup">${escHtml(g.away_abbr)} @ ${escHtml(g.home_abbr)}${g.level==='MiLB'?'<span class="milb-tag">MiLB</span>':''}</span>
+            <span class="game-date">${fmtDate(g.date)}</span>
+            <span class="expand-toggle" >＋</span>
+          </div>
+          <div class="game-card-score">
+            <div class="score-teams">
+              <div class="score-team-row${awayWon?' winner':''}">
+                <span>${escHtml(g.away_abbr)}</span>
+                <span class="score-runs">${g.away_score}</span>
+              </div>
+              <div class="score-team-row${!awayWon?' winner':''}">
+                <span>${escHtml(g.home_abbr)}</span>
+                <span class="score-runs">${g.home_score}</span>
+              </div>
+            </div>
+          </div>
+          ${buildExpandSection(g)}
+        </div>`;
+      }).join('')}
+    </div>`;
+
+  document.getElementById('home-content').innerHTML =
+    statsHtml + topHtml + `<div class="home-recent-section">${recentHtml}</div>`;
+}
+
+// ── All 30 MLB teams by division ───────────────────────────────
+const MLB_DIVISIONS = [
+  { league: 'American League', divisions: [
+    { name: 'AL East', teams: [
+      { abbr: 'NYY', name: 'New York Yankees',     park: 'Yankee Stadium' },
+      { abbr: 'BOS', name: 'Boston Red Sox',        park: 'Fenway Park' },
+      { abbr: 'TOR', name: 'Toronto Blue Jays',     park: 'Rogers Centre' },
+      { abbr: 'TB',  name: 'Tampa Bay Rays',         park: 'Tropicana Field' },
+      { abbr: 'BAL', name: 'Baltimore Orioles',     park: 'Camden Yards' },
+    ]},
+    { name: 'AL Central', teams: [
+      { abbr: 'CLE', name: 'Cleveland Guardians',   park: 'Progressive Field' },
+      { abbr: 'CWS', name: 'Chicago White Sox',     park: 'Guaranteed Rate Field' },
+      { abbr: 'DET', name: 'Detroit Tigers',        park: 'Comerica Park' },
+      { abbr: 'KC',  name: 'Kansas City Royals',    park: 'Kauffman Stadium' },
+      { abbr: 'MIN', name: 'Minnesota Twins',       park: 'Target Field' },
+    ]},
+    { name: 'AL West', teams: [
+      { abbr: 'HOU', name: 'Houston Astros',        park: 'Minute Maid Park' },
+      { abbr: 'LAA', name: 'Los Angeles Angels',    park: 'Angel Stadium' },
+      { abbr: 'ATH', name: 'Athletics',             park: 'Sutter Health Park' },
+      { abbr: 'SEA', name: 'Seattle Mariners',      park: 'T-Mobile Park' },
+      { abbr: 'TEX', name: 'Texas Rangers',         park: 'Globe Life Field' },
+    ]},
+  ]},
+  { league: 'National League', divisions: [
+    { name: 'NL East', teams: [
+      { abbr: 'ATL', name: 'Atlanta Braves',        park: 'Truist Park' },
+      { abbr: 'MIA', name: 'Miami Marlins',         park: 'loanDepot park' },
+      { abbr: 'NYM', name: 'New York Mets',         park: 'Citi Field' },
+      { abbr: 'PHI', name: 'Philadelphia Phillies', park: 'Citizens Bank Park' },
+      { abbr: 'WSH', name: 'Washington Nationals',  park: 'Nationals Park' },
+    ]},
+    { name: 'NL Central', teams: [
+      { abbr: 'CHC', name: 'Chicago Cubs',          park: 'Wrigley Field' },
+      { abbr: 'CIN', name: 'Cincinnati Reds',       park: 'Great American Ball Park' },
+      { abbr: 'MIL', name: 'Milwaukee Brewers',     park: 'American Family Field' },
+      { abbr: 'PIT', name: 'Pittsburgh Pirates',    park: 'PNC Park' },
+      { abbr: 'STL', name: 'St. Louis Cardinals',   park: 'Busch Stadium' },
+    ]},
+    { name: 'NL West', teams: [
+      { abbr: 'ARI', name: 'Arizona Diamondbacks',  park: 'Chase Field' },
+      { abbr: 'COL', name: 'Colorado Rockies',      park: 'Coors Field' },
+      { abbr: 'LAD', name: 'Los Angeles Dodgers',   park: 'Dodger Stadium' },
+      { abbr: 'SD',  name: 'San Diego Padres',      park: 'Petco Park' },
+      { abbr: 'SF',  name: 'San Francisco Giants',  park: 'Oracle Park' },
+    ]},
+  ]},
+];
+
+// ── Parks & Teams tab ───────────────────────────────────────────
+function renderParks() {
+  // Track home games (stadium visited) and away-only sightings separately
+  const homeGames = {}; // abbr -> count as home team
+  const awayGames = {}; // abbr -> count as away team
+  allGames.filter(g => g.level === 'MLB').forEach(g => {
+    homeGames[g.home_abbr] = (homeGames[g.home_abbr] || 0) + 1;
+    awayGames[g.away_abbr] = (awayGames[g.away_abbr] || 0) + 1;
+  });
+
+  const allTeams     = MLB_DIVISIONS.flatMap(l => l.divisions).flatMap(d => d.teams);
+  const visitedCount = allTeams.filter(t => homeGames[t.abbr]).length;
+  const totalCount   = 30;
+
+  const leagueHtml = MLB_DIVISIONS.map(league => {
+    const divsHtml = `
+      <div class="coverage-divisions">
+        ${league.divisions.map(div => {
+          const teamsHtml = div.teams.map(t => {
+            const hCount  = homeGames[t.abbr] || 0;
+            const anyGames = hCount || awayGames[t.abbr];
+            const tileCls  = anyGames ? '' : 'unseen';
+            const chipCls  = hCount ? 'visited' : 'not-visited';
+            const countEl  = hCount
+              ? `<span class="coverage-team-count">${hCount}G</span>`
+              : '';
+            return `
+              <div class="coverage-team ${tileCls}">
+                <div class="coverage-team-abbr">${escHtml(t.abbr)}</div>
+                <div class="coverage-team-info">
+                  <div class="coverage-team-name">${escHtml(t.name)}</div>
+                  <span class="stadium-chip ${chipCls}">${escHtml(t.park)}</span>
+                </div>
+                ${countEl}
+              </div>`;
+          }).join('');
+          return `
+          <div class="coverage-division">
+            <div class="coverage-division-title">${escHtml(div.name)}</div>
+            <div class="coverage-teams">${teamsHtml}</div>
+          </div>`;
+        }).join('')}
+      </div>`;
+    return `
+    <div class="coverage-league">
+      <div class="coverage-league-title">${escHtml(league.league)}</div>
+      ${divsHtml}
+    </div>`;
+  }).join('');
+
+  const legend = `
+    <div style="display:flex;gap:18px;margin-bottom:18px;font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--fade);flex-wrap:wrap;align-items:center">
+      <span><span style="display:inline-block;padding:1px 6px;background:var(--green);color:var(--chalk);border-radius:3px;font-size:.57rem;margin-right:5px">Park</span>Stadium visited (${visitedCount})</span>
+      <span><span style="display:inline-block;padding:1px 6px;border:1.5px solid #d8d4cc;color:#bbb;border-radius:3px;font-size:.57rem;margin-right:5px">Park</span>Not yet visited (${totalCount - visitedCount})</span>
+    </div>`;
+
+  document.getElementById('parks-content').innerHTML = `
+    <div class="parks-section">
+      <div class="parks-section-title">MLB Coverage — ${visitedCount} / ${totalCount} stadiums</div>
+      ${legend}
+      ${leagueHtml}
+    </div>`;
 }
 
 // ── Tab switching ──────────────────────────────────────────────
@@ -926,6 +1618,8 @@ Promise.all([
   renderSta();
   renderRel();
   renderGames();
+  renderHome();
+  renderParks();
 }).catch(err => {
   document.getElementById('header-sub').textContent = 'Error loading data';
   console.error(err);
