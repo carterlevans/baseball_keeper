@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baseball Keeper — Player Log</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&display=swap');
+
+  :root {
+    --green:   #1a3a1a;
+    --grass:   #2d5a27;
+    --chalk:   #f5f0e8;
+    --dirt:    #c4922a;
+    --red:     #c0392b;
+    --gold:    #e8c84a;
+    --teal:    #1a6b6b;
+    --fade:    #8a8070;
+    --ink:     #1c1c1c;
+    --panel:   #f9f5ee;
+    --border:  #d4cfc4;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: var(--chalk);
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ───────────────────────────────────────── */
+  header {
+    background: var(--green);
+    padding: 28px 32px 20px;
+    border-bottom: 4px solid var(--dirt);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      90deg, transparent, transparent 60px,
+      rgba(255,255,255,.03) 60px, rgba(255,255,255,.03) 61px
+    );
+  }
+  header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.8rem;
+    letter-spacing: .12em;
+    color: var(--chalk);
+    line-height: 1;
+  }
+  header .sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .75rem;
+    color: var(--dirt);
+    margin-top: 6px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+    margin-top: 14px;
+  }
+  .legend-item {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .72rem;
+    color: #aaa;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .legend-item span { font-size: .95rem; }
+
+  /* ── TAB NAV ──────────────────────────────────────── */
+  nav {
+    background: var(--green);
+    display: flex;
+    gap: 2px;
+    padding: 0 32px;
+    border-bottom: 3px solid var(--dirt);
+  }
+  .tab-btn {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: .1em;
+    padding: 10px 28px;
+    border: none;
+    background: transparent;
+    color: rgba(255,255,255,.5);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -3px;
+    transition: all .18s;
+  }
+  .tab-btn.active {
+    color: var(--chalk);
+    border-bottom-color: var(--dirt);
+  }
+  .tab-btn:hover:not(.active) { color: rgba(255,255,255,.8); }
+
+  /* ── CONTROLS ─────────────────────────────────────── */
+  .controls {
+    padding: 14px 32px;
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .search-wrap {
+    position: relative;
+    flex: 1;
+    min-width: 200px;
+    max-width: 320px;
+  }
+  .search-wrap input {
+    width: 100%;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .82rem;
+    padding: 7px 12px 7px 32px;
+    border: 1.5px solid var(--border);
+    border-radius: 3px;
+    background: white;
+    color: var(--ink);
+    outline: none;
+    transition: border-color .15s;
+  }
+  .search-wrap input:focus { border-color: var(--grass); }
+  .search-wrap::before {
+    content: '⌕';
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: .9rem;
+    color: var(--fade);
+  }
+
+  .filter-btns { display: flex; gap: 6px; }
+  .filter-btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .72rem;
+    padding: 5px 12px;
+    border: 1.5px solid var(--border);
+    border-radius: 3px;
+    background: white;
+    color: var(--fade);
+    cursor: pointer;
+    transition: all .15s;
+    white-space: nowrap;
+  }
+  .filter-btn.active {
+    background: var(--green);
+    border-color: var(--green);
+    color: white;
+  }
+  .filter-btn:hover:not(.active) {
+    border-color: var(--grass);
+    color: var(--grass);
+  }
+  .count-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .72rem;
+    color: var(--fade);
+    margin-left: auto;
+  }
+
+  /* ── TABLE ────────────────────────────────────────── */
+  .table-wrap {
+    overflow-x: auto;
+    padding: 0 0 40px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .8rem;
+    min-width: 740px;
+  }
+  thead th {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: .85rem;
+    letter-spacing: .08em;
+    padding: 10px 10px 8px;
+    text-align: right;
+    border-bottom: 2px solid var(--border);
+    background: var(--panel);
+    color: var(--fade);
+    cursor: pointer;
+    user-select: none;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    white-space: nowrap;
+    transition: color .15s;
+  }
+  thead th:first-child { text-align: left; padding-left: 16px; min-width: 200px; }
+  thead th:hover { color: var(--ink); }
+  thead th.sorted { color: var(--grass); }
+  thead th .sort-arrow { font-size: .65rem; margin-left: 3px; }
+
+  tbody tr {
+    border-bottom: 1px solid #e8e4dc;
+    transition: background .1s;
+  }
+  tbody tr:hover { background: rgba(45,90,39,.06); }
+  tbody tr.flagged { background: rgba(232,200,74,.07); }
+  tbody tr.flagged:hover { background: rgba(232,200,74,.14); }
+  tbody tr.milb-only { opacity: 0.55; }
+
+  td {
+    padding: 8px 10px;
+    text-align: right;
+    vertical-align: middle;
+  }
+  td:first-child { text-align: left; padding-left: 16px; }
+
+  .player-name {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: .83rem;
+    color: var(--ink);
+  }
+  .player-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .68rem;
+    color: var(--fade);
+    margin-top: 1px;
+  }
+  .flag-badge {
+    font-size: .78rem;
+    cursor: help;
+    position: relative;
+  }
+  .games-badge {
+    display: inline-block;
+    background: var(--green);
+    color: white;
+    font-size: .6rem;
+    padding: 1px 5px;
+    border-radius: 10px;
+    margin-left: 4px;
+    vertical-align: middle;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+  }
+  .milb-chip {
+    display: inline-block;
+    background: var(--teal);
+    color: white;
+    font-size: .55rem;
+    padding: 1px 4px;
+    border-radius: 3px;
+    margin-left: 4px;
+    vertical-align: middle;
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: .04em;
+  }
+
+  .stat-avg  { color: var(--dirt); font-weight: 600; }
+  .stat-era  { color: var(--teal); font-weight: 600; }
+  .stat-high { color: var(--red); }
+  .stat-zero { color: #ccc; }
+  .stat-war  { color: var(--grass); font-weight: 600; }
+
+  .no-results {
+    text-align: center;
+    padding: 48px 20px;
+    color: var(--fade);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .85rem;
+  }
+
+  /* ── TOOLTIP ──────────────────────────────────────── */
+  .tooltip {
+    display: none;
+    position: fixed;
+    background: var(--ink);
+    color: var(--chalk);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: .78rem;
+    padding: 8px 12px;
+    border-radius: 4px;
+    max-width: 300px;
+    line-height: 1.4;
+    z-index: 999;
+    pointer-events: none;
+    box-shadow: 0 4px 16px rgba(0,0,0,.3);
+  }
+  .tooltip::before {
+    content: attr(data-badge);
+    font-size: 1rem;
+    margin-right: 6px;
+  }
+
+  /* ── SECTION PANEL ────────────────────────────────── */
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── RESPONSIVE ───────────────────────────────────── */
+  @media (max-width: 640px) {
+    header { padding: 20px 16px 14px; }
+    header h1 { font-size: 2rem; }
+    nav { padding: 0 16px; }
+    .controls { padding: 10px 16px; }
+    table { font-size: .75rem; }
+    thead th:first-child { min-width: 150px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Baseball Keeper · Player Log</h1>
+  <div class="sub" id="header-sub">Loading…</div>
+  <div class="legend">
+    <div class="legend-item"><span>🏛️</span> Hall of Fame</div>
+    <div class="legend-item"><span>⚠️</span> HOF with asterisk</div>
+    <div class="legend-item"><span>🌟</span> Future HOF / superstar</div>
+    <div class="legend-item"><span>⭐</span> Notable star</div>
+    <div class="legend-item"><span>🏆</span> Award / milestone</div>
+    <div class="legend-item"><span>🔄</span> Seen on multiple teams</div>
+  </div>
+</header>
+
+<nav>
+  <button class="tab-btn active" onclick="switchTab('batters', event)">⚾ Batters</button>
+  <button class="tab-btn" onclick="switchTab('pitchers', event)">⚾ Pitchers</button>
+</nav>
+
+<div id="tab-batters" class="tab-panel active">
+  <div class="controls">
+    <div class="search-wrap">
+      <input type="text" id="bat-search" placeholder="Search batters…" oninput="renderBat()">
+    </div>
+    <div class="filter-btns">
+      <button class="filter-btn active" onclick="setBatFilter(this,'all')">All</button>
+      <button class="filter-btn" onclick="setBatFilter(this,'flagged')">🌟 Notable only</button>
+      <button class="filter-btn" onclick="setBatFilter(this,'multi')">Multi-game</button>
+    </div>
+    <div class="count-label" id="bat-count"></div>
+  </div>
+  <div class="table-wrap">
+    <table id="bat-table">
+      <thead>
+        <tr>
+          <th onclick="sortBat('name')"          data-col="name">Player <span class="sort-arrow"></span></th>
+          <th onclick="sortBat('games_seen')"    data-col="games_seen">G <span class="sort-arrow"></span></th>
+          <th onclick="sortBat('ranking_score')" data-col="ranking_score">Score <span class="sort-arrow"></span></th>
+          <th onclick="sortBat('career_war')"    data-col="career_war">WAR <span class="sort-arrow"></span></th>
+          <th onclick="sortBat('AB')"            data-col="AB">AB <span class="sort-arrow"></span></th>
+          <th onclick="sortBat('R')"             data-col="R">R <span class="sort-arrow"></span></th>
+          <th onclick="sortBat('H')"             data-col="H">H <span class="sort-arrow"></span></th>
+          <th onclick="sortBat('RBI')"           data-col="RBI">RBI <span class="sort-arrow"></span></th>
+          <th onclick="sortBat('BB')"            data-col="BB">BB <span class="sort-arrow"></span></th>
+          <th onclick="sortBat('SO_bat')"        data-col="SO_bat">SO <span class="sort-arrow"></span></th>
+          <th onclick="sortBat('AVG')"           data-col="AVG">AVG <span class="sort-arrow"></span></th>
+        </tr>
+      </thead>
+      <tbody id="bat-body"></tbody>
+    </table>
+  </div>
+</div>
+
+<div id="tab-pitchers" class="tab-panel">
+  <div class="controls">
+    <div class="search-wrap">
+      <input type="text" id="pit-search" placeholder="Search pitchers…" oninput="renderPit()">
+    </div>
+    <div class="filter-btns">
+      <button class="filter-btn active" onclick="setPitFilter(this,'all')">All</button>
+      <button class="filter-btn" onclick="setPitFilter(this,'flagged')">🌟 Notable only</button>
+      <button class="filter-btn" onclick="setPitFilter(this,'multi')">Multi-game</button>
+    </div>
+    <div class="count-label" id="pit-count"></div>
+  </div>
+  <div class="table-wrap">
+    <table id="pit-table">
+      <thead>
+        <tr>
+          <th onclick="sortPit('name')"          data-col="name">Pitcher <span class="sort-arrow"></span></th>
+          <th onclick="sortPit('games_seen')"    data-col="games_seen">G <span class="sort-arrow"></span></th>
+          <th onclick="sortPit('ranking_score')" data-col="ranking_score">Score <span class="sort-arrow"></span></th>
+          <th onclick="sortPit('career_war')"    data-col="career_war">WAR <span class="sort-arrow"></span></th>
+          <th onclick="sortPit('IP')"            data-col="IP">IP <span class="sort-arrow"></span></th>
+          <th onclick="sortPit('H_pit')"         data-col="H_pit">H <span class="sort-arrow"></span></th>
+          <th onclick="sortPit('R_pit')"         data-col="R_pit">R <span class="sort-arrow"></span></th>
+          <th onclick="sortPit('ER')"            data-col="ER">ER <span class="sort-arrow"></span></th>
+          <th onclick="sortPit('BB_pit')"        data-col="BB_pit">BB <span class="sort-arrow"></span></th>
+          <th onclick="sortPit('SO_pit')"        data-col="SO_pit">SO <span class="sort-arrow"></span></th>
+          <th onclick="sortPit('ERA')"           data-col="ERA">ERA <span class="sort-arrow"></span></th>
+        </tr>
+      </thead>
+      <tbody id="pit-body"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+// ── State ──────────────────────────────────────────────────────
+let allPlayers = [];
+let batSort = { col: 'ranking_score', dir: -1 };
+let pitSort = { col: 'ranking_score', dir: -1 };
+let batFilter = 'all';
+let pitFilter = 'all';
+
+// ── Data access ────────────────────────────────────────────────
+const getBatters  = () => allPlayers.filter(p => p.roles.includes('batter'));
+const getPitchers = () => allPlayers.filter(p => p.roles.includes('pitcher'));
+
+// ── Helpers ────────────────────────────────────────────────────
+function ipToFloat(ip) {
+  const [w, f = '0'] = String(ip).split('.');
+  return parseInt(w) + parseInt(f) / 3;
+}
+
+function escHtml(s) {
+  return String(s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Sort ───────────────────────────────────────────────────────
+function getValue(p, col) {
+  if (col === 'name')    return p.full_name.toLowerCase();
+  if (col === 'AVG')     return parseFloat(p.AVG) || 0;
+  if (col === 'ERA')     return p.ERA === '—' ? 999 : (parseFloat(p.ERA) || 0);
+  if (col === 'IP')      return ipToFloat(p.IP);
+  return p[col] ?? 0;
+}
+
+function sortData(arr, state) {
+  return [...arr].sort((a, b) => {
+    const av = getValue(a, state.col), bv = getValue(b, state.col);
+    return av < bv ? -state.dir : av > bv ? state.dir : 0;
+  });
+}
+
+function sortBat(col) {
+  batSort.dir = (batSort.col === col) ? batSort.dir * -1 : (col === 'name' ? 1 : -1);
+  batSort.col = col;
+  renderBat();
+}
+function sortPit(col) {
+  pitSort.dir = (pitSort.col === col) ? pitSort.dir * -1 : (col === 'name' ? 1 : -1);
+  pitSort.col = col;
+  renderPit();
+}
+
+// ── Filter ─────────────────────────────────────────────────────
+function setBatFilter(el, f) {
+  batFilter = f;
+  document.querySelectorAll('#tab-batters .filter-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  renderBat();
+}
+function setPitFilter(el, f) {
+  pitFilter = f;
+  document.querySelectorAll('#tab-pitchers .filter-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  renderPit();
+}
+function applyFilter(arr, filter) {
+  if (filter === 'flagged') return arr.filter(p => p.badge);
+  if (filter === 'multi')   return arr.filter(p => p.games_seen > 1);
+  return arr;
+}
+
+// ── Stat coloring ──────────────────────────────────────────────
+function avgClass(avg) {
+  const v = parseFloat(avg);
+  if (v >= 0.400) return 'stat-high';
+  if (v === 0)    return 'stat-zero';
+  return 'stat-avg';
+}
+function eraClass(era) {
+  if (era === '—')       return 'stat-zero';
+  const v = parseFloat(era);
+  if (v === 0)           return 'stat-avg';
+  if (v >= 9.00)         return 'stat-high';
+  return 'stat-era';
+}
+function soHighClass(so, ip) {
+  if (ip && ipToFloat(ip) > 0 && so / ipToFloat(ip) > 10) return 'stat-high';
+  return '';
+}
+function warDisplay(war) {
+  if (war <= 0) return `<span class="stat-zero">${war.toFixed(1)}</span>`;
+  return `<span class="stat-war">${war.toFixed(1)}</span>`;
+}
+
+// ── Player name cell ───────────────────────────────────────────
+function nameCell(p) {
+  const badge = p.badge
+    ? `<span class="flag-badge" data-badge="${escHtml(p.badge)}" data-note="${escHtml(p.note)}" onmouseenter="showTip(event,this)" onmouseleave="hideTip()">${p.badge}</span>`
+    : '';
+  const gBadge = p.games_seen > 1
+    ? `<span class="games-badge">${p.games_seen}G</span>`
+    : '';
+  const milb = p.seen_in_milb
+    ? `<span class="milb-chip">MiLB</span>`
+    : '';
+  return `<div class="player-name">${escHtml(p.full_name)} ${badge}${gBadge}${milb}</div>`;
+}
+
+// ── Render batter table ────────────────────────────────────────
+function renderBat() {
+  const q = document.getElementById('bat-search').value.toLowerCase();
+  let data = applyFilter(getBatters(), batFilter);
+  if (q) data = data.filter(p => p.full_name.toLowerCase().includes(q));
+  data = sortData(data, batSort);
+
+  updateSortArrows('bat-table', batSort);
+  document.getElementById('bat-count').textContent =
+    `${data.length} player${data.length !== 1 ? 's' : ''}`;
+
+  const tbody = document.getElementById('bat-body');
+  if (!data.length) {
+    tbody.innerHTML = `<tr><td colspan="11"><div class="no-results">No players match.</div></td></tr>`;
+    return;
+  }
+  tbody.innerHTML = data.map(p => `
+    <tr class="${p.badge ? 'flagged' : ''}${p.milb_only ? ' milb-only' : ''}">
+      <td>${nameCell(p)}</td>
+      <td>${p.games_seen}</td>
+      <td>${p.ranking_score.toFixed(1)}</td>
+      <td>${warDisplay(p.career_war)}</td>
+      <td>${p.AB}</td>
+      <td>${p.R}</td>
+      <td>${p.H}</td>
+      <td>${p.RBI}</td>
+      <td>${p.BB}</td>
+      <td>${p.SO_bat}</td>
+      <td class="${avgClass(p.AVG)}">${p.AVG}</td>
+    </tr>`).join('');
+}
+
+// ── Render pitcher table ───────────────────────────────────────
+function renderPit() {
+  const q = document.getElementById('pit-search').value.toLowerCase();
+  let data = applyFilter(getPitchers(), pitFilter);
+  if (q) data = data.filter(p => p.full_name.toLowerCase().includes(q));
+  data = sortData(data, pitSort);
+
+  updateSortArrows('pit-table', pitSort);
+  document.getElementById('pit-count').textContent =
+    `${data.length} pitcher${data.length !== 1 ? 's' : ''}`;
+
+  const tbody = document.getElementById('pit-body');
+  if (!data.length) {
+    tbody.innerHTML = `<tr><td colspan="11"><div class="no-results">No pitchers match.</div></td></tr>`;
+    return;
+  }
+  tbody.innerHTML = data.map(p => `
+    <tr class="${p.badge ? 'flagged' : ''}${p.milb_only ? ' milb-only' : ''}">
+      <td>${nameCell(p)}</td>
+      <td>${p.games_seen}</td>
+      <td>${p.ranking_score.toFixed(1)}</td>
+      <td>${warDisplay(p.career_war)}</td>
+      <td>${p.IP}</td>
+      <td>${p.H_pit}</td>
+      <td>${p.R_pit}</td>
+      <td>${p.ER}</td>
+      <td>${p.BB_pit}</td>
+      <td class="${soHighClass(p.SO_pit, p.IP)}">${p.SO_pit}</td>
+      <td class="${eraClass(p.ERA)}">${p.ERA}</td>
+    </tr>`).join('');
+}
+
+// ── Sort arrows ────────────────────────────────────────────────
+function updateSortArrows(tableId, state) {
+  document.querySelectorAll(`#${tableId} thead th`).forEach(th => {
+    const col = th.dataset.col;
+    th.classList.toggle('sorted', col === state.col);
+    const arr = th.querySelector('.sort-arrow');
+    if (arr) arr.textContent = col === state.col ? (state.dir === -1 ? '▾' : '▴') : '';
+  });
+}
+
+// ── Tooltip ────────────────────────────────────────────────────
+function showTip(e, el) {
+  const tip = document.getElementById('tooltip');
+  tip.setAttribute('data-badge', el.dataset.badge);
+  tip.textContent = el.dataset.note;
+  tip.style.display = 'block';
+  moveTip(e);
+}
+function hideTip() {
+  document.getElementById('tooltip').style.display = 'none';
+}
+document.addEventListener('mousemove', e => {
+  if (document.getElementById('tooltip').style.display === 'block') moveTip(e);
+});
+function moveTip(e) {
+  const tip = document.getElementById('tooltip');
+  tip.style.left = Math.min(e.clientX + 14, window.innerWidth - 320) + 'px';
+  tip.style.top  = Math.max(e.clientY - 10, 4) + 'px';
+}
+
+// ── Tab switching ──────────────────────────────────────────────
+function switchTab(t, e) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(`tab-${t}`).classList.add('active');
+  e.currentTarget.classList.add('active');
+}
+
+// ── Init ───────────────────────────────────────────────────────
+fetch('players.json')
+  .then(r => r.json())
+  .then(data => {
+    allPlayers = data;
+    const games  = new Set(data.flatMap(p => p.game_pks || []));
+    const years  = data.flatMap(p => (p.game_pks || []).map(pk => pk));
+    document.getElementById('header-sub').textContent =
+      `${data.length} players · compiled from box scores`;
+    renderBat();
+    renderPit();
+  })
+  .catch(err => {
+    document.getElementById('header-sub').textContent = 'Error loading players.json';
+    console.error(err);
+  });
+</script>
+</body>
+</html>

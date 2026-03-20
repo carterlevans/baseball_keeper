@@ -1,0 +1,149 @@
+"""
+Master build script. Run from the project root:
+
+    python scripts/build.py
+
+Output: data/players.json
+"""
+
+import json
+import sys
+import yaml
+from pathlib import Path
+from collections import defaultdict
+
+# Allow imports from scripts/
+sys.path.insert(0, str(Path(__file__).parent))
+
+from fetch_games import fetch_all_appearances
+from fetch_war import get_war_for_player, load_war_cache
+from rank import ranking_score
+
+ROOT = Path(__file__).parent.parent
+
+# ── Load config ─────────────────────────────────────────────────
+games_config = yaml.safe_load((ROOT / "config" / "games.yaml").read_text())
+curation = yaml.safe_load((ROOT / "config" / "curation.yaml").read_text())
+player_curation = curation.get("players", {}) or {}
+milb_context = curation.get("milb_game_context", {}) or {}
+
+# ── Fetch all box score appearances ─────────────────────────────
+print("Fetching box scores...")
+appearances = fetch_all_appearances(games_config)
+print(f"  {len(appearances)} total player-game appearances")
+
+# ── Aggregate by player_id ───────────────────────────────────────
+print("Aggregating player data...")
+player_map = defaultdict(lambda: {
+    "player_id": None,
+    "full_name": "",
+    "level": set(),
+    "game_pks": set(),
+    "roles": set(),
+    "batting": defaultdict(int),
+    "pitching": defaultdict(float),
+})
+
+for app in appearances:
+    pid = app["player_id"]
+    pm = player_map[pid]
+    pm["player_id"] = pid
+    pm["full_name"] = app["full_name"]
+    pm["level"].add(app["level"])
+    pm["game_pks"].add(app["game_pk"])
+    pm["roles"].add(app["role"])
+
+    if app["role"] == "batter":
+        for k, v in app["stats"].items():
+            pm["batting"][k] += v
+    else:
+        ip_str = str(app["stats"].get("IP", "0"))
+        try:
+            parts = ip_str.split(".")
+            whole = int(parts[0])
+            frac = int(parts[1]) if len(parts) > 1 else 0
+            pm["pitching"]["IP"] += whole + frac / 3
+        except Exception:
+            pass
+        for k in ("H", "R", "ER", "BB", "SO"):
+            pm["pitching"][k] += app["stats"].get(k, 0)
+
+# ── Pull WAR for every player ────────────────────────────────────
+print("Fetching WAR data (uses cache after first run)...")
+war_cache = load_war_cache()
+
+output_players = []
+for pid, pm in player_map.items():
+    war_data = get_war_for_player(pid, pm["full_name"], war_cache)
+    games_seen = len(pm["game_pks"])
+    curated = player_curation.get(pid, {}) or {}
+
+    score = ranking_score(
+        career_war=war_data["career_war"],
+        peak_war=war_data["peak_war"],
+        games_seen=games_seen,
+        birth_year=None,
+        years_in_mlb=None,
+    )
+
+    # Format IP
+    ip_raw = pm["pitching"].get("IP", 0)
+    ip_whole = int(ip_raw)
+    ip_frac = round((ip_raw - ip_whole) * 3)
+    ip_display = f"{ip_whole}.{ip_frac}" if ip_frac else str(ip_whole)
+
+    # AVG
+    ab = pm["batting"].get("AB", 0)
+    h = pm["batting"].get("H", 0)
+    avg = f"{h/ab:.3f}".lstrip("0") if ab > 0 else ".000"
+
+    # ERA
+    er = pm["pitching"].get("ER", 0)
+    ip_f = pm["pitching"].get("IP", 0)
+    era = f"{er * 9 / ip_f:.2f}" if ip_f > 0 else "—"
+
+    output_players.append({
+        "player_id": pid,
+        "full_name": pm["full_name"],
+        "level": sorted(pm["level"]),
+        "games_seen": games_seen,
+        "roles": sorted(pm["roles"]),
+        "career_war": war_data["career_war"],
+        "peak_war": war_data["peak_war"],
+        "ranking_score": score,
+        # batting
+        "AB":     pm["batting"].get("AB", 0),
+        "R":      pm["batting"].get("R", 0),
+        "H":      pm["batting"].get("H", 0),
+        "RBI":    pm["batting"].get("RBI", 0),
+        "BB":     pm["batting"].get("BB", 0),
+        "SO_bat": pm["batting"].get("SO", 0),
+        "HR":     pm["batting"].get("HR", 0),
+        "AVG":    avg,
+        # pitching
+        "IP":     ip_display,
+        "H_pit":  int(pm["pitching"].get("H", 0)),
+        "R_pit":  int(pm["pitching"].get("R", 0)),
+        "ER":     int(pm["pitching"].get("ER", 0)),
+        "BB_pit": int(pm["pitching"].get("BB", 0)),
+        "SO_pit": int(pm["pitching"].get("SO", 0)),
+        "ERA":    era,
+        # curation
+        "badge":      curated.get("badge", ""),
+        "note":       curated.get("note", ""),
+        "cross_refs": curated.get("cross_refs", []),
+        # MiLB flags
+        "milb_only":    pm["level"] == {"MiLB"},
+        "seen_in_milb": "MiLB" in pm["level"],
+    })
+
+# ── Sort and write ───────────────────────────────────────────────
+output_players.sort(key=lambda p: p["ranking_score"], reverse=True)
+
+out_path = ROOT / "data" / "players.json"
+out_path.write_text(json.dumps(output_players, indent=2))
+print(f"\nDone. {len(output_players)} players written to {out_path}")
+print("Top 10 by ranking score:")
+for p in output_players[:10]:
+    print(f"  {p['full_name']:30}  score={p['ranking_score']:8.1f}  "
+          f"WAR={p['career_war']:6.1f}  G={p['games_seen']}")
