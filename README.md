@@ -149,3 +149,78 @@ https://statsapi.mlb.com/api/v1/schedule?sportId=11&date=YYYY-MM-DD  # AAA
 Available badges: `🏛️` HOF · `🌟` Future HOF/superstar · `⭐` Notable star · `🏆` Award/milestone · `🔄` Multi-team · `🌱` Prospect · `📖` Story
 
 To override a pitcher's role: add `pitcher_role: starter` or `pitcher_role: reliever` to their entry.
+
+---
+
+## Roadmap
+
+Planned improvements in rough priority order. Nothing here is started yet.
+
+---
+
+### Backend / Pipeline
+
+#### B1 — Parallel API fetching
+`fetch_all_appearances()` and `fetch_all_game_cards()` both iterate through games sequentially. On a cold run (empty cache, new machine) every HTTP request blocks the next one. The fix is `concurrent.futures.ThreadPoolExecutor` — each game fetches in its own worker thread, the cache-hit check stays inside each worker so already-cached games are still instant. The existing `time.sleep()` rate-limit delay would only apply in the non-cached path. On a full cold run this cuts fetch time from roughly `O(n × 0.3s)` to `O(n/6 × 0.3s)`.
+
+#### B2 — Smarter WAR cache write strategy
+Two problems in `fetch_war.py`: (1) `save_war_cache()` is called inside the per-player loop, so a build with 300 players does 300 separate file writes to `war_data.json`. Fix: accumulate in memory, write once at the end of `build.py`. (2) The full BBRef WAR tables (`bwar_bat`, `bwar_pitch`) are re-downloaded from pybaseball on every single build run — they only update a few times a season. Fix: serialize the DataFrames to `data/cache/bwar_bat.pkl` / `bwar_pitch.pkl` with a 7-day file-age TTL. On a non-stale run the pickle loads in milliseconds instead of hitting BBRef.
+
+#### B3 — Incremental builds
+Every `python build.py` currently re-parses every player and every game from scratch even though the underlying cache files haven't changed. Fix: write a `data/build_manifest.json` after each successful run recording `{pk: {built_at, hash}}` per game. On the next run, skip any game whose PK is in the manifest and whose cache file hash matches. Add a `--full` flag to force a complete rebuild. At the current scale this is a nice-to-have; at 50+ games it becomes genuinely useful.
+
+#### B4 — Integrate Statcast into build
+Currently two separate commands are required: `python build.py` then `python fetch_statcast.py`. Statcast is now core enough to be part of the standard pipeline. The plan: add an optional `--with-statcast` flag to `build.py` (or auto-run Statcast for any newly-processed MLB games). `fetch_statcast.py` currently reads `dashboard/games.json` to find MLB game PKs — change it to accept the game list as a parameter so there's no circular file dependency.
+
+#### B5 — Output file strategy
+Every generated JSON is written twice: once to `data/` (source of truth) and once to `dashboard/` (served by the HTTP server). This dual-write works but risks the two copies drifting out of sync. Two improvements: (1) **minify** the dashboard copies — `json.dumps(payload)` without `indent=2` cuts file size ~35%, which matters as `players.json` grows; (2) optionally replace the `dashboard/` copies with symlinks to `data/` so there's only ever one file.
+
+#### B6 — Retry logic and error hardening
+A transient 429 or 503 from the MLB Stats API or Baseball Savant currently causes a game to be silently skipped — the error is printed but easy to miss. Fix: a shared `fetch_with_retry(url, retries=3, backoff=2.0)` helper used across all fetch scripts, with exponential backoff on 429/5xx and immediate re-raise on 4xx client errors. Add a final build summary that clearly flags any games that failed: `⚠ 2 games could not be fetched: [490629, 746125]`.
+
+---
+
+### Frontend
+
+#### F1 — Animated expand/collapse
+Game cards and Statcast sections currently snap open and closed using `display: none / block`, which can't be animated. The fix is the CSS grid row trick — no JavaScript required:
+```css
+.game-expand {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .28s ease;
+}
+.game-expand.open { grid-template-rows: 1fr; }
+.game-expand > .expand-inner { overflow: hidden; min-height: 0; }
+```
+The inline `style="display:none"` attributes on each card get removed; the JS toggles an `.open` class instead of `style.display`. The same pattern applies to Statcast `.sc-body` sections. One commit covers both.
+
+#### F2 — Mobile responsiveness
+Several things break on small screens: the tab nav wraps onto a second line (collides with the active-underline design); all section padding is a hardcoded `28px 32px` which consumes ~20% of a 375px viewport; game card grid `minmax(310px, 1fr)` forces single-column layout later than ideal. Fixes: a `@media (max-width: 600px)` block dropping padding to `16px` everywhere; `flex-wrap: nowrap; overflow-x: auto` on the nav so tabs scroll horizontally; game card grid changed to `minmax(260px, 1fr)`; a CSS gradient shadow on the right edge of table scroll containers to indicate there's more content (no JS needed).
+
+#### F3 — Keyboard and focus
+Three gaps: (1) no custom `:focus-visible` styles, so keyboard users get inconsistent browser-default outlines — fix with one global rule using `var(--dirt)`; (2) the Statcast detail modal has no Escape key handler — `document.addEventListener('keydown', e => e.key === 'Escape' && closeScModal())` is the entire fix; (3) the modal has no focus trap — on open, focus should move to the close button and Tab should cycle only within `.sc-modal`, restoring focus to the source row on close. Add `aria-expanded` to collapsible headers throughout.
+
+#### F4 — Skeleton loading states
+Every tab currently shows plain `Loading…` text until its `fetch()` resolves. Skeleton screens — shaped grey placeholder blocks that match the real content's layout — look dramatically more professional and feel faster even though load time is identical. One `@keyframes shimmer` animation (a gradient sweep) and one `.skel` utility class handles everything. Per-tab skeletons: player tables get 8 placeholder rows; the Home tab gets stat card outlines and carousel placeholders; the Games tab gets 4 skeleton cards; Statcast gets 5 collapsed section headers. All are replaced by the same `innerHTML =` assignment that already runs when data loads — no structural JS changes required.
+
+#### F5 — Carousel position indicator
+The superlatives carousel has no indication of position — the only way to know you've reached the last card is that the `›` button stops responding (and it doesn't actually disable, it just doesn't scroll further). Fix: a row of dots below the track, one per card, with the active dot filled in `var(--dirt)`. `carouselScroll()` updates the active dot after each click. A `scroll` event listener on `#carTrack` syncs the dots when the user swipes or drags instead of clicking the buttons. The `‹` and `›` buttons get properly disabled at the start and end respectively.
+
+#### F6 — Type scale consolidation
+The CSS currently has approximately 15 distinct font sizes between `.54rem` and `.85rem` — nearly every component uses a slightly different value. Define five size variables in `:root` (`--text-xs` through `--text-lg`) and sweep the CSS replacing every one-off value with the nearest variable. No visual change at all — purely a maintainability improvement that makes future edits more consistent.
+
+#### F7 — Minor polish pass
+Small scattered improvements: highlight the entire active sort column (not just the header) with a faint background tint in `renderTable()`; replace the tooltip's `display: none / block` snap with an `opacity` + `transition` fade; add a `transform: translateY(8px) → 0` entrance animation to the Statcast detail modal when it opens; add `transition: opacity .2s` to carousel buttons so the disabled state fades instead of snapping.
+
+#### F8 — Player detail modal
+Click any row in the Batters, Starters, or Relievers tabs to open a modal showing that player's full history across all attended games. All the required data already exists: `players.json` includes a `game_pks` array per player, and `games.json` has complete box scores with individual stat lines. The modal would cross-reference these at render time to show a game-by-game breakdown:
+
+```
+Bobby Witt Jr.                career WAR 12.4 · peak WAR 7.1
+──────────────────────────────────────────────────────────────
+KC @ NYY  · Sep 14 2024    2-4   1 HR   2 RBI   1 BB
+KC @ HOU  · Jul 04 2024    1-3   0 HR   0 RBI   1 SO
+```
+
+For pitchers the lines would show IP/H/ER/BB/SO per appearance. The modal would also surface their curated badge and note if one exists. No new data fetching or build changes required — it's purely a frontend rendering problem.
