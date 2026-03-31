@@ -186,6 +186,78 @@
     "seen_in_milb": false
   },
   {
+    "player_id": 545361,
+    "full_name": "Mike Trout",
+    "level": [
+      "MLB"
+    ],
+    "games_seen": 1,
+    "roles": [
+      "batter"
+    ],
+    "pitcher_role": null,
+    "career_war": 87.5,
+    "peak_war": 30.8,
+    "ranking_score": 87.5,
+    "pitcher_ranking_score": 0.0,
+    "AB": 4,
+    "R": 0,
+    "H": 0,
+    "RBI": 0,
+    "BB": 0,
+    "SO_bat": 2,
+    "HR": 0,
+    "AVG": ".000",
+    "IP": "0",
+    "H_pit": 0,
+    "R_pit": 0,
+    "ER": 0,
+    "BB_pit": 0,
+    "SO_pit": 0,
+    "ERA": "\u2014",
+    "badge": "",
+    "note": "",
+    "cross_refs": [],
+    "milb_only": false,
+    "seen_in_milb": false
+  },
+  {
+    "player_id": 608324,
+    "full_name": "Alex Bregman",
+    "level": [
+      "MLB"
+    ],
+    "games_seen": 2,
+    "roles": [
+      "batter"
+    ],
+    "pitcher_role": null,
+    "career_war": 43.0,
+    "peak_war": 21.4,
+    "ranking_score": 86.0,
+    "pitcher_ranking_score": 0.0,
+    "AB": 7,
+    "R": 1,
+    "H": 2,
+    "RBI": 0,
+    "BB": 2,
+    "SO_bat": 1,
+    "HR": 0,
+    "AVG": ".286",
+    "IP": "0",
+    "H_pit": 0,
+    "R_pit": 0,
+    "ER": 0,
+    "BB_pit": 0,
+    "SO_pit": 0,
+    "ERA": "\u2014",
+    "badge": "\u2b50",
+    "note": "Key Astros 3B; 2017 WS champion (Astros sign-stealing era)",
+    "cross_refs": [],
+    "milb_only": false,
+    "seen_in_milb": false
+  },
+  {
     "player_id": 136860,
     "full_name": "Carlos Beltr\u00e1n",
     "level": [
@@ -738,42 +810,6 @@
     "cross_refs": [],
     "milb_only": false,
     "seen_in_milb": true
-  },
-  {
-    "player_id": 608324,
-    "full_name": "Alex Bregman",
-    "level": [
-      "MLB"
-    ],
-    "games_seen": 1,
-    "roles": [
-      "batter"
-    ],
-    "pitcher_role": null,
-    "career_war": 43.0,
-    "peak_war": 21.4,
-    "ranking_score": 43.0,
-    "pitcher_ranking_score": 0.0,
-    "AB": 3,
-    "R": 1,
-    "H": 1,
-    "RBI": 0,
-    "BB": 1,
-    "SO_bat": 1,
-    "HR": 0,
-    "AVG": ".333",
-    "IP": "0",
-    "H_pit": 0,
-    "R_pit": 0,
-    "ER": 0,
-    "BB_pit": 0,
-    "SO_pit": 0,
-    "ERA": "\u2014",
-    "badge": "\u2b50",
-    "note": "Key Astros 3B; 2017 WS champion (Astros sign-stealing era)",
-    "cross_refs": [],
-    "milb_only": false,
-    "seen_in_milb": false
   },
   {
     "player_id": 425877,
@@ -1766,6 +1802,42 @@
     "seen_in_milb": false
   },
   {
+    "player_id": 621020,
+    "full_name": "Dansby Swanson",
+    "level": [
+      "MLB"
+    ],
+    "games_seen": 1,
+    "roles": [
+      "batter"
+    ],
+    "pitcher_role": null,
+    "career_war": 28.4,
+    "peak_war": 15.2,
+    "ranking_score": 28.4,
+    "pitcher_ranking_score": 0.0,
+    "AB": 3,
+    "R": 0,
+    "H": 2,
+    "RBI": 1,
+    "BB": 1,
+    "SO_bat": 0,
+    "HR": 0,
+    "AVG": ".667",
+    "IP": "0",
+    "H_pit": 0,
+    "R_pit": 0,
+    "ER": 0,
+    "BB_pit": 0,
+    "SO_pit": 0,
+    "ERA": "\u2014",
+    "badge": "",
+    "note": "",
+    "cross_refs": [],
+    "milb_only": false,
+    "seen_in_milb": false
+  },
+  {
     "player_id": 285078,
     "full_name": "Josh Hamilton",
     "level": [
@@ -2348,6 +2420,42 @@
     "seen_in_milb": false
   },
   {
+    "player_id": 664023,
+    "full_name": "Ian Happ",
+    "level": [
+      "MLB"
+    ],
+    "games_seen": 1,
+    "roles": [
+      "batter"
+    ],
+    "pitcher_role": null,
+    "career_war": 22.4,
+    "peak_war": 12.2,
+    "ranking_score": 22.4,
+    "pitcher_ranking_score": 0.0,
+    "AB": 4,
+    "R": 2,
+    "H": 1,
+    "RBI": 1,
+    "BB": 1,
+    "SO_bat": 0,
+    "HR": 1,
+    "AVG": ".250",
+    "IP": "0",
+    "H_pit": 0,
+    "R_pit": 0,
+    "ER": 0,
+    "BB_pit": 0,
+    "SO_pit": 0,
+    "ERA": "\u2014",
+    "badge": "",
+    "note": "",
+    "cross_refs": [],
+    "milb_only": false,
+    "seen_in_milb": false
+  },
+  {
     "player_id": 607074,
     "full_name": "Carlos Rod\u00f3n",
     "level": [
@@ -2379,6 +2487,42 @@
     "ERA": "1.29",
     "badge": "\u2b50",
     "note": "Previously no-hit CLE in 2021 as a White Sox; threw 7 IP, 9 Ks, 1 ER in your game",
+    "cross_refs": [],
+    "milb_only": false,
+    "seen_in_milb": false
+  },
+  {
+    "player_id": 663538,
+    "full_name": "Nico Hoerner",
+    "level": [
+      "MLB"
+    ],
+    "games_seen": 1,
+    "roles": [
+      "batter"
+    ],
+    "pitcher_role": null,
+    "career_war": 21.8,
+    "peak_war": 15.8,
+    "ranking_score": 21.8,
+    "pitcher_ranking_score": 0.0,
+    "AB": 2,
+    "R": 2,
+    "H": 1,
+    "RBI": 1,
+    "BB": 1,
+    "SO_bat": 0,
+    "HR": 0,
+    "AVG": ".500",
+    "IP": "0",
+    "H_pit": 0,
+    "R_pit": 0,
+    "ER": 0,
+    "BB_pit": 0,
+    "SO_pit": 0,
+    "ERA": "\u2014",
+    "badge": "",
+    "note": "",
     "cross_refs": [],
     "milb_only": false,
     "seen_in_milb": false
@@ -3140,6 +3284,42 @@
     "seen_in_milb": false
   },
   {
+    "player_id": 624424,
+    "full_name": "Michael Conforto",
+    "level": [
+      "MLB"
+    ],
+    "games_seen": 1,
+    "roles": [
+      "batter"
+    ],
+    "pitcher_role": null,
+    "career_war": 16.9,
+    "peak_war": 10.0,
+    "ranking_score": 16.9,
+    "pitcher_ranking_score": 0.0,
+    "AB": 2,
+    "R": 0,
+    "H": 0,
+    "RBI": 0,
+    "BB": 0,
+    "SO_bat": 2,
+    "HR": 0,
+    "AVG": ".000",
+    "IP": "0",
+    "H_pit": 0,
+    "R_pit": 0,
+    "ER": 0,
+    "BB_pit": 0,
+    "SO_pit": 0,
+    "ERA": "\u2014",
+    "badge": "",
+    "note": "",
+    "cross_refs": [],
+    "milb_only": false,
+    "seen_in_milb": false
+  },
+  {
     "player_id": 647304,
     "full_name": "Josh Naylor",
     "level": [
@@ -3342,6 +3522,42 @@
     "SO_bat": 0,
     "HR": 0,
     "AVG": ".250",
+    "IP": "0",
+    "H_pit": 0,
+    "R_pit": 0,
+    "ER": 0,
+    "BB_pit": 0,
+    "SO_pit": 0,
+    "ERA": "\u2014",
+    "badge": "",
+    "note": "",
+    "cross_refs": [],
+    "milb_only": false,
+    "seen_in_milb": false
+  },
+  {
+    "player_id": 660162,
+    "full_name": "Yo\u00e1n Moncada",
+    "level": [
+      "MLB"
+    ],
+    "games_seen": 1,
+    "roles": [
+      "batter"
+    ],
+    "pitcher_role": null,
+    "career_war": 14.9,
+    "peak_war": 10.8,
+    "ranking_score": 14.9,
+    "pitcher_ranking_score": 0.0,
+    "AB": 3,
+    "R": 1,
+    "H": 1,
+    "RBI": 2,
+    "BB": 1,
+    "SO_bat": 1,
+    "HR": 1,
+    "AVG": ".333",
     "IP": "0",
     "H_pit": 0,
     "R_pit": 0,
@@ -4046,6 +4262,42 @@
     "seen_in_milb": true
   },
   {
+    "player_id": 687263,
+    "full_name": "Zach Neto",
+    "level": [
+      "MLB"
+    ],
+    "games_seen": 1,
+    "roles": [
+      "batter"
+    ],
+    "pitcher_role": null,
+    "career_war": 11.8,
+    "peak_war": 11.8,
+    "ranking_score": 11.8,
+    "pitcher_ranking_score": 0.0,
+    "AB": 4,
+    "R": 0,
+    "H": 1,
+    "RBI": 0,
+    "BB": 0,
+    "SO_bat": 1,
+    "HR": 0,
+    "AVG": ".250",
+    "IP": "0",
+    "H_pit": 0,
+    "R_pit": 0,
+    "ER": 0,
+    "BB_pit": 0,
+    "SO_pit": 0,
+    "ERA": "\u2014",
+    "badge": "",
+    "note": "",
+    "cross_refs": [],
+    "milb_only": false,
+    "seen_in_milb": false
+  },
+  {
     "player_id": 669302,
     "full_name": "Logan Gilbert",
     "level": [
@@ -4579,6 +4831,42 @@
     "BB_pit": 0,
     "SO_pit": 0,
     "ERA": "0.00",
+    "badge": "",
+    "note": "",
+    "cross_refs": [],
+    "milb_only": false,
+    "seen_in_milb": false
+  },
+  {
+    "player_id": 666139,
+    "full_name": "Josh Lowe",
+    "level": [
+      "MLB"
+    ],
+    "games_seen": 2,
+    "roles": [
+      "batter"
+    ],
+    "pitcher_role": null,
+    "career_war": 4.9,
+    "peak_war": 4.7,
+    "ranking_score": 9.8,
+    "pitcher_ranking_score": 0.0,
+    "AB": 7,
+    "R": 2,
+    "H": 2,
+    "RBI": 1,
+    "BB": 0,
+    "SO_bat": 1,
+    "HR": 1,
+    "AVG": ".286",
+    "IP": "0",
+    "H_pit": 0,
+    "R_pit": 0,
+    "ER": 0,
+    "BB_pit": 0,
+    "SO_pit": 0,
+    "ERA": "\u2014",
     "badge": "",
     "note": "",
     "cross_refs": [],
@@ -5202,6 +5490,42 @@
     "seen_in_milb": false
   },
   {
+    "player_id": 691718,
+    "full_name": "Pete Crow-Armstrong",
+    "level": [
+      "MLB"
+    ],
+    "games_seen": 1,
+    "roles": [
+      "batter"
+    ],
+    "pitcher_role": null,
+    "career_war": 8.1,
+    "peak_war": 8.1,
+    "ranking_score": 8.1,
+    "pitcher_ranking_score": 0.0,
+    "AB": 3,
+    "R": 2,
+    "H": 1,
+    "RBI": 0,
+    "BB": 1,
+    "SO_bat": 1,
+    "HR": 0,
+    "AVG": ".333",
+    "IP": "0",
+    "H_pit": 0,
+    "R_pit": 0,
+    "ER": 0,
+    "BB_pit": 0,
+    "SO_pit": 0,
+    "ERA": "\u2014",
+    "badge": "",
+    "note": "",
+    "cross_refs": [],
+    "milb_only": false,
+    "seen_in_milb": false
+  },
+  {
     "player_id": 592717,
     "full_name": "Aaron Sanchez",
     "level": [
@@ -5447,6 +5771,42 @@
     "BB_pit": 0,
     "SO_pit": 0,
     "ERA": "0.00",
+    "badge": "",
+    "note": "",
+    "cross_refs": [],
+    "milb_only": false,
+    "seen_in_milb": false
+  },
+  {
+    "player_id": 608348,
+    "full_name": "Carson Kelly",
+    "level": [
+      "MLB"
+    ],
+    "games_seen": 1,
+    "roles": [
+      "batter"
+    ],
+    "pitcher_role": null,
+    "career_war": 7.6,
+    "peak_war": 7.2,
+    "ranking_score": 7.6,
+    "pitcher_ranking_score": 0.0,
+    "AB": 4,
+    "R": 0,
+    "H": 1,
+    "RBI": 2,
+    "BB": 0,
+    "SO_bat": 1,
+    "HR": 0,
+    "AVG": ".250",
+    "IP": "0",
+    "H_pit": 0,
+    "R_pit": 0,
+    "ER": 0,
+    "BB_pit": 0,
+    "SO_pit": 0,
+    "ERA": "\u2014",
     "badge": "",
     "note": "",
     "cross_refs": [],
@@ -5742,6 +6102,42 @@
     "seen_in_milb": false
   },
   {
+    "player_id": 665795,
+    "full_name": "Edward Cabrera",
+    "level": [
+      "MLB"
+    ],
+    "games_seen": 1,
+    "roles": [
+      "pitcher"
+    ],
+    "pitcher_role": "starter",
+    "career_war": 7.2,
+    "peak_war": 6.9,
+    "ranking_score": 7.2,
+    "pitcher_ranking_score": 6.9,
+    "AB": 0,
+    "R": 0,
+    "H": 0,
+    "RBI": 0,
+    "BB": 0,
+    "SO_bat": 0,
+    "HR": 0,
+    "AVG": ".000",
+    "IP": "6",
+    "H_pit": 1,
+    "R_pit": 0,
+    "ER": 0,
+    "BB_pit": 1,
+    "SO_pit": 5,
+    "ERA": "0.00",
+    "badge": "",
+    "note": "",
+    "cross_refs": [],
+    "milb_only": false,
+    "seen_in_milb": false
+  },
+  {
     "player_id": 693433,
     "full_name": "Bryan Woo",
     "level": [
@@ -5809,6 +6205,42 @@
     "ERA": "\u2014",
     "badge": "\ud83c\udfc6",
     "note": "2021 NL ROY with CIN; seen with Kansas City in 2025",
+    "cross_refs": [],
+    "milb_only": false,
+    "seen_in_milb": false
+  },
+  {
+    "player_id": 683737,
+    "full_name": "Michael Busch",
+    "level": [
+      "MLB"
+    ],
+    "games_seen": 1,
+    "roles": [
+      "batter"
+    ],
+    "pitcher_role": null,
+    "career_war": 6.9,
+    "peak_war": 6.9,
+    "ranking_score": 6.9,
+    "pitcher_ranking_score": 0.0,
+    "AB": 3,
+    "R": 1,
+    "H": 0,
+    "RBI": 0,
+    "BB": 2,
+    "SO_bat": 0,
+    "HR": 0,
+    "AVG": ".000",
+    "IP": "0",
+    "H_pit": 0,
+    "R_pit": 0,
+    "ER": 0,
+    "BB_pit": 0,
+    "SO_pit": 0,
+    "ERA": "\u2014",
+    "badge": "",
+    "note": "",
     "cross_refs": [],
     "milb_only": false,
     "seen_in_milb": false
@@ -6020,6 +6452,42 @@
     "SO_bat": 0,
     "HR": 0,
     "AVG": "1.000",
+    "IP": "0",
+    "H_pit": 0,
+    "R_pit": 0,
+    "ER": 0,
+    "BB_pit": 0,
+    "SO_pit": 0,
+    "ERA": "\u2014",
+    "badge": "",
+    "note": "",
+    "cross_refs": [],
+    "milb_only": false,
+    "seen_in_milb": false
+  },
+  {
+    "player_id": 624585,
+    "full_name": "Jorge Soler",
+    "level": [
+      "MLB"
+    ],
+    "games_seen": 1,
+    "roles": [
+      "batter"
+    ],
+    "pitcher_role": null,
+    "career_war": 6.5,
+    "peak_war": 6.0,
+    "ranking_score": 6.5,
+    "pitcher_ranking_score": 0.0,
+    "AB": 4,
+    "R": 1,
+    "H": 1,
+    "RBI": 0,
+    "BB": 0,
+    "SO_bat": 2,
+    "HR": 0,
+    "AVG": ".250",
     "IP": "0",
     "H_pit": 0,
     "R_pit": 0,
@@ -6754,42 +7222,6 @@
     "seen_in_milb": false
   },
   {
-    "player_id": 666139,
-    "full_name": "Josh Lowe",
-    "level": [
-      "MLB"
-    ],
-    "games_seen": 1,
-    "roles": [
-      "batter"
-    ],
-    "pitcher_role": null,
-    "career_war": 4.9,
-    "peak_war": 4.7,
-    "ranking_score": 4.9,
-    "pitcher_ranking_score": 0.0,
-    "AB": 4,
-    "R": 2,
-    "H": 2,
-    "RBI": 1,
-    "BB": 0,
-    "SO_bat": 1,
-    "HR": 1,
-    "AVG": ".500",
-    "IP": "0",
-    "H_pit": 0,
-    "R_pit": 0,
-    "ER": 0,
-    "BB_pit": 0,
-    "SO_pit": 0,
-    "ERA": "\u2014",
-    "badge": "",
-    "note": "",
-    "cross_refs": [],
-    "milb_only": false,
-    "seen_in_milb": false
-  },
-  {
     "player_id": 686469,
     "full_name": "Vinnie Pasquantino",
     "level": [
@@ -7217,6 +7649,42 @@
     "BB_pit": 0,
     "SO_pit": 2,
     "ERA": "10.80",
+    "badge": "",
+    "note": "",
+    "cross_refs": [],
+    "milb_only": false,
+    "seen_in_milb": false
+  },
+  {
+    "player_id": 664192,
+    "full_name": "Joey Lucchesi",
+    "level": [
+      "MLB"
+    ],
+    "games_seen": 1,
+    "roles": [
+      "pitcher"
+    ],
+    "pitcher_role": "starter",
+    "career_war": 4.3,
+    "peak_war": 4.4,
+    "ranking_score": 4.3,
+    "pitcher_ranking_score": 4.4,
+    "AB": 0,
+    "R": 0,
+    "H": 0,
+    "RBI": 0,
+    "BB": 0,
+    "SO_bat": 0,
+    "HR": 0,
+    "AVG": ".000",
+    "IP": "1.2",
+    "H_pit": 1,
+    "R_pit": 0,
+    "ER": 0,
+    "BB_pit": 1,
+    "SO_pit": 2,
+    "ERA": "0.00",
     "badge": "",
     "note": "",
     "cross_refs": [],
@@ -8270,6 +8738,42 @@
     "seen_in_milb": false
   },
   {
+    "player_id": 681351,
+    "full_name": "Logan O'Hoppe",
+    "level": [
+      "MLB"
+    ],
+    "games_seen": 1,
+    "roles": [
+      "batter"
+    ],
+    "pitcher_role": null,
+    "career_war": 3.1,
+    "peak_war": 3.3,
+    "ranking_score": 3.1,
+    "pitcher_ranking_score": 0.0,
+    "AB": 3,
+    "R": 0,
+    "H": 0,
+    "RBI": 0,
+    "BB": 0,
+    "SO_bat": 0,
+    "HR": 0,
+    "AVG": ".000",
+    "IP": "0",
+    "H_pit": 0,
+    "R_pit": 0,
+    "ER": 0,
+    "BB_pit": 0,
+    "SO_pit": 0,
+    "ERA": "\u2014",
+    "badge": "",
+    "note": "",
+    "cross_refs": [],
+    "milb_only": false,
+    "seen_in_milb": false
+  },
+  {
     "player_id": 623149,
     "full_name": "Paul Sewald",
     "level": [
@@ -8301,6 +8805,42 @@
     "ERA": "0.00",
     "badge": "\u2b50",
     "note": "SEA's lockdown closer; seen at SEA @ CLE 2023",
+    "cross_refs": [],
+    "milb_only": false,
+    "seen_in_milb": false
+  },
+  {
+    "player_id": 807713,
+    "full_name": "Matt Shaw",
+    "level": [
+      "MLB"
+    ],
+    "games_seen": 1,
+    "roles": [
+      "batter"
+    ],
+    "pitcher_role": null,
+    "career_war": 3.0,
+    "peak_war": 3.0,
+    "ranking_score": 3.0,
+    "pitcher_ranking_score": 0.0,
+    "AB": 2,
+    "R": 0,
+    "H": 1,
+    "RBI": 0,
+    "BB": 0,
+    "SO_bat": 0,
+    "HR": 0,
+    "AVG": ".500",
+    "IP": "0",
+    "H_pit": 0,
+    "R_pit": 0,
+    "ER": 0,
+    "BB_pit": 0,
+    "SO_pit": 0,
+    "ERA": "\u2014",
+    "badge": "",
+    "note": "",
     "cross_refs": [],
     "milb_only": false,
     "seen_in_milb": false
@@ -8546,6 +9086,42 @@
     "SO_bat": 1,
     "HR": 0,
     "AVG": ".400",
+    "IP": "0",
+    "H_pit": 0,
+    "R_pit": 0,
+    "ER": 0,
+    "BB_pit": 0,
+    "SO_pit": 0,
+    "ERA": "\u2014",
+    "badge": "",
+    "note": "",
+    "cross_refs": [],
+    "milb_only": false,
+    "seen_in_milb": false
+  },
+  {
+    "player_id": 694384,
+    "full_name": "Nolan Schanuel",
+    "level": [
+      "MLB"
+    ],
+    "games_seen": 1,
+    "roles": [
+      "batter"
+    ],
+    "pitcher_role": null,
+    "career_war": 2.7,
+    "peak_war": 2.7,
+    "ranking_score": 2.7,
+    "pitcher_ranking_score": 0.0,
+    "AB": 4,
+    "R": 0,
+    "H": 2,
+    "RBI": 0,
+    "BB": 0,
+    "SO_bat": 0,
+    "HR": 0,
+    "AVG": ".500",
     "IP": "0",
     "H_pit": 0,
     "R_pit": 0,
@@ -9536,6 +10112,42 @@
     "seen_in_milb": false
   },
   {
+    "player_id": 607067,
+    "full_name": "Colin Rea",
+    "level": [
+      "MLB"
+    ],
+    "games_seen": 1,
+    "roles": [
+      "pitcher"
+    ],
+    "pitcher_role": "starter",
+    "career_war": 1.9,
+    "peak_war": 2.4,
+    "ranking_score": 1.9,
+    "pitcher_ranking_score": 2.4,
+    "AB": 0,
+    "R": 0,
+    "H": 0,
+    "RBI": 0,
+    "BB": 0,
+    "SO_bat": 0,
+    "HR": 0,
+    "AVG": ".000",
+    "IP": "3",
+    "H_pit": 4,
+    "R_pit": 2,
+    "ER": 2,
+    "BB_pit": 0,
+    "SO_pit": 4,
+    "ERA": "6.00",
+    "badge": "",
+    "note": "",
+    "cross_refs": [],
+    "milb_only": false,
+    "seen_in_milb": false
+  },
+  {
     "player_id": 545121,
     "full_name": "Ildemaro Vargas",
     "level": [
@@ -10242,6 +10854,42 @@
     "SO_bat": 1,
     "HR": 0,
     "AVG": ".000",
+    "IP": "0",
+    "H_pit": 0,
+    "R_pit": 0,
+    "ER": 0,
+    "BB_pit": 0,
+    "SO_pit": 0,
+    "ERA": "\u2014",
+    "badge": "",
+    "note": "",
+    "cross_refs": [],
+    "milb_only": false,
+    "seen_in_milb": false
+  },
+  {
+    "player_id": 666176,
+    "full_name": "Jo Adell",
+    "level": [
+      "MLB"
+    ],
+    "games_seen": 2,
+    "roles": [
+      "batter"
+    ],
+    "pitcher_role": null,
+    "career_war": 0.6,
+    "peak_war": 2.4,
+    "ranking_score": 1.2,
+    "pitcher_ranking_score": 0.0,
+    "AB": 7,
+    "R": 1,
+    "H": 2,
+    "RBI": 0,
+    "BB": 0,
+    "SO_bat": 3,
+    "HR": 0,
+    "AVG": ".286",
     "IP": "0",
     "H_pit": 0,
     "R_pit": 0,
@@ -11302,42 +11950,6 @@
     "seen_in_milb": true
   },
   {
-    "player_id": 666176,
-    "full_name": "Jo Adell",
-    "level": [
-      "MLB"
-    ],
-    "games_seen": 1,
-    "roles": [
-      "batter"
-    ],
-    "pitcher_role": null,
-    "career_war": 0.6,
-    "peak_war": 2.4,
-    "ranking_score": 0.6,
-    "pitcher_ranking_score": 0.0,
-    "AB": 4,
-    "R": 1,
-    "H": 2,
-    "RBI": 0,
-    "BB": 0,
-    "SO_bat": 1,
-    "HR": 0,
-    "AVG": ".500",
-    "IP": "0",
-    "H_pit": 0,
-    "R_pit": 0,
-    "ER": 0,
-    "BB_pit": 0,
-    "SO_pit": 0,
-    "ERA": "\u2014",
-    "badge": "",
-    "note": "",
-    "cross_refs": [],
-    "milb_only": false,
-    "seen_in_milb": false
-  },
-  {
     "player_id": 607455,
     "full_name": "Anthony Banda",
     "level": [
@@ -11648,6 +12260,42 @@
     "SO_bat": 0,
     "HR": 0,
     "AVG": ".000",
+    "IP": "0",
+    "H_pit": 0,
+    "R_pit": 0,
+    "ER": 0,
+    "BB_pit": 0,
+    "SO_pit": 0,
+    "ERA": "\u2014",
+    "badge": "",
+    "note": "",
+    "cross_refs": [],
+    "milb_only": false,
+    "seen_in_milb": false
+  },
+  {
+    "player_id": 694208,
+    "full_name": "Mois\u00e9s Ballesteros",
+    "level": [
+      "MLB"
+    ],
+    "games_seen": 1,
+    "roles": [
+      "batter"
+    ],
+    "pitcher_role": null,
+    "career_war": 0.5,
+    "peak_war": 0.5,
+    "ranking_score": 0.5,
+    "pitcher_ranking_score": 0.0,
+    "AB": 4,
+    "R": 0,
+    "H": 1,
+    "RBI": 2,
+    "BB": 0,
+    "SO_bat": 1,
+    "HR": 0,
+    "AVG": ".250",
     "IP": "0",
     "H_pit": 0,
     "R_pit": 0,
@@ -18084,6 +18732,42 @@
     "seen_in_milb": false
   },
   {
+    "player_id": 696270,
+    "full_name": "Ryan Johnson",
+    "level": [
+      "MLB"
+    ],
+    "games_seen": 1,
+    "roles": [
+      "pitcher"
+    ],
+    "pitcher_role": "reliever",
+    "career_war": -0.7,
+    "peak_war": 0.0,
+    "ranking_score": -0.7,
+    "pitcher_ranking_score": -0.07,
+    "AB": 0,
+    "R": 0,
+    "H": 0,
+    "RBI": 0,
+    "BB": 0,
+    "SO_bat": 0,
+    "HR": 0,
+    "AVG": ".000",
+    "IP": "3.1",
+    "H_pit": 7,
+    "R_pit": 6,
+    "ER": 6,
+    "BB_pit": 4,
+    "SO_pit": 2,
+    "ERA": "16.20",
+    "badge": "",
+    "note": "",
+    "cross_refs": [],
+    "milb_only": false,
+    "seen_in_milb": false
+  },
+  {
     "player_id": 501994,
     "full_name": "Joe Benson",
     "level": [
@@ -18214,6 +18898,42 @@
     "SO_bat": 0,
     "HR": 0,
     "AVG": "1.000",
+    "IP": "0",
+    "H_pit": 0,
+    "R_pit": 0,
+    "ER": 0,
+    "BB_pit": 0,
+    "SO_pit": 0,
+    "ERA": "\u2014",
+    "badge": "",
+    "note": "",
+    "cross_refs": [],
+    "milb_only": false,
+    "seen_in_milb": false
+  },
+  {
+    "player_id": 672724,
+    "full_name": "Oswald Peraza",
+    "level": [
+      "MLB"
+    ],
+    "games_seen": 1,
+    "roles": [
+      "batter"
+    ],
+    "pitcher_role": null,
+    "career_war": -0.8,
+    "peak_war": 0.3,
+    "ranking_score": -0.8,
+    "pitcher_ranking_score": 0.0,
+    "AB": 3,
+    "R": 0,
+    "H": 0,
+    "RBI": 0,
+    "BB": 0,
+    "SO_bat": 1,
+    "HR": 0,
+    "AVG": ".000",
     "IP": "0",
     "H_pit": 0,
     "R_pit": 0,
@@ -19632,42 +20352,6 @@
     "seen_in_milb": false
   },
   {
-    "player_id": 641312,
-    "full_name": "Shaun Anderson",
-    "level": [
-      "MiLB"
-    ],
-    "games_seen": 1,
-    "roles": [
-      "pitcher"
-    ],
-    "pitcher_role": "reliever",
-    "career_war": -2.2,
-    "peak_war": 0.2,
-    "ranking_score": -2.2,
-    "pitcher_ranking_score": -0.02,
-    "AB": 0,
-    "R": 0,
-    "H": 0,
-    "RBI": 0,
-    "BB": 0,
-    "SO_bat": 0,
-    "HR": 0,
-    "AVG": ".000",
-    "IP": "0.2",
-    "H_pit": 1,
-    "R_pit": 0,
-    "ER": 0,
-    "BB_pit": 0,
-    "SO_pit": 0,
-    "ERA": "0.00",
-    "badge": "",
-    "note": "",
-    "cross_refs": [],
-    "milb_only": true,
-    "seen_in_milb": true
-  },
-  {
     "player_id": 457292,
     "full_name": "Tsuyoshi Nishioka",
     "level": [
@@ -19883,6 +20567,43 @@
       "WSH: LHV @ Rochester 2023, Indianapolis @ Rochester 2024"
     ],
     "milb_only": true,
+    "seen_in_milb": true
+  },
+  {
+    "player_id": 641312,
+    "full_name": "Shaun Anderson",
+    "level": [
+      "MLB",
+      "MiLB"
+    ],
+    "games_seen": 2,
+    "roles": [
+      "pitcher"
+    ],
+    "pitcher_role": "reliever",
+    "career_war": -2.2,
+    "peak_war": 0.2,
+    "ranking_score": -4.4,
+    "pitcher_ranking_score": 0.28,
+    "AB": 0,
+    "R": 0,
+    "H": 0,
+    "RBI": 0,
+    "BB": 0,
+    "SO_bat": 0,
+    "HR": 0,
+    "AVG": ".000",
+    "IP": "3.2",
+    "H_pit": 2,
+    "R_pit": 1,
+    "ER": 1,
+    "BB_pit": 2,
+    "SO_pit": 1,
+    "ERA": "2.45",
+    "badge": "",
+    "note": "",
+    "cross_refs": [],
+    "milb_only": false,
     "seen_in_milb": true
   },
   {

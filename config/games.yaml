@@ -11,6 +11,7 @@ mlb:
   - pk: 777323   # Jun 28 2025  TOR @ BOS
   - pk: 776706   # Aug 17 2025  ATL @ CLE
   - pk: 776583   # Aug 26 2025  KCR @ CWS
+  - pk: 824702   # Mar 30 2026  LAA @ CHC
 
 milb:
   - pk: 267232   # May  7 2010  Gwinnett @ Syracuse       (Strasburg AAA debut)

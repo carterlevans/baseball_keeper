@@ -9030,5 +9030,362 @@
         "note": ""
       }
     ]
+  },
+  {
+    "pk": 824702,
+    "level": "MLB",
+    "date": "2026-03-30",
+    "away_team": "Los Angeles Angels",
+    "away_abbr": "LAA",
+    "home_team": "Chicago Cubs",
+    "home_abbr": "CHC",
+    "venue": "Wrigley Field",
+    "away_score": 2,
+    "home_score": 7,
+    "winning_pitcher": "Edward Cabrera",
+    "losing_pitcher": "Ryan Johnson",
+    "save_pitcher": "Colin Rea",
+    "top_hitter": "Nico Hoerner",
+    "top_hitter_line": "1-2 | 2B, BB, RBI",
+    "top_hitter_team": "CHC",
+    "note": "",
+    "innings": [
+      {
+        "num": 1,
+        "away_r": 0,
+        "home_r": 3
+      },
+      {
+        "num": 2,
+        "away_r": 0,
+        "home_r": 0
+      },
+      {
+        "num": 3,
+        "away_r": 0,
+        "home_r": 3
+      },
+      {
+        "num": 4,
+        "away_r": 0,
+        "home_r": 0
+      },
+      {
+        "num": 5,
+        "away_r": 0,
+        "home_r": 0
+      },
+      {
+        "num": 6,
+        "away_r": 0,
+        "home_r": 0
+      },
+      {
+        "num": 7,
+        "away_r": 2,
+        "home_r": 1
+      },
+      {
+        "num": 8,
+        "away_r": 0,
+        "home_r": 0
+      },
+      {
+        "num": 9,
+        "away_r": 0,
+        "home_r": ""
+      }
+    ],
+    "away_totals": {
+      "r": 2,
+      "h": 5,
+      "e": 0
+    },
+    "home_totals": {
+      "r": 7,
+      "h": 9,
+      "e": 0
+    },
+    "away_batters": [
+      {
+        "name": "Zach Neto",
+        "pos": "SS",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "hr": 0,
+        "bb": 0,
+        "so": 1,
+        "batting_order": 100
+      },
+      {
+        "name": "Mike Trout",
+        "pos": "CF",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "hr": 0,
+        "bb": 0,
+        "so": 2,
+        "batting_order": 200
+      },
+      {
+        "name": "Nolan Schanuel",
+        "pos": "1B",
+        "ab": 4,
+        "r": 0,
+        "h": 2,
+        "rbi": 0,
+        "hr": 0,
+        "bb": 0,
+        "so": 0,
+        "batting_order": 300
+      },
+      {
+        "name": "Jorge Soler",
+        "pos": "DH",
+        "ab": 4,
+        "r": 1,
+        "h": 1,
+        "rbi": 0,
+        "hr": 0,
+        "bb": 0,
+        "so": 2,
+        "batting_order": 400
+      },
+      {
+        "name": "Yo\u00e1n Moncada",
+        "pos": "3B",
+        "ab": 3,
+        "r": 1,
+        "h": 1,
+        "rbi": 2,
+        "hr": 1,
+        "bb": 1,
+        "so": 1,
+        "batting_order": 500
+      },
+      {
+        "name": "Jo Adell",
+        "pos": "RF",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "hr": 0,
+        "bb": 0,
+        "so": 2,
+        "batting_order": 600
+      },
+      {
+        "name": "Josh Lowe",
+        "pos": "LF",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "hr": 0,
+        "bb": 0,
+        "so": 0,
+        "batting_order": 700
+      },
+      {
+        "name": "Logan O'Hoppe",
+        "pos": "C",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "hr": 0,
+        "bb": 0,
+        "so": 0,
+        "batting_order": 800
+      },
+      {
+        "name": "Oswald Peraza",
+        "pos": "2B",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "hr": 0,
+        "bb": 0,
+        "so": 1,
+        "batting_order": 900
+      }
+    ],
+    "home_batters": [
+      {
+        "name": "Michael Busch",
+        "pos": "1B",
+        "ab": 3,
+        "r": 1,
+        "h": 0,
+        "rbi": 0,
+        "hr": 0,
+        "bb": 2,
+        "so": 0,
+        "batting_order": 100
+      },
+      {
+        "name": "Alex Bregman",
+        "pos": "3B",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "hr": 0,
+        "bb": 1,
+        "so": 0,
+        "batting_order": 200
+      },
+      {
+        "name": "Ian Happ",
+        "pos": "LF",
+        "ab": 4,
+        "r": 2,
+        "h": 1,
+        "rbi": 1,
+        "hr": 1,
+        "bb": 1,
+        "so": 0,
+        "batting_order": 300
+      },
+      {
+        "name": "Pete Crow-Armstrong",
+        "pos": "CF",
+        "ab": 3,
+        "r": 2,
+        "h": 1,
+        "rbi": 0,
+        "hr": 0,
+        "bb": 1,
+        "so": 1,
+        "batting_order": 400
+      },
+      {
+        "name": "Nico Hoerner",
+        "pos": "2B",
+        "ab": 2,
+        "r": 2,
+        "h": 1,
+        "rbi": 1,
+        "hr": 0,
+        "bb": 1,
+        "so": 0,
+        "batting_order": 500
+      },
+      {
+        "name": "Carson Kelly",
+        "pos": "C",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 2,
+        "hr": 0,
+        "bb": 0,
+        "so": 1,
+        "batting_order": 600
+      },
+      {
+        "name": "Mois\u00e9s Ballesteros",
+        "pos": "DH",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 2,
+        "hr": 0,
+        "bb": 0,
+        "so": 1,
+        "batting_order": 700
+      },
+      {
+        "name": "Dansby Swanson",
+        "pos": "SS",
+        "ab": 3,
+        "r": 0,
+        "h": 2,
+        "rbi": 1,
+        "hr": 0,
+        "bb": 1,
+        "so": 0,
+        "batting_order": 800
+      },
+      {
+        "name": "Michael Conforto",
+        "pos": "RF",
+        "ab": 2,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "hr": 0,
+        "bb": 0,
+        "so": 2,
+        "batting_order": 900
+      },
+      {
+        "name": "Matt Shaw",
+        "pos": "RF",
+        "ab": 2,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "hr": 0,
+        "bb": 0,
+        "so": 0,
+        "batting_order": 901
+      }
+    ],
+    "away_pitchers": [
+      {
+        "name": "Ryan Johnson",
+        "ip": "3.1",
+        "h": 7,
+        "er": 6,
+        "bb": 4,
+        "so": 2,
+        "note": "(L, 0-1)"
+      },
+      {
+        "name": "Joey Lucchesi",
+        "ip": "1.2",
+        "h": 1,
+        "er": 0,
+        "bb": 1,
+        "so": 2,
+        "note": ""
+      },
+      {
+        "name": "Shaun Anderson",
+        "ip": "3.0",
+        "h": 1,
+        "er": 1,
+        "bb": 2,
+        "so": 1,
+        "note": ""
+      }
+    ],
+    "home_pitchers": [
+      {
+        "name": "Edward Cabrera",
+        "ip": "6.0",
+        "h": 1,
+        "er": 0,
+        "bb": 1,
+        "so": 5,
+        "note": "(W, 1-0)"
+      },
+      {
+        "name": "Colin Rea",
+        "ip": "3.0",
+        "h": 4,
+        "er": 2,
+        "bb": 0,
+        "so": 4,
+        "note": "(S, 1)"
+      }
+    ]
   }
 ]
