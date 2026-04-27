@@ -30,9 +30,9 @@
     "SO_pit": 0,
     "ERA": "\u2014",
     "badge": "\ud83c\udf1f",
-    "note": "4\u00d7 Silver Slugger; seen in 4 CLE games across 10 seasons (2015\u20132025)",
+    "note": "4\u00d7 Silver Slugger; seen in 5 CLE games across 11 seasons (2015\u20132026)",
     "cross_refs": [
-      "CLE: TEX @ CLE 2015, SFG @ CLE 2022, SEA @ CLE 2023, ATL @ CLE 2025"
+      "CLE: TEX @ CLE 2015, SFG @ CLE 2022, SEA @ CLE 2023, ATL @ CLE 2025, CLE @ TOR 2026"
     ],
     "milb_only": false,
     "seen_in_milb": false
@@ -215,8 +215,8 @@
     "BB_pit": 0,
     "SO_pit": 0,
     "ERA": "\u2014",
-    "badge": "",
-    "note": "",
+    "badge": "\ud83c\udf1f",
+    "note": "3\u00d7 AL MVP (2014, 2016, 2019); widely considered the best player of his generation; career shortened by injuries in his 30s; seen at Wrigley Field Mar 2026",
     "cross_refs": [],
     "milb_only": false,
     "seen_in_milb": false
@@ -252,8 +252,11 @@
     "SO_pit": 0,
     "ERA": "\u2014",
     "badge": "\u2b50",
-    "note": "Key Astros 3B; 2017 WS champion (Astros sign-stealing era)",
-    "cross_refs": [],
+    "note": "2017 WS champion (Astros sign-stealing era); signed with CHC as a free agent after 2024; seen across 2 teams (HOU 2017, CHC 2026)",
+    "cross_refs": [
+      "HOU: HOU @ NYY 2017",
+      "CHC: LAA @ CHC 2026"
+    ],
     "milb_only": false,
     "seen_in_milb": false
   },
@@ -288,9 +291,9 @@
     "SO_pit": 0,
     "ERA": "\u2014",
     "badge": "\u2b50",
-    "note": "Son of HOFer Vladimir Guerrero; perennial All-Star; seen in 2 TOR games",
+    "note": "Son of HOFer Vladimir Guerrero; perennial All-Star; seen in 3 TOR games; went 3-4 in the Apr 2026 game",
     "cross_refs": [
-      "TOR: TOR @ LAA 2021, TOR @ BOS 2025"
+      "TOR: TOR @ LAA 2021, TOR @ BOS 2025, CLE @ TOR 2026"
     ],
     "milb_only": false,
     "seen_in_milb": false
@@ -362,9 +365,9 @@
     "SO_pit": 0,
     "ERA": "\u2014",
     "badge": "\u2b50",
-    "note": "2022 AL ROY finalist; seen in all 3 CLE home games (2022, 2023, 2025)",
+    "note": "2022 AL ROY finalist; seen in 4 CLE games (2022, 2023, 2025, 2026)",
     "cross_refs": [
-      "CLE: SFG @ CLE 2022, SEA @ CLE 2023, ATL @ CLE 2025"
+      "CLE: SFG @ CLE 2022, SEA @ CLE 2023, ATL @ CLE 2025, CLE @ TOR 2026"
     ],
     "milb_only": false,
     "seen_in_milb": false
@@ -914,10 +917,10 @@
     "SO_pit": 0,
     "ERA": "\u2014",
     "badge": "\ud83d\udd04",
-    "note": "3 games across 2 teams: CLE\u00d72 (2022, 2023) and TOR\u00d71 (2025)",
+    "note": "4 games across 2 teams: CLE\u00d72 (2022, 2023) and TOR\u00d72 (2025, 2026)",
     "cross_refs": [
       "CLE: SFG @ CLE 2022, SEA @ CLE 2023",
-      "TOR: TOR @ BOS 2025"
+      "TOR: TOR @ BOS 2025, CLE @ TOR 2026"
     ],
     "milb_only": false,
     "seen_in_milb": false
@@ -1831,8 +1834,8 @@
     "BB_pit": 0,
     "SO_pit": 0,
     "ERA": "\u2014",
-    "badge": "",
-    "note": "",
+    "badge": "\u2b50",
+    "note": "Gold Glove SS; signed the big CHC free agent deal; one of the quietly elite SS in the NL; seen at Wrigley Mar 2026",
     "cross_refs": [],
     "milb_only": false,
     "seen_in_milb": false
@@ -3710,8 +3713,8 @@
     "BB_pit": 0,
     "SO_pit": 0,
     "ERA": "\u2014",
-    "badge": "",
-    "note": "",
+    "badge": "\ud83d\udcd6",
+    "note": "Once a consensus top-5 prospect and the centerpiece of the Chris Sale trade from BOS to CWS \u2014 never fully arrived at the level the hype promised; hit the sole LAA HR in your Wrigley game Mar 2026",
     "cross_refs": [],
     "milb_only": false,
     "seen_in_milb": false
@@ -3818,8 +3821,8 @@
     "BB_pit": 2,
     "SO_pit": 4,
     "ERA": "3.86",
-    "badge": "",
-    "note": "",
+    "badge": "\ud83d\udcd6",
+    "note": "Was a legitimate NL Cy Young contender in 2018 (2nd place) before signing a 6-year, $140M deal with WSH \u2014 the contract aged badly as he declined sharply, but he ground out a long career; grew up in the same town as my wife and went to her high school",
     "cross_refs": [],
     "milb_only": false,
     "seen_in_milb": false
@@ -5628,8 +5631,8 @@
     "BB_pit": 0,
     "SO_pit": 0,
     "ERA": "\u2014",
-    "badge": "",
-    "note": "",
+    "badge": "\ud83c\udf31",
+    "note": "Cubs' young CF and one of the more exciting young players in the NL; seen at Wrigley Mar 2026",
     "cross_refs": [],
     "milb_only": false,
     "seen_in_milb": false
@@ -6568,8 +6571,8 @@
     "BB_pit": 0,
     "SO_pit": 0,
     "ERA": "\u2014",
-    "badge": "",
-    "note": "",
+    "badge": "\ud83c\udfc6",
+    "note": "2021 WS MVP; hit the pivotal 3-run HR in Game 6 vs HOU to seal it for ATL; seen with LAA at Wrigley Mar 2026",
     "cross_refs": [],
     "milb_only": false,
     "seen_in_milb": false
@@ -7975,9 +7978,9 @@
     "SO_pit": 6,
     "ERA": "0.00",
     "badge": "\u2b50",
-    "note": "One third of the Guards' 2024 '3-headed bullpen beast' trio with Cade Smith and Hunter Gaddis; seen in CLE home games 2023 and 2025",
+    "note": "One third of the Guards' 2024 '3-headed bullpen beast' trio with Cade Smith and Hunter Gaddis; seen in 3 CLE games (2023, 2025, 2026)",
     "cross_refs": [
-      "CLE: SEA @ CLE 2023, ATL @ CLE 2025"
+      "CLE: SEA @ CLE 2023, ATL @ CLE 2025, CLE @ TOR 2026"
     ],
     "milb_only": false,
     "seen_in_milb": false
@@ -13747,8 +13750,8 @@
     "BB_pit": 0,
     "SO_pit": 0,
     "ERA": "\u2014",
-    "badge": "",
-    "note": "",
+    "badge": "\u2b50",
+    "note": "One of the higher-profile NPB imports of the 2025 offseason, coming over from the Yomiuri Giants; seen with TOR at Rogers Centre Apr 2026",
     "cross_refs": [],
     "milb_only": false,
     "seen_in_milb": false
@@ -14072,8 +14075,8 @@
     "BB_pit": 0,
     "SO_pit": 0,
     "ERA": "\u2014",
-    "badge": "",
-    "note": "",
+    "badge": "\ud83c\udf31",
+    "note": "Made his MLB debut in this game (Apr 26 2026, CLE @ TOR) \u2014 first career MLB plate appearance",
     "cross_refs": [],
     "milb_only": false,
     "seen_in_milb": true

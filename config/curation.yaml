@@ -22,6 +22,10 @@ players:
     note: "Hall of Fame 2025; 435 HRs; 3× Gold Glove; seen at NYY 2017"
 
   # ── Superstars / Future HOF ─────────────────────────────────────
+  545361:  # Mike Trout
+    badge: "🌟"
+    note: "3× AL MVP (2014, 2016, 2019); widely considered the best player of his generation; career shortened by injuries in his 30s; seen at Wrigley Field Mar 2026"
+
   547180:  # Bryce Harper
     badge: "🌟"
     note: "2021 NL MVP; 2019 WS champion; future HOF lock — seen at his AAA debut at Syracuse 2012"
@@ -36,9 +40,9 @@ players:
 
   608070:  # José Ramírez
     badge: "🌟"
-    note: "4× Silver Slugger; seen in 4 CLE games across 10 seasons (2015–2025)"
+    note: "4× Silver Slugger; seen in 5 CLE games across 11 seasons (2015–2026)"
     cross_refs:
-      - "CLE: TEX @ CLE 2015, SFG @ CLE 2022, SEA @ CLE 2023, ATL @ CLE 2025"
+      - "CLE: TEX @ CLE 2015, SFG @ CLE 2022, SEA @ CLE 2023, ATL @ CLE 2025, CLE @ TOR 2026"
 
   646240:  # Rafael Devers
     badge: "🌟"
@@ -65,9 +69,9 @@ players:
 
   665489:  # Vladimir Guerrero Jr.
     badge: "⭐"
-    note: "Son of HOFer Vladimir Guerrero; perennial All-Star; seen in 2 TOR games"
+    note: "Son of HOFer Vladimir Guerrero; perennial All-Star; seen in 3 TOR games; went 3-4 in the Apr 2026 game"
     cross_refs:
-      - "TOR: TOR @ LAA 2021, TOR @ BOS 2025"
+      - "TOR: TOR @ LAA 2021, TOR @ BOS 2025, CLE @ TOR 2026"
 
   521692:  # Salvador Perez
     badge: "⭐"
@@ -124,9 +128,9 @@ players:
 
   680757:  # Steven Kwan
     badge: "⭐"
-    note: "2022 AL ROY finalist; seen in all 3 CLE home games (2022, 2023, 2025)"
+    note: "2022 AL ROY finalist; seen in 4 CLE games (2022, 2023, 2025, 2026)"
     cross_refs:
-      - "CLE: SFG @ CLE 2022, SEA @ CLE 2023, ATL @ CLE 2025"
+      - "CLE: SFG @ CLE 2022, SEA @ CLE 2023, ATL @ CLE 2025, CLE @ TOR 2026"
 
   677594:  # Julio Rodríguez
     badge: "🏆"
@@ -154,7 +158,10 @@ players:
 
   608324:  # Alex Bregman
     badge: "⭐"
-    note: "Key Astros 3B; 2017 WS champion (Astros sign-stealing era)"
+    note: "2017 WS champion (Astros sign-stealing era); signed with CHC as a free agent after 2024; seen across 2 teams (HOU 2017, CHC 2026)"
+    cross_refs:
+      - "HOU: HOU @ NYY 2017"
+      - "CHC: LAA @ CHC 2026"
 
   471911:  # Carlos Carrasco
     badge: "⭐"
@@ -171,6 +178,22 @@ players:
   608337:  # Lucas Giolito
     badge: "⭐"
     note: "7 IP, 0 ER, 5 Ks in your Jun 2025 Fenway game"
+
+  624585:  # Jorge Soler
+    badge: "🏆"
+    note: "2021 WS MVP; hit the pivotal 3-run HR in Game 6 vs HOU to seal it for ATL; seen with LAA at Wrigley Mar 2026"
+
+  621020:  # Dansby Swanson
+    badge: "⭐"
+    note: "Gold Glove SS; signed the big CHC free agent deal; one of the quietly elite SS in the NL; seen at Wrigley Mar 2026"
+
+  691718:  # Pete Crow-Armstrong
+    badge: "🌱"
+    note: "Cubs' young CF and one of the more exciting young players in the NL; seen at Wrigley Mar 2026"
+
+  660162:  # Yoán Moncada
+    badge: "📖"
+    note: "Once a consensus top-5 prospect and the centerpiece of the Chris Sale trade from BOS to CWS — never fully arrived at the level the hype promised; hit the sole LAA HR in your Wrigley game Mar 2026"
 
   656605:  # Mitch Keller
     badge: "⭐"
@@ -229,9 +252,9 @@ players:
 
   682120:  # Tim Herrin
     badge: "⭐"
-    note: "One third of the Guards' 2024 '3-headed bullpen beast' trio with Cade Smith and Hunter Gaddis; seen in CLE home games 2023 and 2025"
+    note: "One third of the Guards' 2024 '3-headed bullpen beast' trio with Cade Smith and Hunter Gaddis; seen in 3 CLE games (2023, 2025, 2026)"
     cross_refs:
-      - "CLE: SEA @ CLE 2023, ATL @ CLE 2025"
+      - "CLE: SEA @ CLE 2023, ATL @ CLE 2025, CLE @ TOR 2026"
 
   671922:  # Cade Smith
     badge: "⭐"
@@ -282,10 +305,10 @@ players:
 
   664702:  # Myles Straw
     badge: "🔄"
-    note: "3 games across 2 teams: CLE×2 (2022, 2023) and TOR×1 (2025)"
+    note: "4 games across 2 teams: CLE×2 (2022, 2023) and TOR×2 (2025, 2026)"
     cross_refs:
       - "CLE: SFG @ CLE 2022, SEA @ CLE 2023"
-      - "TOR: TOR @ BOS 2025"
+      - "TOR: TOR @ BOS 2025, CLE @ TOR 2026"
 
   545341:  # Randal Grichuk
     badge: "🔄"
@@ -330,6 +353,18 @@ players:
     cross_refs:
       - "CWS: SEA @ CWS 2024"
       - "ATL: ATL @ CLE 2025"
+
+  682818:  # Yohendrick Pinango
+    badge: "🌱"
+    note: "Made his MLB debut in this game (Apr 26 2026, CLE @ TOR) — first career MLB plate appearance"
+
+  672960:  # Kazuma Okamoto
+    badge: "⭐"
+    note: "One of the higher-profile NPB imports of the 2025 offseason, coming over from the Yomiuri Giants; seen with TOR at Rogers Centre Apr 2026"
+
+  571578:  # Patrick Corbin
+    badge: "📖"
+    note: "Was a legitimate NL Cy Young contender in 2018 (2nd place) before signing a 6-year, $140M deal with WSH — the contract aged badly as he declined sharply, but he ground out a long career; grew up in the same town as my wife and went to her high school"
 
   # ── MiLB milestones ─────────────────────────────────────────────
   701350:  # Roman Anthony

@@ -169,7 +169,14 @@ Two problems in `fetch_war.py`: (1) `save_war_cache()` is called inside the per-
 #### B3 — Incremental builds
 Every `python build.py` currently re-parses every player and every game from scratch even though the underlying cache files haven't changed. Fix: write a `data/build_manifest.json` after each successful run recording `{pk: {built_at, hash}}` per game. On the next run, skip any game whose PK is in the manifest and whose cache file hash matches. Add a `--full` flag to force a complete rebuild. At the current scale this is a nice-to-have; at 50+ games it becomes genuinely useful.
 
-#### B4 — Integrate Statcast into build
+#### B4 — CLI add-game helper
+A single lightweight script (`scripts/add_game.py`) that accepts a game PK as an argument:
+```bash
+python scripts/add_game.py 822824
+```
+It hits the MLB schedule API with the PK to retrieve teams and date, auto-detects MLB vs MiLB from the `sportId` in the response, appends the formatted entry (with the `# Apr 26 2026  CLE @ TOR` comment) to `games.yaml`, and optionally triggers `build.py` via a `--build` flag. No new dependencies — uses only `requests`, `pyyaml`, and stdlib `argparse`, all already in the project. Roughly 50–60 lines total.
+
+#### B5 — Integrate Statcast into build
 Currently two separate commands are required: `python build.py` then `python fetch_statcast.py`. Statcast is now core enough to be part of the standard pipeline. The plan: add an optional `--with-statcast` flag to `build.py` (or auto-run Statcast for any newly-processed MLB games). `fetch_statcast.py` currently reads `dashboard/games.json` to find MLB game PKs — change it to accept the game list as a parameter so there's no circular file dependency.
 
 #### B5 — Output file strategy
