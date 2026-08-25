@@ -5823,7 +5823,7 @@
     },
     "away_batters": [
       {
-        "name": "Ji Hwan Bae",
+        "name": "Jihwan Bae",
         "pos": "RF",
         "ab": 5,
         "r": 2,
@@ -8048,7 +8048,7 @@
         "batting_order": 400
       },
       {
-        "name": "Yohendrick Pinango",
+        "name": "Yohendrick Pi\u00f1ango",
         "pos": "LF",
         "ab": 3,
         "r": 1,
@@ -9683,7 +9683,7 @@
         "batting_order": 600
       },
       {
-        "name": "Yohendrick Pinango",
+        "name": "Yohendrick Pi\u00f1ango",
         "pos": "LF",
         "ab": 2,
         "r": 0,
@@ -9805,6 +9805,387 @@
         "bb": 0,
         "so": 2,
         "note": "(S, 3)"
+      }
+    ]
+  },
+  {
+    "pk": 823540,
+    "level": "MLB",
+    "date": "2026-06-03",
+    "away_team": "Cleveland Guardians",
+    "away_abbr": "CLE",
+    "home_team": "New York Yankees",
+    "home_abbr": "NYY",
+    "venue": "Yankee Stadium",
+    "away_score": 5,
+    "home_score": 4,
+    "winning_pitcher": "Gavin Williams",
+    "losing_pitcher": "Gerrit Cole",
+    "save_pitcher": "Cade Smith",
+    "top_hitter": "Rhys Hoskins",
+    "top_hitter_line": "2-3 | HR, BB, 3 RBI",
+    "top_hitter_team": "CLE",
+    "note": "",
+    "innings": [
+      {
+        "num": 1,
+        "away_r": 0,
+        "home_r": 0
+      },
+      {
+        "num": 2,
+        "away_r": 1,
+        "home_r": 1
+      },
+      {
+        "num": 3,
+        "away_r": 0,
+        "home_r": 0
+      },
+      {
+        "num": 4,
+        "away_r": 2,
+        "home_r": 1
+      },
+      {
+        "num": 5,
+        "away_r": 0,
+        "home_r": 0
+      },
+      {
+        "num": 6,
+        "away_r": 1,
+        "home_r": 1
+      },
+      {
+        "num": 7,
+        "away_r": 0,
+        "home_r": 0
+      },
+      {
+        "num": 8,
+        "away_r": 1,
+        "home_r": 0
+      },
+      {
+        "num": 9,
+        "away_r": 0,
+        "home_r": 1
+      }
+    ],
+    "away_totals": {
+      "r": 5,
+      "h": 9,
+      "e": 0
+    },
+    "home_totals": {
+      "r": 4,
+      "h": 5,
+      "e": 0
+    },
+    "away_batters": [
+      {
+        "name": "Travis Bazzana",
+        "pos": "2B",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "hr": 0,
+        "bb": 0,
+        "so": 0,
+        "batting_order": 100
+      },
+      {
+        "name": "Jos\u00e9 Ram\u00edrez",
+        "pos": "3B",
+        "ab": 4,
+        "r": 3,
+        "h": 3,
+        "rbi": 1,
+        "hr": 1,
+        "bb": 0,
+        "so": 0,
+        "batting_order": 200
+      },
+      {
+        "name": "Chase DeLauter",
+        "pos": "RF",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "hr": 0,
+        "bb": 0,
+        "so": 2,
+        "batting_order": 300
+      },
+      {
+        "name": "Kyle Manzardo",
+        "pos": "1B",
+        "ab": 4,
+        "r": 1,
+        "h": 3,
+        "rbi": 1,
+        "hr": 1,
+        "bb": 0,
+        "so": 0,
+        "batting_order": 400
+      },
+      {
+        "name": "Rhys Hoskins",
+        "pos": "DH",
+        "ab": 3,
+        "r": 1,
+        "h": 2,
+        "rbi": 3,
+        "hr": 1,
+        "bb": 1,
+        "so": 0,
+        "batting_order": 500
+      },
+      {
+        "name": "Angel Mart\u00ednez",
+        "pos": "LF",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "hr": 0,
+        "bb": 0,
+        "so": 1,
+        "batting_order": 600
+      },
+      {
+        "name": "Steven Kwan",
+        "pos": "CF",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "hr": 0,
+        "bb": 0,
+        "so": 0,
+        "batting_order": 700
+      },
+      {
+        "name": "Patrick Bailey",
+        "pos": "C",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "hr": 0,
+        "bb": 0,
+        "so": 3,
+        "batting_order": 800
+      },
+      {
+        "name": "Brayan Rocchio",
+        "pos": "SS",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "hr": 0,
+        "bb": 0,
+        "so": 1,
+        "batting_order": 900
+      }
+    ],
+    "home_batters": [
+      {
+        "name": "Trent Grisham",
+        "pos": "CF",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "hr": 0,
+        "bb": 1,
+        "so": 0,
+        "batting_order": 100
+      },
+      {
+        "name": "Ben Rice",
+        "pos": "1B",
+        "ab": 4,
+        "r": 1,
+        "h": 1,
+        "rbi": 0,
+        "hr": 0,
+        "bb": 0,
+        "so": 2,
+        "batting_order": 200
+      },
+      {
+        "name": "Paul Goldschmidt",
+        "pos": "DH",
+        "ab": 4,
+        "r": 1,
+        "h": 1,
+        "rbi": 0,
+        "hr": 0,
+        "bb": 0,
+        "so": 2,
+        "batting_order": 300
+      },
+      {
+        "name": "Cody Bellinger",
+        "pos": "LF",
+        "ab": 2,
+        "r": 0,
+        "h": 0,
+        "rbi": 2,
+        "hr": 0,
+        "bb": 0,
+        "so": 0,
+        "batting_order": 400
+      },
+      {
+        "name": "Jazz Chisholm Jr.",
+        "pos": "2B",
+        "ab": 4,
+        "r": 1,
+        "h": 1,
+        "rbi": 1,
+        "hr": 1,
+        "bb": 0,
+        "so": 2,
+        "batting_order": 500
+      },
+      {
+        "name": "Jos\u00e9 Caballero",
+        "pos": "RF",
+        "ab": 4,
+        "r": 1,
+        "h": 2,
+        "rbi": 1,
+        "hr": 1,
+        "bb": 0,
+        "so": 1,
+        "batting_order": 600
+      },
+      {
+        "name": "Ryan McMahon",
+        "pos": "3B",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "hr": 0,
+        "bb": 0,
+        "so": 1,
+        "batting_order": 700
+      },
+      {
+        "name": "Austin Wells",
+        "pos": "C",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "hr": 0,
+        "bb": 0,
+        "so": 2,
+        "batting_order": 800
+      },
+      {
+        "name": "Anthony Volpe",
+        "pos": "SS",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "hr": 0,
+        "bb": 0,
+        "so": 0,
+        "batting_order": 900
+      }
+    ],
+    "away_pitchers": [
+      {
+        "name": "Gavin Williams",
+        "ip": "5.1",
+        "h": 4,
+        "er": 3,
+        "bb": 1,
+        "so": 6,
+        "note": "(W, 9-3)"
+      },
+      {
+        "name": "Tim Herrin",
+        "ip": "0.2",
+        "h": 0,
+        "er": 0,
+        "bb": 0,
+        "so": 1,
+        "note": "(H, 9)"
+      },
+      {
+        "name": "Colin Holderman",
+        "ip": "1.0",
+        "h": 0,
+        "er": 0,
+        "bb": 0,
+        "so": 2,
+        "note": "(H, 4)"
+      },
+      {
+        "name": "Hunter Gaddis",
+        "ip": "1.0",
+        "h": 0,
+        "er": 0,
+        "bb": 0,
+        "so": 0,
+        "note": "(H, 9)"
+      },
+      {
+        "name": "Cade Smith",
+        "ip": "1.0",
+        "h": 1,
+        "er": 1,
+        "bb": 0,
+        "so": 1,
+        "note": "(S, 21)"
+      }
+    ],
+    "home_pitchers": [
+      {
+        "name": "Gerrit Cole",
+        "ip": "5.1",
+        "h": 6,
+        "er": 4,
+        "bb": 1,
+        "so": 2,
+        "note": "(L, 1-1)"
+      },
+      {
+        "name": "Fernando Cruz",
+        "ip": "1.1",
+        "h": 0,
+        "er": 0,
+        "bb": 0,
+        "so": 3,
+        "note": ""
+      },
+      {
+        "name": "Tim Hill",
+        "ip": "0.2",
+        "h": 2,
+        "er": 1,
+        "bb": 0,
+        "so": 1,
+        "note": ""
+      },
+      {
+        "name": "Paul Blackburn",
+        "ip": "1.2",
+        "h": 1,
+        "er": 0,
+        "bb": 0,
+        "so": 1,
+        "note": ""
       }
     ]
   }
